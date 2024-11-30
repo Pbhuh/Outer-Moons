@@ -1,0 +1,10 @@
+require("__amyz_factorio__.prototypes.entity.resources")
+require("__amyz_factorio__.prototypes.autoplace-controls")
+require("__amyz_factorio__.prototypes.planet.planet-map-gen")
+require("__amyz_factorio__.prototypes.planet.planet")
+require("__amyz_factorio__.prototypes.item.item")
+require("__amyz_factorio__.prototypes.item-groups")
+require("__amyz_factorio__.prototypes.fluid")
+require("__amyz_factorio__.prototypes.decorative.decoratives-selene")
+require("__amyz_factorio__.prototypes.tile.tiles-selene")
+
