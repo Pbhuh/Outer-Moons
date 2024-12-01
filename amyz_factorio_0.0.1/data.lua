@@ -18,7 +18,7 @@ for _, name in pairs(planets) do
 	if not prototype then
 		error("missing space location: "..name)
 	end
-	prototype.starmap_icon = "__amyz_factorio__/graphics/"..name..".png"
+	prototype.starmap_icon = "__amyz_factorio__/graphics/icons/starmap-planet-"..name..".png"
 	prototype.starmap_icon_size = 4096
 end
 	
