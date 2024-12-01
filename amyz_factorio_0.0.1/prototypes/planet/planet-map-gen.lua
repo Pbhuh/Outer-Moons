@@ -35,7 +35,7 @@ planet_map_gen.selene = function()
       {
         settings =
         {
-          ["selene-lava-dust"] = {},
+          --["selene-lava-dust"] = {},
           ["selene-dust-1"] = {},
           ["selene-dust-2"] = {},
           ["selene-dust-3"] = {},
