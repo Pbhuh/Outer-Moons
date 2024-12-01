@@ -331,7 +331,7 @@ data:extend{
                               basement_value = 0,\z
                               maximum_spot_basement_radius = volcano_spot_radius}",
       volcano_area = "lerp(selene_mountains_biome_full_pre_volcano, 0, selene_starting_area)",
-      volcano_spot_radius = "100 * volcanism",
+      volcano_spot_radius = "200 * volcanism",
       volcano_spot_spacing = "4000 * volcanism",
       volcanism = "0.3 + 0.7 * slider_rescale(control:selene_volcanism:size, 3) / slider_rescale(selene_scale_multiplier, 3)",
       volcanism_sq = "volcanism * volcanism"
@@ -722,7 +722,7 @@ data:extend{
                           selene_place_metal_spots(789, 15, 2,\z
                                                      selene_titanium_ore_size * min(1.2, selene_ore_dist) * 25,\z
                                                      control:titanium_ore:frequency,\z
-                                                     selene_basalts_resource_favorability)))"
+                                                     selene_mountains_resource_favorability)))"
   },
   {
     type = "noise-expression",
@@ -749,7 +749,7 @@ data:extend{
     expression = "max(selene_starting_chlorine,\z
                       min(1 - selene_starting_circle,\z
                           selene_place_chlorine_spots(759, 9, 0,\z
-                                                      selene_chlorine_geyser_size * min(1.2, selene_ore_dist) * 25,\z
+                                                      selene_chlorine_geyser_size * min(1.1, selene_ore_dist) * 20,\z
                                                       control:chlorine_geyser:frequency,\z
                                                       selene_mountains_chlorine_favorability)))"
   },

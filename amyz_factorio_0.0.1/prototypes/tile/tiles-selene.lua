@@ -384,7 +384,7 @@ data:extend
   {
     type = "noise-expression",
     name ="lava_mountains_range",
-    expression = "1100 * range_select_base(mountain_lava_spots, 0.2, 10, 1, 0, 1)"
+    expression = "1100 * range_select_base(mountain_lava_spots, 0.15, 10, 1, 0, 1)"
   },
   {
     type = "noise-expression",
@@ -541,43 +541,13 @@ data:extend
     expression = "max(volcanic_soil_dark_range_mountains, volcanic_soil_dark_range_ashlands)"
   },
   ----------- CLIFF TILE
-  {
-    type = "tile",
-    name = "volcanic-jagged-ground",
-    subgroup = "selene-tiles",
-    order = "a-k",
-    collision_mask = tile_collision_masks.ground(),
-    autoplace =
-    {
-      probability_expression = "volcanic_jagged_ground_range"
-    },
-    layer = selene_tile_offset + 5,
-    sprite_usage_surface = "space",
-    variants = tile_variations_template_with_transitions(
-      "__space-age__/graphics/terrain/vulcanus/volcanic-jagged-ground.png",
-      {
-        max_size = 4,
-        [1] = { weights = {0.085, 0.085, 0.085, 0.085, 0.087, 0.085, 0.065, 0.085, 0.045, 0.045, 0.045, 0.045, 0.005, 0.025, 0.045, 0.045 } },
-        [2] = { probability = 1, weights = {0.018, 0.020, 0.015, 0.025, 0.015, 0.020, 0.025, 0.015, 0.025, 0.025, 0.010, 0.025, 0.020, 0.025, 0.025, 0.010 }, },
-        [4] = { probability = 0.1, weights = {0.018, 0.020, 0.015, 0.025, 0.015, 0.020, 0.025, 0.015, 0.025, 0.025, 0.010, 0.025, 0.020, 0.025, 0.025, 0.010 }, },
-      }
-    ),
-    transitions = lava_stone_transitions,
-    transitions_between_transitions = lava_stone_transitions_between_transitions,
-    walking_sound = rocky_stone_sound,
-    landing_steps_sound = tile_sounds.landing.rock,
-    driving_sound = stone_driving_sound,
-    map_color = {r = tile_lightening+ 30, g = tile_lightening+ 30, b = tile_lightening+ 20},
-    walking_speed_modifier = 1,
-    vehicle_friction_modifier = 2,
-    absorptions_per_second = tile_pollution.lava,
-  },
+  
   ----------- "SHALLOW" LAVA
   {
     type = "tile",
-    name = "lava",
+    name = "lava-caldera",
     subgroup = "selene-tiles",
-    order = "a-b",
+    order = "e-b",
     collision_mask = tile_collision_masks.lava(),
     autoplace =
     {
@@ -633,8 +603,8 @@ data:extend
   ----------- "DEEP" LAVA
   {
     type = "tile",
-    name = "lava-hot",
-    order = "a-a",
+    name = "lava-caldera-hot",
+    order = "e-a",
     subgroup = "selene-tiles",
     collision_mask = tile_collision_masks.lava(),
     autoplace =
@@ -1079,5 +1049,11 @@ data:extend
 		trigger_effect = tile_trigger_effects.sand_trigger_effect()
 	},
 }
--- add lava tiles to water tiles (for tiles that doesn't have defined transitions to lava)
---table.insert(water_tile_type_names, "sulfur-ocean")
+-- add sulfur & caldera tiles to water tiles
+table.insert(water_tile_type_names, "sulfur_ocean")
+table.insert(water_tile_type_names, "lava-hot")
+table.insert(water_tile_type_names, "lava")
+
+-- add caldera tiles to water tiles 
+table.insert(lava_tile_type_names, "lava-hot")
+table.insert(lava_tile_type_names, "lava")

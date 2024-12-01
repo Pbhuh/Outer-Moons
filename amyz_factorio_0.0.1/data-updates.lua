@@ -1,4 +1,5 @@
 --require("prototypes/recipe")
+
 -- Finite Pumping
 if data.raw.resource["crude-oil"] then
 
@@ -68,24 +69,24 @@ if data.raw.resource["fluorine-vent"] then
 end
 
 -- Productivity Module 3 tech changes
-data.raw.technology["productivity-module-3"].prerequisites =
-{
-  "productivity-module-2",
-  "kovarex-enrichment-process",
-  "metallurgic-science-pack", 
-  "agricultural-science-pack", 
-  "electromagnetic-science-pack"
-}
-data.raw.technology["productivity-module-3"].unit.ingredients =
-{
-  {"automation-science-pack", 1},
-  {"logistic-science-pack", 1},
-  {"chemical-science-pack", 1},
-  {"space-science-pack", 1},
-  {"metallurgic-science-pack", 1},
-  {"agricultural-science-pack", 1},
-  {"electromagnetic-science-pack", 1}
-}
+--data.raw.technology["productivity-module-3"].prerequisites =
+--{
+--  "productivity-module-2",
+--  "kovarex-enrichment-process",
+--  "metallurgic-science-pack", 
+--  "agricultural-science-pack", 
+--  "electromagnetic-science-pack"
+--}
+--data.raw.technology["productivity-module-3"].unit.ingredients =
+--{
+--  {"automation-science-pack", 1},
+--  {"logistic-science-pack", 1},
+--  {"chemical-science-pack", 1},
+--  {"space-science-pack", 1},
+--  {"metallurgic-science-pack", 1},
+--  {"agricultural-science-pack", 1},
+--  {"electromagnetic-science-pack", 1}
+--}
 
 -- Agricultural Science Pack doesn't spoil
 data.raw.tool["agricultural-science-pack"].spoil_ticks = nil

@@ -50,9 +50,21 @@ data:extend(
   },
   {
     type = "item-subgroup",
-    name = "special-tiles",
+    name = "aiolos-tiles",
     group = "tiles",
     order = "h"
+  },
+  {
+    type = "item-subgroup",
+    name = "feronia-tiles",
+    group = "tiles",
+    order = "i"
+  },
+  {
+    type = "item-subgroup",
+    name = "special-tiles",
+    group = "tiles",
+    order = "j"
   }
 }
 )
