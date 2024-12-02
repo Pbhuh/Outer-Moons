@@ -1,5 +1,5 @@
 local planet_map_gen = require("__base__/prototypes/planet/planet-map-gen")
--- get nauvis from base
+
 
 planet_map_gen.selene = function()
   return
@@ -62,7 +62,7 @@ planet_map_gen.selene = function()
           ["chlorine-puddle"] = {},
           ["chlorine-puddle-small"] = {},
 		  
-          ["vulcanus-rock-decal-large"] = {},
+          --["vulcanus-rock-decal-large"] = {},
           ["vulcanus-dune-decal"] = {},
           ["vulcanus-sand-decal"] = {},
           ["crater-small"] = {},
@@ -84,7 +84,7 @@ planet_map_gen.selene = function()
           ["uranium-ore"] = {},
           ["huge-volcanic-rock"] = {},
           ["big-volcanic-rock"] = {},
-          ["crater-cliff"] = {},
+          ["selene-crater-cliff"] = {},
         }
       }
     }

@@ -718,7 +718,7 @@ data:extend(
     {
       ["day-night-cycle"] = 30 * minute,
       ["magnetic-field"] = 10,
-      pressure = 150,
+      pressure = 600,
       ["solar-power"] = 25,
       gravity = 10
     },
@@ -826,7 +826,7 @@ data:extend(
     {
       ["day-night-cycle"] = 30 * minute,
       ["magnetic-field"] = 10,
-      pressure = 150,
+      pressure = 10000,
       ["solar-power"] = 1,
       gravity = 10
     },
@@ -934,7 +934,7 @@ data:extend(
     {
       ["day-night-cycle"] = 30 * minute,
       ["magnetic-field"] = 10,
-      pressure = 150,
+      pressure = 1500,
       ["solar-power"] = 10,
       gravity = 10
     },

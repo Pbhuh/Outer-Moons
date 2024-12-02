@@ -749,7 +749,7 @@ data:extend{
     expression = "max(selene_starting_chlorine,\z
                       min(1 - selene_starting_circle,\z
                           selene_place_chlorine_spots(759, 9, 0,\z
-                                                      selene_chlorine_geyser_size * min(1.1, selene_ore_dist) * 20,\z
+                                                      selene_chlorine_geyser_size * min(1.1, selene_geyser_dist) * 20,\z
                                                       control:chlorine_geyser:frequency,\z
                                                       selene_mountains_chlorine_favorability)))"
   },
@@ -779,6 +779,11 @@ data:extend{
   {
     type = "noise-expression",
     name = "selene_ore_dist",
+    expression = "max(1, distance / 2000)"
+  },
+  {
+    type = "noise-expression",
+    name = "selene_geyser_dist",
     expression = "max(1, distance / 4000)"
   },
 

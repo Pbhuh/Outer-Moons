@@ -3,34 +3,9 @@ local sounds = require("__base__.prototypes.entity.sounds")
 local simulations = require("__space-age__.prototypes.factoriopedia-simulations")
 
 -- Initialize the core patch sets in a predictable order
-resource_autoplace.initialize_patch_set("crude-oil", false, "aquilo")
-resource_autoplace.initialize_patch_set("lithium-brine", false, "aquilo")
-resource_autoplace.initialize_patch_set("fluorine-vent", false, "aquilo")
+--resource_autoplace.initialize_patch_set("titanium-ore", true, "selene")
+--resource_autoplace.initialize_patch_set("chlorine-geyser", true, "selene")
 
-local function create_tiles()
-  return {
-    type = "direct",
-    action_delivery =
-    {
-      type = "instant",
-      source_effects =
-      {
-        {
-          type = "create-entity",
-          entity_name = "aquilo-tiles-inner-explosion",
-          offsets = {{0.5, 0.5}}
-        },
-        {
-          type = "create-entity",
-          entity_name = "aquilo-tiles-outer-explosion",
-          offsets = {{0.5, 0.5}}
-        }
-      }
-    }
-  }
-end
-
-data.raw.resource["crude-oil"].created_effect = create_tiles("snow-flat")
 
 local function resource(resource_parameters, autoplace_parameters)
   return
@@ -100,7 +75,7 @@ data:extend({
   -- Trees are "a", and resources will delete trees when placed.
   -- Oil is "c" so won't be placed if another resource is already there.
   -- "d" is available for another resource, but isn't used for now.
-	resource(
+    resource(
 		{
 		  name = "titanium-ore",
 		  order = "b",
@@ -129,12 +104,10 @@ data:extend({
 		flags = {"placeable-neutral"},
 		category = "basic-fluid",
 		subgroup = "mineable-fluids",
-		order="b-b-a",
-		infinite = false,
+		order="a-b-a",
 		highlight = true,
 		minimum = 25000,
 		normal = 100000,
-		infinite_depletion_amount = 5,
 		resource_patch_search_radius = 12,
 		tree_removal_probability = 0.7,
 		tree_removal_max_distance = 32 * 32,
@@ -147,8 +120,8 @@ data:extend({
 			{
 			  type = "fluid",
 			  name = "chlorine",
-			  amount_min = 5,
-			  amount_max = 5,
+			  amount_min = 10,
+			  amount_max = 10,
 			  probability = 1
 			}
 		  }
@@ -169,11 +142,10 @@ data:extend({
 		},
 		collision_box = {{-1.4, -1.4}, {1.4, 1.4}},
 		selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
-		autoplace =
-		{
-		  --control = "sulfuric-acid-geyser",
-		  order = "c", -- Other resources are "b"; oil won't get placed if something else is already there.
-		  probability_expression = 0
+		autoplace = {
+		  order="a[resources]-b[chlorine]",
+		  probability_expression = "selene_chlorine_geyser_probability",
+		  richness_expression = "selene_chlorine_geyser_richness"
 		},
 		stage_counts = {0},
 		stages =
@@ -204,7 +176,7 @@ data:extend({
 			  animation_speed = 0.3,
 			  shift = util.by_pixel(-6, -89),
 			  scale = 1,
-			  tint = util.multiply_color({r=0.72, g=0.79, b=0.43}, 0.3)
+			  tint = util.multiply_color({r=0.15, g=0.65, b=0.1}, 0.3)
 			}
 		  },
 		  {
@@ -220,11 +192,11 @@ data:extend({
 			   animation_speed = 0.4,
 			   shift = util.by_pixel(-4, -30),
 			   scale = 1,
-			   tint = util.multiply_color({r=1, g=0.84, b=0}, 0.5)
+			   tint = util.multiply_color({r=0.15, g=0.85, b=0.1}, 0.5)
 			}
 		  }
 		},
 		map_color = {0.36, 0.62, 0.36},
 		map_grid = false
-	},
+	}
 })

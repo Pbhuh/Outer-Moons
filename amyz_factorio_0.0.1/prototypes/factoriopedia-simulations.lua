@@ -1,6 +1,7 @@
 require("__base__/prototypes/factoriopedia-util");
 local simulations = {}
 
+simulations.factoriopedia_titanium_ore = { init = make_resource("titanium-ore") }
 
 simulations.factoriopedia_cliff_selene =
 {

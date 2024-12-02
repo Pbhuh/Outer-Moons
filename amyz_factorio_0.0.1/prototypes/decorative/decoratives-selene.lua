@@ -1956,7 +1956,7 @@ data:extend{
   scaled_cliff_crater(
   {
     mod_name = "__space-age__",
-    name = "crater-cliff",
+    name = "selene-crater-cliff",
     icon = "__space-age__/graphics/icons/crater-cliff.png",
     map_color = {r=144, g=119, b=87},
     subfolder = "vulcanus",

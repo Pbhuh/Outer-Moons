@@ -17,7 +17,7 @@ data:extend({
     {
       mod_name = "__amyz_factorio__",
       name = "cliff-selene",
-      map_color = {144, 119, 87},
+      map_color = {65, 65, 65},
       suffix = "selene",
       subfolder = "selene",
       scale = 1.0,

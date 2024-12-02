@@ -53,7 +53,7 @@ data:extend(
     name = "aquilo_crude_oil",
     localised_name = {"", "[entity=crude-oil] ", {"entity-name.crude-oil"}},
     richness = true,
-    order = "e-a",
+    order = "f-a",
     category = "resource"
   },
   {
@@ -61,7 +61,7 @@ data:extend(
     name = "fluorine_vent",
     localised_name = {"", "[entity=fluorine-vent] ", {"entity-name.fluorine-vent"}},
     richness = true,
-    order = "e-c",
+    order = "f-c",
     category = "resource"
   },
   {
@@ -69,7 +69,7 @@ data:extend(
     name = "lithium_brine",
     localised_name = {"", "[entity=lithium-brine] ", {"entity-name.lithium-brine"}},
     richness = true,
-    order = "e-b",
+    order = "f-b",
     category = "resource"
   },
   --amyz
@@ -78,7 +78,7 @@ data:extend(
     name = "titanium_ore",
     localised_name = {"", "[entity=titanium-ore] ", {"entity-name.titanium-ore"}},
     richness = true,
-    order = "f-a",
+    order = "e-a",
     category = "resource"
   },
   {
@@ -86,7 +86,7 @@ data:extend(
     name = "chlorine_geyser",
     localised_name = {"", "[entity=chlorine-geyser] ", {"entity-name.chlorine-geyser"}},
     richness = true,
-    order = "f-c",
+    order = "e-c",
     category = "resource"
   },
   -- cliffs

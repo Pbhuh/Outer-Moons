@@ -219,113 +219,6 @@ local destroyed_item_trigger =
 space_age_tiles_util.lava_to_out_of_map_transition = lava_to_out_of_map_transition
 space_age_tiles_util.lava_stone_transitions_between_transitions = lava_stone_transitions_between_transitions
 
-local selene_rock_sand_transitions =
-{
-  {
-    to_tiles = water_tile_type_names,
-    transition_group = water_transition_group_id,
-
-    background_layer_group = "water",
-    background_layer_offset = -5,
-    masked_background_layer_offset = 1,
-    offset_background_layer_by_tile_layer = false,
-
-    spritesheet = "__space-age__/graphics/terrain/water-transitions/fulgora-rock-slab-transition.png",
-    layout = tile_spritesheet_layout.transition_16_16_16_4_8_short,
-    background_enabled = false,
-    effect_map_layout =
-    {
-      spritesheet = "__space-age__/graphics/terrain/effect-maps/water-fulgora-sand-mask.png",
-      --tile_height = 2,
-      inner_corner_tile_height = 2,
-      outer_corner_tile_height = 2,
-      side_tile_height = 2,
-      u_transition_tile_height = 2,
-      o_transition_count = 1
-    },
-    background_mask_layout = tile_spritesheet_layout.simple_white_mask
-  },
-  ground_to_out_of_map_transition
-}
-local selene_sulfur_sand_transitions =
-{
-  {
-    to_tiles = water_tile_type_names,
-    transition_group = water_transition_group_id,
-
-    background_layer_group = "water",
-    background_layer_offset = -5,
-    masked_background_layer_offset = 1,
-    offset_background_layer_by_tile_layer = false,
-    spritesheet = "__space-age__/graphics/terrain/water-transitions/fulgora-oil-sand-transition.png",
-    layout = tile_spritesheet_layout.transition_16_16_16_4_8_short,
-    background_enabled = false,
-    effect_map_layout =
-    {
-      spritesheet = "__space-age__/graphics/terrain/effect-maps/water-fulgora-sand-mask.png",
-      --tile_height = 2,
-      inner_corner_tile_height = 2,
-      outer_corner_tile_height = 2,
-      side_tile_height = 2,
-      u_transition_tile_height = 2,
-      o_transition_count = 1
-    },
-    background_mask_layout = tile_spritesheet_layout.simple_white_mask
-  },
-  ground_to_out_of_map_transition
-}
-local selene_sand_transitions_between_transitions =
-{
-  {
-    transition_group1 = default_transition_group_id,
-    transition_group2 = water_transition_group_id,
-
-    spritesheet = "__space-age__/graphics/terrain/water-transitions/fulgora-sand-transition.png",
-    layout = tile_spritesheet_layout.transition_3_3_3_1_0_only_u_tall,
-    background_enabled = false,
-    effect_map_layout =
-    {
-      spritesheet = "__space-age__/graphics/terrain/effect-maps/water-fulgora-sand-to-land-mask.png",
-      inner_corner_tile_height = 2,
-      outer_corner_tile_height = 2,
-      side_tile_height = 2,
-      o_transition_count = 0
-    },
-    water_patch = patch_for_inner_corner_of_transition_between_transition,
-  },
-  {
-    transition_group1 = default_transition_group_id,
-    transition_group2 = out_of_map_transition_group_id,
-
-    background_layer_offset = 1,
-    background_layer_group = "zero",
-    offset_background_layer_by_tile_layer = true,
-
-    spritesheet = "__space-age__/graphics/terrain/out-of-map-transition/fulgora-sand-out-of-map-transition.png",
-    layout = tile_spritesheet_layout.transition_3_3_3_1_0,
-    overlay_enabled = false
-  },
-  {
-    transition_group1 = water_transition_group_id,
-    transition_group2 = out_of_map_transition_group_id,
-
-    background_layer_group = "water",
-    background_layer_offset = -5,
-    masked_background_layer_offset = 1,
-    offset_background_layer_by_tile_layer = false,
-
-    spritesheet = "__space-age__/graphics/terrain/out-of-map-transition/fulgora-sand-shore-out-of-map-transition.png",
-    layout = tile_spritesheet_layout.transition_3_3_3_1_0,
-    effect_map_layout =
-    {
-      spritesheet = "__space-age__/graphics/terrain/effect-maps/water-fulgora-sand-to-out-of-map-mask.png",
-      o_transition_count = 0
-    },
-    background_mask_layout = tile_spritesheet_layout.simple_white_mask,
-    water_patch = patch_for_inner_corner_of_transition_between_transition
-  }
-}
-
 local function transition_masks()
   return {
     mask_spritesheet = "__base__/graphics/terrain/masks/transition-1.png",
@@ -689,8 +582,8 @@ data:extend
         [4] = { probability = 0.1, weights = {0.018, 0.020, 0.015, 0.025, 0.015, 0.020, 0.025, 0.015, 0.025, 0.025, 0.010, 0.025, 0.020, 0.025, 0.025, 0.010 }, },
       }
     ),
-	transitions = selene_sulfur_sand_transitions,
-    transitions_between_transitions = selene_sand_transitions_between_transitions,
+	transitions = lava_stone_transitions,
+    transitions_between_transitions = lava_stone_transitions_between_transitions,
     --transitions = table.deepcopy(data.raw.tile["water-shallow"].transitions),
     --transitions_between_transitions = table.deepcopy(data.raw.tile["water-shallow"].transitions_between_transitions),
     walking_sound = sound_variations("__space-age__/sound/walking/oil-deep", 10, 0.35, volume_multiplier("main-menu", 2.9)),
@@ -758,7 +651,7 @@ data:extend
       animation_speed = 1.500,
       animation_scale = {3, 3},
 
-      dark_threshold = {2.000, 2.000},
+      dark_threshold = {1.000, 1.000},
       reflection_threshold = {5.00, 5.00},
       specular_threshold = {0.000, 0.000},
       tick_scale = 1.000,
@@ -791,14 +684,14 @@ data:extend
 			[4] = { probability = 0.1, weights = {0.018, 0.020, 0.015, 0.025, 0.015, 0.020, 0.025, 0.015, 0.025, 0.025, 0.010, 0.025, 0.020, 0.025, 0.025, 0.010 }, },
 		  }
 		),
-		transitions = absorptions_per_second,
-		transitions_between_transitions = selene_sand_transitions_between_transitions,
+		transitions = lava_stone_transitions,
+		transitions_between_transitions = lava_stone_transitions_between_transitions,
 		walking_sound = sound_variations("__space-age__/sound/walking/soft-sand", 9, 0.6, volume_multiplier("main-menu", 2.9)),
 		landing_steps_sound = tile_sounds.landing.sand,
 		driving_sound = sand_driving_sound,
 		ambient_sounds = sand_ambient_sound,
 		scorch_mark_color = {r = 0.3, g = 0.3, b = 0.3, a = 1.000},
-		trigger_effect = tile_trigger_effects.sand_trigger_effect()
+		-- trigger_effect = tile_trigger_effects.sand_trigger_effect()
 	},
 	{
 		name = "selene-dust-2",
@@ -822,14 +715,14 @@ data:extend
 			[4] = { probability = 0.1, weights = {0.018, 0.020, 0.015, 0.025, 0.015, 0.020, 0.025, 0.015, 0.025, 0.025, 0.010, 0.025, 0.020, 0.025, 0.025, 0.010 }, },
 		  }
 		),
-		transitions = absorptions_per_second,
-		transitions_between_transitions = selene_sand_transitions_between_transitions,
+		transitions = lava_stone_transitions,
+		transitions_between_transitions = lava_stone_transitions_between_transitions,
 		walking_sound = sound_variations("__space-age__/sound/walking/soft-sand", 9, 0.6, volume_multiplier("main-menu", 2.9)),
 		landing_steps_sound = tile_sounds.landing.sand,
 		driving_sound = sand_driving_sound,
 		ambient_sounds = sand_ambient_sound,
 		scorch_mark_color = {r = 0.3, g = 0.3, b = 0.3, a = 1.000},
-		trigger_effect = tile_trigger_effects.sand_trigger_effect()
+		-- trigger_effect = tile_trigger_effects.sand_trigger_effect()
 	},
 	{
 		name = "selene-dust-3",
@@ -853,14 +746,14 @@ data:extend
 			[4] = { probability = 0.1, weights = {0.018, 0.020, 0.015, 0.025, 0.015, 0.020, 0.025, 0.015, 0.025, 0.025, 0.010, 0.025, 0.020, 0.025, 0.025, 0.010 }, },
 		  }
 		),
-		transitions = absorptions_per_second,
-		transitions_between_transitions = selene_sand_transitions_between_transitions,
+		transitions = lava_stone_transitions,
+		transitions_between_transitions = lava_stone_transitions_between_transitions,
 		walking_sound = sound_variations("__space-age__/sound/walking/soft-sand", 9, 0.6, volume_multiplier("main-menu", 2.9)),
 		landing_steps_sound = tile_sounds.landing.sand,
 		driving_sound = sand_driving_sound,
 		ambient_sounds = sand_ambient_sound,
 		scorch_mark_color = {r = 0.3, g = 0.3, b = 0.3, a = 1.000},
-		trigger_effect = tile_trigger_effects.sand_trigger_effect()
+		-- trigger_effect = tile_trigger_effects.sand_trigger_effect()
 	},
 	{
 		name = "selene-dust-4",
@@ -884,14 +777,14 @@ data:extend
 			[4] = { probability = 0.1, weights = {0.018, 0.020, 0.015, 0.025, 0.015, 0.020, 0.025, 0.015, 0.025, 0.025, 0.010, 0.025, 0.020, 0.025, 0.025, 0.010 }, },
 		  }
 		),
-		transitions = absorptions_per_second,
-		transitions_between_transitions = selene_sand_transitions_between_transitions,
+		transitions = lava_stone_transitions,
+		transitions_between_transitions = lava_stone_transitions_between_transitions,
 		walking_sound = sound_variations("__space-age__/sound/walking/soft-sand", 9, 0.6, volume_multiplier("main-menu", 2.9)),
 		landing_steps_sound = tile_sounds.landing.sand,
 		driving_sound = sand_driving_sound,
 		ambient_sounds = sand_ambient_sound,
 		scorch_mark_color = {r = 0.3, g = 0.3, b = 0.3, a = 1.000},
-		trigger_effect = tile_trigger_effects.sand_trigger_effect()
+		-- trigger_effect = tile_trigger_effects.sand_trigger_effect()
 	},
 	{
 		name = "selene-dust-5",
@@ -915,14 +808,14 @@ data:extend
 			[4] = { probability = 0.1, weights = {0.018, 0.020, 0.015, 0.025, 0.015, 0.020, 0.025, 0.015, 0.025, 0.025, 0.010, 0.025, 0.020, 0.025, 0.025, 0.010 }, },
 		  }
 		),
-		transitions = absorptions_per_second,
-		transitions_between_transitions = selene_sand_transitions_between_transitions,
+		transitions = lava_stone_transitions,
+		transitions_between_transitions = lava_stone_transitions_between_transitions,
 		walking_sound = sound_variations("__space-age__/sound/walking/soft-sand", 9, 0.6, volume_multiplier("main-menu", 2.9)),
 		landing_steps_sound = tile_sounds.landing.sand,
 		driving_sound = sand_driving_sound,
 		ambient_sounds = sand_ambient_sound,
 		scorch_mark_color = {r = 0.3, g = 0.3, b = 0.3, a = 1.000},
-		trigger_effect = tile_trigger_effects.sand_trigger_effect()
+		-- trigger_effect = tile_trigger_effects.sand_trigger_effect()
 	},
 	{
 		name = "selene-dust-6",
@@ -946,14 +839,14 @@ data:extend
 			[4] = { probability = 0.1, weights = {0.018, 0.020, 0.015, 0.025, 0.015, 0.020, 0.025, 0.015, 0.025, 0.025, 0.010, 0.025, 0.020, 0.025, 0.025, 0.010 }, },
 		  }
 		),
-		transitions = absorptions_per_second,
-		transitions_between_transitions = selene_sand_transitions_between_transitions,
+		transitions = lava_stone_transitions,
+		transitions_between_transitions = lava_stone_transitions_between_transitions,
 		walking_sound = sound_variations("__space-age__/sound/walking/soft-sand", 9, 0.6, volume_multiplier("main-menu", 2.9)),
 		landing_steps_sound = tile_sounds.landing.sand,
 		driving_sound = sand_driving_sound,
 		ambient_sounds = sand_ambient_sound,
 		scorch_mark_color = {r = 0.3, g = 0.3, b = 0.3, a = 1.000},
-		trigger_effect = tile_trigger_effects.sand_trigger_effect()
+		-- trigger_effect = tile_trigger_effects.sand_trigger_effect()
 	},
 	{
 		name = "selene-sand-1",
@@ -977,14 +870,14 @@ data:extend
 			[4] = { probability = 0.1, weights = {0.018, 0.020, 0.015, 0.025, 0.015, 0.020, 0.025, 0.015, 0.025, 0.025, 0.010, 0.025, 0.020, 0.025, 0.025, 0.010 }, },
 		  }
 		),
-		transitions = absorptions_per_second,
-		transitions_between_transitions = selene_sand_transitions_between_transitions,
+		transitions = lava_stone_transitions,
+		transitions_between_transitions = lava_stone_transitions_between_transitions,
 		walking_sound = sound_variations("__space-age__/sound/walking/soft-sand", 9, 0.6, volume_multiplier("main-menu", 2.9)),
 		landing_steps_sound = tile_sounds.landing.sand,
 		driving_sound = sand_driving_sound,
 		ambient_sounds = sand_ambient_sound,
 		scorch_mark_color = {r = 0.3, g = 0.3, b = 0.3, a = 1.000},
-		trigger_effect = tile_trigger_effects.sand_trigger_effect()
+		-- trigger_effect = tile_trigger_effects.sand_trigger_effect()
 	},
 	{
 		name = "selene-sand-2",
@@ -1008,14 +901,14 @@ data:extend
 			[4] = { probability = 0.1, weights = {0.018, 0.020, 0.015, 0.025, 0.015, 0.020, 0.025, 0.015, 0.025, 0.025, 0.010, 0.025, 0.020, 0.025, 0.025, 0.010 }, },
 		  }
 		),
-		transitions = absorptions_per_second,
-		transitions_between_transitions = selene_sand_transitions_between_transitions,
+		transitions = lava_stone_transitions,
+		transitions_between_transitions = lava_stone_transitions_between_transitions,
 		walking_sound = sound_variations("__space-age__/sound/walking/soft-sand", 9, 0.6, volume_multiplier("main-menu", 2.9)),
 		landing_steps_sound = tile_sounds.landing.sand,
 		driving_sound = sand_driving_sound,
 		ambient_sounds = sand_ambient_sound,
 		scorch_mark_color = {r = 0.3, g = 0.3, b = 0.3, a = 1.000},
-		trigger_effect = tile_trigger_effects.sand_trigger_effect()
+		-- trigger_effect = tile_trigger_effects.sand_trigger_effect()
 	},
 	{
 		name = "selene-sand-3",
@@ -1039,14 +932,14 @@ data:extend
 			[4] = { probability = 0.1, weights = {0.018, 0.020, 0.015, 0.025, 0.015, 0.020, 0.025, 0.015, 0.025, 0.025, 0.010, 0.025, 0.020, 0.025, 0.025, 0.010 }, },
 		  }
 		),
-		transitions = selene_sulfur_sand_transitions,
-		transitions_between_transitions = selene_sand_transitions_between_transitions,
+		transitions = lava_stone_transitions,
+		transitions_between_transitions = lava_stone_transitions_between_transitions,
 		walking_sound = sound_variations("__space-age__/sound/walking/soft-sand", 9, 0.6, volume_multiplier("main-menu", 2.9)),
 		landing_steps_sound = tile_sounds.landing.sand,
 		driving_sound = sand_driving_sound,
 		ambient_sounds = sand_ambient_sound,
 		scorch_mark_color = {r = 0.3, g = 0.3, b = 0.3, a = 1.000},
-		trigger_effect = tile_trigger_effects.sand_trigger_effect()
+		-- trigger_effect = tile_trigger_effects.sand_trigger_effect()
 	},
 }
 -- add sulfur & caldera tiles to water tiles
