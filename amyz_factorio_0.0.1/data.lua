@@ -7,7 +7,9 @@ require("__amyz_factorio__.prototypes.item.item")
 require("__amyz_factorio__.prototypes.item-groups")
 require("__amyz_factorio__.prototypes.fluid")
 require("__amyz_factorio__.prototypes.decorative.decoratives-selene")
+require("__amyz_factorio__.prototypes.decorative.decoratives-mefitis")
 require("__amyz_factorio__.prototypes.tile.tiles-selene")
+require("__amyz_factorio__.prototypes.tile.tiles-mefitis")
 
 planets = {
 "nauvis",

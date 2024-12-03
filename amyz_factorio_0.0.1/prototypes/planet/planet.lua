@@ -3,6 +3,7 @@ require("__space-age__/prototypes/planet/planet-gleba-map-gen")
 require("__space-age__/prototypes/planet/planet-fulgora-map-gen")
 require("__space-age__/prototypes/planet/planet-aquilo-map-gen")
 require("__amyz_factorio__/prototypes/planet/planet-selene-map-gen")
+require("__amyz_factorio__/prototypes/planet/planet-mefitis-map-gen")
 require("__amyz_factorio__/prototypes/planet/planet-aiolos-map-gen")
 require("__amyz_factorio__/prototypes/planet/planet-feronia-map-gen")
 local planet_map_gen = require("__space-age__/prototypes/planet/planet-map-gen")
@@ -24,7 +25,7 @@ data:extend(
     distance = 10,
     orientation = 0.1,
     magnitude = 1.5,
-    order = "b[vulcanus]",
+    order = "c[vulcanus]",
     subgroup = "planets",
     map_gen_settings = planet_map_gen.vulcanus(),
     pollutant_type = nil,
@@ -125,7 +126,7 @@ data:extend(
     orientation = 0.175,
     magnitude = 1.1,
     label_orientation = 0.15,
-    order = "c[gleba]",
+    order = "d[gleba]",
     subgroup = "planets",
     map_gen_settings = planet_map_gen.gleba(),
     pollutant_type = "spores",
@@ -290,7 +291,7 @@ data:extend(
     orientation = 0.325,
     magnitude = 0.9,
     label_orientation = 0.35,
-    order = "d[fulgora]",
+    order = "e[fulgora]",
     subgroup = "planets",
     map_gen_settings = planet_map_gen.fulgora(),
     pollutant_type = nil,
@@ -604,7 +605,7 @@ data:extend(
     orientation = 0.24,
     magnitude = 1.0,
    -- label_orientation = 0.15,
-    order = "f[aquilo]",
+    order = "h[aquilo]",
     subgroup = "planets",
     map_gen_settings = planet_map_gen.aquilo(),
     pollutant_type = nil,
@@ -695,12 +696,63 @@ data:extend(
     starmap_icon = "__amyz_factorio__/graphics/icons/starmap-planet-selene.png",
     starmap_icon_size = 4096,
     gravity_pull = 10,
+    distance = 15,
+    orientation = 0.3,
+    magnitude = 0.8,
+	label_orientation = 0.5,
+    order = "b[selene]",
+    subgroup = "planets",
+    map_gen_settings = planet_map_gen_new.selene(),
+    pollutant_type = nil,
+    solar_power_in_space = 300,
+    platform_procession_set =
+    {
+      arrival = {"planet-to-platform-b"},
+      departure = {"platform-to-planet-a"}
+    },
+    planet_procession_set =
+    {
+      arrival = {"platform-to-planet-b"},
+      departure = {"planet-to-platform-a"}
+    },
+    procession_graphic_catalogue = planet_catalogue_aquilo,
+    surface_properties =
+    {
+      ["day-night-cycle"] = 120 * minute,
+      ["magnetic-field"] = 5,
+      pressure = 1,
+      ["solar-power"] = 300,
+      gravity = 10
+    },
+    asteroid_spawn_influence = 1,
+    asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.fulgora_aquilo, 0.9),
+    persistent_ambient_sounds =
+    {
+      base_ambience = {filename = "__space-age__/sound/wind/base-wind-aquilo.ogg", volume = 0.5},
+      wind = {filename = "__space-age__/sound/wind/wind-aquilo.ogg", volume = 0.8},
+      crossfade =
+      {
+        order = {"wind", "base_ambience"},
+        curve_type = "cosine",
+        from = {control = 0.35, volume_percentage = 0.0},
+        to = {control = 2, volume_percentage = 100.0}
+      }
+    },
+    --entities_require_heating = true,
+  },
+  {
+    type = "planet",
+    name = "mefitis",
+    icon = "__amyz_factorio__/graphics/icons/mefitis.png",
+    starmap_icon = "__amyz_factorio__/graphics/icons/starmap-planet-mefitis.png",
+    starmap_icon_size = 4096,
+    gravity_pull = 10,
     distance = 35,
     orientation = 0.22,
     magnitude = 1.0,
-    order = "e[selene]",
+    order = "g[mefitis]",
     subgroup = "planets",
-    map_gen_settings = planet_map_gen_new.selene(),
+    map_gen_settings = planet_map_gen_new.mefitis(),
     pollutant_type = nil,
     solar_power_in_space = 50,
     platform_procession_set =
@@ -806,7 +858,7 @@ data:extend(
     distance = 35,
     orientation = 0.26,
     magnitude = 1.0,
-    order = "g[aiolos]",
+    order = "i[aiolos]",
     subgroup = "planets",
     map_gen_settings = planet_map_gen_new.aiolos(),
     pollutant_type = nil,
@@ -914,7 +966,7 @@ data:extend(
     distance = 35,
     orientation = 0.28,
     magnitude = 1.0,
-    order = "h[feronia]",
+    order = "j[feronia]",
     subgroup = "planets",
     map_gen_settings = planet_map_gen_new.feronia(),
     pollutant_type = nil,
@@ -1018,7 +1070,7 @@ data:extend(
     name = "cronus",	
     icon = "__amyz_factorio__/graphics/icons/cronus.png",
     starmap_icon = "__amyz_factorio__/graphics/icons/starmap-planet-cronus.png",
-    order = "e[cronus]",
+    order = "f[cronus]",
     subgroup = "planets",
     starmap_icon_size = 4096,
     gravity_pull = -10,
@@ -1076,8 +1128,18 @@ data:extend(
     name = "nauvis-vulcanus",
     subgroup = "planet-connections",
     from = "nauvis",
-    to = "vulcanus",
+    to = "selene",
     order = "a",
+    length = 2500,
+    asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus)
+  },
+  {
+    type = "space-connection",
+    name = "nauvis-vulcanus",
+    subgroup = "planet-connections",
+    from = "nauvis",
+    to = "vulcanus",
+    order = "b",
     length = 25000,
     asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus)
   },
@@ -1087,7 +1149,7 @@ data:extend(
     subgroup = "planet-connections",
     from = "nauvis",
     to = "gleba",
-    order = "b",
+    order = "c",
     length = 20000,
     asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_gleba)
   },
@@ -1097,7 +1159,7 @@ data:extend(
     subgroup = "planet-connections",
     from = "nauvis",
     to = "fulgora",
-    order = "c",
+    order = "d",
     length = 60000,
     asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_fulgora)
   },
@@ -1107,7 +1169,7 @@ data:extend(
     subgroup = "planet-connections",
     from = "vulcanus",
     to = "gleba",
-    order = "d",
+    order = "e",
     length = 45000,
     asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.vulcanus_gleba)
   },
@@ -1117,7 +1179,7 @@ data:extend(
     subgroup = "planet-connections",
     from = "gleba",
     to = "fulgora",
-    order = "e",
+    order = "f",
     length = 40000,
     asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.gleba_fulgora)
   },
@@ -1127,7 +1189,7 @@ data:extend(
     subgroup = "planet-connections",
     from = "gleba",
     to = "cronus",
-    order = "f",
+    order = "g",
     length = 330000,
     asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.gleba_aquilo)
   },
@@ -1137,27 +1199,27 @@ data:extend(
     subgroup = "planet-connections",
     from = "fulgora",
     to = "cronus",
-    order = "g",
+    order = "h",
     length = 250000,
     asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.fulgora_aquilo)
   },
   {
     type = "space-connection",
-    name = "cronus-selene",
+    name = "cronus-mefitis",
     subgroup = "planet-connections",
     from = "cronus",
-    to = "selene",
-    order = "h",
+    to = "mefitis",
+    order = "i",
     length = 420,
     asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.fulgora_aquilo)
   },
   {
     type = "space-connection",
-    name = "selene-aquilo",
+    name = "mefitis-aquilo",
     subgroup = "planet-connections",
-    from = "selene",
+    from = "mefitis",
     to = "aquilo",
-    order = "i",
+    order = "j",
     length = 250,
     asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.fulgora_aquilo)
   },
@@ -1167,7 +1229,7 @@ data:extend(
     subgroup = "planet-connections",
     from = "aquilo",
     to = "aiolos",
-    order = "j",
+    order = "k",
     length = 330,
     asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.fulgora_aquilo)
   },
@@ -1177,7 +1239,7 @@ data:extend(
     subgroup = "planet-connections",
     from = "aiolos",
     to = "feronia",
-    order = "k",
+    order = "l",
     length = 800,
     asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.fulgora_aquilo)
   },
@@ -1187,7 +1249,7 @@ data:extend(
     subgroup = "planet-connections",
     from = "cronus",
     to = "solar-system-edge",
-    order = "l",
+    order = "m",
     length = 1000000,
     asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.aquilo_solar_system_edge)
   },
@@ -1197,7 +1259,7 @@ data:extend(
     subgroup = "planet-connections",
     from = "solar-system-edge",
     to = "shattered-planet",
-    order = "m",
+    order = "n",
     length = 4000000,
     asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.shattered_planet_trip)
   }

@@ -1,7 +1,7 @@
 {
 	"name": "amyz_factorio",
 	"version": "0.0.1",
-	"title": "Amyzonis' Factorio",
+	"title": "Outer Moons",
 	"author": "Amyzonis",
 	"dependencies": [
 		"base >= 2.0.0",

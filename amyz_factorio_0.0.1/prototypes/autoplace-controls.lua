@@ -5,7 +5,7 @@ data:extend(
     name = "vulcanus_coal",
     localised_name = {"", "[entity=coal] ", {"entity-name.coal"}},
     richness = true,
-    order = "b-a",
+    order = "c-a",
     category = "resource"
   },
   {
@@ -13,7 +13,7 @@ data:extend(
     name = "tungsten_ore",
     localised_name = {"", "[entity=tungsten-ore] ", {"entity-name.tungsten-ore"}},
     richness = true,
-    order = "b-d",
+    order = "c-d",
     category = "resource"
   },
   {
@@ -21,7 +21,7 @@ data:extend(
     name = "calcite",
     localised_name = {"", "[entity=calcite] ", {"entity-name.calcite"}},
     richness = true,
-    order = "b-c",
+    order = "c-c",
     category = "resource"
   },
   {
@@ -29,7 +29,7 @@ data:extend(
     name = "sulfuric_acid_geyser",
     localised_name = {"", "[entity=sulfuric-acid-geyser] ", {"entity-name.sulfuric-acid-geyser"}},
     richness = true,
-    order = "b-c",
+    order = "c-c",
     category = "resource"
   },
   {
@@ -37,7 +37,7 @@ data:extend(
     name = "gleba_stone",
     localised_name = {"", "[entity=stone] ", {"entity-name.stone"}},
     richness = true,
-    order = "c-a",
+    order = "d-a",
     category = "resource"
   },
   {
@@ -45,7 +45,7 @@ data:extend(
     name = "scrap",
     localised_name = {"", "[entity=scrap] ", {"entity-name.scrap"}},
     richness = true,
-    order = "d-a",
+    order = "e-a",
     category = "resource"
   },
   {
@@ -53,7 +53,7 @@ data:extend(
     name = "aquilo_crude_oil",
     localised_name = {"", "[entity=crude-oil] ", {"entity-name.crude-oil"}},
     richness = true,
-    order = "f-a",
+    order = "g-a",
     category = "resource"
   },
   {
@@ -61,7 +61,7 @@ data:extend(
     name = "fluorine_vent",
     localised_name = {"", "[entity=fluorine-vent] ", {"entity-name.fluorine-vent"}},
     richness = true,
-    order = "f-c",
+    order = "g-c",
     category = "resource"
   },
   {
@@ -69,16 +69,40 @@ data:extend(
     name = "lithium_brine",
     localised_name = {"", "[entity=lithium-brine] ", {"entity-name.lithium-brine"}},
     richness = true,
-    order = "f-b",
+    order = "g-b",
     category = "resource"
   },
   --amyz
   {
     type = "autoplace-control",
+    name = "metallic_regolith",
+    localised_name = {"", "[entity=metallic-regolith] ", {"entity-name.metallic-regolith"}},
+    richness = true,
+    order = "b-a",
+    category = "resource"
+  },
+  {
+    type = "autoplace-control",
+    name = "aluminum_ore",
+    localised_name = {"", "[entity=aluminum-ore] ", {"entity-name.aluminum-ore"}},
+    richness = true,
+    order = "b-b",
+    category = "resource"
+  },
+  {
+    type = "autoplace-control",
     name = "titanium_ore",
     localised_name = {"", "[entity=titanium-ore] ", {"entity-name.titanium-ore"}},
     richness = true,
-    order = "e-a",
+    order = "b-c",
+    category = "resource"
+  },
+  {
+    type = "autoplace-control",
+    name = "saline_geyser",
+    localised_name = {"", "[entity=saline-geyser] ", {"entity-name.saline-geyser"}},
+    richness = true,
+    order = "b-d",
     category = "resource"
   },
   {
@@ -86,7 +110,7 @@ data:extend(
     name = "chlorine_geyser",
     localised_name = {"", "[entity=chlorine-geyser] ", {"entity-name.chlorine-geyser"}},
     richness = true,
-    order = "e-c",
+    order = "e-b",
     category = "resource"
   },
   -- cliffs
@@ -106,36 +130,43 @@ data:extend(
   {
     type = "autoplace-control",
     name = "vulcanus_volcanism",
-    order = "c-z-a",
-    category = "terrain",
-    can_be_disabled = false
-  },
-  {
-    type = "autoplace-control",
-    name = "gleba_water",
     order = "c-z-b",
     category = "terrain",
     can_be_disabled = false
   },
   {
     type = "autoplace-control",
-    name = "gleba_plants",
+    name = "gleba_water",
     order = "c-z-c",
     category = "terrain",
     can_be_disabled = false
   },
   {
     type = "autoplace-control",
-    name = "fulgora_islands",
+    name = "gleba_plants",
     order = "c-z-d",
+    category = "terrain",
+    can_be_disabled = false
+  },
+  {
+    type = "autoplace-control",
+    name = "fulgora_islands",
+    order = "c-z-e",
     category = "terrain",
     can_be_disabled = false
   },
   --amyz
   {
     type = "autoplace-control",
-    name = "selene_volcanism",
-    order = "c-z-e",
+    name = "selene_mountains",
+    order = "c-z-a",
+    category = "terrain",
+    can_be_disabled = false
+  },
+  {
+    type = "autoplace-control",
+    name = "mefitis_volcanism",
+    order = "c-z-f",
     category = "terrain",
     can_be_disabled = false
   },

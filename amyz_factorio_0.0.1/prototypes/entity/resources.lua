@@ -77,9 +77,47 @@ data:extend({
   -- "d" is available for another resource, but isn't used for now.
     resource(
 		{
+		  name = "metallic-regolith",
+		  order = "a",
+		  map_color = {r = 192/256, g = 186/256, b = 200/256, a = 1.000},
+		  minable =
+		  {
+			  mining_particle = "stone-particle",
+			  mining_time = 1,
+			  result = "regolith",
+		  },
+		  walking_sound = sounds.ore,
+		  mining_visualisation_tint = {r = 230/256, g = 247/256, b = 256/256, a = 1.000},
+		  factoriopedia_simulation = simulations.factoriopedia_metallic_regolith,
+		},
+		{
+		  probability_expression = 0
+		}
+	),
+   resource(
+		{
+		  name = "aluminum-ore",
+		  order = "a",
+		  map_color = {r = 135/256, g = 94/256, b = 77/256, a = 1.000},
+		  minable =
+		  {
+			  mining_particle = "stone-particle",
+			  mining_time = 3,
+			  result = "aluminum-ore",
+		  },
+		  walking_sound = sounds.ore,
+		  mining_visualisation_tint = {r = 135/256, g = 94/256, b = 77/256, a = 1.000},
+		  factoriopedia_simulation = simulations.factoriopedia_aluminum_ore,
+		},
+		{
+		  probability_expression = 0
+		}
+	),
+    resource(
+		{
 		  name = "titanium-ore",
 		  order = "b",
-		  map_color = {r = 192/256, g = 186/256, b = 200/256, a = 1.000},
+		  map_color = {r = 161/256, g = 126/256, b = 122/256, a = 1.000},
 		  minable =
 		  {
 			  mining_particle = "stone-particle",
@@ -89,7 +127,7 @@ data:extend({
 			  required_fluid = "chlorine"
 		  },
 		  walking_sound = sounds.ore,
-		  mining_visualisation_tint = {r = 230/256, g = 247/256, b = 256/256, a = 1.000},
+		  mining_visualisation_tint = {r = 161/256, g = 126/256, b = 122/256, a = 1.000},
 		  category = "hard-solid",
 		  factoriopedia_simulation = simulations.factoriopedia_titanium_ore,
 		},
@@ -144,8 +182,8 @@ data:extend({
 		selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
 		autoplace = {
 		  order="a[resources]-b[chlorine]",
-		  probability_expression = "selene_chlorine_geyser_probability",
-		  richness_expression = "selene_chlorine_geyser_richness"
+		  probability_expression = "mefitis_chlorine_geyser_probability",
+		  richness_expression = "mefitis_chlorine_geyser_richness"
 		},
 		stage_counts = {0},
 		stages =
@@ -198,5 +236,104 @@ data:extend({
 		},
 		map_color = {0.36, 0.62, 0.36},
 		map_grid = false
-	}
+	},
+	{
+    type = "resource",
+    name = "saline-geyser",
+    icon = "__amyz_factorio__/graphics/icons/saline-geyser.png",
+    flags = {"placeable-neutral"},
+    category = "basic-fluid",
+    subgroup = "mineable-fluids",
+    order="a-b-a",
+    highlight = true,
+    normal = 50000,
+    resource_patch_search_radius = 16,
+    tree_removal_probability = 0.7,
+    tree_removal_max_distance = 32 * 32,
+    minable =
+    {
+      mining_time = 1,
+      results =
+      {
+        {
+          type = "fluid",
+          name = "saline",
+          amount_min = 10,
+          amount_max = 10,
+          probability = 1
+        }
+      }
+    },
+    walking_sound = sounds.oil,
+    collision_box = {{-1.4, -1.4}, {1.4, 1.4}},
+    selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
+    autoplace = {
+      order="a[resources]-b[saline]",
+      --default_enabled = false,
+      probability_expression = "selene_saline_probability",
+      richness_expression = "selene_saline_richness"
+    },
+    stage_counts = {0},
+    stages =
+    {
+      layers =
+      {
+        util.sprite_load("__amyz_factorio__/graphics/entity/saline-geyser/saline-geyser",
+        {
+          priority = "extra-high",
+          frame_count = 4,
+          scale = 0.5
+        })
+      }
+    },
+
+    draw_stateless_visualisation_under_building = false,
+    stateless_visualisation =
+    {
+      {
+        count = 1,
+        render_layer = "smoke",
+        animation = util.sprite_load("__space-age__/graphics/entity/lithium-brine/smoke-1",
+        {
+          priority = "extra-high",
+          frame_count = 64,
+          animation_speed = 0.35,
+          tint = util.multiply_color({r=0.52, g=0.58, b=0.69}, 1),
+          scale = 0.5
+          --shift = util.by_pixel( 0.5, -54.0)
+        })
+      },
+      {
+        count = 1,
+        render_layer = "smoke",
+        animation = util.sprite_load("__space-age__/graphics/entity/lithium-brine/smoke-2",
+        {
+          priority = "extra-high",
+          frame_count = 64,
+          animation_speed = 0.35,
+          tint = util.multiply_color({r=0.62, g=0.68, b=0.79}),
+          scale = 0.5
+          --shift = util.by_pixel( 0.5, -54.0)
+        })
+      },
+      {
+        count = 1,
+        render_layer = "smoke",
+        animation = {
+          filename = "__space-age__/graphics/entity/fluorine-vent/fluorine-vent-gas-outer.png",
+          frame_count = 47,
+          line_length = 16,
+          width = 90,
+          height = 188,
+          animation_speed = 0.5,
+          shift = util.by_pixel(-2, -40),
+          scale = 0.5,
+          tint = util.multiply_color({r=0.57, g=0.63, b=0.74}, 0.1),
+        }
+      }
+    },
+
+    map_color = {0.52, 0.58, 0.69},
+    map_grid = false
+  }
 })

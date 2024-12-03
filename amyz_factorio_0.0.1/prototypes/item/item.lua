@@ -43,6 +43,50 @@ end
 --})
 
 data:extend({
+	{
+        type = "item",
+        name = "regolith",
+        group = "intermediate-products",
+        icon = "__amyz_factorio__/graphics/icons/regolith.png",
+        pictures =
+        {
+            size = 64,
+            filename = "__amyz_factorio__/graphics/icons/regolith.png",
+            scale = 0.5,
+            mipmap_count = 4,
+        },
+        subgroup = "selene-processes",
+		default_import_location = "selene",
+        color_hint = { text = "I" },
+        order = "b[selene]-a[regolith]",
+        inventory_move_sound = item_sounds.resource_inventory_move,
+        pick_sound = item_sounds.resource_inventory_pickup,
+        drop_sound = item_sounds.resource_inventory_move,
+        stack_size = 200,
+        weight = 1 * kg
+    },
+	{
+        type = "item",
+        name = "aluminum-ore",
+        group = "intermediate-products",
+        icon = "__amyz_factorio__/graphics/icons/aluminum-ore.png",
+        pictures =
+        {
+            size = 64,
+            filename = "__amyz_factorio__/graphics/icons/aluminum-ore.png",
+            scale = 0.5,
+            mipmap_count = 4,
+        },
+        subgroup = "selene-processes",
+		default_import_location = "selene",
+        color_hint = { text = "I" },
+        order = "b[selene]-b[aluminum-ore]",
+        inventory_move_sound = item_sounds.resource_inventory_move,
+        pick_sound = item_sounds.resource_inventory_pickup,
+        drop_sound = item_sounds.resource_inventory_move,
+        stack_size = 50,
+        weight = 5 * kg
+    },
     {
         type = "item",
         name = "titanium-ore",
@@ -55,13 +99,14 @@ data:extend({
             scale = 0.5,
             mipmap_count = 4,
         },
-        subgroup = "raw-resource",
+        subgroup = "selene-processes",
+		default_import_location = "selene",
         color_hint = { text = "I" },
-        order = "e[titanium-ore]",
+        order = "b[selene]-c[titanium-ore]",
         inventory_move_sound = item_sounds.resource_inventory_move,
         pick_sound = item_sounds.resource_inventory_pickup,
         drop_sound = item_sounds.resource_inventory_move,
         stack_size = 50,
-        weight = 2 * kg
+        weight = 10 * kg
     }
 })

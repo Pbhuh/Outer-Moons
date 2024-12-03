@@ -1,6 +1,5 @@
 local planet_map_gen = require("__base__/prototypes/planet/planet-map-gen")
 
-
 planet_map_gen.selene = function()
   return
   {
@@ -12,22 +11,28 @@ planet_map_gen.selene = function()
       aux = "selene_aux",
       cliffiness = "cliffiness_basic",
       cliff_elevation = "cliff_elevation_from_elevation",
+	  ["entity:metallic_regolith:probability"] = "selene_metallic_regolith_probability",
+      ["entity:metallic_regolith:richness"] = "selene_metallic_regolith_richness",
+	  ["entity:aluminum-ore:probability"] = "selene_aluminum_ore_probability",
+      ["entity:aluminum-ore:richness"] = "selene_aluminum_ore_richness",
       ["entity:titanium-ore:probability"] = "selene_titanium_ore_probability",
       ["entity:titanium-ore:richness"] = "selene_titanium_ore_richness",
-      ["entity:chlorine-geyser:probability"] = "selene_chlorine_geyser_probability",
-      ["entity:chlorine-geyser:richness"] = "selene_chlorine_geyser_richness",
+      ["entity:saline-geyser:probability"] = "selene_saline_geyser_probability",
+      ["entity:saline-geyser:richness"] = "selene_saline_geyser_richness",
     },
     cliff_settings =
     {
       name = "cliff-selene",
-      cliff_elevation_interval = 150,
-      cliff_elevation_0 = 70
+      cliff_elevation_interval = 200,
+      cliff_elevation_0 = 50
     },
     autoplace_controls =
     {
-      ["chlorine_geyser"] = {},
+      ["saline_geyser"] = {},
+      ["metallic_regolith"] = {},
+      ["aluminum_ore"] = {},
       ["titanium_ore"] = {},
-      ["selene_volcanism"] = {},
+      ["selene_mountains"] = {},
     },
     autoplace_settings =
     {
@@ -35,7 +40,6 @@ planet_map_gen.selene = function()
       {
         settings =
         {
-          --["selene-lava-dust"] = {},
           ["selene-dust-1"] = {},
           ["selene-dust-2"] = {},
           ["selene-dust-3"] = {},
@@ -45,6 +49,87 @@ planet_map_gen.selene = function()
           ["selene-sand-1"] = {},
           ["selene-sand-2"] = {},
           ["selene-sand-3"] = {},
+         -- ["selene-snow-patchy"] = {},
+        }
+      },
+      ["decorative"] =
+      {
+        settings =
+        {
+		  
+          ["vulcanus-dune-decal"] = {},
+          ["vulcanus-sand-decal"] = {},
+          ["crater-small"] = {},
+          ["crater-large"] = {},
+          ["pumice-relief-decal"] = {},
+          ["small-volcanic-rock"] = {},
+          ["medium-volcanic-rock"] = {},
+          ["tiny-volcanic-rock"] = {},
+          ["tiny-rock-cluster"] = {},
+          ["waves-decal"] = {},
+        }
+      },
+      ["entity"] =
+      {
+        settings =
+        {
+          ["saline-geyser"] = {},
+          ["metallic-regolith"] = {},
+          ["aluminum-ore"] = {},
+          ["titanium-ore"] = {},
+          ["huge-volcanic-rock"] = {},
+          ["big-volcanic-rock"] = {},
+          ["selene-crater-cliff"] = {},
+        }
+      }
+    }
+  }
+end
+
+planet_map_gen.mefitis = function()
+  return
+  {
+    property_expression_names =
+    {
+      elevation = "mefitis_elevation",
+      temperature = "mefitis_temperature",
+      moisture = "mefitis_moisture",
+      aux = "mefitis_aux",
+      cliffiness = "cliffiness_basic",
+      cliff_elevation = "cliff_elevation_from_elevation",
+      ["entity:titanium-ore:probability"] = "mefitis_titanium_ore_probability",
+      ["entity:titanium-ore:richness"] = "mefitis_titanium_ore_richness",
+      ["entity:chlorine-geyser:probability"] = "mefitis_chlorine_geyser_probability",
+      ["entity:chlorine-geyser:richness"] = "mefitis_chlorine_geyser_richness",
+    },
+    cliff_settings =
+    {
+      name = "cliff-mefitis",
+      cliff_elevation_interval = 150,
+      cliff_elevation_0 = 70
+    },
+    autoplace_controls =
+    {
+      ["chlorine_geyser"] = {},
+      ["titanium_ore"] = {},
+      ["mefitis_volcanism"] = {},
+    },
+    autoplace_settings =
+    {
+      ["tile"] =
+      {
+        settings =
+        {
+          --["mefitis-lava-dust"] = {},
+          ["mefitis-dust-1"] = {},
+          ["mefitis-dust-2"] = {},
+          ["mefitis-dust-3"] = {},
+          ["mefitis-dust-4"] = {},
+          ["mefitis-dust-5"] = {},
+          ["mefitis-dust-6"] = {},
+          ["mefitis-sand-1"] = {},
+          ["mefitis-sand-2"] = {},
+          ["mefitis-sand-3"] = {},
           ["lava-caldera"] = {},
           ["lava-caldera-hot"] = {},
 		  ["sulfur_ocean"] = {},
@@ -84,7 +169,7 @@ planet_map_gen.selene = function()
           ["uranium-ore"] = {},
           ["huge-volcanic-rock"] = {},
           ["big-volcanic-rock"] = {},
-          ["selene-crater-cliff"] = {},
+          ["mefitis-crater-cliff"] = {},
         }
       }
     }

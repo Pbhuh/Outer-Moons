@@ -26,4 +26,17 @@ data:extend({
       factoriopedia_simulation = simulations.factoriopedia_cliff_selene
     }
   ),
+  scaled_cliff(
+    {
+      mod_name = "__amyz_factorio__",
+      name = "cliff-mefitis",
+      map_color = {65, 65, 65},
+      suffix = "mefitis",
+      subfolder = "mefitis",
+      scale = 1.0,
+      has_lower_layer = true,
+      sprite_size_multiplier = 2,
+      factoriopedia_simulation = simulations.factoriopedia_cliff_selene
+    }
+  ),
 })
