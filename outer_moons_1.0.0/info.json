@@ -1,0 +1,26 @@
+{
+	"name": "outer_moons",
+	"version": "1.0.0",
+	"title": "Outer Moons",
+	"author": "Amyzonis & Pieter",
+	"dependencies": [
+		"base >= 2.0.0",
+		"space-age >= 2.0.0"
+	],
+	"description": "Adds a set of moons to explore. Nauvis' moon Selene, a cratered world with . Adds the gas giant Cronus as the hub for four major moons, sulfuric Mefitis, icy Aquilo, methane-blanketed Aiolos, and alien Feronia. Also adds a variety of new production chains, a bunch of changes to existing content, and advanced buildings that expand the Space Age experience.",
+	"factorio_version": "2.0",
+  "package": {
+    "git_publish_branch": "master",
+    "ignore": ["**"],
+    "extra": [
+      { 
+        "root": ".build"
+      }
+    ],
+    "scripts": {
+      "datestamp": "sh ./build-scripts/datestamp.sh",
+      "prepackage": "sh ./build-scripts/prepackage.sh",
+      "postpublish": "sh ./build-scripts/postpublish.sh"
+    }
+  }
+}
