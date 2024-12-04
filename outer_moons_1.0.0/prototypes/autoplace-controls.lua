@@ -158,7 +158,7 @@ data:extend(
   --amyz
   {
     type = "autoplace-control",
-    name = "selene_mountains",
+    name = "selene_craters",
     order = "c-z-a",
     category = "terrain",
     can_be_disabled = false

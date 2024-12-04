@@ -23,8 +23,8 @@ planet_map_gen.selene = function()
     cliff_settings =
     {
       name = "cliff-selene",
-      cliff_elevation_interval = 150,
-      cliff_elevation_0 = 60
+      cliff_elevation_interval = 120,
+      cliff_elevation_0 = 25
     },
     autoplace_controls =
     {
@@ -32,7 +32,7 @@ planet_map_gen.selene = function()
       ["metallic_regolith"] = {},
       ["aluminum_ore"] = {},
       ["titanium_ore"] = {},
-      ["selene_mountains"] = {},
+      ["selene_craters"] = {},
     },
     autoplace_settings =
     {
