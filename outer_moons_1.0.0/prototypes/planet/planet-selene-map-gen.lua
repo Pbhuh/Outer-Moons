@@ -3,7 +3,7 @@ data:extend{
   {
     type = "noise-expression",
     name = "selene_ore_spacing",
-    expression = 64
+    expression = 128
   },
   {
     type = "noise-expression",
@@ -13,7 +13,7 @@ data:extend{
   {
     type = "noise-expression",
     name = "selene_biome_contrast",
-    expression = 1.5 -- higher values mean sharper transitions
+    expression = 2 -- higher values mean sharper transitions
   },
   {
     type = "noise-expression",
@@ -111,7 +111,7 @@ data:extend{
                   - 2 * selene_moisture\z
                   - 1 * selene_aux\z
                   - 20 * selene_plains_biome\z
-                  + 200 * max(0, mountain_mountain_spots - 0.6)"
+                  + 200 * max(0, selene_mountain_spots - 0.6)"
   },
   ---- AUX (0-1): On selene this is Rockiness.
   ---- 0 is flat and arranged as paths through rocks.
@@ -305,7 +305,7 @@ data:extend{
 
   {
     type = "noise-expression",
-    name = "mountain_mountain_spots",
+    name = "selene_mountain_spots",
     expression = "max(selene_starting_mountain_spot, raw_spots - starting_protector)",
     local_expressions =
     {
@@ -351,7 +351,7 @@ data:extend{
     type = "noise-expression",
     name = "selene_mountains_raw_mountain",
     -- moderate influence for the outer 1/3 of the mountain, ramp to high influence for the middle third, and maxed for the innter third
-    expression = "0.5 * selene_mountains_raw_pre_mountain + max(2 * mountain_mountain_spots, 10 * clamp((mountain_mountain_spots - 0.33) * 3, 0, 1))"
+    expression = "0.5 * selene_mountains_raw_pre_mountain + max(2 * selene_mountain_spots, 10 * clamp((selene_mountain_spots - 0.33) * 3, 0, 1))"
   },
 
   -- full range biomes with no clamping, good for away-from-edge targeting.
@@ -451,7 +451,7 @@ data:extend{
   {
     type = "noise-expression",
     name = "mountain_lava_spots",
-    expression = "clamp(selene_threshold(mountain_mountain_spots * 1.95 - 0.95,\z
+    expression = "clamp(selene_threshold(selene_mountain_spots * 1.95 - 0.95,\z
                                            0.4 * clamp(selene_threshold(selene_mountains_biome, 0.5), 0, 1))\z
                                            * selene_threshold(clamp(selene_plasma(17453, 0.2, 0.4, 10, 20) / 20, 0, 1), 1.8),\z
                         0, 1)"
@@ -465,8 +465,8 @@ data:extend{
   {
     type = "noise-expression",
     name = "selene_mountains_func",
-    expression = "lerp(mountain_elevation, 700 * mountain_inverted_peak(mountain_mountain_spots, 0.9), clamp(mountain_mountain_spots * 3, 0, 1))\z
-     + 200 * (aux - 0.5) * (mountain_mountain_spots + 0.5)"
+    expression = "lerp(mountain_elevation, 700 * mountain_inverted_peak(selene_mountain_spots, 0.9), clamp(selene_mountain_spots * 3, 0, 1))\z
+     + 200 * (aux - 0.5) * (selene_mountain_spots + 0.5)"
   },
   {
     type = "noise-expression",
@@ -648,7 +648,7 @@ data:extend{
   {
     type = "noise-expression",
     name = "selene_mountains_resource_favorability",
-    expression = "clamp(main_region - (mountain_mountain_spots > 0.78), 0, 1)",
+    expression = "clamp(main_region - (selene_mountain_spots > 0.78), 0, 1)",
     local_expressions =
     {
       buffer = 0.2, -- push ores away from biome edges.
@@ -662,7 +662,7 @@ data:extend{
     expression = "clamp(((selene_plains_biome_full * (selene_starting_area < 0.01)) - buffer) * contrast, 0, 1)",
     local_expressions =
     {
-      buffer = 0.3, -- push ores away from biome edges.
+      buffer = 0.2, -- push ores away from biome edges.
       contrast = 2
     }
   },
@@ -672,7 +672,7 @@ data:extend{
     expression = "clamp(((selene_plains_biome_full * (selene_starting_area < 0.01)) - buffer) * contrast, 0, 1)",
     local_expressions =
     {
-      buffer = 0.3, -- push ores away from biome edges.
+      buffer = 0.2, -- push ores away from biome edges.
       contrast = 2
     }
   },
@@ -737,7 +737,7 @@ data:extend{
     -- -1 to 1: needs a positive region for resources & decoratives plus a subzero baseline and skirt for surrounding decoratives.
     expression = "max(selene_starting_metallic_regolith,\z
                       min(1 - selene_starting_circle,\z
-                          selene_place_metal_spots(1000, 15, 2,\z
+                          selene_place_metal_spots(789, 15, 2,\z
                                                      selene_metallic_regolith_size * min(1.2, selene_ore_dist) * 25,\z
                                                      control:metallic_regolith:frequency,\z
                                                      selene_plains_resource_favorability)))"
@@ -751,7 +751,7 @@ data:extend{
     type = "noise-expression",
     name = "selene_metallic_regolith_richness",
     expression = "selene_metallic_regolith_region * random_penalty_between(0.9, 1, 1)\z
-                  * 2000 * selene_starting_area_multiplier\z
+                  * 20000 * selene_starting_area_multiplier\z
                   * control:metallic_regolith:richness / selene_metallic_regolith_size"
   },
 
@@ -766,7 +766,7 @@ data:extend{
     -- -1 to 1: needs a positive region for resources & decoratives plus a subzero baseline and skirt for surrounding decoratives.
     expression = "max(selene_starting_aluminum,\z
                       min(1 - selene_starting_circle,\z
-                          selene_place_metal_spots(1000, 15, 2,\z
+                          selene_place_metal_spots(789, 15, 2,\z
                                                      selene_aluminum_ore_size * min(1.2, selene_ore_dist) * 25,\z
                                                      control:aluminum_ore:frequency,\z
                                                      selene_basalts_resource_favorability)))"
@@ -794,7 +794,7 @@ data:extend{
     -- -1 to 1: needs a positive region for resources & decoratives plus a subzero baseline and skirt for surrounding decoratives.
     expression = "max(selene_starting_titanium,\z
                       min(1 - selene_starting_circle,\z
-                          selene_place_metal_spots(1000, 15, 2,\z
+                          selene_place_metal_spots(500, 15, 2,\z
                                                      selene_titanium_ore_size * min(1.1, selene_ore_dist) * 30,\z
                                                      control:titanium_ore:frequency,\z
                                                      selene_mountains_resource_favorability)))"
@@ -808,7 +808,7 @@ data:extend{
     type = "noise-expression",
     name = "selene_titanium_ore_richness",
     expression = "selene_titanium_ore_region * random_penalty_between(0.9, 1, 1)\z
-                  * 5000 * selene_starting_area_multiplier\z
+                  * 8000 * selene_starting_area_multiplier\z
                   * control:titanium_ore:richness / selene_titanium_ore_size"
   },
 

@@ -111,6 +111,19 @@ data:extend({
     },
 	{
 		type = "item",
+		name = "titanium-plate",		
+        group = "intermediate-products",
+		icon = "__outer_moons__/graphics/icons/titanium-plate.png",
+		subgroup = "selene-processes",
+		order = "g[titanium-plate]",
+		inventory_move_sound = item_sounds.metal_small_inventory_move,
+		pick_sound = item_sounds.metal_small_inventory_pickup,
+		drop_sound = item_sounds.metal_small_inventory_move,
+		stack_size = 100,
+		weight = 10 * kg,
+	},
+	{
+		type = "item",
 		name = "lye",		
         group = "intermediate-products",
 		icon = "__outer_moons__/graphics/icons/lye.png",
@@ -160,5 +173,21 @@ data:extend({
 		drop_sound = item_sounds.metal_small_inventory_move,
 		stack_size = 100,
 		weight = 1 * kg,
-	}
+	},
+	
+	-- structures
+	{
+		type = "item",
+		name = "convector",
+		icon = "__outer_moons__/graphics/entity/convector/convector-hr-animation-1.png",
+		subgroup = "production-machine",
+		color_hint = { text = "1" },
+		order = "g[convector]",
+		inventory_move_sound = item_sounds.mechanical_inventory_move,
+		pick_sound = item_sounds.mechanical_inventory_pickup,
+		drop_sound = item_sounds.mechanical_inventory_move,
+		place_result = "convector",
+		stack_size = 20,
+		random_tint_color = item_tints.iron_rust
+	},
 })

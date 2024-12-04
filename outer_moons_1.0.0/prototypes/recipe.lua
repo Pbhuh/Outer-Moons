@@ -15,7 +15,7 @@ data:extend({
 		results =
 		{
 		  {type = "item", name = "lye", amount = 1},
-		  {type = "fluid", name = "water", amount = 30},
+		  {type = "fluid", name = "water", amount = 50},
 		  {type = "fluid", name = "chlorine", amount = 20},
 		},
 		allow_productivity = true,
@@ -42,13 +42,13 @@ data:extend({
 		energy_required = 10,
 		ingredients =
 		{
-		  {type = "item", name = "aluminum-ore", amount = 1 },
-		  {type = "item", name = "lye", amount = 1 },
+		  {type = "item", name = "aluminum-ore", amount = 2 },
+		  {type = "item", name = "lye", amount = 3 },
 		},
 		results =
 		{
 		  {type = "item", name = "gibbsite", amount = 1},
-		  {type = "fluid", name = "red-mud", amount = 5},
+		  {type = "fluid", name = "red-mud", amount = 8},
 		},
 		allow_productivity = true,
 		enabled = true,
@@ -79,7 +79,7 @@ data:extend({
 		},
 		results =
 		{
-		  {type = "item", name = "alumina", amount = 5},
+		  {type = "item", name = "alumina", amount = 3},
 		},
 		allow_productivity = true,
 		enabled = true,
@@ -106,11 +106,15 @@ data:extend({
 		ingredients =
 		{
 		  {type = "fluid", name = "water", amount = 20},
-		  {type = "fluid", name = "red-mud", amount = 10},
+		  {type = "fluid", name = "red-mud", amount = 5},
 		},
 		results =
 		{
-		  {type = "item", name = "calcite", amount = 5},
+		  {type = "item", name = "iron-ore", amount = 1, probability = 0.4, show_details_in_recipe_tooltip = false},
+		  {type = "item", name = "copper-ore", amount = 1, probability = 0.1, show_details_in_recipe_tooltip = false},
+		  {type = "item", name = "alumina", amount = 1, probability = 0.02, show_details_in_recipe_tooltip = false},
+		  {type = "item", name = "titanium-ore", amount = 1, probability = 0.03, show_details_in_recipe_tooltip = false},
+		  {type = "item", name = "calcite", amount = 1, probability =0.2, show_details_in_recipe_tooltip = false},
 		},
 		allow_productivity = true,
 		enabled = true,
@@ -137,5 +141,60 @@ data:extend({
 		results = {{type="item", name="aluminum-plate", amount=1}},
 		allow_productivity = true,
 		enabled = true
+	},
+	{
+		type = "recipe",
+		name = "titanium-plate",
+		category = "metallurgy",
+		subgroup = "selene-processes",
+		order = "a[selene]-c[titanium-plate]",
+		enabled = true,
+		ingredients =
+		{
+		  {type = "item", name = "titanium-ore", amount = 6},
+		  {type = "fluid", name = "molten-iron", amount = 15},
+		},
+		energy_required = 10,
+		results = {{type="item", name="titanium-plate", amount=1}},
+		allow_productivity = true
+	},
+	--regolith
+	{
+		type = "recipe",
+		name = "amalgamate-regolith",
+		icon = "__outer_moons__/graphics/icons/regolith.png",
+		category = "convecting",
+		subgroup = "selene-processes",
+		order = "b[selene]-a[amalgamate-regolith]",
+		auto_recycle = false,
+		energy_required = 5,
+		ingredients = {{type = "item", name = "metallic-regolith", amount = 5}},
+		results = {
+			{type="item", name="stone", amount=1, probability=0.5, show_details_in_recipe_tooltip = false},
+			{type="item", name="iron-ore", amount=1, probability=0.4, show_details_in_recipe_tooltip = false},
+			{type="item", name="copper-ore", amount=1, probability=0.1, show_details_in_recipe_tooltip = false},
+			{type="item", name="sulfur", amount=1, probability=0.05, show_details_in_recipe_tooltip = false},
+			{type="item", name="carbon", amount=1, probability=0.2, show_details_in_recipe_tooltip = false},
+			--{type="item", name="aluminum-ore", amount=1, probability=0.03},
+			--{type="item", name="titanium-ore", amount=1, probability=0.02},
+			{type="item", name="uranium-ore", amount=1, probability=0.01, show_details_in_recipe_tooltip = false}
+		},
+		allow_productivity = true,
+		enabled = true
+	},
+	--structures
+	{
+		type = "recipe",
+		name = "convector",
+		enabled = true,
+		ingredients =
+		{
+		  {type = "item", name = "electronic-circuit", amount = 5},
+		  {type = "item", name = "iron-gear-wheel", amount = 5},
+		  {type = "item", name = "copper-cable", amount = 10},
+		  {type = "item", name = "aluminum-plate", amount = 15}
+		 -- {type = "item", name = "concrete", amount = 5}
+		},
+		results = {{type="item", name="convector", amount=1}}
 	},
 })
