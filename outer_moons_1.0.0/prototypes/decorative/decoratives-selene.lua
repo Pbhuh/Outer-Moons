@@ -132,12 +132,12 @@ data:extend{
   {
     type = "noise-expression",
     name = "crater_large",
-    expression = "min(0.03, (0.06 - selene_rock_noise - aux) * place_every_n(60,60,0,0))"
+    expression = "min(0.02, (0.03 - selene_rock_noise - aux) * place_every_n(72,72,0,0))"
   },
   {
     type = "noise-expression",
     name = "crater_very_large",
-    expression = "min(0.02, (0.04 - selene_rock_noise - aux) * place_every_n(72,72,0,0))"
+    expression = "min(0.02, (0.04 - selene_rock_noise - aux) * place_every_n(84,84,0,0))"
   },
   {
     type = "noise-expression",
