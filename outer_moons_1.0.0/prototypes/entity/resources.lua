@@ -7,6 +7,8 @@ local simulations = require("__space-age__.prototypes.factoriopedia-simulations"
 --resource_autoplace.initialize_patch_set("chlorine-geyser", true, "selene")
 
 
+
+
 local function resource(resource_parameters, autoplace_parameters)
   return
   {

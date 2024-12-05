@@ -15,143 +15,14 @@ end
 
 local selene_base_tint = {1,1,1}
 
-local tintable_rock_tint = {0.2588, 0.2588, 0.2588}
-local chlorine_rock_tint = {0.55, 0.7, 0.45} 
-local titanium_rock_tint = {.7,.7,.7}
+local tintable_rock_tint = {0.5, 0.5, 0.5}
+local aluminum_rock_tint = {0.52, 0.36, 0.3} 
+local titanium_rock_tint = {0.63, 0.49, 0.48}
 
 tintable_rock_tint = combine_tint(selene_base_tint, tintable_rock_tint)
+aluminum_rock_tint = combine_tint(selene_base_tint, aluminum_rock_tint)
 titanium_rock_tint = combine_tint(selene_base_tint, titanium_rock_tint)
 
-function chimney_sulfuric_stateless_visualisation(position)
-  return
-  {
-    -- expanded 2 animation layers into 2 visualisations to demo multiple visualisations
-    {
-      count = 1,
-      render_layer = "smoke",
-      offset_x = position[1],
-      offset_y = position[2],
-      animation =
-      {
-        filename = "__outer_moons__/graphics/entity/chlorine-geyser/chlorine-geyser-gas-outer.png",
-        frame_count = 47,
-        line_length = 16,
-        width = 90,
-        height = 188,
-        animation_speed = 0.3,
-        shift = util.by_pixel(-6, -89),
-        scale = 1,
-        tint = util.multiply_color({r=0.8, g=0.9, b=0.8}, 0.08)
-      }
-    },
-    {
-      count = 1,
-      render_layer = "smoke",
-      offset_x = position[1],
-      offset_y = position[2],
-      animation =
-      {
-         filename = "__outer_moons__/graphics/entity/chlorine-geyser/chlorine-geyser-gas-inner.png",
-         frame_count = 47,
-         line_length = 16,
-         width = 40,
-         height = 84,
-         animation_speed = 0.4,
-         shift = util.by_pixel(-4, -30),
-         scale = 1,
-         tint = util.multiply_color({r=0.8, g=0.8, b=0.8}, 0.05)
-      }
-    }
-  }
-end
-
-function chimney_sulfuric_stateless_visualisation_tinted(position)
-  return
-  {
-    -- expanded 2 animation layers into 2 visualisations to demo multiple visualisations
-    {
-      count = 1,
-      render_layer = "smoke",
-      offset_x = position[1],
-      offset_y = position[2],
-      animation =
-      {
-        filename = "__outer_moons__/graphics/entity/chlorine-geyser/chlorine-geyser-gas-outer.png",
-        frame_count = 47,
-        line_length = 16,
-        width = 90,
-        height = 188,
-        animation_speed = 0.3,
-        shift = util.by_pixel(-6, -89),
-        scale = 1,
-        tint = util.multiply_color({r=0.43, g=0.8, b=0.43}, 0.15)
-      }
-    },
-    {
-      count = 1,
-      render_layer = "smoke",
-      offset_x = position[1],
-      offset_y = position[2],
-      animation =
-      {
-         filename = "__outer_moons__/graphics/entity/chlorine-geyser/chlorine-geyser-gas-inner.png",
-         frame_count = 47,
-         line_length = 16,
-         width = 40,
-         height = 84,
-         animation_speed = 0.4,
-         shift = util.by_pixel(-4, -30),
-         scale = 1,
-         tint = util.multiply_color({r=0.5, g=0.85, b=0.5}, 0.1)
-      }
-    }
-  }
-end
-
-function chimney_sulfuric_stateless_visualisation_faded(position)
-  return
-  {
-    -- expanded 2 animation layers into 2 visualisations to demo multiple visualisations
-    {
-      count = 1,
-      render_layer = "smoke",
-      offset_x = position[1],
-      offset_y = position[2],
-      animation =
-      {
-        filename = "__outer_moons__/graphics/entity/chlorine-geyser/chlorine-geyser-gas-outer.png",
-        frame_count = 47,
-        line_length = 16,
-        width = 90,
-        height = 188,
-        animation_speed = 0.3,
-        shift = util.by_pixel(-6, -89),
-        scale = 1,
-        tint = util.multiply_color({r=0.43, g=0.79, b=0.43}, 0.08)
-      }
-    },
-    {
-      count = 1,
-      render_layer = "smoke",
-      offset_x = position[1],
-      offset_y = position[2],
-      animation =
-      {
-         filename = "__outer_moons__/graphics/entity/chlorine-geyser/chlorine-geyser-gas-inner.png",
-         frame_count = 47,
-         line_length = 16,
-         width = 40,
-         height = 84,
-         animation_speed = 0.4,
-         shift = util.by_pixel(-4, -30),
-         scale = 1,
-         tint = util.multiply_color({r=0.43, g=0.84, b=0.43}, 0.1)
-
-
-      }
-    }
-  }
-end
 data:extend{
   {
     type = "noise-function",
@@ -160,28 +31,7 @@ data:extend{
     expression = "min(0, (input - from) / from_slope, (to - input) / to_slope)"
   },
 
-  ---- CHLORINE
-  {
-    type = "noise-expression",
-    name = "selene_chlorine_puddle",
-    expression = "min(0.2, min(0.5, 3 * (selene_chlorine_region_patchy + 0.1)) - 0.6 - 0.6 * selene_decorative_knockout)"
-  },
-  {
-    type = "noise-expression",
-    name = "selene_chlorine_puddle_small",
-    expression = "min(0.25, min(0.5, 3 * (selene_chlorine_region_patchy + 0.15)) - 0.6 - 0.6 * selene_decorative_knockout)"
-  },
-  {
-    type = "noise-expression",
-    name = "selene_chlorine_stain",
-    expression = "min(0.2, min(0.5, 3 * (selene_chlorine_region_patchy + 0.1)) - 0.8 - 0.6 * selene_decorative_knockout)"
-  },
-  {
-    type = "noise-expression",
-    name = "selene_chlorine_stain_small",
-    expression = "max(min(0.1, selene_chlorine_region_patchy),\z
-                      min(0.2, min(0.5, 3 * (selene_chlorine_region_patchy + 0.2)) - 0.4 + 0.6 * selene_decorative_knockout))"
-  },
+  ---- ICE
   {
     type = "noise-expression",
     name = "selene_small_chlorine_rock",
@@ -199,36 +49,31 @@ data:extend{
   },
 
   ---- ROCKS
-  -- reduce density in ashlands
+  -- reduce density in craters
   {
     type = "noise-expression",
     name = "selene_rock_huge",
-    expression = "min(0.2 * (1 - 0.75 * selene_ashlands_biome), - 1.2 + 1.2 * min(aux, -0.1 + 1.1 * moisture) + selene_rock_noise + 0.5 * selene_decorative_knockout)"
+    expression = "min(0.05 * (1 - 0.75 * selene_craters_biome), - 1.2 + 1.2 * min(aux, -0.1 + 1.1 * moisture) + selene_rock_noise + 0.5 * selene_decorative_knockout)"
   },
   {
     type = "noise-expression",
     name = "selene_rock_big",
-    expression = "min(0.2 * (1 - 0.5 * selene_ashlands_biome), - 1.0 + 1.2 * min(aux, -0.1 + 1.1 * moisture) + selene_rock_noise + 0.5 * selene_decorative_knockout)"
+    expression = "min(0.1 * (1 - 0.5 * selene_craters_biome), - 1.0 + 1.2 * min(aux, -0.1 + 1.1 * moisture) + selene_rock_noise + 0.5 * selene_decorative_knockout)"
   },
   {
     type = "noise-expression",
     name = "selene_rock_medium",
-    expression = "min(0.5 * (1 - 0.5 * selene_ashlands_biome), - 0.8 + 1.2 * min(aux, -0.1 + 1.1 * moisture) + selene_rock_noise + 0.5 * selene_decorative_knockout)"
-  },
-  {
-    type = "noise-expression",
-    name = "selene_rock_cluster",
-    expression = "min(0.2 * (1 - 0.5 * selene_ashlands_biome), - 0.7 + 1.2 * min(aux, -0.1 + 1.1 * moisture) + selene_rock_noise + 0.5 * selene_decorative_knockout)"
+    expression = "min(0.5 * (1 - 0.5 * selene_craters_biome), - 0.8 + 1.2 * min(aux, -0.1 + 1.1 * moisture) + selene_rock_noise + 0.5 * selene_decorative_knockout)"
   },
   {
     type = "noise-expression",
     name = "selene_rock_small",
-    expression = "min(0.6 * (1 - 0.5 * selene_ashlands_biome), - 0.6 + 1.2 * min(aux, -0.1 + 1.1 * moisture) + selene_rock_noise + 0.5 * selene_decorative_knockout)"
+    expression = "min(0.6 * (1 - 0.5 * selene_craters_biome), - 0.6 + 1.2 * min(aux, -0.1 + 1.1 * moisture) + selene_rock_noise + 0.5 * selene_decorative_knockout)"
   },
   {
     type = "noise-expression",
     name = "selene_rock_tiny",
-    expression = "min(0.75 * (1 - 0.5 * selene_ashlands_biome), - 0.5 + 1.2 * min(aux, -0.1 + 1.1 * moisture) + selene_rock_noise + 0.5 * selene_decorative_knockout)"
+    expression = "min(0.75 * (1 - 0.5 * selene_craters_biome), - 0.5 + 1.2 * min(aux, -0.1 + 1.1 * moisture) + selene_rock_noise + 0.5 * selene_decorative_knockout)"
   },
 
   ---- DECALS
@@ -245,12 +90,12 @@ data:extend{
   {
     type = "noise-expression",
     name = "selene_crack_decal_huge_warm",
-    expression = "selene_basalts_biome * min(0.3, range_select_base(selene_elev, 0, 10, 1, -10, 1) - 0.1 - 0.25 * aux + 0.25 * (moisture - 0.6) + 0.5 * selene_decorative_knockout)"
+    expression = "selene_lowlands_biome * min(0.3, range_select_base(selene_elev, 0, 10, 1, -10, 1) - 0.1 - 0.25 * aux + 0.25 * (moisture - 0.6) + 0.5 * selene_decorative_knockout)"
   },
   {
     type = "noise-expression",
     name = "selene_crack_decal_warm",
-    expression = "selene_basalts_biome * min(0.2, range_select_base(selene_elev, 10, 30, 1, -10, 1) - 0.1 - 0.25 * aux + 0.25 * (moisture - 0.6) + 0.5 * selene_decorative_knockout)"
+    expression = "selene_lowlands_biome * min(0.2, range_select_base(selene_elev, 10, 30, 1, -10, 1) - 0.1 - 0.25 * aux + 0.25 * (moisture - 0.6) + 0.5 * selene_decorative_knockout)"
   },
   {
     type = "noise-expression",
@@ -259,40 +104,50 @@ data:extend{
   },
   {
     type = "noise-expression",
-    name = "pumice_relief_decal", -- everywhere non-sand
-    expression = "(aux + moisture - 1) * 0.01"
-  },
-  {
-    type = "noise-expression",
     name = "waves_decal", -- everywhere sand
-    expression = "(1 - aux - moisture) * 0.05 * place_every_n(5.7,5.7,1,1) * selene_ashlands_biome"
+    expression = "(1 - aux - moisture) * 0.05 * place_every_n(5.7,5.7,1,1) * selene_highlands_biome"
   },
 
   {
     type = "noise-expression",
     name = "selene_sand_decal",
-    expression = "(1 - aux - moisture) * 0.05 * selene_basalts_biome"
+    expression = "(1 - aux - moisture) * 0.05 * selene_lowlands_biome"
   },
   {
     type = "noise-expression",
     name = "selene_dune_decal",
-    expression = "(1 - aux - moisture) * 0.05 * selene_ashlands_biome"
+    expression = "(1 - aux - moisture) * 0.05 * selene_highlands_biome"
   },
 
   {
     type = "noise-expression",
     name = "crater_small",
-    expression = "min(0.1, 0.3 - selene_rock_noise - aux)"
+    expression = "min(0.25, 0.35 - selene_rock_noise - aux) * place_every_n(2,2,0,0))"
+  },
+  {
+    type = "noise-expression",
+    name = "crater_medium",
+    expression = "min(0.2, (0.25 - selene_rock_noise - aux) * place_every_n(4,4,0,0))"
   },
   {
     type = "noise-expression",
     name = "crater_large",
-    expression = "min(0.15, (0.2 - selene_rock_noise - aux) * place_every_n(3,3,0,0))"
+    expression = "min(0.03, (0.06 - selene_rock_noise - aux) * place_every_n(60,60,0,0))"
   },
   {
     type = "noise-expression",
-    name = "crater_cliff",
-    expression = "0.5 * (selene_rock_noise + 0.5 * aux - 0.5 * moisture) * (1 - max(selene_basalts_biome,selene_ashlands_biome)) * place_every_n(21,21,0,0)"
+    name = "crater_very_large",
+    expression = "min(0.02, (0.04 - selene_rock_noise - aux) * place_every_n(72,72,0,0))"
+  },
+  {
+    type = "noise-expression",
+    name = "crater_huge",
+    expression = "min(0.02, (0.04 - selene_rock_noise - aux) * place_every_n(96,96,0,0))"
+  },
+  {
+    type = "noise-expression",
+    name = "selene-crater_cliff",
+    expression = "0.1 * (-selene_rock_noise - 0.5 * aux + 0.5) * (1 - max(selene_lowlands_biome, selene_highlands_biome)) * place_every_n(8,8,0,0)"
   },
   
   ---ROCKY DECALS
@@ -377,77 +232,9 @@ data:extend{
     },
     pictures = get_decal_pictures("__space-age__/graphics/decorative/vulcanus-cracks/vulcanus-cracks-hot-", "large-", 128, 18)
   },
-  --- Chlorine STAINS
-  {
-    name = "chlorine-stain",
-    type = "optimized-decorative",
-    order = "a[selene]-b[decorative]",
-    collision_box = {{-3, -3}, {3, 3}},
-    collision_mask = {layers={water_tile=true}, colliding_with_tiles_only=true},
-    render_layer = "decals",
-    tile_layer =  decal_tile_layer -6,
-    walking_sound = sounds.pebble,
-    autoplace = {
-      order = "d[ground-surface]-c[stain]-b[calcite]-a[large]",
-      probability_expression = "selene_chlorine_stain"
-    },
-    pictures = get_decal_pictures("__outer_moons__/graphics/decorative/chlorine-stain/chlorine-stain-", "", 512,13)
-  },
-  --- SPOTTY chlorine STAINS
-  {
-    name = "chlorine-stain-small",
-    type = "optimized-decorative",
-    order = "a[selene]-b[decorative]",
-    collision_box = {{-3, -3}, {3, 3}},
-    collision_mask = {layers={water_tile=true}, colliding_with_tiles_only=true},
-    render_layer = "decals",
-    tile_layer =  decal_tile_layer -6,
-    walking_sound = sounds.pebble,
-    autoplace = {
-      order = "d[ground-surface]-c[stain]-a[sulfur]-b[small]",
-      probability_expression = "selene_chlorine_stain_small"
-    },
-    pictures = get_decal_pictures("__outer_moons__/graphics/decorative/chlorine-stain/chlorine-stain-spotty-", "", 512, 21)
-  },
-  --- chlorine-PUDDLE
-  {
-    name = "chlorine-puddle",
-    type = "optimized-decorative",
-    order = "a[selene]-b[decorative]",
-    collision_box = {{-2, -2}, {2, 2}},
-    collision_mask = {layers={water_tile=true}, colliding_with_tiles_only=true},
-    render_layer = "decals",
-    tile_layer = 254,
-    walking_sound = sounds.oil,
-    autoplace =
-    {
-      order = "d[ground-surface]-a[puddle]-a[large]",
-      placement_density = 2,
-      probability_expression = "selene_chlorine_puddle"
-    },
-    pictures = get_decal_pictures("__outer_moons__/graphics/decorative/chlorine-puddle/chlorine-puddle-", "", 384, 8)
-  },
-  --- chlorine-PUDDLE-SMALL
-  {
-    name = "chlorine-puddle-small",
-    type = "optimized-decorative",
-    order = "a[selene]-b[decorative]",
-    collision_box = {{-1, -1}, {1, 1}},
-    collision_mask = {layers={water_tile=true}, colliding_with_tiles_only=true},
-    render_layer = "decals",
-    tile_layer = 254,
-    walking_sound = sounds.oil,
-    autoplace =
-    {
-      order = "d[ground-surface]-a[puddle]-b[small]",
-      placement_density = 2,
-      probability_expression = "selene_chlorine_puddle_small"
-    },
-    pictures = get_decal_pictures("__outer_moons__/graphics/decorative/chlorine-puddle/chlorine-puddle-small-", "", 192, 4)
-  },
   --- SMALL CRATERS
   {
-    name = "crater-small",
+    name = "crater-selene-small",
     type = "optimized-decorative",
     order = "a[selene]-b[decorative]",
     collision_box = {{-0.5, -0.5}, {0.5, 0.5}},
@@ -456,42 +243,74 @@ data:extend{
     tile_layer =  decal_tile_layer,
     walking_sound = sounds.pebble,
     autoplace = {
-      order = "d[ground-surface]-e[crater]-a[small]",
+      order = "d[ground-surface]-e[crater]-b[small]",
       probability_expression = "crater_small"
     },
-    pictures = get_decal_pictures("__space-age__/graphics/decorative/vulcanus-crater/vulcanus-crater-", "", 128, 20)
+    pictures = get_decal_pictures("__outer_moons__/graphics/decorative/selene-crater/selene-crater-small-", "", 128, 1)
   },
-  --- LARGE CRATERS
+  --- MEDIUM CRATERS
   {
-    name = "crater-large",
+    name = "crater-selene-medium",
     type = "optimized-decorative",
     order = "a[selene]-b[decorative]",
-    collision_box = {{-2.5, -2.5}, {2.5, 2.5}},
+    collision_box = {{-1, -1}, {1, 1}},
     collision_mask = {layers={water_tile=true}, colliding_with_tiles_only=true},
     render_layer = "decals",
     tile_layer =  decal_tile_layer,
     walking_sound = sounds.pebble,
     autoplace = {
-      order = "d[ground-surface]-e[crater]-a[large]",
-      probability_expression = "crater_large"
+      order = "d[ground-surface]-e[crater]-a[medium]",
+      probability_expression = "crater_medium"
     },
-    pictures = get_decal_pictures("__space-age__/graphics/decorative/vulcanus-crater/vulcanus-crater-", "huge-", 512, 14)
+    pictures = get_decal_pictures("__outer_moons__/graphics/decorative/selene-crater/selene-crater-medium-", "", 192, 1)
   },
-  --- ROCKY DETAIL
+  --- LARGE CRATERS
   {
-    name = "pumice-relief-decal",
+    name = "crater-selene-large",
     type = "optimized-decorative",
     order = "a[selene]-b[decorative]",
-    collision_box = {{-5, -5}, {5, 5}},
+    collision_box = {{-3, -3}, {3, 3}},
     collision_mask = {layers={water_tile=true}, colliding_with_tiles_only=true},
     render_layer = "decals",
-    tile_layer = 220,
+    tile_layer =  decal_tile_layer,
     walking_sound = sounds.pebble,
     autoplace = {
-      order = "d[ground-surface]-d[relief]-b[rocky]",
-      probability_expression = "pumice_relief_decal"
+      order = "d[ground-surface]-e[crater]-b[large]",
+      probability_expression = "crater_large"
     },
-    pictures = get_decal_pictures("__space-age__/graphics/decorative/vulcanus-relief-decal/vulcanus-pumice-relief-", "", 1024, 19)
+    pictures = get_decal_pictures("__outer_moons__/graphics/decorative/selene-crater/selene-crater-large-", "", 512, 4)
+  },
+   --- VERY LARGE CRATER
+  {
+    name = "crater-selene-very-large",
+    type = "optimized-decorative",
+    order = "a[selene]-b[decorative]",
+    collision_box = {{-4, -4}, {4, 4}},
+    collision_mask = {layers={water_tile=true}, colliding_with_tiles_only=true},
+    render_layer = "decals",
+    tile_layer =  decal_tile_layer,
+    walking_sound = sounds.pebble,
+    autoplace = {
+      order = "d[ground-surface]-e[crater]-b[large]",
+      probability_expression = "crater_very_large"
+    },
+    pictures = get_decal_pictures("__outer_moons__/graphics/decorative/selene-crater/selene-crater-very-large-", "", 640, 1)
+  },
+  --- HUGE CRATER
+   {
+    name = "crater-selene-huge",
+    type = "optimized-decorative",
+    order = "a[selene]-b[decorative]",
+    collision_box = {{-8, -8}, {8, 8}},
+    collision_mask = {layers={water_tile=true}, colliding_with_tiles_only=true},
+    render_layer = "decals",
+    tile_layer =  decal_tile_layer,
+    walking_sound = sounds.pebble,
+    autoplace = {
+      order = "d[ground-surface]-e[crater]-a[huge]",
+      probability_expression = "crater_huge"
+    },
+    pictures = get_decal_pictures("__outer_moons__/graphics/decorative/selene-crater/selene-crater-huge-", "", 1280, 1)
   },
   --- SAND DUNES
   {
@@ -505,9 +324,9 @@ data:extend{
     walking_sound = sounds.sand,
     autoplace = {
       order = "d[ground-surface]-h[dune]-b[patch]",
-      probability_expression = "selene_sand_decal"
+      probability_expression = "selene_dune_decal"
     },
-    pictures = get_decal_pictures("__space-age__/graphics/decorative/vulcanus-sand-decal/vulcanus-sand-decal-", "", 256, 23)
+    pictures = get_decal_pictures("__space-age__/graphics/decorative/vulcanus-dune-decal/vulcanus-dune-decal-", "", 512, 20)
   },
   {
     name = "selene-dune-decal",
@@ -520,92 +339,19 @@ data:extend{
     walking_sound = sounds.pebble,
     autoplace = {
       order = "d[ground-surface]-h[dune]-a[relief]",
-      probability_expression = "selene_dune_decal"
+      probability_expression = "selene_sand_decal"
     },
-    pictures = get_decal_pictures("__space-age__/graphics/decorative/vulcanus-dune-decal/vulcanus-dune-decal-", "", 512, 20)
-  },
-  --- WAVES
-  {
-    name = "waves-decal",
-    type = "optimized-decorative",
-    order = "a[selene]-b[decorative]",
-    collision_box = {{-8, -8}, {8, 8}},
-    collision_mask = {layers={water_tile=true}, colliding_with_tiles_only=true},
-    render_layer = "decals",
-    tile_layer = 220,
-    walking_sound = sounds.pebble,
-    autoplace = {
-      order = "d[ground-surface]-d[relief]-a[waves]",
-      probability_expression = "waves_decal"
-    },
-    pictures = {
-      {
-        filename =  "__space-age__/graphics/decorative/waves-relief/waves-01.png",
-        priority = base_decorative_sprite_priority,
-        width =  1387,
-        height =  1387,
-        scale = 0.5
-      },
-      {
-        filename =  "__space-age__/graphics/decorative/waves-relief/waves-02.png",
-        priority = base_decorative_sprite_priority,
-        width =  1387,
-        height =  1387,
-        scale = 0.5
-      },
-      {
-        filename =  "__space-age__/graphics/decorative/waves-relief/waves-03.png",
-        priority = base_decorative_sprite_priority,
-        width =  1387,
-        height =  1387,
-        scale = 0.5
-      },
-      {
-        filename =  "__space-age__/graphics/decorative/waves-relief/waves-04.png",
-        priority = base_decorative_sprite_priority,
-        width =  1387,
-        height =  1387,
-        scale = 0.5
-      },
-      {
-        filename =  "__space-age__/graphics/decorative/waves-relief/waves-05.png",
-        priority = base_decorative_sprite_priority,
-        width =  1387,
-        height =  1387,
-        scale = 0.5
-      },
-      {
-        filename =  "__space-age__/graphics/decorative/waves-relief/waves-06.png",
-        priority = base_decorative_sprite_priority,
-        width =  1387,
-        height =  1387,
-        scale = 0.5
-      },
-      {
-        filename =  "__space-age__/graphics/decorative/waves-relief/waves-07.png",
-        priority = base_decorative_sprite_priority,
-        width =  1387,
-        height =  1387,
-        scale = 0.5
-      },
-      {
-        filename =  "__space-age__/graphics/decorative/waves-relief/waves-08.png",
-        priority = base_decorative_sprite_priority,
-        width =  1387,
-        height =  1387,
-        scale = 0.5
-      }
-    }
+    pictures = get_decal_pictures("__outer_moons__/graphics/decorative/selene-dune-decal/selene-dune-decal-", "", 512, 30)
   },
   --- TINTABLE ROCKS
   --- BIG ROCKS
   {
-    name = "huge-volcanic-rock",
+    name = "huge-selene-rock",
     type = "simple-entity",
     flags = {"placeable-neutral", "placeable-off-grid"},
     icon = "__space-age__/graphics/icons/huge-volcanic-rock.png",
     subgroup = "grass",
-    order = "b[decorative]-l[rock]-f[huge-volcanic-rock]",
+    order = "b[decorative]-l[rock]-f[huge-selene-rock]",
     collision_box = {{-1.5, -1.1}, {1.5, 1.1}},
     selection_box = {{-1.7, -1.3}, {1.7, 1.3}},
     damaged_trigger_effect = hit_effects.rock(),
@@ -617,9 +363,10 @@ data:extend{
       results =
       {
         {type = "item", name = "stone", amount_min = 6, amount_max = 18},
-        {type = "item", name = "iron-ore", amount_min = 9, amount_max = 27},
-        {type = "item", name = "copper-ore", amount_min = 6, amount_max = 18},
-        {type = "item", name = "titanium-ore", amount_min = 3, amount_max = 15}
+        {type = "item", name = "iron-ore", amount_min = 8, amount_max = 24},
+        {type = "item", name = "copper-ore", amount_min = 3, amount_max = 9},
+        {type = "item", name = "carbon", amount_min = 5, amount_max = 15},
+        {type = "item", name = "aluminum-ore", amount_min = 2, amount_max = 6}
       },
     },
     map_color = {129, 105, 78},
@@ -647,7 +394,8 @@ data:extend{
         height = 179,
         scale = 0.5,
         shift = {0.25, 0.0625},
-        tint = titanium_rock_tint
+        tint = tintable_rock_tint,
+        tint_as_overlay = true
       },
       {
         filename = "__space-age__/graphics/decorative/huge-volcanic-rock/huge-volcanic-rock-06.png",
@@ -655,7 +403,9 @@ data:extend{
         height = 171,
         scale = 0.5,
         shift = {0.429688, 0.046875},
-        tint = titanium_rock_tint
+        tint = tintable_rock_tint,
+        tint_as_overlay = true,
+        tint_as_overlay = true
       },
       {
         filename = "__space-age__/graphics/decorative/huge-volcanic-rock/huge-volcanic-rock-07.png",
@@ -663,7 +413,8 @@ data:extend{
         height = 192,
         scale = 0.5,
         shift = {0.398438, 0.03125},
-        tint = titanium_rock_tint
+        tint = tintable_rock_tint,
+        tint_as_overlay = true
       },
       {
         filename = "__space-age__/graphics/decorative/huge-volcanic-rock/huge-volcanic-rock-08.png",
@@ -671,7 +422,8 @@ data:extend{
         height = 175,
         scale = 0.5,
         shift = {0.148438, 0.132812},
-        tint = titanium_rock_tint
+        tint = tintable_rock_tint,
+        tint_as_overlay = true
       },
       {
         filename = "__space-age__/graphics/decorative/huge-volcanic-rock/huge-volcanic-rock-09.png",
@@ -679,7 +431,8 @@ data:extend{
         height = 208,
         scale = 0.5,
         shift = {0.3125, 0.0625},
-        tint = titanium_rock_tint
+        tint = tintable_rock_tint,
+        tint_as_overlay = true
       },
       {
         filename = "__space-age__/graphics/decorative/huge-volcanic-rock/huge-volcanic-rock-10.png",
@@ -687,7 +440,8 @@ data:extend{
         height = 190,
         scale = 0.5,
         shift = {0.1875, 0.046875},
-        tint = titanium_rock_tint
+        tint = tintable_rock_tint,
+        tint_as_overlay = true
       },
       {
         filename = "__space-age__/graphics/decorative/huge-volcanic-rock/huge-volcanic-rock-11.png",
@@ -695,7 +449,8 @@ data:extend{
         height = 185,
         scale = 0.5,
         shift = {0.398438, 0.0546875},
-        tint = titanium_rock_tint
+        tint = tintable_rock_tint,
+        tint_as_overlay = true
       },
       {
         filename = "__space-age__/graphics/decorative/huge-volcanic-rock/huge-volcanic-rock-12.png",
@@ -703,7 +458,8 @@ data:extend{
         height = 163,
         scale = 0.5,
         shift = {0.34375, 0.0390625},
-        tint = titanium_rock_tint
+        tint = tintable_rock_tint,
+        tint_as_overlay = true
       },
       {
         filename = "__space-age__/graphics/decorative/huge-volcanic-rock/huge-volcanic-rock-13.png",
@@ -711,7 +467,8 @@ data:extend{
         height = 175,
         scale = 0.5,
         shift = {0.273438, 0.0234375},
-        tint = titanium_rock_tint
+        tint = tintable_rock_tint,
+        tint_as_overlay = true
       },
       {
         filename = "__space-age__/graphics/decorative/huge-volcanic-rock/huge-volcanic-rock-14.png",
@@ -719,7 +476,8 @@ data:extend{
         height = 215,
         scale = 0.5,
         shift = {0.195312, 0.0390625},
-        tint = titanium_rock_tint
+        tint = tintable_rock_tint,
+        tint_as_overlay = true
       },
       {
         filename = "__space-age__/graphics/decorative/huge-volcanic-rock/huge-volcanic-rock-15.png",
@@ -727,7 +485,8 @@ data:extend{
         height = 181,
         scale = 0.5,
         shift = {0.523438, 0.03125},
-        tint = titanium_rock_tint
+        tint = tintable_rock_tint,
+        tint_as_overlay = true
       },
       {
         filename = "__space-age__/graphics/decorative/huge-volcanic-rock/huge-volcanic-rock-16.png",
@@ -735,7 +494,8 @@ data:extend{
         height = 224,
         scale = 0.5,
         shift = {0.0546875, 0.0234375},
-        tint = titanium_rock_tint
+        tint = tintable_rock_tint,
+        tint_as_overlay = true
       },
       {
         filename = "__space-age__/graphics/decorative/huge-volcanic-rock/huge-volcanic-rock-17.png",
@@ -743,7 +503,8 @@ data:extend{
         height = 228,
         scale = 0.5,
         shift = {0.226562, 0.046875},
-        tint = titanium_rock_tint
+        tint = tintable_rock_tint,
+        tint_as_overlay = true
       },
       {
         filename = "__space-age__/graphics/decorative/huge-volcanic-rock/huge-volcanic-rock-18.png",
@@ -751,7 +512,8 @@ data:extend{
         height = 243,
         scale = 0.5,
         shift = {0.195312, 0.0390625},
-        tint = titanium_rock_tint
+        tint = tintable_rock_tint,
+        tint_as_overlay = true
       },
       {
         filename = "__space-age__/graphics/decorative/huge-volcanic-rock/huge-volcanic-rock-19.png",
@@ -759,7 +521,8 @@ data:extend{
         height = 225,
         scale = 0.5,
         shift = {0.609375, 0.0234375},
-        tint = titanium_rock_tint
+        tint = tintable_rock_tint,
+        tint_as_overlay = true
       },
       {
         filename = "__space-age__/graphics/decorative/huge-volcanic-rock/huge-volcanic-rock-20.png",
@@ -767,17 +530,18 @@ data:extend{
         height = 250,
         scale = 0.5,
         shift = {0.132812, 0.03125},
-        tint = titanium_rock_tint
+        tint = tintable_rock_tint,
+        tint_as_overlay = true
       }
     }
   },
   {
-    name = "big-volcanic-rock",
+    name = "big-selene-rock",
     type = "simple-entity",
     flags = {"placeable-neutral", "placeable-off-grid"},
     icon = "__space-age__/graphics/icons/big-volcanic-rock.png",
     subgroup = "grass",
-    order = "b[decorative]-l[rock]-f[big-volcanic-rock]",
+    order = "b[decorative]-l[rock]-f[big-selene-rock]",
     collision_box = {{-0.75, -0.75}, {0.75, 0.75}},
     selection_box = {{-1.0, -1.0}, {1.0, 0.75}},
     damaged_trigger_effect = hit_effects.rock(),
@@ -794,10 +558,11 @@ data:extend{
       mining_time = 2,
       results =
       {
-        {type = "item", name = "stone", amount_min = 2, amount_max = 12},
-        {type = "item", name = "iron-ore", amount_min = 5, amount_max = 9},
-        {type = "item", name = "copper-ore", amount_min = 3, amount_max = 7},
-        {type = "item", name = "titanium-ore", amount_min = 2, amount_max = 8}
+        {type = "item", name = "stone", amount_min = 4, amount_max = 8},
+        {type = "item", name = "iron-ore", amount_min = 5, amount_max = 10},
+        {type = "item", name = "copper-ore", amount_min = 3, amount_max = 6},
+        {type = "item", name = "carbon", amount_min = 2, amount_max = 4},
+        {type = "item", name = "aluminum-ore", amount_min = 1, amount_max = 2}
       }
     },
     resistances =
@@ -819,7 +584,8 @@ data:extend{
         height =  127 ,
         shift = {0.304688, -0.4},
         scale = 0.5,
-        tint = titanium_rock_tint
+        tint = tintable_rock_tint,
+        tint_as_overlay = true
       },
       {
         filename = "__space-age__/graphics/decorative/big-volcanic-rock/big-volcanic-rock-02.png",
@@ -827,7 +593,8 @@ data:extend{
         height =  135 ,
         shift = {0.0, 0.0390625},
         scale = 0.5,
-        tint = titanium_rock_tint
+        tint = tintable_rock_tint,
+        tint_as_overlay = true
       },
       {
         filename = "__space-age__/graphics/decorative/big-volcanic-rock/big-volcanic-rock-03.png",
@@ -835,7 +602,8 @@ data:extend{
         height =  132 ,
         shift = {0.151562, 0.0},
         scale = 0.5,
-        tint = titanium_rock_tint
+        tint = tintable_rock_tint,
+        tint_as_overlay = true
       },
       {
         filename = "__space-age__/graphics/decorative/big-volcanic-rock/big-volcanic-rock-04.png",
@@ -843,7 +611,8 @@ data:extend{
         height =  142 ,
         shift = {0.151562, 0.0},
         scale = 0.5,
-        tint = titanium_rock_tint
+        tint = tintable_rock_tint,
+        tint_as_overlay = true
       },
       {
         filename = "__space-age__/graphics/decorative/big-volcanic-rock/big-volcanic-rock-05.png",
@@ -851,7 +620,8 @@ data:extend{
         height =  107 ,
         shift = {0.390625, 0.0},
         scale = 0.5,
-        tint = titanium_rock_tint
+        tint = tintable_rock_tint,
+        tint_as_overlay = true
       },
       {
         filename = "__space-age__/graphics/decorative/big-volcanic-rock/big-volcanic-rock-06.png",
@@ -859,7 +629,8 @@ data:extend{
         height =  109 ,
         shift = {0.328125, 0.0703125},
         scale = 0.5,
-        tint = titanium_rock_tint
+        tint = tintable_rock_tint,
+        tint_as_overlay = true
       },
       {
         filename = "__space-age__/graphics/decorative/big-volcanic-rock/big-volcanic-rock-07.png",
@@ -867,7 +638,8 @@ data:extend{
         height =  133 ,
         shift = {0.16875, -0.1},
         scale = 0.5,
-        tint = titanium_rock_tint
+        tint = tintable_rock_tint,
+        tint_as_overlay = true
       },
       {
         filename = "__space-age__/graphics/decorative/big-volcanic-rock/big-volcanic-rock-08.png",
@@ -875,7 +647,8 @@ data:extend{
         height =  111 ,
         shift = {0.3, -0.2},
         scale = 0.5,
-        tint = titanium_rock_tint
+        tint = tintable_rock_tint,
+        tint_as_overlay = true
       },
       {
         filename = "__space-age__/graphics/decorative/big-volcanic-rock/big-volcanic-rock-09.png",
@@ -883,7 +656,8 @@ data:extend{
         height =  120 ,
         shift = {0.0, 0.0},
         scale = 0.5,
-        tint = titanium_rock_tint
+        tint = tintable_rock_tint,
+        tint_as_overlay = true
       },
       {
         filename = "__space-age__/graphics/decorative/big-volcanic-rock/big-volcanic-rock-10.png",
@@ -891,7 +665,8 @@ data:extend{
         height =  128 ,
         shift = {0.1, 0.0},
         scale = 0.5,
-        tint = titanium_rock_tint
+        tint = tintable_rock_tint,
+        tint_as_overlay = true
       },
       {
         filename = "__space-age__/graphics/decorative/big-volcanic-rock/big-volcanic-rock-11.png",
@@ -899,7 +674,8 @@ data:extend{
         height =  144 ,
         shift = {0.325, -0.1},
         scale = 0.5,
-        tint = titanium_rock_tint
+        tint = tintable_rock_tint,
+        tint_as_overlay = true
       },
       {
         filename = "__space-age__/graphics/decorative/big-volcanic-rock/big-volcanic-rock-12.png",
@@ -907,7 +683,8 @@ data:extend{
         height =  138 ,
         shift = {0.453125, 0.0},
         scale = 0.5,
-        tint = titanium_rock_tint
+        tint = tintable_rock_tint,
+        tint_as_overlay = true
       },
       {
         filename = "__space-age__/graphics/decorative/big-volcanic-rock/big-volcanic-rock-13.png",
@@ -915,7 +692,8 @@ data:extend{
         height =  150 ,
         shift = {0.539062, -0.015625},
         scale = 0.5,
-        tint = titanium_rock_tint
+        tint = tintable_rock_tint,
+        tint_as_overlay = true
       },
       {
         filename = "__space-age__/graphics/decorative/big-volcanic-rock/big-volcanic-rock-14.png",
@@ -923,7 +701,8 @@ data:extend{
         height =  160 ,
         shift = {0.0703125, 0.179688},
         scale = 0.5,
-        tint = titanium_rock_tint
+        tint = tintable_rock_tint,
+        tint_as_overlay = true
       },
       {
         filename = "__space-age__/graphics/decorative/big-volcanic-rock/big-volcanic-rock-15.png",
@@ -931,7 +710,8 @@ data:extend{
         height =  174 ,
         shift = {0.160938, 0.0},
         scale = 0.5,
-        tint = titanium_rock_tint
+        tint = tintable_rock_tint,
+        tint_as_overlay = true
       },
       {
         filename = "__space-age__/graphics/decorative/big-volcanic-rock/big-volcanic-rock-16.png",
@@ -939,7 +719,8 @@ data:extend{
         height =  150 ,
         shift = {0.242188, -0.195312},
         scale = 0.5,
-        tint = titanium_rock_tint
+        tint = tintable_rock_tint,
+        tint_as_overlay = true
       },
       {
         filename = "__space-age__/graphics/decorative/big-volcanic-rock/big-volcanic-rock-17.png",
@@ -947,7 +728,8 @@ data:extend{
         height =  117 ,
         shift = {0.351562, -0.1},
         scale = 0.5,
-        tint = titanium_rock_tint
+        tint = tintable_rock_tint,
+        tint_as_overlay = true
       },
       {
         filename = "__space-age__/graphics/decorative/big-volcanic-rock/big-volcanic-rock-18.png",
@@ -955,7 +737,8 @@ data:extend{
         height =  128 ,
         shift = {0.351562, -0.1},
         scale = 0.5,
-        tint = titanium_rock_tint
+        tint = tintable_rock_tint,
+        tint_as_overlay = true
       },
       {
         filename = "__space-age__/graphics/decorative/big-volcanic-rock/big-volcanic-rock-19.png",
@@ -963,7 +746,8 @@ data:extend{
         height =  114 ,
         shift = {0.351562, -0.1},
         scale = 0.5,
-        tint = titanium_rock_tint
+        tint = tintable_rock_tint,
+        tint_as_overlay = true
       },
       {
         filename = "__space-age__/graphics/decorative/big-volcanic-rock/big-volcanic-rock-20.png",
@@ -971,13 +755,14 @@ data:extend{
         height =  125 ,
         shift = {0.351562, -0.1},
         scale = 0.5,
-        tint = titanium_rock_tint
+        tint = tintable_rock_tint,
+        tint_as_overlay = true
       }
     }
   },
-  --- MEDIUM BLACK ROCKS
+  --- MEDIUM selene ROCKS
   {
-    name = "medium-volcanic-rock",
+    name = "medium-selene-rock",
     type = "optimized-decorative",
     order = "b[decorative]-l[rock]-c[medium]",
     collision_box = {{-1.1, -1.1}, {1.1, 1.1}},
@@ -1113,7 +898,7 @@ data:extend{
   },
   --- SMALL BLACK ROCKS
   {
-    name = "small-volcanic-rock",
+    name = "small-selene-rock",
     type = "optimized-decorative",
     order = "b[decorative]-l[rock]-d[small]",
     collision_box = {{-0.3, -0.3}, {0.3, 0.3}},
@@ -1291,7 +1076,7 @@ data:extend{
   },
   --- TINY TINTABLE ROCKS
   {
-    name = "tiny-volcanic-rock",
+    name = "tiny-selene-rock",
     type = "optimized-decorative",
     order = "b[decorative]-l[rock]-d[small]",
     collision_box = {{-0.2, -0.2}, {0.2, 0.2}},
@@ -1468,24 +1253,7 @@ data:extend{
       }
     }
   },
-  --- ROCK CLUSTERS
-  {
-    name = "tiny-rock-cluster",
-    type = "optimized-decorative",
-    order = "a[selene]-b[decorative]-b[sand]",
-    collision_box = {{-0.2, -0.2}, {0.2, 0.2}},
-    collision_mask = {layers={water_tile=true, doodad=true}, colliding_with_tiles_only=true},
-    render_layer = "decorative",
-    walking_sound = sounds.sand,
-    autoplace =
-    {
-      order = "d[ground-surface]-i[rock]-c[cluster]",
-      placement_density = 2,
-      probability_expression = "selene_rock_cluster"
-    },
-    pictures = get_decal_pictures("__space-age__/graphics/decorative/tiny-volcanic-rock-cluster/tiny-volcanic-rock-cluster-", "", 128, 8,tintable_rock_tint,true)
-  },
-  --- SULFUR ROCKS
+  --- ICE ROCKS
   --- SMALL ROCKS
   {
     name = "small-chlorine-rock",
@@ -1860,98 +1628,6 @@ data:extend{
       probability_expression = "selene_chlorine_rock_cluster"
     },
     pictures = get_decal_pictures("__space-age__/graphics/decorative/tiny-volcanic-rock-cluster/tiny-volcanic-rock-cluster-", "", 128, 8,chlorine_rock_tint,true)
-  },
-  {
-    type = "optimized-decorative",
-    name = "selene-lava-fire",
-    order = "b[effect]-l[fire]-h[selene-lava-fire]",
-    collision_box = {{-1, -1}, {1, 1}},
-    collision_mask = {layers={ground_tile=true}, colliding_with_tiles_only=true},
-    autoplace =
-    {
-      order = "d[ground-surface]-k[lava]",
-      probability_expression = "0.1 * (selene_elev <= 0) * (selene_elev > 2)\z
-                                + 0.005 * min(1, max(lava_mountains_range, lava_hot_mountains_range))"
-    },
-    pictures =
-    {
-      {
-        filename =  "__space-age__/graphics/decorative/tiny-volcanic-rock/tiny-volcanic-rock-01.png",
-        priority = base_decorative_sprite_priority,
-        width =  29,
-        height =  21,
-        tint_as_overlay = true,
-        tint = tintable_rock_tint,
-        scale = 0.0,
-        shift = {0.0, 0.0}
-      }
-    },
-    stateless_visualisation =
-    {
-      min_count = 1,
-      max_count = 1,
-      offset_x = { -0.05, 0.05 }, -- will be random from range -0.05 to 0.05
-      offset_y = { -0.05, 0.05 },
-      render_layer = "object",
-      adjust_animation_speed_by_base_scale = false,
-      scale = { 0.6, 1 },
-      animation =
-      {
-        {
-          filename = "__base__/graphics/entity/fire-flame/fire-flame-04.png",
-          line_length = 10,
-          width = 84,
-          height = 94,
-          frame_count = 90,
-          animation_speed = 0.2,
-          scale = 0.75,
-          tint = {r=0.9,g=0.9,b=0.9,a=0.5},
-          shift = { 0, -0.25 },
-          draw_as_glow = true
-        }
-      },
-      nested_visualisations =
-      {
-        {
-          count = 10,
-          period = 120,
-          particle_tick_offset = 120 / 30, -- offsets start of the simulation interval from the previous particle for each particle
-          probability = 0.5,
-          scale = { 0.5, 1 },
-          begin_scale = 0.5,
-          end_scale = 1.5,
-
-          offset_x = { -0.2, 0.2 },
-          offset_y = { -0.2, 0.2 },
-
-          speed_x = { -1 / 240, 1 / 240 },
-          speed_y = { -1 / 240, 0 / 240 },
-          speed_z = 8 / 240,
-
-          movement_slowdown_factor_z = 0.985,
-
-          render_layer = "smoke",
-          affected_by_wind = true,
-
-          fade_in_progress_duration = 0.2 / 3,
-          fade_out_progress_duration = 0.8 / 3,
-
-          animation =
-          {
-            width = 253,
-            height = 210,
-            line_length = 8,
-            frame_count = 60,
-            scale = 0.25,
-            tint = {r = 0.1, g = 0.08, b = 0.06, a = 0.1}, --util.premul_color{0.3, 0.3, 0.3, 0.1},
-            priority = "high",
-            flags = { "smoke" },
-            animation_speed = 0.1,
-            filename = "__base__/graphics/entity/fire-smoke/fire-smoke.png",
-          }
-        },
-      }
-    }
   },
   scaled_cliff_crater(
   {

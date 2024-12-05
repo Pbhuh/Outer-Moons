@@ -179,7 +179,7 @@ data:extend({
 	{
 		type = "item",
 		name = "convector",
-		icon = "__outer_moons__/graphics/entity/convector/convector-hr-animation-1.png",
+		icon = "__outer_moons__/graphics/icons/convector.png",
 		subgroup = "production-machine",
 		color_hint = { text = "1" },
 		order = "g[convector]",

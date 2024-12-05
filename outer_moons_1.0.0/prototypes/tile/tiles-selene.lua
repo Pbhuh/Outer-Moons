@@ -240,10 +240,10 @@ data:extend
 		subgroup = "selene-tiles",
 		collision_mask = tile_collision_masks.ground(),
 		autoplace = {
-		  probability_expression = "crater_smooth_stone_warm_range"
+		  probability_expression = "crater_soil_light_range"
 		},
 		layer = 5,
-		map_color={120, 120, 120},
+		map_color={80, 80, 80},
 		vehicle_friction_modifier = 4,
 		
 		variants = tile_variations_template_with_transitions(
@@ -271,10 +271,10 @@ data:extend
 		subgroup = "selene-tiles",
 		collision_mask = tile_collision_masks.ground(),
 		autoplace = {
-		  probability_expression = "crater_ash_cracks_range"
+		  probability_expression = "crater_soil_dark_range"
 		},
 		layer = 6,
-		map_color={130, 130, 130},
+		map_color={100, 100, 100},
 		vehicle_friction_modifier = 4,
 		
 		variants = tile_variations_template_with_transitions(
@@ -364,7 +364,7 @@ data:extend
 		subgroup = "selene-tiles",
 		collision_mask = tile_collision_masks.ground(),
 		autoplace = {
-		  probability_expression = "crater_soil_dark_range"
+		  probability_expression = "crater_ash_cracks_range"
 		},
 		layer = 8,
 		map_color={90, 90, 90},
@@ -395,10 +395,10 @@ data:extend
 		subgroup = "selene-tiles",
 		collision_mask = tile_collision_masks.ground(),
 		autoplace = {
-		  probability_expression = "crater_soil_light_range"
+		  probability_expression = "crater_smooth_stone_warm_range"
 		},
 		layer = 9,
-		map_color={140, 140, 140},
+		map_color={130, 130, 130},
 		vehicle_friction_modifier = 4,
 		
 		variants = tile_variations_template_with_transitions(
@@ -429,7 +429,7 @@ data:extend
 		  probability_expression = "crater_cracks_hot_range"
 		},
 		layer = 10,
-		map_color={60, 60, 60},
+		map_color={110, 110, 110},
 		vehicle_friction_modifier = 4,
 		
 		variants = tile_variations_template_with_transitions(
@@ -460,7 +460,7 @@ data:extend
 		  probability_expression = "crater_cracks_warm_range"
 		},
 		layer = 11,
-		map_color={80, 80, 80},
+		map_color={120, 120, 120},
 		vehicle_friction_modifier = 4,
 		
 		variants = tile_variations_template_with_transitions(
@@ -491,7 +491,7 @@ data:extend
 		  probability_expression = "crater_cracks_cold_range"
 		},
 		layer = 12,
-		map_color={70, 70, 70},
+		map_color={100, 100, 100},
 		vehicle_friction_modifier = 4,
 		
 		variants = tile_variations_template_with_transitions(

@@ -3,7 +3,7 @@ data:extend{
   {
     type = "noise-expression",
     name = "selene_ore_spacing",
-    expression = 128
+    expression = 96
   },
   {
     type = "noise-expression",
@@ -30,7 +30,7 @@ data:extend{
     --functions more like a cliffiness multiplier as all the crater tiles have it offset.
     type = "noise-expression",
     name = "selene_craters_elevation_multiplier",
-    expression = 1.3
+    expression = 1.9
   },
 
   ---- HELPERS
@@ -111,7 +111,7 @@ data:extend{
                   - 2 * selene_moisture\z
                   - 1 * selene_aux\z
                   - 60 * selene_highlands_biome\z
-                  + 250 * max(0, selene_crater_spots - 0.6)"
+                  + 150 * max(0, selene_crater_spots - 0.6)"
   },
   ---- AUX (0-1): On selene this is Rockiness.
   ---- 0 is flat and arranged as paths through rocks.
@@ -189,8 +189,8 @@ data:extend{
     name = "selene_highlands_start",
     -- requires more influence because it is smaller and has no crater boost
     expression = "4 * starting_spot_at_angle{ angle = selene_highlands_angle,\z
-                                              distance = 170 * selene_starting_area_radius,\z
-                                              radius = 600 * selene_starting_area_radius,\z
+                                              distance = 150 * selene_starting_area_radius,\z
+                                              radius = 300 * selene_starting_area_radius,\z
                                               x_distortion = 0.1 * selene_starting_area_radius * (selene_wobble_x + selene_wobble_large_x + selene_wobble_huge_x),\z
                                               y_distortion = 0.1 * selene_starting_area_radius * (selene_wobble_y + selene_wobble_large_y + selene_wobble_huge_y)}"
   },
@@ -209,8 +209,8 @@ data:extend{
     expression = "2 * starting_spot_at_angle{ angle = selene_craters_angle,\z
                                               distance = 250 * selene_starting_area_radius,\z
                                               radius = 300 * selene_starting_area_radius,\z
-                                              x_distortion = 0.02 * selene_starting_area_radius * (selene_wobble_x + selene_wobble_large_x + selene_wobble_huge_x),\z
-                                              y_distortion = 0.02 * selene_starting_area_radius * (selene_wobble_y + selene_wobble_large_y + selene_wobble_huge_y)}"
+                                              x_distortion = 0.01 * selene_starting_area_radius * (selene_wobble_x + selene_wobble_large_x + selene_wobble_huge_x),\z
+                                              y_distortion = 0.01 * selene_starting_area_radius * (selene_wobble_y + selene_wobble_large_y + selene_wobble_huge_y)}"
   },
   {
     type = "noise-expression",
@@ -250,7 +250,7 @@ data:extend{
     type = "noise-expression",
     name = "selene_craters_biome_noise",
     expression = "selene_biome_multiscale{seed1 = 342,\z
-                                            scale = 60,\z
+                                            scale = 10,\z
                                             bias = 0}"
   },
   {
@@ -258,14 +258,14 @@ data:extend{
     name = "selene_highlands_biome_noise",
     expression = "selene_biome_multiscale{seed1 = 12416,\z
                                             scale = 40,\z
-                                            bias = 0}"
+                                            bias = 0.05}"
   },
   {
     type = "noise-expression",
     name = "selene_lowlands_biome_noise",
-    expression = "selene_biome_multiscale{seed1 = 42416,\z
-                                            scale = 80,\z
-                                            bias = 0}"
+    expression = "selene_biome_multiscale{seed1 = 32416,\z
+                                            scale = 100,\z
+                                            bias = 0.4}"
   },
 
 
@@ -310,19 +310,19 @@ data:extend{
     local_expressions =
     {
       starting_protector = "clamp(starting_spot_at_angle{ angle = selene_craters_angle + 180 * selene_starting_direction,\z
-                                                          distance = (500 * selene_starting_area_radius) / 2,\z
-                                                          radius = 400 * selene_starting_area_radius,\z
-                                                          x_distortion = selene_wobble_x/2 + selene_wobble_large_x/12 + selene_wobble_huge_x/80,\z
-                                                          y_distortion = selene_wobble_y/2 + selene_wobble_large_y/12 + selene_wobble_huge_y/80}, 0, 1)",
-      raw_spots = "spot_noise{x = x + selene_wobble_x/2 + selene_wobble_large_x/12 + selene_wobble_huge_x/80,\z
-                              y = y + selene_wobble_y/2 + selene_wobble_large_y/12 + selene_wobble_huge_y/80,\z
+                                                          distance = (600 * selene_starting_area_radius) / 2,\z
+                                                          radius = 300 * selene_starting_area_radius,\z
+                                                          x_distortion = selene_wobble_x/4 + selene_wobble_large_x/24 + selene_wobble_huge_x/160,\z
+                                                          y_distortion = selene_wobble_y/4 + selene_wobble_large_y/24 + selene_wobble_huge_y/160}, 0, 1)",
+      raw_spots = "spot_noise{x = x + selene_wobble_x/4 + selene_wobble_large_x/24 + selene_wobble_huge_x/160,\z
+                              y = y + selene_wobble_y/4 + selene_wobble_large_y/24 + selene_wobble_huge_y/160,\z
                               seed0 = map_seed,\z
                               seed1 = 1,\z
                               candidate_spot_count = 1,\z
                               suggested_minimum_candidate_point_spacing = crater_spot_spacing,\z
                               skip_span = 1,\z
                               skip_offset = 0,\z
-                              region_size = 256,\z
+                              region_size = 128,\z
                               density_expression = crater_area / craters_sq,\z
                               spot_quantity_expression = crater_spot_radius * crater_spot_radius,\z
                               spot_radius_expression = crater_spot_radius,\z
@@ -331,9 +331,9 @@ data:extend{
                               basement_value = 0,\z
                               maximum_spot_basement_radius = crater_spot_radius}",
       crater_area = "lerp(selene_craters_biome_full_pre_crater, 0, selene_starting_area)",
-      crater_spot_radius = "200 * craters",
-      crater_spot_spacing = "10000 * craters",
-      craters = "0.3 + 0.7 * slider_rescale(control:selene_craters:size, 3) / slider_rescale(selene_scale_multiplier, 3)",
+      crater_spot_radius = "300 * craters",
+      crater_spot_spacing = "50000 * craters",
+      craters = "0.2 + 0.3 * slider_rescale(control:selene_craters:size, 2) / slider_rescale(selene_scale_multiplier, 2)",
       craters_sq = "craters * craters"
     }
   },
@@ -341,10 +341,10 @@ data:extend{
     type = "noise-expression",
     name = "selene_starting_crater_spot",
     expression = "clamp(starting_spot_at_angle{ angle = selene_craters_angle,\z
-                                                distance = 400 * selene_starting_area_radius,\z
-                                                radius = 200,\z
-                                                x_distortion = selene_wobble_x/2 + selene_wobble_large_x/12 + selene_wobble_huge_x/80,\z
-                                                y_distortion = selene_wobble_y/2 + selene_wobble_large_y/12 + selene_wobble_huge_y/80}, 0, 1)"
+                                                distance = 300 * selene_starting_area_radius,\z
+                                                radius = 150,\z
+                                                x_distortion = selene_wobble_x/4 + selene_wobble_large_x/24 + selene_wobble_huge_x/160,\z
+                                                y_distortion = selene_wobble_y/4 + selene_wobble_large_y/24 + selene_wobble_huge_y/160}, 0, 1)"
   },
 
   {
@@ -465,13 +465,13 @@ data:extend{
   {
     type = "noise-expression",
     name = "selene_craters_func",
-    expression = "lerp(crater_elevation, 800 * crater_inverted_peak(selene_crater_spots, 0.25), clamp(selene_crater_spots * 3, 0, 1))\z
-     + 200 * (aux - 0.5) * (selene_crater_spots + 0.5)"
+    expression = "lerp(crater_elevation, 1100 * crater_inverted_peak(selene_crater_spots, 0.35), clamp(selene_crater_spots * 3, 0, 1))\z
+     + 300 * (aux - 0.5) * (selene_crater_spots + 0.5)"
   },
   {
     type = "noise-expression",
     name = "selene_highlands_func",
-    expression = "300 + 0.001 * min(basis_noise{x = x,\z
+    expression = "100 + 0.001 * min(basis_noise{x = x,\z
                                                 y = y,\z
                                                 seed0 = map_seed,\z
                                                 seed1 = 12643,\z
@@ -483,7 +483,7 @@ data:extend{
                                                 seed1 = 12643,\z
                                                 input_scale = selene_scale_multiplier / 50 / scale,\z
                                                 output_scale = 150})",
-    local_expressions = {scale = 3}
+    local_expressions = {scale = 5}
   },
   {
     type = "noise-expression",
@@ -576,16 +576,16 @@ data:extend{
   {
     type = "noise-expression",
     name = "selene_starting_regolith", -- don't use the slider for radius
-    expression = "starting_spot_at_angle{ angle = selene_highlands_angle - 10 * selene_starting_direction,\z
+    expression = "starting_spot_at_angle{ angle = selene_lowlands_angle - 10 * selene_starting_direction,\z
                                           distance = 100 * selene_starting_area_radius,\z
-                                          radius = 60 / 1.5,\z
+                                          radius = 30 / 1.5,\z
                                           x_distortion = 0.5 * selene_resource_wobble_x,\z
                                           y_distortion = 0.5 * selene_resource_wobble_y}"
   },
   {
     type = "noise-expression",
     name = "selene_starting_aluminum", -- don't use the slider for radius
-    expression = "starting_spot_at_angle{ angle = selene_lowlands_angle - 10 * selene_starting_direction,\z
+    expression = "starting_spot_at_angle{ angle = selene_highlands_angle - 10 * selene_starting_direction,\z
                                           distance = 200 * selene_starting_area_radius,\z
                                           radius = 30 / 1.5,\z
                                           x_distortion = 0.5 * selene_resource_wobble_x,\z
@@ -603,12 +603,12 @@ data:extend{
   {
     type = "noise-expression",
     name = "selene_starting_saline",
-    expression = "max(starting_spot_at_angle{ angle = selene_highlands_angle + 10 * selene_starting_direction,\z
+    expression = "max(starting_spot_at_angle{ angle = selene_lowlands_angle + 10 * selene_starting_direction,\z
                                               distance = 500 * selene_starting_area_radius,\z
                                               radius = 30,\z
                                               x_distortion = 0.75 * selene_resource_wobble_x,\z
                                               y_distortion = 0.75 * selene_resource_wobble_y},\z
-                      starting_spot_at_angle{ angle = selene_highlands_angle + 30 * selene_starting_direction,\z
+                      starting_spot_at_angle{ angle = selene_lowlands_angle + 30 * selene_starting_direction,\z
                                               distance = 200 * selene_starting_area_radius,\z
                                               radius = 25 * selene_saline_geyser_size,\z
                                               x_distortion = 0.75 * selene_resource_wobble_x,\z
@@ -651,18 +651,18 @@ data:extend{
     expression = "clamp(main_region - (selene_crater_spots > 0.78), 0, 1)",
     local_expressions =
     {
-      buffer = 0.6, -- push ores away from biome edges.
+      buffer = 0.8, -- push ores away from biome edges.
       contrast = 2,
       main_region = "clamp(((selene_craters_biome_full * (selene_starting_area < 0.01)) - buffer) * contrast, 0, 1)"
     }
   },
   {
     type = "noise-expression",
-    name = "selene_highlands_saline_favorability",
-    expression = "clamp(((selene_highlands_biome_full * (selene_starting_area < 0.01)) - buffer) * contrast, 0, 1)",
+    name = "selene_lowlands_saline_favorability",
+    expression = "clamp(((selene_lowlands_biome_full * (selene_starting_area < 0.01)) - buffer) * contrast, 0, 1)",
     local_expressions =
     {
-      buffer = 0.3, -- push ores away from biome edges.
+      buffer = 0.25, -- push ores away from biome edges.
       contrast = 2
     }
   },
@@ -672,7 +672,7 @@ data:extend{
     expression = "clamp(((selene_highlands_biome_full * (selene_starting_area < 0.01)) - buffer) * contrast, 0, 1)",
     local_expressions =
     {
-      buffer = 0.3, -- push ores away from biome edges.
+      buffer = 0.35, -- push ores away from biome edges.
       contrast = 2
     }
   },
@@ -729,7 +729,7 @@ data:extend{
   {
     type = "noise-expression",
     name = "selene_metallic_regolith_size",
-    expression = "slider_rescale(control:metallic_regolith:size, 2)"
+    expression = "slider_rescale(control:metallic_regolith:size, 1)"
   },
   {
     type = "noise-expression",
@@ -737,10 +737,10 @@ data:extend{
     -- -1 to 1: needs a positive region for resources & decoratives plus a subzero baseline and skirt for surrounding decoratives.
     expression = "max(selene_starting_regolith,\z
                       min(1 - selene_starting_circle,\z
-                          selene_place_metal_spots(1200, 15, 2,\z
-                                                     selene_metallic_regolith_size * min(1.2, selene_ore_dist) * 50,\z
-                                                     control:metallic_regolith:frequency,\z
-                                                     selene_highlands_resource_favorability)))"
+                          selene_place_metal_spots(789, 15, 2,\z
+                                                     selene_metallic_regolith_size * min(1.2, selene_ore_dist) * 10,\z
+                                                     control:metallic_regolith:frequency * 2,\z
+                                                     selene_lowlands_resource_favorability)))"
   },
   {
     type = "noise-expression",
@@ -766,10 +766,10 @@ data:extend{
     -- -1 to 1: needs a positive region for resources & decoratives plus a subzero baseline and skirt for surrounding decoratives.
     expression = "max(selene_starting_aluminum,\z
                       min(1 - selene_starting_circle,\z
-                          selene_place_metal_spots(800, 15, 2,\z
+                          selene_place_metal_spots(789, 15, 2,\z
                                                      selene_aluminum_ore_size * min(1.2, selene_ore_dist) * 25,\z
                                                      control:aluminum_ore:frequency,\z
-                                                     selene_lowlands_resource_favorability)))"
+                                                     selene_highlands_resource_favorability)))"
   },
   {
     type = "noise-expression",
@@ -794,7 +794,7 @@ data:extend{
     -- -1 to 1: needs a positive region for resources & decoratives plus a subzero baseline and skirt for surrounding decoratives.
     expression = "max(selene_starting_titanium,\z
                       min(1 - selene_starting_circle,\z
-                          selene_place_metal_spots(600, 15, 2,\z
+                          selene_place_metal_spots(789, 15, 2,\z
                                                      selene_titanium_ore_size * min(1.2, selene_ore_dist) * 25,\z
                                                      control:titanium_ore:frequency,\z
                                                      selene_craters_resource_favorability)))"
@@ -823,10 +823,10 @@ data:extend{
     -- -1 to 1: needs a positive region for resources & decoratives plus a subzero baseline and skirt for surrounding decoratives.
     expression = "max(selene_starting_saline,\z
                       min(1 - selene_starting_circle,\z
-                          selene_place_saline_spots(759, 5, 0,\z
+                          selene_place_saline_spots(789, 5, 0,\z
                                                       selene_saline_geyser_size * min(1.1, selene_geyser_dist) * 20,\z
                                                       control:saline_geyser:frequency,\z
-                                                      selene_highlands_saline_favorability)))"
+                                                      selene_lowlands_saline_favorability)))"
   },
   {
     type = "noise-expression",
@@ -848,7 +848,7 @@ data:extend{
     type = "noise-expression",
     name = "selene_saline_geyser_richness",
     expression = "(selene_saline_region > 0) * random_penalty_between(0.5, 1, 1)\z
-                  * 20000 * 40 * selene_richness_multiplier * selene_starting_area_multiplier\z
+                  * 10000 * 20 * selene_richness_multiplier * selene_starting_area_multiplier\z
                   * control:saline_geyser:richness / selene_saline_geyser_size"
   },
   {

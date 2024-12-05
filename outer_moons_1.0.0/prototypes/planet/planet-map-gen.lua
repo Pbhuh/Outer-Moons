@@ -23,8 +23,8 @@ planet_map_gen.selene = function()
     cliff_settings =
     {
       name = "cliff-selene",
-      cliff_elevation_interval = 120,
-      cliff_elevation_0 = 25
+      cliff_elevation_interval = 250,
+      cliff_elevation_0 = 40
     },
     autoplace_controls =
     {
@@ -57,16 +57,18 @@ planet_map_gen.selene = function()
         settings =
         {
 		  
-          ["vulcanus-dune-decal"] = {},
-          ["vulcanus-sand-decal"] = {},
-          ["crater-small"] = {},
-          ["crater-large"] = {},
-          --["pumice-relief-decal"] = {},
-          ["small-volcanic-rock"] = {},
-          ["medium-volcanic-rock"] = {},
-          ["tiny-volcanic-rock"] = {},
-          ["tiny-rock-cluster"] = {},
-         -- ["waves-decal"] = {},
+          ["selene-dune-decal"] = {},
+          ["selene-sand-decal"] = {},
+		  
+          ["crater-selene-small"] = {},
+          ["crater-selene-medium"] = {},
+          ["crater-selene-large"] = {},
+          ["crater-selene-very-large"] = {},
+          ["crater-selene-huge"] = {},
+		  
+          ["tiny-selene-rock"] = {},
+          ["small-selene-rock"] = {},
+          ["medium-selene-rock"] = {},
         }
       },
       ["entity"] =
@@ -77,8 +79,8 @@ planet_map_gen.selene = function()
           ["metallic-regolith"] = {},
           ["aluminum-ore"] = {},
           ["titanium-ore"] = {},
-          --["huge-volcanic-rock"] = {},
-          --["big-volcanic-rock"] = {},
+          ["huge-selene-rock"] = {},
+          ["big-selene-rock"] = {},
           ["selene-crater-cliff"] = {},
         }
       }
