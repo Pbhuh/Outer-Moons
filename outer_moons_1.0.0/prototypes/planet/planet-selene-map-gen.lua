@@ -738,8 +738,8 @@ data:extend{
     expression = "max(selene_starting_regolith,\z
                       min(1 - selene_starting_circle,\z
                           selene_place_metal_spots(789, 15, 2,\z
-                                                     selene_metallic_regolith_size * min(1.2, selene_ore_dist) * 10,\z
-                                                     control:metallic_regolith:frequency * 2,\z
+                                                     selene_metallic_regolith_size * min(1.2, selene_ore_dist) * 20,\z
+                                                     control:metallic_regolith:frequency,\z
                                                      selene_lowlands_resource_favorability)))"
   },
   {
@@ -751,7 +751,7 @@ data:extend{
     type = "noise-expression",
     name = "selene_metallic_regolith_richness",
     expression = "selene_metallic_regolith_region * random_penalty_between(0.9, 1, 1)\z
-                  * 10000 * selene_starting_area_multiplier\z
+                  * 16000 * selene_starting_area_multiplier\z
                   * control:metallic_regolith:richness / selene_metallic_regolith_size"
   },
 
@@ -767,7 +767,7 @@ data:extend{
     expression = "max(selene_starting_aluminum,\z
                       min(1 - selene_starting_circle,\z
                           selene_place_metal_spots(789, 15, 2,\z
-                                                     selene_aluminum_ore_size * min(1.2, selene_ore_dist) * 25,\z
+                                                     selene_aluminum_ore_size * min(1.2, selene_ore_dist) * 30,\z
                                                      control:aluminum_ore:frequency,\z
                                                      selene_highlands_resource_favorability)))"
   },
@@ -808,7 +808,7 @@ data:extend{
     type = "noise-expression",
     name = "selene_titanium_ore_richness",
     expression = "selene_titanium_ore_region * random_penalty_between(0.9, 1, 1)\z
-                  * 5000 * selene_starting_area_multiplier\z
+                  * 6000 * selene_starting_area_multiplier\z
                   * control:titanium_ore:richness / selene_titanium_ore_size"
   },
 

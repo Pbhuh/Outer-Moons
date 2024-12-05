@@ -1,4 +1,8 @@
---require("prototypes/recipe")
+
+--data.raw.entity["cargo-wagon"].inventory_size_quality_increase = 10,
+--data.raw.entity["fluid-wagon"].capacity_quality_increase = 10,
+
+
 
 -- Finite Pumping
 if data.raw.resource["crude-oil"] then
@@ -88,6 +92,7 @@ end
 --  {"electromagnetic-science-pack", 1}
 --}
 
+--data.raw.entity["assembling-machine-3"].next_upgrade = "adv-assembling-machine"
 -- Agricultural Science Pack doesn't spoil
 data.raw.tool["agricultural-science-pack"].spoil_ticks = nil
 data.raw.tool["agricultural-science-pack"].spoil_result = nil

@@ -44,6 +44,19 @@ end
 
 data:extend({
 	{
+		type = "item",
+		name = "rocket-part-new",
+		icon = "__outer_moons__/graphics/icons/rocket-part-new.png",
+		subgroup = "intermediate-product",
+		order = "d[rocket-parts]-c[rocket-part-new]",
+		inventory_move_sound = item_sounds.mechanical_inventory_move,
+		pick_sound = item_sounds.mechanical_inventory_pickup,
+		drop_sound = item_sounds.mechanical_inventory_move,
+		stack_size = 20,
+		weight = 20*kg,
+	},
+
+	{
         type = "item",
         name = "metallic-regolith",
         group = "intermediate-products",
@@ -188,6 +201,22 @@ data:extend({
 		drop_sound = item_sounds.mechanical_inventory_move,
 		place_result = "convector",
 		stack_size = 20,
-		random_tint_color = item_tints.iron_rust
+		weight = 50 * kg,
+		random_tint_color = item_tints.iron_rust		
+	},
+	{
+		type = "item",
+		name = "adv-assembling-machine",
+		icon = "__outer_moons__/graphics/icons/convector.png",
+		subgroup = "production-machine",
+		color_hint = { text = "1" },
+		order = "d[adv-assembling-machine]",
+		inventory_move_sound = item_sounds.mechanical_inventory_move,
+		pick_sound = item_sounds.mechanical_inventory_pickup,
+		drop_sound = item_sounds.mechanical_inventory_move,
+		place_result = "adv-assembling-machine",
+		stack_size = 20,
+		weight = 100 * kg,
+		random_tint_color = item_tints.iron_rust		
 	},
 })
