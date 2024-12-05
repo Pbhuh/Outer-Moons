@@ -718,7 +718,7 @@ data:extend(
     procession_graphic_catalogue = planet_catalogue_aquilo,
     surface_properties =
     {
-      ["day-night-cycle"] = 120 * minute,
+      ["day-night-cycle"] = 60 * minute,
       ["magnetic-field"] = 5,
       pressure = 1,
       ["solar-power"] = 300,

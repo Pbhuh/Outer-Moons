@@ -2,7 +2,7 @@ data:extend({
 	{
 		type = "recipe",
 		name = "chloralkali-process",
-		icon = "__outer_moons__/graphics/icons/fluid/saline.png",
+		icon = "__outer_moons__/graphics/icons/chloralkali.png",
 		category = "chemistry-or-cryogenics",
 		subgroup = "selene-processes",
 		order = "a[selene]-a[chloralkali-process]",
@@ -97,7 +97,7 @@ data:extend({
 	{
 		type = "recipe",
 		name = "red-mud-reprocessing",
-		icon = "__outer_moons__/graphics/icons/fluid/red-mud.png",
+		icon = "__outer_moons__/graphics/icons/red-mud-reprocessing.png",
 		category = "chemistry-or-cryogenics",
 		subgroup = "selene-processes",
 		order = "a[selene]-d[red-mud-reprocessing]",
@@ -162,7 +162,7 @@ data:extend({
 	{
 		type = "recipe",
 		name = "amalgamate-regolith",
-		icon = "__outer_moons__/graphics/icons/regolith.png",
+		icon = "__outer_moons__/graphics/icons/amalgamate-regolith.png",
 		category = "convecting",
 		subgroup = "selene-processes",
 		order = "b[selene]-a[amalgamate-regolith]",
