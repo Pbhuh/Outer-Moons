@@ -202,12 +202,12 @@ data:extend({
 		place_result = "convector",
 		stack_size = 20,
 		weight = 50 * kg,
-		random_tint_color = item_tints.iron_rust		
+		--random_tint_color = item_tints.iron_rust		
 	},
 	{
 		type = "item",
 		name = "adv-assembling-machine",
-		icon = "__outer_moons__/graphics/icons/convector.png",
+		icon = "__outer_moons__/graphics/icons/adv-assembler.png",
 		subgroup = "production-machine",
 		color_hint = { text = "1" },
 		order = "d[adv-assembling-machine]",
@@ -217,6 +217,43 @@ data:extend({
 		place_result = "adv-assembling-machine",
 		stack_size = 20,
 		weight = 100 * kg,
-		random_tint_color = item_tints.iron_rust		
+		--random_tint_color = item_tints.iron_rust		
+	},
+	{
+		type = "item",
+		name = "arc-furnace",
+		icon = "__outer_moons__/graphics/icons/arc-furnace.png",
+		subgroup = "smelting-machine",
+		color_hint = { text = "1" },
+		order = "d[arc-furnace]",
+		inventory_move_sound = item_sounds.mechanical_inventory_move,
+		pick_sound = item_sounds.mechanical_inventory_pickup,
+		drop_sound = item_sounds.mechanical_inventory_move,
+		place_result = "arc-furnace",
+		stack_size = 20,
+		weight = 100 * kg,
+		--random_tint_color = item_tints.iron_rust		
+	},
+	
+	-- Science
+	{
+		type = "tool",
+		name = "lunar-science-pack",
+		localised_description = {"item-description.science-pack"},
+		icon = "__outer_moons__/graphics/icons/lunar-science-pack.png",
+		subgroup = "science-pack",
+		color_hint = { text = "M" },
+		order = "h",
+		inventory_move_sound = item_sounds.science_inventory_move,
+		pick_sound = item_sounds.science_inventory_pickup,
+		drop_sound = item_sounds.science_inventory_move,
+		stack_size = 200,
+		default_import_location = "selene",
+		weight = 1*kg,
+		durability = 1,
+		durability_description_key = "description.science-pack-remaining-amount-key",
+		factoriopedia_durability_description_key = "description.factoriopedia-science-pack-remaining-amount-key",
+		durability_description_value = "description.science-pack-remaining-amount-value",
+		random_tint_color = item_tints.bluish_science
 	},
 })

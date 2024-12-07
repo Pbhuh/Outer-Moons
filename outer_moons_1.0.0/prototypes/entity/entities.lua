@@ -47,14 +47,14 @@ data:extend({
 	--icon_size = 64,
     flags = {"placeable-neutral","placeable-player", "player-creation"},
     minable = {mining_time = 0.2, result = "convector"},
-	order = "g[convector]",
+	--order = "g[convector]",
 	fast_replaceable_group = "convector",
 	module_slots = 2,
     max_health = 350,
 	corpse = "big-remnants",
     dying_explosion = "medium-explosion",
     alert_icon_shift = util.by_pixel(0, -12),
-    icon_draw_specification = {shift = {0, -0.3}},
+    icon_draw_specification = {shift = {-10, -0.3}},
 	--surface_conditions =
     --{
      -- {
@@ -104,7 +104,7 @@ data:extend({
                     repeat_count = 80,
                     animation_speed = 1,
                     draw_as_shadow = true,
-                    scale = 0.5,
+                    scale = 0.45,
                 },
                 {
                     priority = "high",
@@ -112,7 +112,7 @@ data:extend({
                     height = 350,
                     frame_count = 80,
                     animation_speed = 1,
-                    scale = 0.5,
+                    scale = 0.45,
                     stripes = {
                         {
                             filename = "__outer_moons__/graphics/entity/convector/convector-hr-animation-1.png",
@@ -137,7 +137,7 @@ data:extend({
                     size = { 360, 350 },
                     frame_count = 80,
                     draw_as_glow = true,
-                    scale = 0.5,
+                    scale = 0.45,
                     animation_speed = 1,
                     blend_mode = "additive",
                     stripes = {
@@ -155,7 +155,17 @@ data:extend({
                 },
             }
         },
-        reset_animation_when_frozen = true
+        reset_animation_when_frozen = true,
+		frozen_patch = { 
+			--tint = {0.5, 0.5, 0.8},
+			--tint_as_overlay = true,
+			priority = "extra-high",
+			filename = "__outer_moons__/graphics/entity/convector/convector-frozen.png",
+			scale = 0.45,
+			width = 360,
+			height = 350,
+			--shift = util.by_pixel( 0, 0),
+		}
     },	
     source_inventory_size = 1,
     crafting_categories = {"convecting"},
@@ -167,6 +177,7 @@ data:extend({
       emissions_per_minute = { pollution = 2 }
     },
     energy_usage = "500kW",
+	heating_energy = "100kW",
     allowed_effects = {"consumption", "speed", "productivity", "pollution", "quality"}
   },
   
@@ -176,9 +187,9 @@ data:extend({
     icon = "__outer_moons__/graphics/icons/adv-assembler.png",
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
     minable = {mining_time = 0.2, result = "adv-assembling-machine"},
-	order = "d[adv-assembling-machine]",
+	--order = "d[adv-assembling-machine]",
 	effect_receiver = { base_effect = { productivity = 0.5 }},
-    max_health = 500,
+    max_health = 350,
 	corpse = "big-remnants",
     dying_explosion = "medium-explosion",
     icon_draw_specification = {shift = {0, -0.3}},
@@ -198,7 +209,7 @@ data:extend({
         production_type = "input",
         pipe_picture = assembler2pipepictures(),
         pipe_covers = pipecoverspictures(),
-		volume = 1000,
+		volume = 100,
 		pipe_connections = { { direction = defines.direction.north, flow_direction = "input", position = { 0, -2 } } },
         secondary_draw_orders = { north = -1 }
       },
@@ -206,7 +217,7 @@ data:extend({
         production_type = "output",
         pipe_picture = assembler2pipepictures(),
         pipe_covers = pipecoverspictures(),
-		volume = 1000,
+		volume = 100,
 		pipe_connections = { { direction = defines.direction.south, flow_direction = "output", position = { 0, 2 } } },
         secondary_draw_orders = { north = -1 }
       },
@@ -284,7 +295,17 @@ data:extend({
                 },
             }
         },
-        reset_animation_when_frozen = true
+        reset_animation_when_frozen = true,
+		frozen_patch = { 
+			--tint = {0.5, 0.5, 0.8},
+			--tint_as_overlay = true,
+			priority = "extra-high",
+			filename = "__outer_moons__/graphics/entity/adv-assembler/adv-assembler-frozen.png",
+			scale = 0.5,
+			width = 320,
+			height = 320,
+			--shift = util.by_pixel( 0, 0),
+		}
     },
     open_sound = sounds.machine_open,
     close_sound = sounds.machine_close,
@@ -304,7 +325,7 @@ data:extend({
       idle_sound = { filename = "__base__/sound/idle1.ogg", volume = 0.6 },
       apparent_volume = 1.5,
     },
-    crafting_categories = {"basic-crafting", "crafting", "advanced-crafting", "crafting-with-fluid"},
+    crafting_categories = {"basic-crafting", "crafting", "advanced-crafting", "crafting-with-fluid", "advanced-assembly"},
 
     crafting_speed = 1.5,
     energy_source =
@@ -314,7 +335,164 @@ data:extend({
       emissions_per_minute = { pollution = 1 }
     },
     energy_usage = "750kW",
+	heating_energy = "100kW",
     module_slots = 5,
+    allowed_effects = {"consumption", "speed", "productivity", "pollution", "quality"}
+  },
+  
+  {
+    type = "assembling-machine",
+    name = "arc-furnace",
+    icon = "__outer_moons__/graphics/icons/arc-furnace.png",
+    flags = {"placeable-neutral", "placeable-player", "player-creation"},
+    minable = {mining_time = 0.2, result = "arc-furnace"},
+	--order = "d[arc-furnace]",
+	effect_receiver = { base_effect = { productivity = 0.5 }},
+	--source_inventory_size = 3,
+    max_health = 350,
+	corpse = "big-remnants",
+    dying_explosion = "medium-explosion",
+    icon_draw_specification = {shift = {0, -0.3}},
+    circuit_wire_max_distance = assembling_machine_circuit_wire_max_distance,
+    circuit_connector = circuit_connector_definitions["foundry"],
+    alert_icon_shift = util.by_pixel(0, -12),
+    resistances =
+    {
+      {
+        type = "fire",
+        percent = 80
+      }
+    },
+    fluid_boxes =
+    {
+      {
+        production_type = "input",
+        pipe_picture = assembler2pipepictures(),
+        pipe_picture_frozen = require("__space-age__.prototypes.entity.foundry-pictures").pipe_picture_frozen,
+        pipe_covers = pipecoverspictures(),
+        always_draw_covers = false,
+        --enable_working_visualisations = { "input-pipe" },
+        volume = 1000,
+        pipe_connections = {{ flow_direction="input", direction = defines.direction.south, position = {-1, 2} }}
+      },
+      {
+        production_type = "input",
+        pipe_picture = assembler2pipepictures(),
+        --pipe_picture_frozen = require("__space-age__.prototypes.entity.foundry-pictures").pipe_picture_frozen,
+        pipe_covers = pipecoverspictures(),
+        always_draw_covers = false,
+        --enable_working_visualisations = { "input-pipe" },
+        volume = 1000,
+        pipe_connections = {{ flow_direction="input", direction = defines.direction.south, position = {1, 2} }}
+      },
+      {
+        production_type = "output",
+        pipe_picture = assembler2pipepictures(),
+        --pipe_picture_frozen = require("__space-age__.prototypes.entity.foundry-pictures").pipe_picture_frozen,
+        pipe_covers = pipecoverspictures(),
+        always_draw_covers = false,
+        --enable_working_visualisations = { "output-pipe" },
+        volume = 100,
+        pipe_connections = {{ flow_direction="output", direction = defines.direction.north, position = {-1, -2} }}
+      },
+      {
+        production_type = "output",
+        pipe_picture = assembler2pipepictures(),
+        pipe_picture_frozen = require("__space-age__.prototypes.entity.foundry-pictures").pipe_picture_frozen,
+        pipe_covers = pipecoverspictures(),
+        always_draw_covers = false,
+        --enable_working_visualisations = { "output-pipe" },
+        volume = 100,
+        pipe_connections = {{ flow_direction="output", direction = defines.direction.north, position = {1, -2} }}
+      }
+    },
+    fluid_boxes_off_when_no_fluid_recipe = true,
+	collision_box = {{-2.2, -2.2}, {2.2, 2.2}},
+	selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
+    drawing_box = {{-2.5, -2.8}, {2.5, 2.5}},
+    damaged_trigger_effect = hit_effects.entity(),
+    graphics_set = {
+        animation = {
+            layers = {
+                {
+                    filename = "__outer_moons__/graphics/entity/arc-furnace/arc-furnace-hr-shadow.png",
+                    priority = "high",
+                    size = { 600, 400 },
+                    shift = { 0, 0 },
+                    scale = 0.5,
+                    line_length = 1,
+                    frame_count = 1,
+                    repeat_count = 40,
+                    draw_as_shadow = true,
+                    animation_speed = 0.25,
+                },
+                {
+                    filename = "__outer_moons__/graphics/entity/arc-furnace/arc-furnace-hr-structure.png",
+                    size = { 320, 320 },
+                    shift = { 0, 0 },
+                    scale = 0.5,
+                    line_length = 1,
+                    frame_count = 1,
+                    repeat_count = 40,
+                    animation_speed = 0.25,
+                },
+            },
+        },
+        working_visualisations = {
+            {
+                fadeout = true,
+                secondary_draw_order = 1,
+                animation = {
+                    layers = {
+                        {
+                            filename = "__outer_moons__/graphics/entity/arc-furnace/arc-furnace-hr-animation-emission-1.png",
+                            size = { 320, 320 },
+                            shift = { 0, 0 },
+                            scale = 0.5,
+                            line_length = 8,
+                            lines_per_file = 8,
+                            frame_count = 40,
+                            draw_as_glow = true,
+                            blend_mode = "additive",
+                            animation_speed = 0.25,
+                        },
+                    }
+                },
+            },
+        },
+
+        reset_animation_when_frozen = true,
+		frozen_patch = { 
+			--tint = {0.5, 0.5, 0.8},
+			--tint_as_overlay = true,
+			priority = "extra-high",
+			filename = "__outer_moons__/graphics/entity/arc-furnace/arc-furnace-frozen.png",
+			scale = 0.5,
+			width = 320,
+			height = 320,
+			--shift = util.by_pixel( 0, 0),
+		}
+    },
+    open_sound = sounds.machine_open,
+    close_sound = sounds.machine_close,
+    impact_category = "metal",
+    working_sound =
+    {
+      sound = {filename = "__base__/sound/electric-furnace.ogg", volume = 0.6},
+      apparent_volume = 0.3,
+    },
+    crafting_categories = {"smelting", "advanced-smelting"},
+
+    crafting_speed = 2,
+    energy_source =
+    {
+      type = "electric",
+      usage_priority = "secondary-input",
+      emissions_per_minute = { pollution = 1 }
+    },
+    energy_usage = "360kW",	
+	heating_energy = "100kW",
+    module_slots = 4,
     allowed_effects = {"consumption", "speed", "productivity", "pollution", "quality"}
   },
 })

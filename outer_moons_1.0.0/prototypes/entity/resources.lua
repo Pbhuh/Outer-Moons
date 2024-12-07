@@ -3,7 +3,8 @@ local sounds = require("__base__.prototypes.entity.sounds")
 local simulations = require("__space-age__.prototypes.factoriopedia-simulations")
 
 -- Initialize the core patch sets in a predictable order
---resource_autoplace.initialize_patch_set("titanium-ore", true, "selene")
+resource_autoplace.initialize_patch_set("saline-geyser", false, "selene")
+--resource_autoplace.initialize_patch_set("titanium-ore", false, "selene")
 --resource_autoplace.initialize_patch_set("chlorine-geyser", true, "selene")
 
 
@@ -130,7 +131,7 @@ data:extend({
 		  },
 		  walking_sound = sounds.ore,
 		  mining_visualisation_tint = {r = 161/256, g = 126/256, b = 122/256, a = 1.000},
-		  category = "hard-solid",
+		  --category = "hard-solid",
 		  factoriopedia_simulation = simulations.factoriopedia_titanium_ore,
 		},
 		{
