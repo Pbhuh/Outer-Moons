@@ -273,8 +273,8 @@ data:extend({
     autoplace = {
       order="a[resources]-b[saline]",
       --default_enabled = false,
-      probability_expression = "selene_saline_probability",
-      richness_expression = "selene_saline_richness"
+      probability_expression = "selene_saline_geyser_probability",
+      richness_expression = "selene_saline_geyser_richness"
     },
     stage_counts = {0},
     stages =

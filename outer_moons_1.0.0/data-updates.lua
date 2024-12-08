@@ -193,6 +193,24 @@ data.raw.technology["planet-discovery-fulgora"].prerequisites =
   "space-platform-thruster",
   "lunar-science-pack"
 }
+data.raw.technology["planet-discovery-fulgora"].effects =
+{
+  {
+	type = "unlock-space-location",
+	space_location = "fulgora",
+	use_icon_overlay_constant = true
+  },
+  {
+	type = "unlock-recipe",
+	recipe = "lightning-rod",
+  },
+  {
+	type = "unlock-recipe",
+	recipe = "sludge-separation"
+  },
+}
+data.raw["tile"]["oil-ocean-shallow"].fluid = "sludge"
+data.raw["tile"]["oil-ocean-deep"].fluid = "sludge"
 data.raw.technology["planet-discovery-fulgora"].unit.ingredients =
 {
    {"automation-science-pack",      1},

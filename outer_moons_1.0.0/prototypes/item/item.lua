@@ -43,6 +43,7 @@ end
 --})
 
 data:extend({
+	-- Nauvis et al
 	{
 		type = "item",
 		name = "rocket-part-new",
@@ -55,7 +56,7 @@ data:extend({
 		stack_size = 20,
 		weight = 20*kg,
 	},
-
+	-- Selene
 	{
         type = "item",
         name = "metallic-regolith",
@@ -187,7 +188,22 @@ data:extend({
 		stack_size = 100,
 		weight = 1 * kg,
 	},
-	
+	--Fulgora
+	{
+        type = "item",
+        name = "microplastic",
+        group = "intermediate-products",
+        icon = "__outer_moons__/graphics/icons/microplastic.png",
+        subgroup = "fulgora-processes",
+		default_import_location = "fulgora",
+        color_hint = { text = "I" },
+        order = "scrap]-b[microplastic]",
+        inventory_move_sound = item_sounds.resource_inventory_move,
+        pick_sound = item_sounds.resource_inventory_pickup,
+        drop_sound = item_sounds.resource_inventory_move,
+        stack_size = 200,
+        weight = 1 * kg
+    },
 	-- structures
 	{
 		type = "item",
@@ -256,4 +272,184 @@ data:extend({
 		durability_description_value = "description.science-pack-remaining-amount-value",
 		random_tint_color = item_tints.bluish_science
 	},
+	
+	--- TRANSPORT BELTS
+	-- OVERWRITE
+	{
+    type = "item",
+    name = "turbo-transport-belt",
+    icon = "__outer_moons__/graphics/icons/turbo-transport-belt.png",
+    subgroup = "belt",
+    color_hint = { text = "4" },
+    order = "a[transport-belt]-d[turbo-transport-belt]",
+    inventory_move_sound = item_sounds.transport_belt_inventory_move,
+    pick_sound = item_sounds.transport_belt_inventory_pickup,
+    drop_sound = item_sounds.transport_belt_inventory_move,
+    place_result = "turbo-transport-belt",
+    stack_size = 100,
+    default_import_location = "vulcanus",
+    weight = 20*kg
+  },
+  {
+    type = "item",
+    name = "turbo-underground-belt",
+    icon = "__outer_moons__/graphics/icons/turbo-underground-belt.png",
+    subgroup = "belt",
+    color_hint = { text = "4" },
+    order = "b[underground-belt]-d[turbo-underground-belt]",
+    inventory_move_sound = item_sounds.mechanical_inventory_move,
+    pick_sound = item_sounds.mechanical_inventory_pickup,
+    drop_sound = item_sounds.mechanical_inventory_move,
+    place_result = "turbo-underground-belt",
+    stack_size = 50,
+    default_import_location = "vulcanus",
+    weight = 40*kg
+  },
+  {
+    type = "item",
+    name = "turbo-splitter",
+    icon = "__outer_moons__/graphics/icons/turbo-splitter.png",
+    subgroup = "belt",
+    color_hint = { text = "4" },
+    order = "c[splitter]-d[turbo-splitter]",
+    inventory_move_sound = item_sounds.mechanical_inventory_move,
+    pick_sound = item_sounds.mechanical_inventory_pickup,
+    drop_sound = item_sounds.mechanical_inventory_move,
+    place_result = "turbo-splitter",
+    stack_size = 50,
+    default_import_location = "vulcanus",
+    weight = 40*kg
+  },
+  {
+    type = "item",
+    name = "turbo-loader",
+    icon = "__outer_moons__/graphics/icons/turbo-loader.png",
+    hidden = true,
+    subgroup = "belt",
+    color_hint = { text = "4" },
+    order = "d[loader]-d[turbo-loader]",
+    inventory_move_sound = item_sounds.mechanical_inventory_move,
+    pick_sound = item_sounds.mechanical_inventory_pickup,
+    drop_sound = item_sounds.mechanical_inventory_move,
+    place_result = "turbo-loader",
+    stack_size = 50
+  },
+  {
+    type = "item",
+    name = "hyper-transport-belt",
+    icon = "__outer_moons__/graphics/icons/hyper-transport-belt.png",
+    subgroup = "belt",
+    color_hint = { text = "5" },
+    order = "a[transport-belt]-e[hyper-transport-belt]",
+    inventory_move_sound = item_sounds.transport_belt_inventory_move,
+    pick_sound = item_sounds.transport_belt_inventory_pickup,
+    drop_sound = item_sounds.transport_belt_inventory_move,
+    place_result = "hyper-transport-belt",
+    stack_size = 100,
+    default_import_location = "mefitis",
+    weight = 20*kg
+  },
+  {
+    type = "item",
+    name = "hyper-underground-belt",
+    icon = "__outer_moons__/graphics/icons/hyper-underground-belt.png",
+    subgroup = "belt",
+    color_hint = { text = "5" },
+    order = "b[underground-belt]-e[hyper-underground-belt]",
+    inventory_move_sound = item_sounds.mechanical_inventory_move,
+    pick_sound = item_sounds.mechanical_inventory_pickup,
+    drop_sound = item_sounds.mechanical_inventory_move,
+    place_result = "hyper-underground-belt",
+    stack_size = 50,
+    default_import_location = "mefitis",
+    weight = 40*kg
+  },
+  {
+    type = "item",
+    name = "hyper-splitter",
+    icon = "__outer_moons__/graphics/icons/hyper-splitter.png",
+    subgroup = "belt",
+    color_hint = { text = "5" },
+    order = "c[splitter]-e[hyper-splitter]",
+    inventory_move_sound = item_sounds.mechanical_inventory_move,
+    pick_sound = item_sounds.mechanical_inventory_pickup,
+    drop_sound = item_sounds.mechanical_inventory_move,
+    place_result = "hyper-splitter",
+    stack_size = 50,
+    default_import_location = "mefitis",
+    weight = 40*kg
+  },
+  {
+    type = "item",
+    name = "hyper-loader",
+    icon = "__outer_moons__/graphics/icons/hyper-loader.png",
+    hidden = true,
+    subgroup = "belt",
+    color_hint = { text = "5" },
+    order = "d[loader]-e[hyper-loader]",
+    inventory_move_sound = item_sounds.mechanical_inventory_move,
+    pick_sound = item_sounds.mechanical_inventory_pickup,
+    drop_sound = item_sounds.mechanical_inventory_move,
+    place_result = "hyper-loader",
+    stack_size = 50
+  },
+  {
+    type = "item",
+    name = "vacuum-transport-belt",
+    icon = "__outer_moons__/graphics/icons/vacuum-transport-belt.png",
+    subgroup = "belt",
+    color_hint = { text = "6" },
+    order = "a[transport-belt]-f[vacuum-transport-belt]",
+    inventory_move_sound = item_sounds.transport_belt_inventory_move,
+    pick_sound = item_sounds.transport_belt_inventory_pickup,
+    drop_sound = item_sounds.transport_belt_inventory_move,
+    place_result = "vacuum-transport-belt",
+    stack_size = 100,
+    default_import_location = "mefitis",
+    weight = 20*kg
+  },
+  {
+    type = "item",
+    name = "vacuum-underground-belt",
+    icon = "__outer_moons__/graphics/icons/vacuum-underground-belt.png",
+    subgroup = "belt",
+    color_hint = { text = "6" },
+    order = "b[underground-belt]-f[vacuum-underground-belt]",
+    inventory_move_sound = item_sounds.mechanical_inventory_move,
+    pick_sound = item_sounds.mechanical_inventory_pickup,
+    drop_sound = item_sounds.mechanical_inventory_move,
+    place_result = "vacuum-underground-belt",
+    stack_size = 50,
+    default_import_location = "mefitis",
+    weight = 40*kg
+  },
+  {
+    type = "item",
+    name = "vacuum-splitter",
+    icon = "__outer_moons__/graphics/icons/vacuum-splitter.png",
+    subgroup = "belt",
+    color_hint = { text = "6" },
+    order = "c[splitter]-f[vacuum-splitter]",
+    inventory_move_sound = item_sounds.mechanical_inventory_move,
+    pick_sound = item_sounds.mechanical_inventory_pickup,
+    drop_sound = item_sounds.mechanical_inventory_move,
+    place_result = "vacuum-splitter",
+    stack_size = 50,
+    default_import_location = "mefitis",
+    weight = 40*kg
+  },
+  {
+    type = "item",
+    name = "vacuum-loader",
+    icon = "__outer_moons__/graphics/icons/vacuum-loader.png",
+    hidden = true,
+    subgroup = "belt",
+    color_hint = { text = "6" },
+    order = "d[loader]-f[vacuum-loader]",
+    inventory_move_sound = item_sounds.mechanical_inventory_move,
+    pick_sound = item_sounds.mechanical_inventory_pickup,
+    drop_sound = item_sounds.mechanical_inventory_move,
+    place_result = "vacuum-loader",
+    stack_size = 50
+  },
 })

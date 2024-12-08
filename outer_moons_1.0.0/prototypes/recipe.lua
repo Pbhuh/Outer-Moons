@@ -1,6 +1,33 @@
 data:extend({
 	{
 		type = "recipe",
+		name = "naphtha-distillation",
+		icon = "__outer_moons__/graphics/icons/naphtha-distillation.png",
+		category = "chemistry",
+		order = "a[fluid-chemistry]-g[naphtha-distillation]"
+		energy_required = 1,
+		enabled = false,
+		ingredients =
+		{
+		  {type = "fluid", name = "light-oil", amount = 30 },
+		  {type = "fluid", name = "water", amount = 10},
+		},
+		results =
+		{
+		  {type = "fluid", name = "naphtha", amount = 2 },
+		  {type = "item", name = "sulfur", amount = 1 }
+		},
+		allow_productivity = true,
+		crafting_machine_tint =
+		{
+		  primary = {r = 0.69, g = 0.55, b = 0.42, a = 1.000}, -- #fefeffff
+		  secondary = {r = 0.86, g = 0.85, b = 0.30, a = 1.000}, -- #c4c4c4ff
+		  tertiary = {r = 0.768, g = 0.665, b = 0.762, a = 1.000}, -- #c3a9c2ff
+		  quaternary = {r = 0.000, g = 0.000, b = 0.000, a = 1.000}, -- #000000ff
+		}
+	},
+	{
+		type = "recipe",
 		name = "rocket-part-new",
 		energy_required = 3,
 		enabled = false,
@@ -444,7 +471,93 @@ data:extend({
 		results = {{type="item", name="lunar-science-pack", amount=1}},
 		allow_productivity = true
 	},
+	
+	--Fulgora
+	{
+      type = "recipe",
+      name = "sludge-separation",
+      category = "organic-or-chemistry",
+      icon = "__outer_moons__/graphics/icons/fluid/fulgoran-sludge.png",
+      --icon = "__outer_moons__/graphics/icons/sludge-separation.png",
+      enabled = false,
+      energy_required = 5,
+      ingredients =
+      {
+        {type = "fluid", name = "sludge", amount = 500, fluidbox_multiplier = 10}
+      },
+      results =
+      {
+        {type = "fluid", name = "heavy-oil", amount = 45},
+        {type = "fluid", name = "water", amount = 5},
+        {type = "item", name = "microplastic", amount = 10},
+        {type = "item", name = "sulfur", amount = 1}
+      },
+      subgroup = "fluid-recipes",
+      order = "b[fluid-chemistry]-a[fulgoran-sludge-separation]",
+      allow_productivity = true,
+      auto_recycle = false,
+      crafting_machine_tint =
+      {
+        primary = {r = 0.5, g = 0.4, b = 0.25, a = 1.000},
+        secondary = {r = 0, g = 0, b = 0, a = 1.000},
+        tertiary = {r = 0.75, g = 0.5, b = 0.5},
+        quaternary = {r = 0.24, g = 0.16, b = 0.16}
+      }
+    },
+	{
+      type = "recipe",
+      name = "amalgamate-microplastic",
+      category = "convecting",
+      icon = "__outer_moons__/graphics/icons/microplastic.png",
+      --icon = "__outer_moons__/graphics/icons/amalgamate-microplastic.png",
+      enabled = false,
+      energy_required = 5,
+      ingredients =
+      {
+        {type = "item", name = "microplastic", amount = 5}
+      },
+      results =
+      {
+        {type = "item", name = "plastic-bar", amount = 1}
+      },
+      subgroup = "fluid-recipes",
+      order = "b[fluid-chemistry]-a[amalgamate-microplastic]",
+      allow_productivity = true,
+      auto_recycle = false,
+      crafting_machine_tint =
+      {
+        primary = {r = 0.69, g = 0.55, b = 0.42, a = 1.000}, -- #fefeffff
+		secondary = {r = 0.86, g = 0.85, b = 0.30, a = 1.000}, -- #c4c4c4ff
+		tertiary = {r = 0.768, g = 0.665, b = 0.762, a = 1.000}, -- #c3a9c2ff
+		quaternary = {r = 0.000, g = 0.000, b = 0.000, a = 1.000}, -- #000000ff
+      }
+    },
 	--overwrite
+	{
+		type = "recipe",
+		name = "plastic-bar",
+		category = "chemistry",
+		energy_required = 1,
+		enabled = false,
+		ingredients =
+		{
+		  {type = "fluid", name = "petroleum-gas", amount = 15 },
+		  {type = "fluid", name = "naphtha", amount = 20 },
+		  {type = "item", name = "sulfur", amount = 2 }
+		},
+		results =
+		{
+		  {type = "item", name = "plastic-bar", amount = 2}
+		},
+		allow_productivity = true,
+		crafting_machine_tint =
+		{
+		  primary = {r = 1.000, g = 1.000, b = 1.000, a = 1.000}, -- #fefeffff
+		  secondary = {r = 0.771, g = 0.771, b = 0.771, a = 1.000}, -- #c4c4c4ff
+		  tertiary = {r = 0.768, g = 0.665, b = 0.762, a = 1.000}, -- #c3a9c2ff
+		  quaternary = {r = 0.000, g = 0.000, b = 0.000, a = 1.000}, -- #000000ff
+		}
+	},
 	{
 		type = "recipe",
 		name = "stack-inserter",
@@ -463,6 +576,7 @@ data:extend({
 	{
 		type = "recipe",
 		name = "productivity-module-3",
+		category = "electronics",
 		enabled = false,
 		energy_required = 60,
 		ingredients =
@@ -473,5 +587,43 @@ data:extend({
 		  {type = "item", name = "uranium-fuel-cell", amount = 1}
 		},
 		results = {{type="item", name="productivity-module-3", amount=1}}
+	},
+	{
+		type = "recipe",
+		name = "scrap-recycling",
+		icons = {
+		  {
+			icon = "__quality__/graphics/icons/recycling.png"
+		  },
+		  {
+			icon = "__space-age__/graphics/icons/scrap.png",
+			scale = 0.4
+		  },
+		  {
+			icon = "__quality__/graphics/icons/recycling-top.png"
+		  }
+		},
+		category = "recycling-or-hand-crafting",
+		subgroup = "fulgora-processes",
+		order = "a[trash]-a[trash-recycling]",
+		enabled = false,
+		auto_recycle = false,
+		energy_required = 0.2,
+		ingredients = {{type = "item", name = "scrap", amount = 1}},
+		results =
+		{
+		  {type = "item", name = "processing-unit",        amount = 1, probability = 0.02, show_details_in_recipe_tooltip = false},
+		  {type = "item", name = "advanced-circuit",       amount = 1, probability = 0.03, show_details_in_recipe_tooltip = false},
+		  {type = "item", name = "low-density-structure",  amount = 1, probability = 0.01, show_details_in_recipe_tooltip = false},
+		  {type = "item", name = "solid-fuel",             amount = 1, probability = 0.02, show_details_in_recipe_tooltip = false},
+		  {type = "item", name = "steel-plate",            amount = 1, probability = 0.04, show_details_in_recipe_tooltip = false},
+		  {type = "item", name = "concrete",               amount = 1, probability = 0.06, show_details_in_recipe_tooltip = false},
+		  {type = "item", name = "battery",                amount = 1, probability = 0.04, show_details_in_recipe_tooltip = false},
+		  --{type = "item", name = "ice",                    amount = 1, probability = 0.05, show_details_in_recipe_tooltip = false},
+		  {type = "item", name = "stone",                  amount = 1, probability = 0.04, show_details_in_recipe_tooltip = false},
+		  {type = "item", name = "holmium-ore",            amount = 1, probability = 0.01, show_details_in_recipe_tooltip = false},
+		  {type = "item", name = "iron-gear-wheel",        amount = 1, probability = 0.20, show_details_in_recipe_tooltip = false},
+		  {type = "item", name = "copper-cable",           amount = 1, probability = 0.03, show_details_in_recipe_tooltip = false}
+		}
 	},
 })

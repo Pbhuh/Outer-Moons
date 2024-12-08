@@ -1,5 +1,5 @@
 require("__space-age__/prototypes/planet/planet-vulcanus-map-gen")
-require("__space-age__/prototypes/planet/planet-gleba-map-gen")
+require("__outer_moons__/prototypes/planet/planet-gleba-map-gen")
 require("__space-age__/prototypes/planet/planet-fulgora-map-gen")
 require("__space-age__/prototypes/planet/planet-aquilo-map-gen")
 require("__outer_moons__/prototypes/planet/planet-selene-map-gen")
@@ -128,7 +128,7 @@ data:extend(
     label_orientation = 0.15,
     order = "d[gleba]",
     subgroup = "planets",
-    map_gen_settings = planet_map_gen.gleba(),
+    map_gen_settings = planet_map_gen_new.gleba(),
     pollutant_type = "spores",
     solar_power_in_space = 200,
     platform_procession_set =
