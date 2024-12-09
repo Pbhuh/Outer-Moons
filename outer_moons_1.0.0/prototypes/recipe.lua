@@ -471,7 +471,407 @@ data:extend({
 		results = {{type="item", name="lunar-science-pack", amount=1}},
 		allow_productivity = true
 	},
+	--Gleba
+	{
+      type = "recipe",
+      name = "mulch",
+      category = "crafting",
+      icon = "__outer_moons__/graphics/icons/funnelbranch.png",
+      enabled = false,
+      energy_required = 5,
+      ingredients =
+      {
+        {type = "item", name = "wood", amount = 30},
+        {type = "item", name = "spoilage", amount = 20},
+      },
+      results =
+      {
+        {type = "item", name = "mulch", amount = 1},
+      },
+      subgroup = "gleba-processes",
+      order = "b[fluid-chemistry]-a[funnelwood-processing]",
+      allow_productivity = true,
+      auto_recycle = false,
+      crafting_machine_tint =
+      {
+        primary = {r = 0.65, g = 0.66, b = 0.42, a = 1.000},
+        secondary = {r = 0.75, g = 0.76, b = 0.52, a = 1.000},
+        tertiary = {r = 0.8, g = 0.8, b = 0.8},
+        quaternary = {r = 0.9, g = 0.9, b = 0.9}
+      }
+    },
+    {
+      type = "recipe",
+      name = "fertilizer",
+      category = "crafting",
+      icon = "__outer_moons__/graphics/icons/funnelbranch.png",
+      enabled = false,
+      energy_required = 5,
+      ingredients =
+      {
+        {type = "item", name = "phosphate", amount = 3},
+        {type = "item", name = "potassium-salt", amount = 2},
+      },
+      results =
+      {
+        {type = "item", name = "fertilizer", amount = 1},
+      },
+      subgroup = "gleba-processes",
+      order = "b[fluid-chemistry]-a[funnelwood-processing]",
+      allow_productivity = true,
+      auto_recycle = false,
+      crafting_machine_tint =
+      {
+        primary = {r = 0.65, g = 0.66, b = 0.42, a = 1.000},
+        secondary = {r = 0.75, g = 0.76, b = 0.52, a = 1.000},
+        tertiary = {r = 0.8, g = 0.8, b = 0.8},
+        quaternary = {r = 0.9, g = 0.9, b = 0.9}
+      }
+    },
+    {
+      type = "recipe",
+      name = "stone-amalgamation",
+      category = "convecting",
+      icon = "__outer_moons__/graphics/icons/funnelbranch.png",
+      enabled = false,
+      energy_required = 5,
+      ingredients =
+      {
+        {type = "item", name = "calcite", amount = 3},
+        {type = "fluid", name = "water", amount = 5},
+      },
+      results =
+      {
+        {type = "item", name = "stone", amount = 1},
+      },
+      subgroup = "gleba-processes",
+      order = "b[fluid-chemistry]-a[funnelwood-processing]",
+      allow_productivity = true,
+      auto_recycle = false,
+      crafting_machine_tint =
+      {
+        primary = {r = 0.65, g = 0.66, b = 0.42, a = 1.000},
+        secondary = {r = 0.75, g = 0.76, b = 0.52, a = 1.000},
+        tertiary = {r = 0.8, g = 0.8, b = 0.8},
+        quaternary = {r = 0.9, g = 0.9, b = 0.9}
+      }
+    },
+    
+    {
+      type = "recipe",
+      name = "ethanol-synthesis",
+      category = "organic-or-chemistry",
+      icon = "__outer_moons__/graphics/icons/funnelbranch.png",
+      enabled = false,
+      energy_required = 5,
+      ingredients =
+      {
+        {type = "item", name = "carbon", amount = 10},
+        {type = "item", name = "nutrients", amount = 3},
+        {type = "fluid", name = "water", amount = 5},
+      },
+      results =
+      {
+        {type = "item", name = "ethanol", amount = 10},
+      },
+      subgroup = "gleba-processes",
+      order = "b[fluid-chemistry]-a[funnelwood-processing]",
+      allow_productivity = true,
+      auto_recycle = false,
+      crafting_machine_tint =
+      {
+        primary = {r = 0.65, g = 0.66, b = 0.42, a = 1.000},
+        secondary = {r = 0.75, g = 0.76, b = 0.52, a = 1.000},
+        tertiary = {r = 0.8, g = 0.8, b = 0.8},
+        quaternary = {r = 0.9, g = 0.9, b = 0.9}
+      }
+    },
+    
+    {
+      type = "recipe",
+      name = "bioplastic",
+      category = "organic-or-chemistry",
+      icon = "__outer_moons__/graphics/icons/funnelbranch.png",
+      enabled = false,
+      energy_required = 5,
+      ingredients =
+      {
+        {type = "item", name = "sunnylattice", amount = 5},
+        {type = "fluid", name = "ethanol", amount = 10},
+      },
+      results =
+      {
+        {type = "item", name = "plastic-bar", amount = 2},
+      },
+      subgroup = "gleba-processes",
+      order = "b[fluid-chemistry]-a[funnelwood-processing]",
+      allow_productivity = true,
+      auto_recycle = false,
+      crafting_machine_tint =
+      {
+        primary = {r = 0.65, g = 0.66, b = 0.42, a = 1.000},
+        secondary = {r = 0.75, g = 0.76, b = 0.52, a = 1.000},
+        tertiary = {r = 0.8, g = 0.8, b = 0.8},
+        quaternary = {r = 0.9, g = 0.9, b = 0.9}
+      }
+    },
 	
+	{
+      type = "recipe",
+      name = "funnelwood-processing",
+      category = "organic",
+      icon = "__outer_moons__/graphics/icons/funnelbranch.png",
+      enabled = false,
+      energy_required = 5,
+      ingredients =
+      {
+        {type = "item", name = "funnelwood", amount = 2},
+      },
+      results =
+      {
+        {type = "item", name = "wood", amount = 1},
+        {type = "item", name = "funnelbranch", amount = 3},
+      },
+      subgroup = "fluid-recipes",
+      order = "b[fluid-chemistry]-a[funnelwood-processing]",
+      allow_productivity = true,
+      auto_recycle = false,
+      crafting_machine_tint =
+      {
+        primary = {r = 0.65, g = 0.66, b = 0.42, a = 1.000},
+        secondary = {r = 0.75, g = 0.76, b = 0.52, a = 1.000},
+        tertiary = {r = 0.8, g = 0.8, b = 0.8},
+        quaternary = {r = 0.9, g = 0.9, b = 0.9}
+      }
+    },
+    {
+      type = "recipe",
+      name = "frondstalk-processing",
+      category = "organic",
+      icon = "__outer_moons__/graphics/icons/frondstrand.png",
+      enabled = false,
+      energy_required = 5,
+      ingredients =
+      {
+        {type = "item", name = "frondstalk", amount = 3},
+      },
+      results =
+      {
+        {type = "item", name = "frondstrand", amount = 5},
+      },
+      subgroup = "fluid-recipes",
+      order = "b[fluid-chemistry]-a[frondstalk-processing]",
+      allow_productivity = true,
+      auto_recycle = false,
+      crafting_machine_tint =
+      {
+        primary = {r = 0.65, g = 0.66, b = 0.42, a = 1.000},
+        secondary = {r = 0.75, g = 0.76, b = 0.52, a = 1.000},
+        tertiary = {r = 0.8, g = 0.8, b = 0.8},
+        quaternary = {r = 0.9, g = 0.9, b = 0.9}
+      }
+    },
+    {
+      type = "recipe",
+      name = "cuttlepod-processing",
+      category = "organic",
+      icon = "__outer_moons__/graphics/icons/jelly.png",
+      enabled = false,
+      energy_required = 5,
+      ingredients =
+      {
+        {type = "item", name = "cuttlepod", amount = 2},
+      },
+      results =
+      {
+        {type = "item", name = "jelly", amount = 3},
+      },
+      subgroup = "fluid-recipes",
+      order = "b[fluid-chemistry]-a[cuttlepod-processing]",
+      allow_productivity = true,
+      auto_recycle = false,
+      crafting_machine_tint =
+      {
+        primary = {r = 0.65, g = 0.66, b = 0.42, a = 1.000},
+        secondary = {r = 0.75, g = 0.76, b = 0.52, a = 1.000},
+        tertiary = {r = 0.8, g = 0.8, b = 0.8},
+        quaternary = {r = 0.9, g = 0.9, b = 0.9}
+      }
+    },
+    {
+      type = "recipe",
+      name = "boompuff-bulb-processing",
+      category = "organic",
+      icon = "__outer_moons__/graphics/icons/boompowder.png",
+      enabled = false,
+      energy_required = 5,
+      ingredients =
+      {
+        {type = "item", name = "boompuff-bulb", amount = 1},
+      },
+      results =
+      {
+        {type = "item", name = "boompowder", amount = 5},
+      },
+      subgroup = "fluid-recipes",
+      order = "b[fluid-chemistry]-a[boompuff-bulb-processing]",
+      allow_productivity = true,
+      auto_recycle = false,
+      crafting_machine_tint =
+      {
+        primary = {r = 0.65, g = 0.66, b = 0.42, a = 1.000},
+        secondary = {r = 0.75, g = 0.76, b = 0.52, a = 1.000},
+        tertiary = {r = 0.8, g = 0.8, b = 0.8},
+        quaternary = {r = 0.9, g = 0.9, b = 0.9}
+      }
+    },
+    {
+      type = "recipe",
+      name = "sunnycomb-processing",
+      category = "organic",
+      icon = "__outer_moons__/graphics/icons/sunnylattice.png",
+      enabled = false,
+      energy_required = 5,
+      ingredients =
+      {
+        {type = "item", name = "sunnycomb", amount = 1},
+      },
+      results =
+      {
+        {type = "item", name = "sunnylattice", amount = 1},
+      },
+      subgroup = "fluid-recipes",
+      order = "b[fluid-chemistry]-a[sunnycomb-processing]",
+      allow_productivity = true,
+      auto_recycle = false,
+      crafting_machine_tint =
+      {
+        primary = {r = 0.65, g = 0.66, b = 0.42, a = 1.000},
+        secondary = {r = 0.75, g = 0.76, b = 0.52, a = 1.000},
+        tertiary = {r = 0.8, g = 0.8, b = 0.8},
+        quaternary = {r = 0.9, g = 0.9, b = 0.9}
+      }
+    },
+    
+	{
+      type = "recipe",
+      name = "slipstack-polyp-processing",
+      category = "organic",
+      icon = "__outer_moons__/graphics/icons/fluid/slipgoo.png",
+      enabled = false,
+      energy_required = 5,
+      ingredients =
+      {
+        {type = "item", name = "slipstack-polyp", amount = 5},
+        {type = "fluid", name = "water", amount = 15, fluidbox_multiplier = 10},
+      },
+      results =
+      {
+        {type = "fluid", name = "slipgoo", amount = 10},
+        {type = "item", name = "calcite", amount = 3},
+      },
+      subgroup = "fluid-recipes",
+      order = "b[fluid-chemistry]-a[slipstack-polyp-processing]",
+      allow_productivity = true,
+      auto_recycle = false,
+      crafting_machine_tint =
+      {
+        primary = {r = 0.65, g = 0.66, b = 0.42, a = 1.000},
+        secondary = {r = 0.75, g = 0.76, b = 0.52, a = 1.000},
+        tertiary = {r = 0.8, g = 0.8, b = 0.8},
+        quaternary = {r = 0.9, g = 0.9, b = 0.9}
+      }
+    },
+    {
+      type = "recipe",
+      name = "mawpouch-processing",
+      category = "organic",
+      icon = "__outer_moons__/graphics/icons/fluid/slipgoo.png",
+      enabled = false,
+      energy_required = 6,
+      ingredients =
+      {
+        {type = "item", name = "mawpouch", amount = 5},
+        {type = "fluid", name = "water", amount = 20, fluidbox_multiplier = 10},
+      },
+      results =
+      {
+        {type = "fluid", name = "mawslush", amount = 15},
+        {type = "item", name = "calcite", amount = 3},
+      },
+      subgroup = "fluid-recipes",
+      order = "b[fluid-chemistry]-b[mawpouch-processing]",
+      allow_productivity = true,
+      auto_recycle = false,
+      crafting_machine_tint =
+      {
+        primary = {r = 0.65, g = 0.16, b = 0.15, a = 1.000},
+        secondary = {r = 0.75, g = 0.26, b = 0.25, a = 1.000},
+        tertiary = {r = 0.8, g = 0.8, b = 0.8},
+        quaternary = {r = 0.9, g = 0.9, b = 0.9}
+      }
+    },
+    {
+      type = "recipe",
+      name = "bioslurry-synthesis",
+      category = "organic-or-chemistry",
+      icon = "__outer_moons__/graphics/icons/fluid/bioslurry.png",
+      enabled = false,
+      energy_required = 12,
+      ingredients =
+      {
+        {type = "item", name = "yumako-mash", amount = 10},
+        {type = "item", name = "jelly", amount = 5},
+        {type = "item", name = "sunnylattice", amount = 3},
+        {type = "item", name = "funnelbranch", amount = 2},
+        {type = "fluid", name = "slipgoo", amount = 20, fluidbox_multiplier = 10},
+        {type = "fluid", name = "mawslush", amount = 30, fluidbox_multiplier = 10},
+      },
+      results =
+      {
+        {type = "fluid", name = "mawslush", amount = 15},
+      },
+      subgroup = "fluid-recipes",
+      order = "b[fluid-chemistry]-c[bioslurry-synthesis]",
+      allow_productivity = true,
+      auto_recycle = false,
+      crafting_machine_tint =
+      {
+        primary = {r = 0.62, g = 0.11, b = 0.38, a = 1.000},
+        secondary = {r = 0.72, g = 0.21, b = 0.48, a = 1.000},
+        tertiary = {r = 0.8, g = 0.8, b = 0.8},
+        quaternary = {r = 0.9, g = 0.9, b = 0.9}
+      }
+    },
+    {
+      type = "recipe",
+      name = "bioflux-crystallization",
+      category = "organic-or-chemistry",
+      icon = "__outer_moons__/graphics/icons/fluid/bioslurry.png",
+      enabled = false,
+      energy_required = 12,
+      ingredients =
+      {
+        {type = "item", name = "potassium-salt", amount = 2},
+        {type = "fluid", name = "bioslurry", amount = 10, fluidbox_multiplier = 10},
+        {type = "fluid", name = "water", amount = 5, fluidbox_multiplier = 10},
+      },
+      results =
+      {
+        {type = "item", name = "bioflux", amount = 1},
+      },
+      subgroup = "fluid-recipes",
+      order = "b[fluid-chemistry]-d[bioflux-crystallization]",
+      allow_productivity = true,
+      auto_recycle = false,
+      crafting_machine_tint =
+      {
+        primary = {r = 0.62, g = 0.11, b = 0.38, a = 1.000},
+        secondary = {r = 0.72, g = 0.21, b = 0.48, a = 1.000},
+        tertiary = {r = 0.8, g = 0.8, b = 0.8},
+        quaternary = {r = 0.9, g = 0.9, b = 0.9}
+      }
+    },
 	--Fulgora
 	{
       type = "recipe",
