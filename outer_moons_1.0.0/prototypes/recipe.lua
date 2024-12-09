@@ -4,7 +4,7 @@ data:extend({
 		name = "naphtha-distillation",
 		icon = "__outer_moons__/graphics/icons/naphtha-distillation.png",
 		category = "chemistry",
-		order = "a[fluid-chemistry]-g[naphtha-distillation]"
+		order = "b[fluid-chemistry]-g[naphtha-distillation]",
 		energy_required = 1,
 		enabled = false,
 		ingredients =
@@ -557,6 +557,26 @@ data:extend({
 		  tertiary = {r = 0.768, g = 0.665, b = 0.762, a = 1.000}, -- #c3a9c2ff
 		  quaternary = {r = 0.000, g = 0.000, b = 0.000, a = 1.000}, -- #000000ff
 		}
+	},
+	{
+		type = "recipe",
+		name = "chemical-science-pack",
+		category = "chemistry",
+		enabled = false,
+		energy_required = 24,
+		ingredients =
+		{
+		  {type = "item", name = "engine-unit", amount = 2},
+		  {type = "item", name = "advanced-circuit", amount = 3},
+		  {type = "item", name = "sulfur", amount = 1}
+		},
+		results = {{type="item", name="chemical-science-pack", amount=2}},
+		crafting_machine_tint =
+		{
+		  primary = {r = 0.0, g = 0.8, b = 1.0, a = 1.000},
+		  secondary = {r = 0.0, g = 0.8, b = 1.0, a = 1.000},
+		},
+		allow_productivity = true
 	},
 	{
 		type = "recipe",

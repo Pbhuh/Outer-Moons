@@ -1,4 +1,5 @@
 local item_sounds = require("__base__.prototypes.item_sounds")
+local space_age_item_sounds = require("__space-age__.prototypes.item_sounds")
 local meld = require("meld")
 
 ---Creates a basic item
@@ -188,6 +189,263 @@ data:extend({
 		stack_size = 100,
 		weight = 1 * kg,
 	},
+	--Gleba	
+	-- harvestables
+	{
+		type = "capsule",
+		name = "funnelwood",
+		icon = "__outer_moons__/graphics/icons/funnelwood-1.png",
+		pictures =
+		{
+		  { size = 64, filename = "__outer_moons__/graphics/icons/funnelwood-1.png",   scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/funnelwood-2.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/funnelwood-3.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/funnelwood-4.png", scale = 0.5, mipmap_count = 4 }
+		},
+		subgroup = "agriculture-processes",
+		order = "b[agriculture]-a[funnelwood]",
+		inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
+		pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
+		drop_sound = space_age_item_sounds.agriculture_inventory_move,
+		fuel_category = "chemical",
+		fuel_value = "2MJ",
+		stack_size = 50,
+		default_import_location = "gleba",
+		weight = 1 * kg,
+		spoil_ticks = 60 * minute,
+		spoil_result = "spoilage",
+		capsule_action = item_effects.yumako_regen
+	},
+	{
+		type = "capsule",
+		name = "slipstack-polyp",
+		icon = "__outer_moons__/graphics/icons/slipstack-polyp-1.png",
+		pictures =
+		{
+		  { size = 64, filename = "__outer_moons__/graphics/icons/slipstack-polyp-1.png",   scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/slipstack-polyp-2.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/slipstack-polyp-3.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/slipstack-polyp-4.png", scale = 0.5, mipmap_count = 4 }
+		},
+		subgroup = "agriculture-processes",
+		order = "b[agriculture]-b[slipstack-polyp]",
+		inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
+		pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
+		drop_sound = space_age_item_sounds.agriculture_inventory_move,
+		fuel_category = "chemical",
+		fuel_value = "2MJ",
+		stack_size = 50,
+		default_import_location = "gleba",
+		weight = 1 * kg,
+		spoil_ticks = 60 * minute,
+		spoil_result = "spoilage",
+		capsule_action = item_effects.yumako_regen
+	},
+	{
+		type = "capsule",
+		name = "yumako",
+		icon = "__space-age__/graphics/icons/yumako.png",
+		pictures =
+		{
+		  { size = 64, filename = "__space-age__/graphics/icons/yumako.png",   scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__space-age__/graphics/icons/yumako-1.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__space-age__/graphics/icons/yumako-2.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__space-age__/graphics/icons/yumako-3.png", scale = 0.5, mipmap_count = 4 }
+		},
+		subgroup = "agriculture-processes",
+		order = "b[agriculture]-c[yumako]",
+		inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
+		pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
+		drop_sound = space_age_item_sounds.agriculture_inventory_move,
+		fuel_category = "chemical",
+		fuel_value = "2MJ",
+		stack_size = 50,
+		default_import_location = "gleba",
+		weight = 1 * kg,
+		spoil_ticks = 60 * minute,
+		spoil_result = "spoilage",
+		capsule_action = item_effects.yumako_regen
+	},
+	{
+		type = "capsule",
+		name = "mawpouch",
+		icon = "__outer_moons__/graphics/icons/mawpouch-1.png",
+		pictures =
+		{
+		  { size = 64, filename = "__outer_moons__/graphics/icons/mawpouch-1.png",   scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/mawpouch-2.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/mawpouch-3.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/mawpouch-4.png", scale = 0.5, mipmap_count = 4 }
+		},
+		subgroup = "agriculture-processes",
+		order = "b[agriculture]-d[mawpouch]",
+		inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
+		pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
+		drop_sound = space_age_item_sounds.agriculture_inventory_move,
+		fuel_category = "chemical",
+		fuel_value = "2MJ",
+		stack_size = 50,
+		default_import_location = "gleba",
+		weight = 1 * kg,
+		spoil_ticks = 60 * minute,
+		spoil_result = "spoilage",
+		capsule_action = item_effects.yumako_regen
+	},
+	{
+		type = "capsule",
+		name = "cuttlepod",
+		icon = "__outer_moons__/graphics/icons/cuttlepod-1.png",
+		pictures =
+		{
+		  { size = 64, filename = "__outer_moons__/graphics/icons/cuttlepod-1.png",   scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/cuttlepod-2.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/cuttlepod-3.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/cuttlepod-4.png", scale = 0.5, mipmap_count = 4 }
+		},
+		subgroup = "agriculture-processes",
+		order = "b[agriculture]-e[cuttlepod]",
+		inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
+		pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
+		drop_sound = space_age_item_sounds.agriculture_inventory_move,
+		fuel_category = "chemical",
+		fuel_value = "2MJ",
+		stack_size = 50,
+		default_import_location = "gleba",
+		weight = 1 * kg,
+		spoil_ticks = 60 * minute,
+		spoil_result = "spoilage",
+		capsule_action = item_effects.yumako_regen
+	},
+	{
+		type = "capsule",
+		name = "frondstalk",
+		icon = "__outer_moons__/graphics/icons/frondstalk-1.png",
+		pictures =
+		{
+		  { size = 64, filename = "__outer_moons__/graphics/icons/frondstalk-1.png",   scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/frondstalk-2.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/frondstalk-3.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/frondstalk-4.png", scale = 0.5, mipmap_count = 4 }
+		},
+		subgroup = "agriculture-processes",
+		order = "b[agriculture]-f[frondstalk]",
+		inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
+		pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
+		drop_sound = space_age_item_sounds.agriculture_inventory_move,
+		fuel_category = "chemical",
+		fuel_value = "2MJ",
+		stack_size = 50,
+		default_import_location = "gleba",
+		weight = 1 * kg,
+		spoil_ticks = 60 * minute,
+		spoil_result = "spoilage",
+		capsule_action = item_effects.yumako_regen
+	},
+	{
+		type = "capsule",
+		name = "boompuff-bulb",
+		icon = "__outer_moons__/graphics/icons/boompuff-bulb-1.png",
+		pictures =
+		{
+		  { size = 64, filename = "__outer_moons__/graphics/icons/boompuff-bulb-1.png",   scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/boompuff-bulb-2.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/boompuff-bulb-3.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/boompuff-bulb-4.png", scale = 0.5, mipmap_count = 4 }
+		},
+		subgroup = "agriculture-processes",
+		order = "b[agriculture]-g[boompuff-bulb]",
+		inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
+		pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
+		drop_sound = space_age_item_sounds.agriculture_inventory_move,
+		fuel_category = "chemical",
+		fuel_value = "2MJ",
+		stack_size = 50,
+		default_import_location = "gleba",
+		weight = 1 * kg,
+		spoil_ticks = 60 * minute,
+		spoil_result = "spoilage",
+		capsule_action = item_effects.yumako_regen
+	},
+	{
+		type = "capsule",
+		name = "sunnycomb",
+		icon = "__outer_moons__/graphics/icons/sunnycomb-1.png",
+		pictures =
+		{
+		  { size = 64, filename = "__outer_moons__/graphics/icons/sunnycomb-1.png",   scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/sunnycomb-2.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/sunnycomb-3.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/sunnycomb-4.png", scale = 0.5, mipmap_count = 4 }
+		},
+		subgroup = "agriculture-processes",
+		order = "b[agriculture]-h[sunnycomb]",
+		inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
+		pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
+		drop_sound = space_age_item_sounds.agriculture_inventory_move,
+		fuel_category = "chemical",
+		fuel_value = "2MJ",
+		stack_size = 50,
+		default_import_location = "gleba",
+		weight = 1 * kg,
+		spoil_ticks = 60 * minute,
+		spoil_result = "spoilage",
+		capsule_action = item_effects.yumako_regen
+	},
+	-- processed
+	{
+		type = "capsule",
+		name = "yumako-mash",
+		icon = "__space-age__/graphics/icons/yumako-mash.png",
+		subgroup = "agriculture-products",
+		order = "a[organic-processing]-c[yumako-mash]",
+		inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
+		pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
+		drop_sound = space_age_item_sounds.agriculture_inventory_move,
+		fuel_category = "chemical",
+		fuel_value = "1MJ",
+		stack_size = 100,
+		default_import_location = "gleba",
+		spoil_ticks = 3 * minute,
+		spoil_result = "spoilage",
+		weight = 0.5 * kg,
+		capsule_action = item_effects.yumako_regen
+	},
+	{
+		type = "capsule",
+		name = "jelly",
+		icon = "__space-age__/graphics/icons/jelly.png",
+		subgroup = "agriculture-products",
+		order = "a[organic-processing]-d[jelly]",
+		inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
+		pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
+		drop_sound = space_age_item_sounds.agriculture_inventory_move,
+		fuel_category = "chemical",
+		fuel_value = "1MJ",
+		stack_size = 100,
+		default_import_location = "gleba",
+		spoil_ticks = 4 * minute,
+		spoil_result = "spoilage",
+		weight = 0.5 * kg,
+		capsule_action = item_effects.jellynut_speed
+	},
+	{
+		type = "capsule",
+		name = "bioflux",
+		icon = "__space-age__/graphics/icons/bioflux.png",
+		subgroup = "agriculture-products",
+		order = "a[organic-processing]-b[bioflux]",
+		inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
+		pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
+		drop_sound = space_age_item_sounds.agriculture_inventory_move,
+		fuel_category = "food",
+		fuel_value = "6MJ",
+		stack_size = 100,
+		default_import_location = "gleba",
+		spoil_ticks = 2 * hour,
+		spoil_result = "spoilage",
+		weight = 1 * kg,
+		capsule_action = item_effects.bioflux_speed_and_regen
+	},
 	--Fulgora
 	{
         type = "item",
@@ -204,6 +462,32 @@ data:extend({
         stack_size = 200,
         weight = 1 * kg
     },
+	-- Feronia
+	{
+		type = "capsule",
+		name = "jellynut",
+		icon = "__space-age__/graphics/icons/jellynut.png",
+		pictures =
+		{
+		  { size = 64, filename = "__space-age__/graphics/icons/jellynut.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__space-age__/graphics/icons/jellynut-1.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__space-age__/graphics/icons/jellynut-2.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__space-age__/graphics/icons/jellynut-3.png", scale = 0.5, mipmap_count = 4 },
+		},
+		subgroup = "agriculture-processes",
+		order = "b[feronia-agriculture]-c[jellynut]",
+		inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
+		pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
+		drop_sound = space_age_item_sounds.agriculture_inventory_move,
+		stack_size = 50,
+		default_import_location = "feronia",
+		weight = 1 * kg,
+		spoil_ticks = 60 * minute,
+		fuel_category = "chemical",
+		fuel_value = "10MJ",
+		spoil_result = "spoilage",
+		capsule_action = item_effects.jellynut_speed
+	},
 	-- structures
 	{
 		type = "item",

@@ -345,7 +345,7 @@ data:extend(
   },
   {
     type = "plant",
-    name = "jellystem", -- in water. science
+    name = "jellystem", -- Feronia
     icon = "__space-age__/graphics/icons/jellystem.png",
     flags = plant_flags,
     minable =
@@ -425,8 +425,7 @@ data:extend(
       mining_time = 0.5,
       results =
       {
-        {type = "item", name = "spoilage", amount = 8},
-        {type = "item", name = "wood", amount = 2}
+        {type = "item", name = "cuttlepod", amount = 50}
       }
     },
     mining_sound = sound_variations("__space-age__/sound/mining/mining-cuttlepop", 6, 0.8),
@@ -509,8 +508,7 @@ data:extend(
       mining_time = 0.5,
       results =
       {
-        {type = "item", name = "spoilage", amount = 6},
-        {type = "item", name = "stone", amount = 4}
+        {type = "item", name = "slipstack-polyp", amount = 50}
       }
     },
     mining_sound = sound_variations("__space-age__/sound/mining/axe-mining-slipstack", 5, 0.5),
@@ -600,8 +598,7 @@ data:extend(
       mining_time = 0.5,
       results =
       {
-        {type = "item", name = "spoilage", amount = 4},
-        {type = "item", name = "wood", amount = 6}
+        {type = "item", name = "funnelwood", amount = 50}
       },
       mining_trigger =
       {
@@ -682,7 +679,7 @@ data:extend(
   },
   {
     type = "tree",
-    name = "hairyclubnub", -- wood
+    name = "hairyclubnub", -- Feronia
     icon = "__space-age__/graphics/icons/hairyclubnub.png",
     flags = plant_flags,
     minable =
@@ -770,7 +767,7 @@ data:extend(
   },
   {
     type = "tree",
-    name = "teflilly", -- plastic
+    name = "teflilly", -- Feronia
     icon = "__space-age__/graphics/icons/teflilly.png",
     flags = plant_flags,
     minable =
@@ -889,7 +886,7 @@ data:extend(
       mining_time = 0.5,
       results =
       {
-        {type = "item", name = "spoilage", amount = 10},
+        {type = "item", name = "mawpouch", amount = 50}
       },
       mining_trigger =
       {
@@ -999,8 +996,7 @@ data:extend(
       mining_time = 0.5,
       results =
       {
-        {type = "item", name = "spoilage", amount = 8},
-        {type = "item", name = "wood", amount = 2}
+        {type = "item", name = "frondstalk", amount = 50}
       }
     },
     mining_sound = sound_variations("__space-age__/sound/mining/axe-mining-stingfrond", 5, 0.5),
@@ -1119,8 +1115,7 @@ data:extend(
       mining_time = 0.5,
       results =
       {
-        {type = "item", name = "spoilage", amount = 6},
-        {type = "item", name = "wood", amount = 4}
+        {type = "item", name = "boompuff-bulb", amount = 50}
       },
       mining_trigger =
       {
@@ -1321,7 +1316,7 @@ data:extend(
       mining_time = 0.5,
       results =
       {
-        {type = "item", name = "spoilage", amount = 10}
+        {type = "item", name = "sunnycomb", amount = 50}
       },
       mining_trigger =
       {

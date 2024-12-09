@@ -10,7 +10,7 @@ simulations.factoriopedia_turbo_underground_belt =
   init =
   [[
     game.simulation.camera_position = {0, 0.5}
-    game.simulation.camera_zoom = 1.8
+    game.simulation.camera_zoom = 1.6
     game.surfaces[1].create_entities_from_blueprint_string
     {
       string = "0eNqVkM8KgzAMxt8l5yr4p8X1VcYYVoMENJXajon47mv1sMMOslPIl+T7JdnAjAFnR+xBb0Cd5QX0fYOFBm7HpHE7IWjwwRmbBe7RDc7GmBkcPewCKGpv0MX+EIDsyROeHkeyPjlMBl1sEBdeAma7xHHLiRstszqXAlbQVS4jqCeH3VmuBfh1Tl7Ec0hr/ODKv3HqmmaDP3DxVPI4ReX7PwEvdMsxUDZF3VRSKVVLJW/7/gFK3nh4",
@@ -23,7 +23,7 @@ simulations.factoriopedia_hyper_underground_belt =
   init =
   [[
     game.simulation.camera_position = {0, 0.5}
-    game.simulation.camera_zoom = 1.9
+    game.simulation.camera_zoom = 1.6
     game.surfaces[1].create_entities_from_blueprint_string
     {
       string = "0eNqVkMsOgjAQRf9l1pUE0qrwK8YYHhOcBKakDyMh/XcHWLhwoS6adm4757RdoBkiTo44QLUAtZY9VJcFPPVcD2vG9YhQwX2e0B0id+h6Z2U+NDgESApIsidUeboqQA4UCHfGVsw3jmODTg6oLywFk/XSbnn1rkidGQWzLExmxNSRw3bf1wqCUARGPMX1Hh++4m9fcfrBZ2PYhPJaCjhK8v5CBQ90fmswx6LUZWlk6Pycp/QCgnN5EA==",
@@ -36,7 +36,7 @@ simulations.factoriopedia_vacuum_underground_belt =
   init =
   [[
     game.simulation.camera_position = {0, 0.5}
-    game.simulation.camera_zoom = 2
+    game.simulation.camera_zoom = 1.6
     game.surfaces[1].create_entities_from_blueprint_string
     {
       string = "0eNqVkNsKgzAMht8l11XQ6VBfZYzhIUhA09KDTMR3X6oXu9jFtovQ5G/zf0026KaAxhJ7aDagXrOD5raBo5HbKWrczggNLG0fwpwEHtCOVsuZdDh52BWQaE9osv2uANmTJzxNjmJ9cJg7tPJAfTNTYLSTfs2RHD0vaalglaRKS0ENZLE/7wsFfjXRjdiE+JEPYP4/MK9+AOrgD6LMSx5nUd5bVLCgdUdDec3roq5LiSKrsn1/ASxpelE=",
