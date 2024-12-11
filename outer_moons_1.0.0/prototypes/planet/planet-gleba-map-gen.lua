@@ -490,12 +490,12 @@ data:extend{
   {
     type = "noise-expression",
     name = "gleba_biome_mask_green",
-    expression = "aux > 0.375"
+    expression = "aux > 0.3"
   },
   {
     type = "noise-expression",
     name = "gleba_biome_mask_red",
-    expression = "aux < 0.625"
+    expression = "aux < 0.6"
   },
 
 --- Decoratives general

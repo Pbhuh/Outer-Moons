@@ -35,7 +35,7 @@ data:extend(
   {
     type = "autoplace-control",
     name = "gleba_stone",
-    localised_name = {"", "[entity=stone] ", {"entity-name.stone"}},
+    localised_name = {"", "[entity=phosphate] ", {"entity-name.phosphate"}},
     richness = true,
     order = "d-a",
     category = "resource"

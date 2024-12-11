@@ -22,8 +22,8 @@ planet_map_gen.gleba = function()
       cliff_elevation = "cliff_elevation_from_elevation",
       enemy_base_radius = "gleba_enemy_base_radius",
       enemy_base_frequency = "gleba_enemy_base_frequency",
-      ["entity:stone:richness"] = "gleba_stone_richness",
-      ["entity:stone:probability"] = "gleba_stone_probability",
+      ["entity:phosphate:richness"] = "gleba_stone_richness",
+      ["entity:phosphate:probability"] = "gleba_stone_probability",
 
       ["decorative:red-desert-bush:probability"] = "gleba_red_desert_bush_probability",
       ["decorative:white-desert-bush:probability"] = "gleba_white_desert_bush_probability",
@@ -185,7 +185,7 @@ planet_map_gen.gleba = function()
       {
         settings =
         {
-          ["stone"] = {},
+          ["phosphate"] = {},
           ["iron-stromatolite"] = {},
           ["copper-stromatolite"] = {}
         }

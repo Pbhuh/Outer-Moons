@@ -1,4 +1,4 @@
-local tile_trigger_effects = require("prototypes.tile.tile-trigger-effects")
+local tile_trigger_effects = require("__space-age__/prototypes/tile/tile-trigger-effects")
 local tile_pollution = require("__space-age__/prototypes/tile/tile-pollution-values")
 local tile_collision_masks = require("__base__/prototypes/tile/tile-collision-masks")
 local tile_graphics = require("__base__/prototypes/tile/tile-graphics")
@@ -232,11 +232,147 @@ data:extend({
   },
   {
     type = "tile",
+    name = "artificial-cerulean-soil",
+    order = "d[yumako]-d[artificial-cerulean-soil]",
+    subgroup = "gleba-tiles",
+    minable = {mining_time = 0.5, result = "artificial-cerulean-soil"},
+    mined_sound = { filename = "__base__/sound/deconstruct-bricks.ogg", volume = 0.8}, -- sound?
+    is_foundation = true,
+    collision_mask = tile_collision_masks.ground(),
+    layer = gleba_tile_offset + 22,
+    searchable = true,
+
+    transitions = data.raw["tile"]["landfill"].transitions,
+    transitions_between_transitions = data.raw["tile"]["landfill"].transitions_between_transitions,
+    trigger_effect = tile_trigger_effects.landfill_trigger_effect(),
+
+    sprite_usage_surface = "gleba",
+    variants = tile_variations_template_with_transitions(
+      "__space-age__/graphics/terrain/artificial-yumako-soil.png",
+      {
+        max_size = 4,
+        [1] = { weights = {0.085, 0.085, 0.085, 0.085, 0.087, 0.085, 0.065, 0.085, 0.045, 0.045, 0.045, 0.045, 0.005, 0.025, 0.045, 0.045 } },
+        [2] = { probability = 1, weights = {0.018, 0.020, 0.015, 0.025, 0.015, 0.020, 0.025, 0.015, 0.025, 0.025, 0.010, 0.025, 0.020, 0.025, 0.025, 0.010 }, },
+        [4] = { probability = 0.1, weights = {0.018, 0.020, 0.015, 0.025, 0.015, 0.020, 0.025, 0.015, 0.025, 0.025, 0.010, 0.025, 0.020, 0.025, 0.025, 0.010 }, },
+      }
+    ),
+
+    walking_sound = semi_wet_sound,
+    landing_steps_sound = tile_sounds.landing.semi_wet,
+    driving_sound = wetland_driving_sound,
+    build_sound = data.raw["tile"]["landfill"].build_sound,
+    map_color={204, 183, 6},
+    scorch_mark_color = {r = 0.329, g = 0.242*2, b = 0.177, a = 1.000}
+  },
+  {
+    type = "tile",
+    name = "overgrowth-cerulean-soil",
+    order = "d[yumako]-e[overgrowth-cerulean-soil]",
+    subgroup = "gleba-tiles",
+    minable = {mining_time = 0.5, result = "overgrowth-cerulean-soil"},
+    mined_sound = { filename = "__base__/sound/deconstruct-bricks.ogg", volume = 0.8}, -- sound?
+    is_foundation = true,
+    collision_mask = tile_collision_masks.ground(),
+    layer = gleba_tile_offset + 24,
+    searchable = true,
+
+    transitions = data.raw["tile"]["landfill"].transitions,
+    transitions_between_transitions = data.raw["tile"]["landfill"].transitions_between_transitions,
+    trigger_effect = tile_trigger_effects.landfill_trigger_effect(),
+
+    sprite_usage_surface = "gleba",
+    variants = tile_variations_template_with_transitions(
+      "__space-age__/graphics/terrain/overgrowth-yumako-soil.png",
+      {
+        max_size = 4,
+        [1] = { weights = {0.085, 0.085, 0.085, 0.085, 0.087, 0.085, 0.065, 0.085, 0.045, 0.045, 0.045, 0.045, 0.005, 0.025, 0.045, 0.045 } },
+        [2] = { probability = 1, weights = {0.018, 0.020, 0.015, 0.025, 0.015, 0.020, 0.025, 0.015, 0.025, 0.025, 0.010, 0.025, 0.020, 0.025, 0.025, 0.010 }, },
+        [4] = { probability = 0.1, weights = {0.018, 0.020, 0.015, 0.025, 0.015, 0.020, 0.025, 0.015, 0.025, 0.025, 0.010, 0.025, 0.020, 0.025, 0.025, 0.010 }, },
+      }
+    ),
+
+    walking_sound = semi_wet_sound,
+    landing_steps_sound = tile_sounds.landing.semi_wet,
+    driving_sound = wetland_driving_sound,
+    build_sound = data.raw["tile"]["landfill"].build_sound,
+    map_color={204, 183, 6},
+    scorch_mark_color = {r = 0.329, g = 0.242*2, b = 0.177, a = 1.000}
+  },
+  {
+    type = "tile",
+    name = "artificial-ochre-soil",
+    order = "e[jellynut]-c[artificial-ochre-soil]",
+    subgroup = "gleba-tiles",
+    minable = {mining_time = 0.5, result = "artificial-ochre-soil"},
+    mined_sound = { filename = "__base__/sound/deconstruct-bricks.ogg", volume = 0.8}, -- sound?
+    is_foundation = true,
+    collision_mask = tile_collision_masks.ground(),
+    layer = gleba_tile_offset + 23,
+    searchable = true,
+
+    transitions = data.raw["tile"]["landfill"].transitions,
+    transitions_between_transitions = data.raw["tile"]["landfill"].transitions_between_transitions,
+    trigger_effect = tile_trigger_effects.landfill_trigger_effect(),
+
+    sprite_usage_surface = "gleba",
+    variants = tile_variations_template_with_transitions(
+      "__space-age__/graphics/terrain/artificial-jellynut-soil.png",
+      {
+        max_size = 4,
+        [1] = { weights = {0.085, 0.085, 0.085, 0.085, 0.087, 0.085, 0.065, 0.085, 0.045, 0.045, 0.045, 0.045, 0.005, 0.025, 0.045, 0.045 } },
+        [2] = { probability = 1, weights = {0.018, 0.020, 0.015, 0.025, 0.015, 0.020, 0.025, 0.015, 0.025, 0.025, 0.010, 0.025, 0.020, 0.025, 0.025, 0.010 }, },
+        [4] = { probability = 0.1, weights = {0.018, 0.020, 0.015, 0.025, 0.015, 0.020, 0.025, 0.015, 0.025, 0.025, 0.010, 0.025, 0.020, 0.025, 0.025, 0.010 }, },
+      }
+    ),
+
+    walking_sound = semi_wet_sound,
+    landing_steps_sound = tile_sounds.landing.semi_wet,
+    driving_sound = wetland_driving_sound,
+    build_sound = data.raw["tile"]["landfill"].build_sound,
+    map_color={204, 6, 183},
+    scorch_mark_color = {r = 0.329, g = 0.242*2, b = 0.177, a = 1.000}
+  },
+  {
+    type = "tile",
+    name = "overgrowth-ochre-soil",
+    order = "e[jellynut]-d[overgrowth-ochre-soil]",
+    subgroup = "gleba-tiles",
+    minable = {mining_time = 0.5, result = "overgrowth-ochre-soil"},
+    mined_sound = { filename = "__base__/sound/deconstruct-bricks.ogg", volume = 0.8}, -- sound?
+    is_foundation = true,
+    collision_mask = tile_collision_masks.ground(),
+    layer = gleba_tile_offset + 25,
+    searchable = true,
+
+    transitions = data.raw["tile"]["landfill"].transitions,
+    transitions_between_transitions = data.raw["tile"]["landfill"].transitions_between_transitions,
+    trigger_effect = tile_trigger_effects.landfill_trigger_effect(),
+
+    sprite_usage_surface = "gleba",
+    variants = tile_variations_template_with_transitions(
+      "__space-age__/graphics/terrain/overgrowth-jellynut-soil.png",
+      {
+        max_size = 4,
+        [1] = { weights = {0.085, 0.085, 0.085, 0.085, 0.087, 0.085, 0.065, 0.085, 0.045, 0.045, 0.045, 0.045, 0.005, 0.025, 0.045, 0.045 } },
+        [2] = { probability = 1, weights = {0.018, 0.020, 0.015, 0.025, 0.015, 0.020, 0.025, 0.015, 0.025, 0.025, 0.010, 0.025, 0.020, 0.025, 0.025, 0.010 }, },
+        [4] = { probability = 0.1, weights = {0.018, 0.020, 0.015, 0.025, 0.015, 0.020, 0.025, 0.015, 0.025, 0.025, 0.010, 0.025, 0.020, 0.025, 0.025, 0.010 }, },
+      }
+    ),
+
+    walking_sound = semi_wet_sound,
+    landing_steps_sound = tile_sounds.landing.semi_wet,
+    driving_sound = wetland_driving_sound,
+    build_sound = data.raw["tile"]["landfill"].build_sound,
+    map_color={204, 6, 183},
+    scorch_mark_color = {r = 0.329, g = 0.242*2, b = 0.177, a = 1.000}
+  },
+  {
+    type = "tile",
     name = "natural-yumako-soil",
     order = "d[yumako]-c[natural-yumako-soil]",
     subgroup = "gleba-tiles",
     collision_mask = tile_collision_masks.ground(),
-    autoplace = {probability_expression = "gleba_fertile_solid * 50000 - 40000 - gleba_biome_mask_green * 1000000"},
+    autoplace = {probability_expression = "gleba_fertile_solid * 50000 - 10000 - gleba_biome_mask_green * 1000000"},
     layer_group = "ground-natural",
     layer = gleba_tile_offset + 20,
     searchable = true,
@@ -268,7 +404,7 @@ data:extend({
     order = "e[jellynut]-b[natural-jellynut-soil]",
     subgroup = "gleba-tiles",
     collision_mask = tile_collision_masks.ground(),
-    autoplace = {probability_expression = "gleba_fertile_solid * 50000 - 40000 - gleba_biome_mask_red * 1000000"},
+    autoplace = {probability_expression = "gleba_fertile_solid * 50000 - 10000 - gleba_biome_mask_red * 1000000"},
     layer_group = "ground-natural",
     layer = gleba_tile_offset + 21,
     searchable = true,

@@ -85,13 +85,13 @@ data:extend({
         name = "aluminum-ore",
         group = "intermediate-products",
         icon = "__outer_moons__/graphics/icons/aluminum-ore.png",
-        pictures =
-        {
-            size = 64,
-            filename = "__outer_moons__/graphics/icons/aluminum-ore.png",
-            scale = 0.5,
-            mipmap_count = 4,
-        },
+		pictures =
+		{
+		  { size = 64, filename = "__outer_moons__/graphics/icons/aluminum-ore.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/aluminum-ore-2.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/aluminum-ore-3.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/aluminum-ore-4.png", scale = 0.5, mipmap_count = 4 },
+		},
         subgroup = "selene-processes",
 		default_import_location = "selene",
         color_hint = { text = "I" },
@@ -108,12 +108,12 @@ data:extend({
         group = "intermediate-products",
         icon = "__outer_moons__/graphics/icons/titanium-ore.png",
         pictures =
-        {
-            size = 64,
-            filename = "__outer_moons__/graphics/icons/titanium-ore.png",
-            scale = 0.5,
-            mipmap_count = 4,
-        },
+		{
+		  { size = 64, filename = "__outer_moons__/graphics/icons/titanium-ore.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/titanium-ore-2.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/titanium-ore-3.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/titanium-ore-4.png", scale = 0.5, mipmap_count = 4 },
+		},
         subgroup = "selene-processes",
 		default_import_location = "selene",
         color_hint = { text = "I" },
@@ -190,6 +190,277 @@ data:extend({
 		weight = 1 * kg,
 	},
 	--Gleba	
+	-- seeds
+	{
+        type = "item",
+        name = "phosphate",
+        group = "intermediate-products",
+        icon = "__outer_moons__/graphics/icons/phosphate.png",
+		pictures =
+		{
+		  { size = 64, filename = "__outer_moons__/graphics/icons/phosphate.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/phosphate-2.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/phosphate-3.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/phosphate-4.png", scale = 0.5, mipmap_count = 4 },
+		},
+        subgroup = "agriculture-products",
+		order = "a[organic-processing]-a[phosphate]",
+		default_import_location = "gleba",
+        inventory_move_sound = item_sounds.resource_inventory_move,
+        pick_sound = item_sounds.resource_inventory_pickup,
+        drop_sound = item_sounds.resource_inventory_move,
+        stack_size = 50,
+        weight = 5 * kg
+    },
+	{
+		type = "item",
+		name = "funneltrunk-seed",
+		localised_name = {"item-name.funneltrunk-seed"},
+		icon = "__space-age__/graphics/icons/yumako-seed.png",
+		pictures =
+		{
+		  { size = 64, filename = "__space-age__/graphics/icons/yumako-seed-1.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__space-age__/graphics/icons/yumako-seed-2.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__space-age__/graphics/icons/yumako-seed-3.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__space-age__/graphics/icons/yumako-seed-4.png", scale = 0.5, mipmap_count = 4 },
+		},
+		subgroup = "agriculture-processes",
+		order = "b[seeds]-a[funneltrunk-seed]",
+		plant_result = "funneltrunk-plant",
+		place_result = "funneltrunk-plant",
+		inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
+		pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
+		drop_sound = space_age_item_sounds.agriculture_inventory_move,
+		stack_size = 10,
+		default_import_location = "gleba",
+		weight = 10 * kg,
+		fuel_category = "chemical",
+		fuel_value = "4MJ"
+	},
+	{
+		type = "item",
+		name = "slipstack-seed",
+		localised_name = {"item-name.slipstack-seed"},
+		icon = "__space-age__/graphics/icons/yumako-seed.png",
+		pictures =
+		{
+		  { size = 64, filename = "__space-age__/graphics/icons/yumako-seed-1.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__space-age__/graphics/icons/yumako-seed-2.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__space-age__/graphics/icons/yumako-seed-3.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__space-age__/graphics/icons/yumako-seed-4.png", scale = 0.5, mipmap_count = 4 },
+		},
+		subgroup = "agriculture-processes",
+		order = "b[seeds]-b[slipstack-seed]",
+		plant_result = "slipstack-plant",
+		place_result = "slipstack-plant",
+		inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
+		pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
+		drop_sound = space_age_item_sounds.agriculture_inventory_move,
+		stack_size = 10,
+		default_import_location = "gleba",
+		weight = 10 * kg,
+		fuel_category = "chemical",
+		fuel_value = "4MJ"
+	},
+	{
+		type = "item",
+		name = "yumako-seed",
+		localised_name = {"item-name.yumako-seed"},
+		icon = "__space-age__/graphics/icons/yumako-seed.png",
+		pictures =
+		{
+		  { size = 64, filename = "__space-age__/graphics/icons/yumako-seed-1.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__space-age__/graphics/icons/yumako-seed-2.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__space-age__/graphics/icons/yumako-seed-3.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__space-age__/graphics/icons/yumako-seed-4.png", scale = 0.5, mipmap_count = 4 },
+		},
+		subgroup = "agriculture-processes",
+		order = "b[seeds]-c[yumako-seed]",
+		plant_result = "yumako-tree",
+		place_result = "yumako-tree",
+		inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
+		pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
+		drop_sound = space_age_item_sounds.agriculture_inventory_move,
+		stack_size = 10,
+		default_import_location = "gleba",
+		weight = 10 * kg,
+		fuel_category = "chemical",
+		fuel_value = "4MJ"
+	},
+	{
+		type = "item",
+		name = "lickmaw-seed",
+		localised_name = {"item-name.lickmaw-seed"},
+		icon = "__space-age__/graphics/icons/yumako-seed.png",
+		pictures =
+		{
+		  { size = 64, filename = "__space-age__/graphics/icons/yumako-seed-1.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__space-age__/graphics/icons/yumako-seed-2.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__space-age__/graphics/icons/yumako-seed-3.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__space-age__/graphics/icons/yumako-seed-4.png", scale = 0.5, mipmap_count = 4 },
+		},
+		subgroup = "agriculture-processes",
+		order = "b[seeds]-d[lickmaw-seed]",
+		plant_result = "lickmaw-plant",
+		place_result = "lickmaw-plant",
+		inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
+		pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
+		drop_sound = space_age_item_sounds.agriculture_inventory_move,
+		stack_size = 10,
+		default_import_location = "gleba",
+		weight = 10 * kg,
+		fuel_category = "chemical",
+		fuel_value = "4MJ"
+	},
+	{
+		type = "item",
+		name = "stingfrond-seed",
+		localised_name = {"item-name.stingfrond-seed"},
+		icon = "__space-age__/graphics/icons/yumako-seed.png",
+		pictures =
+		{
+		  { size = 64, filename = "__space-age__/graphics/icons/yumako-seed-1.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__space-age__/graphics/icons/yumako-seed-2.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__space-age__/graphics/icons/yumako-seed-3.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__space-age__/graphics/icons/yumako-seed-4.png", scale = 0.5, mipmap_count = 4 },
+		},
+		subgroup = "agriculture-processes",
+		order = "b[seeds]-e[stingfrond-seed]",
+		plant_result = "stingfrond-plant",
+		place_result = "stingfrond-plant",
+		inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
+		pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
+		drop_sound = space_age_item_sounds.agriculture_inventory_move,
+		stack_size = 10,
+		default_import_location = "gleba",
+		weight = 10 * kg,
+		fuel_category = "chemical",
+		fuel_value = "4MJ"
+	},
+	{
+		type = "item",
+		name = "cuttlepop-seed",
+		localised_name = {"item-name.cuttlepop-seed"},
+		icon = "__space-age__/graphics/icons/jellynut-seed.png",
+		pictures =
+		{
+		  { size = 64, filename = "__space-age__/graphics/icons/jellynut-seed-1.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__space-age__/graphics/icons/jellynut-seed-2.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__space-age__/graphics/icons/jellynut-seed-3.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__space-age__/graphics/icons/jellynut-seed-4.png", scale = 0.5, mipmap_count = 4 },
+		},
+		subgroup = "agriculture-processes",
+		order = "b[seeds]-f[cuttlepop-seed]",
+		plant_result = "cuttlepop-plant",
+		place_result = "cuttlepop-plant",
+		inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
+		pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
+		drop_sound = space_age_item_sounds.agriculture_inventory_move,
+		stack_size = 10,
+		default_import_location = "gleba",
+		weight = 10 * kg,
+		fuel_category = "chemical",
+		fuel_value = "4MJ"
+	},
+	{
+		type = "item",
+		name = "boompuff-seed",
+		localised_name = {"item-name.boompuff-seed"},
+		icon = "__space-age__/graphics/icons/jellynut-seed.png",
+		pictures =
+		{
+		  { size = 64, filename = "__space-age__/graphics/icons/jellynut-seed-1.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__space-age__/graphics/icons/jellynut-seed-2.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__space-age__/graphics/icons/jellynut-seed-3.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__space-age__/graphics/icons/jellynut-seed-4.png", scale = 0.5, mipmap_count = 4 },
+		},
+		subgroup = "agriculture-processes",
+		order = "b[seeds]-g[boompuff-seed]",
+		plant_result = "boompuff-plant",
+		place_result = "boompuff-plant",
+		inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
+		pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
+		drop_sound = space_age_item_sounds.agriculture_inventory_move,
+		stack_size = 10,
+		default_import_location = "gleba",
+		weight = 10 * kg,
+		fuel_category = "chemical",
+		fuel_value = "4MJ"
+	},
+	{
+		type = "item",
+		name = "sunnycomb-seed",
+		localised_name = {"item-name.sunnycomb-seed"},
+		icon = "__space-age__/graphics/icons/jellynut-seed.png",
+		pictures =
+		{
+		  { size = 64, filename = "__space-age__/graphics/icons/jellynut-seed-1.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__space-age__/graphics/icons/jellynut-seed-2.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__space-age__/graphics/icons/jellynut-seed-3.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__space-age__/graphics/icons/jellynut-seed-4.png", scale = 0.5, mipmap_count = 4 },
+		},
+		subgroup = "agriculture-processes",
+		order = "b[seeds]-h[sunnycomb-seed]",
+		plant_result = "sunnycomb-plant",
+		place_result = "sunnycomb-plant",
+		inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
+		pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
+		drop_sound = space_age_item_sounds.agriculture_inventory_move,
+		stack_size = 10,
+		default_import_location = "gleba",
+		weight = 10 * kg,
+		fuel_category = "chemical",
+		fuel_value = "4MJ"
+	},
+	{
+		type = "item",
+		name = "tree-seed",
+		localised_name = {"item-name.tree-seed"},
+		icon = "__space-age__/graphics/icons/tree-seed.png",
+		pictures =
+		{
+		  { size = 64, filename = "__space-age__/graphics/icons/tree-seed-1.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__space-age__/graphics/icons/tree-seed-2.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__space-age__/graphics/icons/tree-seed-3.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__space-age__/graphics/icons/tree-seed-4.png", scale = 0.5, mipmap_count = 4 },
+		},
+		subgroup = "agriculture-processes",
+		order = "b[seeds]-c[tree-seed]",
+		plant_result = "tree-plant",
+		place_result = "tree-plant",
+		inventory_move_sound = item_sounds.wood_inventory_move,
+		pick_sound = item_sounds.wood_inventory_pickup,
+		drop_sound = item_sounds.wood_inventory_move,
+		stack_size = 10,
+		weight = 10 * kg,
+		fuel_category = "chemical",
+		fuel_value = "100kJ"
+	},
+	
+	{
+		type = "item",
+		name = "jellynut-seed",
+		icon = "__space-age__/graphics/icons/jellynut-seed.png",
+		pictures =
+		{
+		  { size = 64, filename = "__space-age__/graphics/icons/jellynut-seed-1.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__space-age__/graphics/icons/jellynut-seed-2.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__space-age__/graphics/icons/jellynut-seed-3.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__space-age__/graphics/icons/jellynut-seed-4.png", scale = 0.5, mipmap_count = 4 },
+		},
+		subgroup = "agriculture-processes",
+		order = "b[seeds]-b[jellynut-seed]",
+		plant_result = "jellystem",
+		place_result = "jellystem",
+		inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
+		pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
+		drop_sound = space_age_item_sounds.agriculture_inventory_move,
+		stack_size = 10,
+		default_import_location = "gleba",
+		weight = 10 * kg,
+		fuel_category = "chemical",
+		fuel_value = "4MJ"
+	},
 	-- harvestables
 	{
 		type = "capsule",
@@ -203,7 +474,7 @@ data:extend({
 		  { size = 64, filename = "__outer_moons__/graphics/icons/funnelwood-4.png", scale = 0.5, mipmap_count = 4 }
 		},
 		subgroup = "agriculture-processes",
-		order = "b[agriculture]-a[funnelwood]",
+		order = "a[agriculture]-a[funnelwood]",
 		inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
 		pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
 		drop_sound = space_age_item_sounds.agriculture_inventory_move,
@@ -228,7 +499,7 @@ data:extend({
 		  { size = 64, filename = "__outer_moons__/graphics/icons/slipstack-polyp-4.png", scale = 0.5, mipmap_count = 4 }
 		},
 		subgroup = "agriculture-processes",
-		order = "b[agriculture]-b[slipstack-polyp]",
+		order = "a[agriculture]-b[slipstack-polyp]",
 		inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
 		pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
 		drop_sound = space_age_item_sounds.agriculture_inventory_move,
@@ -253,7 +524,7 @@ data:extend({
 		  { size = 64, filename = "__space-age__/graphics/icons/yumako-3.png", scale = 0.5, mipmap_count = 4 }
 		},
 		subgroup = "agriculture-processes",
-		order = "b[agriculture]-c[yumako]",
+		order = "a[agriculture]-c[yumako]",
 		inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
 		pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
 		drop_sound = space_age_item_sounds.agriculture_inventory_move,
@@ -278,7 +549,7 @@ data:extend({
 		  { size = 64, filename = "__outer_moons__/graphics/icons/mawpouch-4.png", scale = 0.5, mipmap_count = 4 }
 		},
 		subgroup = "agriculture-processes",
-		order = "b[agriculture]-d[mawpouch]",
+		order = "a[agriculture]-d[mawpouch]",
 		inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
 		pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
 		drop_sound = space_age_item_sounds.agriculture_inventory_move,
@@ -303,7 +574,7 @@ data:extend({
 		  { size = 64, filename = "__outer_moons__/graphics/icons/cuttlepod-4.png", scale = 0.5, mipmap_count = 4 }
 		},
 		subgroup = "agriculture-processes",
-		order = "b[agriculture]-e[cuttlepod]",
+		order = "a[agriculture]-e[cuttlepod]",
 		inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
 		pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
 		drop_sound = space_age_item_sounds.agriculture_inventory_move,
@@ -328,7 +599,7 @@ data:extend({
 		  { size = 64, filename = "__outer_moons__/graphics/icons/frondstalk-4.png", scale = 0.5, mipmap_count = 4 }
 		},
 		subgroup = "agriculture-processes",
-		order = "b[agriculture]-f[frondstalk]",
+		order = "a[agriculture]-f[frondstalk]",
 		inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
 		pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
 		drop_sound = space_age_item_sounds.agriculture_inventory_move,
@@ -353,7 +624,7 @@ data:extend({
 		  { size = 64, filename = "__outer_moons__/graphics/icons/boompuff-bulb-4.png", scale = 0.5, mipmap_count = 4 }
 		},
 		subgroup = "agriculture-processes",
-		order = "b[agriculture]-g[boompuff-bulb]",
+		order = "a[agriculture]-g[boompuff-bulb]",
 		inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
 		pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
 		drop_sound = space_age_item_sounds.agriculture_inventory_move,
@@ -378,7 +649,7 @@ data:extend({
 		  { size = 64, filename = "__outer_moons__/graphics/icons/sunnycomb-4.png", scale = 0.5, mipmap_count = 4 }
 		},
 		subgroup = "agriculture-processes",
-		order = "b[agriculture]-h[sunnycomb]",
+		order = "a[agriculture]-h[sunnycomb]",
 		inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
 		pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
 		drop_sound = space_age_item_sounds.agriculture_inventory_move,
@@ -394,10 +665,28 @@ data:extend({
 	-- processed
 	{
 		type = "capsule",
+		name = "funnelbranch",
+		icon = "__outer_moons__/graphics/icons/funnelbranch.png",
+		subgroup = "agriculture-products",
+		order = "a[organic-processing]-a[funnelbranch]",
+		inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
+		pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
+		drop_sound = space_age_item_sounds.agriculture_inventory_move,
+		fuel_category = "chemical",
+		fuel_value = "1MJ",
+		stack_size = 100,
+		default_import_location = "gleba",
+		spoil_ticks = 3 * minute,
+		spoil_result = "wood",
+		weight = 0.5 * kg,
+		capsule_action = item_effects.yumako_regen
+	},
+	{
+		type = "capsule",
 		name = "yumako-mash",
 		icon = "__space-age__/graphics/icons/yumako-mash.png",
 		subgroup = "agriculture-products",
-		order = "a[organic-processing]-c[yumako-mash]",
+		order = "a[organic-processing]-b[yumako-mash]",
 		inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
 		pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
 		drop_sound = space_age_item_sounds.agriculture_inventory_move,
@@ -415,7 +704,7 @@ data:extend({
 		name = "jelly",
 		icon = "__space-age__/graphics/icons/jelly.png",
 		subgroup = "agriculture-products",
-		order = "a[organic-processing]-d[jelly]",
+		order = "a[organic-processing]-c[jelly]",
 		inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
 		pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
 		drop_sound = space_age_item_sounds.agriculture_inventory_move,
@@ -430,10 +719,64 @@ data:extend({
 	},
 	{
 		type = "capsule",
+		name = "frondstrand",
+		icon = "__outer_moons__/graphics/icons/frondstrand.png",
+		subgroup = "agriculture-products",
+		order = "a[organic-processing]-d[frondstrand]",
+		inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
+		pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
+		drop_sound = space_age_item_sounds.agriculture_inventory_move,
+		fuel_category = "chemical",
+		fuel_value = "1MJ",
+		stack_size = 100,
+		default_import_location = "gleba",
+		spoil_ticks = 4 * minute,
+		spoil_result = "carbon",
+		weight = 0.5 * kg,
+		capsule_action = item_effects.yumako_regen
+	},
+	{
+		type = "capsule",
+		name = "boompowder",
+		icon = "__outer_moons__/graphics/icons/boompowder.png",
+		subgroup = "agriculture-products",
+		order = "a[organic-processing]-e[boompowder]",
+		inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
+		pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
+		drop_sound = space_age_item_sounds.agriculture_inventory_move,
+		fuel_category = "chemical",
+		fuel_value = "1MJ",
+		stack_size = 100,
+		default_import_location = "gleba",
+		spoil_ticks = 3 * minute,
+		spoil_result = "sulfur",
+		weight = 0.5 * kg,
+		capsule_action = item_effects.yumako_regen
+	},
+	{
+		type = "capsule",
+		name = "sunnylattice",
+		icon = "__outer_moons__/graphics/icons/sunnylattice.png",
+		subgroup = "agriculture-products",
+		order = "a[organic-processing]-f[sunnylattice]",
+		inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
+		pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
+		drop_sound = space_age_item_sounds.agriculture_inventory_move,
+		fuel_category = "chemical",
+		fuel_value = "1MJ",
+		stack_size = 100,
+		default_import_location = "gleba",
+		spoil_ticks = 5 * minute,
+		spoil_result = "spoilage",
+		weight = 0.5 * kg,
+		capsule_action = item_effects.yumako_regen
+	},
+	{
+		type = "capsule",
 		name = "bioflux",
 		icon = "__space-age__/graphics/icons/bioflux.png",
 		subgroup = "agriculture-products",
-		order = "a[organic-processing]-b[bioflux]",
+		order = "a[organic-processing]-g[bioflux]",
 		inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
 		pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
 		drop_sound = space_age_item_sounds.agriculture_inventory_move,
@@ -446,6 +789,213 @@ data:extend({
 		weight = 1 * kg,
 		capsule_action = item_effects.bioflux_speed_and_regen
 	},
+	{
+        type = "item",
+        name = "potassium-salt",
+        group = "intermediate-products",
+        icon = "__outer_moons__/graphics/icons/lye.png",
+        subgroup = "agriculture-processes",
+		default_import_location = "gleba",
+        order = "b[organic-processing]-b[potassium-salt]",
+        inventory_move_sound = item_sounds.sulfur_inventory_move,
+		pick_sound = item_sounds.resource_inventory_pickup,
+		drop_sound = item_sounds.sulfur_inventory_move,
+        stack_size = 200,
+        weight = 1 * kg
+    },
+	--
+	{
+		type = "item",
+		name = "artificial-yumako-soil",
+		icon = "__outer_moons__/graphics/icons/artificial-virid-soil.png",
+		subgroup = "terrain",
+		order = "c[landfill]-b[artificial-yumako-soil]",
+		inventory_move_sound = item_sounds.landfill_inventory_move,
+		pick_sound = item_sounds.landfill_inventory_pickup,
+		drop_sound = item_sounds.landfill_inventory_move,
+		stack_size = 100,
+		default_import_location = "gleba",
+		place_as_tile =
+		{
+		  result = "artificial-yumako-soil",
+		  condition_size = 1,
+		  condition = {layers={ground_tile=true}},
+		  tile_condition = {"wetland-yumako"}
+		}
+	},
+	{
+		type = "item",
+		name = "overgrowth-yumako-soil",
+		icon = "__outer_moons__/graphics/icons/overgrowth-virid-soil.png",
+		subgroup = "terrain",
+		order = "c[landfill]-c[overgrowth-yumako-soil]",
+		inventory_move_sound = item_sounds.landfill_inventory_move,
+		pick_sound = item_sounds.landfill_inventory_pickup,
+		drop_sound = item_sounds.landfill_inventory_move,
+		stack_size = 100,
+		default_import_location = "gleba",
+		place_as_tile =
+		{
+		  result = "overgrowth-yumako-soil",
+		  condition_size = 1,
+		  condition = {layers={}},
+		  tile_condition = {
+			"wetland-light-green-slime",
+			"wetland-green-slime",
+			"wetland-yumako",
+			"lowland-olive-blubber",
+			"lowland-olive-blubber-2",
+			"lowland-olive-blubber-3",
+			"lowland-brown-blubber",
+			"lowland-pale-green"
+		  }
+		}
+	},
+	{
+		type = "item",
+		name = "artificial-jellynut-soil",
+		icon = "__outer_moons__/graphics/icons/artificial-sanguine-soil.png",
+		subgroup = "terrain",
+		order = "c[landfill]-d[artificial-jellynut-soil]",
+		inventory_move_sound = item_sounds.landfill_inventory_move,
+		pick_sound = item_sounds.landfill_inventory_pickup,
+		drop_sound = item_sounds.landfill_inventory_move,
+		stack_size = 100,
+		default_import_location = "gleba",
+		place_as_tile =
+		{
+		  result = "artificial-jellynut-soil",
+		  condition_size = 1,
+		  condition = {layers={ground_tile=true}},
+		  tile_condition = {"wetland-jellynut"}
+		}
+	},
+	{
+		type = "item",
+		name = "overgrowth-jellynut-soil",
+		icon = "__outer_moons__/graphics/icons/overgrowth-virid-soil.png",
+		subgroup = "terrain",
+		order = "c[landfill]-e[overgrowth-jellynut-soil]",
+		inventory_move_sound = item_sounds.landfill_inventory_move,
+		pick_sound = item_sounds.landfill_inventory_pickup,
+		drop_sound = item_sounds.landfill_inventory_move,
+		stack_size = 100,
+		default_import_location = "gleba",
+		place_as_tile =
+		{
+		  result = "overgrowth-jellynut-soil",
+		  condition_size = 1,
+		  condition = {layers={}},
+		  tile_condition = {
+			"wetland-pink-tentacle",
+			"wetland-red-tentacle",
+			"wetland-jellynut",
+			"lowland-red-vein",
+			"lowland-red-vein-2",
+			"lowland-red-vein-3",
+			"lowland-red-vein-4",
+			"lowland-red-vein-dead",
+			"lowland-red-infection",
+			"lowland-cream-red"
+		  }
+		}
+	},
+	{
+		type = "item",
+		name = "artificial-ochre-soil",
+		icon = "__outer_moons__/graphics/icons/artificial-ochre-soil.png",
+		subgroup = "terrain",
+		order = "c[landfill]-b[artificial-ochre-soil]",
+		inventory_move_sound = item_sounds.landfill_inventory_move,
+		pick_sound = item_sounds.landfill_inventory_pickup,
+		drop_sound = item_sounds.landfill_inventory_move,
+		stack_size = 100,
+		default_import_location = "gleba",
+		place_as_tile =
+		{
+		  result = "artificial-ochre-soil",
+		  condition_size = 1,
+		  condition = {layers={ground_tile=true}},
+		  tile_condition = {"wetland-yumako"}
+		}
+	},
+	{
+		type = "item",
+		name = "overgrowth-ochre-soil",
+		icon = "__outer_moons__/graphics/icons/overgrowth-ochre-soil.png",
+		subgroup = "terrain",
+		order = "c[landfill]-c[overgrowth-ochre-soil]",
+		inventory_move_sound = item_sounds.landfill_inventory_move,
+		pick_sound = item_sounds.landfill_inventory_pickup,
+		drop_sound = item_sounds.landfill_inventory_move,
+		stack_size = 100,
+		default_import_location = "gleba",
+		place_as_tile =
+		{
+		  result = "overgrowth-ochre-soil",
+		  condition_size = 1,
+		  condition = {layers={}},
+		  tile_condition = {
+			"wetland-light-green-slime",
+			"wetland-green-slime",
+			"wetland-yumako",
+			"lowland-olive-blubber",
+			"lowland-olive-blubber-2",
+			"lowland-olive-blubber-3",
+			"lowland-brown-blubber",
+			"lowland-pale-green"
+		  }
+		}
+	},
+	{
+		type = "item",
+		name = "artificial-cerulean-soil",
+		icon = "__outer_moons__/graphics/icons/artificial-cerulean-soil.png",
+		subgroup = "terrain",
+		order = "c[landfill]-d[artificial-cerulean-soil]",
+		inventory_move_sound = item_sounds.landfill_inventory_move,
+		pick_sound = item_sounds.landfill_inventory_pickup,
+		drop_sound = item_sounds.landfill_inventory_move,
+		stack_size = 100,
+		default_import_location = "gleba",
+		place_as_tile =
+		{
+		  result = "artificial-cerulean-soil",
+		  condition_size = 1,
+		  condition = {layers={ground_tile=true}},
+		  tile_condition = {"wetland-jellynut"}
+		}
+	},
+	{
+		type = "item",
+		name = "overgrowth-cerulean-soil",
+		icon = "__outer_moons__/graphics/icons/overgrowth-cerulean-soil.png",
+		subgroup = "terrain",
+		order = "c[landfill]-e[overgrowth-cerulean-soil]",
+		inventory_move_sound = item_sounds.landfill_inventory_move,
+		pick_sound = item_sounds.landfill_inventory_pickup,
+		drop_sound = item_sounds.landfill_inventory_move,
+		stack_size = 100,
+		default_import_location = "gleba",
+		place_as_tile =
+		{
+		  result = "overgrowth-cerulean-soil",
+		  condition_size = 1,
+		  condition = {layers={}},
+		  tile_condition = {
+			"wetland-pink-tentacle",
+			"wetland-red-tentacle",
+			"wetland-jellynut",
+			"lowland-red-vein",
+			"lowland-red-vein-2",
+			"lowland-red-vein-3",
+			"lowland-red-vein-4",
+			"lowland-red-vein-dead",
+			"lowland-red-infection",
+			"lowland-cream-red"
+		  }
+		}
+	},
 	--Fulgora
 	{
         type = "item",
@@ -455,7 +1005,7 @@ data:extend({
         subgroup = "fulgora-processes",
 		default_import_location = "fulgora",
         color_hint = { text = "I" },
-        order = "scrap]-b[microplastic]",
+        order = "a[scrap]-b[microplastic]",
         inventory_move_sound = item_sounds.resource_inventory_move,
         pick_sound = item_sounds.resource_inventory_pickup,
         drop_sound = item_sounds.resource_inventory_move,
@@ -474,7 +1024,7 @@ data:extend({
 		  { size = 64, filename = "__space-age__/graphics/icons/jellynut-2.png", scale = 0.5, mipmap_count = 4 },
 		  { size = 64, filename = "__space-age__/graphics/icons/jellynut-3.png", scale = 0.5, mipmap_count = 4 },
 		},
-		subgroup = "agriculture-processes",
+		subgroup = "feronia-processes",
 		order = "b[feronia-agriculture]-c[jellynut]",
 		inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
 		pick_sound = space_age_item_sounds.agriculture_inventory_pickup,

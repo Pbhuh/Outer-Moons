@@ -87,51 +87,57 @@ data:extend(
   },
   {
     type = "item-subgroup",
-    name = "fulgora-processes",
-    group = "intermediate-products",
-    order = "p"
-  },
-  {
-    type = "item-subgroup",
-    name = "agriculture-processes",
+    name = "gleba-processes",
     group = "intermediate-products",
     order = "m"
   },
   {
     type = "item-subgroup",
-    name = "agriculture-products",
-    group = "intermediate-products",
-    order = "n"
-  },
-  {
-    type = "item-subgroup",
-    name = "nauvis-agriculture",
-    group = "intermediate-products",
-    order = "o"
-  },
-  {
-    type = "item-subgroup",
-    name = "mefitis-processes",
+    name = "fulgora-processes",
     group = "intermediate-products",
     order = "q"
   },
   {
     type = "item-subgroup",
-    name = "aquilo-processes",
+    name = "agriculture-processes",
+    group = "intermediate-products",
+    order = "n"
+  },
+  {
+    type = "item-subgroup",
+    name = "agriculture-products",
+    group = "intermediate-products",
+    order = "o"
+  },
+  {
+    type = "item-subgroup",
+    name = "nauvis-agriculture",
+    group = "intermediate-products",
+    order = "p"
+  },
+  {
+    type = "item-subgroup",
+    name = "mefitis-processes",
     group = "intermediate-products",
     order = "r"
   },
   {
     type = "item-subgroup",
-    name = "aiolos-processes",
+    name = "aquilo-processes",
     group = "intermediate-products",
     order = "s"
   },
   {
     type = "item-subgroup",
-    name = "feronia-processes",
+    name = "aiolos-processes",
     group = "intermediate-products",
     order = "t"
+  },
+  {
+    type = "item-subgroup",
+    name = "feronia-processes",
+    group = "intermediate-products",
+    order = "u"
   }
 }
 )

@@ -254,6 +254,47 @@ data:extend(
     flow_color = {0.8, 0.4, 0.8},
     auto_barrel = false
   },
+  --Gleba
+  {
+    type = "fluid",
+    name = "slipgoo",
+    icon = "__outer_moons__/graphics/icons/fluid/slipgoo.png",
+    subgroup = "fluid",
+    order = "b[new-fluid]-d[gleba]-a[slipgoo]",
+    default_temperature = 25,
+    heat_capacity = "0.1kJ",
+	default_temperature = 25,
+    base_color = {0.4, 0.2, 0.4},
+    flow_color = {0.8, 0.4, 0.8},
+    auto_barrel = false
+  },
+  {
+    type = "fluid",
+    name = "mawslush",
+    icon = "__outer_moons__/graphics/icons/fluid/mawslush.png",
+    subgroup = "fluid",
+    order = "b[new-fluid]-d[gleba]-b[mawslush]",
+    default_temperature = 25,
+    heat_capacity = "0.1kJ",
+	default_temperature = 25,
+    base_color = {0.4, 0.2, 0.4},
+    flow_color = {0.8, 0.4, 0.8},
+    auto_barrel = false
+  },
+  {
+    type = "fluid",
+    name = "bioslurry",
+    icon = "__outer_moons__/graphics/icons/fluid/bioslurry.png",
+    subgroup = "fluid",
+    order = "b[new-fluid]-d[gleba]-c[bioslurry]",
+    default_temperature = 25,
+    heat_capacity = "0.1kJ",
+	default_temperature = 25,
+    base_color = {0.4, 0.2, 0.4},
+    flow_color = {0.8, 0.4, 0.8},
+    --auto_barrel = false
+  },
+  --Fulgora
   {
     type = "fluid",
     name = "sludge",

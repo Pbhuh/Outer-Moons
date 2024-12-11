@@ -1,6 +1,3 @@
---data.raw.entity["cargo-wagon"].inventory_size_quality_increase = 10,
---data.raw.entity["fluid-wagon"].capacity_quality_increase = 10,
-
 -- Finite Pumping
 if data.raw.resource["crude-oil"] then
 

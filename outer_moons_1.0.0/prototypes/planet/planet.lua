@@ -146,7 +146,7 @@ data:extend(
     {
       ["day-night-cycle"] = 10 * minute,
       ["magnetic-field"] = 25,
-      ["solar-power"] = 50,
+      ["solar-power"] = 60,
       pressure = 2000,
       gravity = 16
     },
