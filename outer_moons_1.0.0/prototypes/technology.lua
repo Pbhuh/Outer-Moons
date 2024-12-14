@@ -175,7 +175,7 @@ data:extend(
   },
   {
     type = "technology",
-    name = "ethylene-synthesis",
+    name = "olefins-synthesis",
     icon = "__outer_moons__/graphics/technology/chloralkali-process.png",
     icon_size = 256,
     essential = true,
@@ -195,15 +195,15 @@ data:extend(
   },
   {
     type = "technology",
-    name = "ethylene-synthesis",
-    icon = "__outer_moons__/graphics/technology/ethylene-synthesis.png",
+    name = "olefins-synthesis",
+    icon = "__outer_moons__/graphics/technology/olefins-synthesis.png",
     icon_size = 256,
     essential = true,
     effects =
     {
 	  {
         type = "unlock-recipe",
-        recipe = "ethylene-synthesis"
+        recipe = "olefins-synthesis"
       },
 	  {
         type = "unlock-recipe",
@@ -234,11 +234,11 @@ data:extend(
         recipe = "oxygen-rocket-fuel"
       },	  
     },
-    prerequisites = {"ethylene-synthesis", "convector"},
+    prerequisites = {"olefins-synthesis", "convector"},
     research_trigger =
     {
       type = "craft-fluid",
-      fluid = "ethylene"
+      fluid = "olefins"
     }
   },
   

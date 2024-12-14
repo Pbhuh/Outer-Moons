@@ -97,8 +97,8 @@ data:extend({
   {
     type = "tile",
     name = "artificial-yumako-soil",
-    order = "d[yumako]-d[artificial-yumako-soil]",
-    subgroup = "gleba-tiles",
+    order = "b[virid]-b[soil]",
+    subgroup = "gleba-grow-tiles",
     minable = {mining_time = 0.5, result = "artificial-yumako-soil"},
     mined_sound = { filename = "__base__/sound/deconstruct-bricks.ogg", volume = 0.8}, -- sound?
     is_foundation = true,
@@ -131,8 +131,8 @@ data:extend({
   {
     type = "tile",
     name = "overgrowth-yumako-soil",
-    order = "d[yumako]-e[overgrowth-yumako-soil]",
-    subgroup = "gleba-tiles",
+    order = "b[virid]-c[soil]",
+    subgroup = "gleba-grow-tiles",
     minable = {mining_time = 0.5, result = "overgrowth-yumako-soil"},
     mined_sound = { filename = "__base__/sound/deconstruct-bricks.ogg", volume = 0.8}, -- sound?
     is_foundation = true,
@@ -165,8 +165,8 @@ data:extend({
   {
     type = "tile",
     name = "artificial-jellynut-soil",
-    order = "e[jellynut]-c[artificial-jellynut-soil]",
-    subgroup = "gleba-tiles",
+    order = "c[sanguine]-b[soil]",
+    subgroup = "gleba-grow-tiles",
     minable = {mining_time = 0.5, result = "artificial-jellynut-soil"},
     mined_sound = { filename = "__base__/sound/deconstruct-bricks.ogg", volume = 0.8}, -- sound?
     is_foundation = true,
@@ -199,8 +199,8 @@ data:extend({
   {
     type = "tile",
     name = "overgrowth-jellynut-soil",
-    order = "e[jellynut]-d[overgrowth-jellynut-soil]",
-    subgroup = "gleba-tiles",
+    order = "c[sanguine]-c[soil]",
+    subgroup = "gleba-grow-tiles",
     minable = {mining_time = 0.5, result = "overgrowth-jellynut-soil"},
     mined_sound = { filename = "__base__/sound/deconstruct-bricks.ogg", volume = 0.8}, -- sound?
     is_foundation = true,
@@ -233,13 +233,13 @@ data:extend({
   {
     type = "tile",
     name = "artificial-cerulean-soil",
-    order = "d[yumako]-d[artificial-cerulean-soil]",
-    subgroup = "gleba-tiles",
+    order = "e[cerulean]-b[soil]",
+    subgroup = "gleba-grow-tiles",
     minable = {mining_time = 0.5, result = "artificial-cerulean-soil"},
     mined_sound = { filename = "__base__/sound/deconstruct-bricks.ogg", volume = 0.8}, -- sound?
     is_foundation = true,
     collision_mask = tile_collision_masks.ground(),
-    layer = gleba_tile_offset + 22,
+    layer = gleba_tile_offset + 30,
     searchable = true,
 
     transitions = data.raw["tile"]["landfill"].transitions,
@@ -248,7 +248,7 @@ data:extend({
 
     sprite_usage_surface = "gleba",
     variants = tile_variations_template_with_transitions(
-      "__space-age__/graphics/terrain/artificial-yumako-soil.png",
+      "__outer_moons__/graphics/terrain/artificial-cerulean-soil.png",
       {
         max_size = 4,
         [1] = { weights = {0.085, 0.085, 0.085, 0.085, 0.087, 0.085, 0.065, 0.085, 0.045, 0.045, 0.045, 0.045, 0.005, 0.025, 0.045, 0.045 } },
@@ -261,19 +261,19 @@ data:extend({
     landing_steps_sound = tile_sounds.landing.semi_wet,
     driving_sound = wetland_driving_sound,
     build_sound = data.raw["tile"]["landfill"].build_sound,
-    map_color={204, 183, 6},
-    scorch_mark_color = {r = 0.329, g = 0.242*2, b = 0.177, a = 1.000}
+    map_color={68, 170, 117},
+    scorch_mark_color = {r = 0.267, g = 0.667, b = 0.459, a = 1.000}
   },
   {
     type = "tile",
     name = "overgrowth-cerulean-soil",
-    order = "d[yumako]-e[overgrowth-cerulean-soil]",
-    subgroup = "gleba-tiles",
+    order = "e[cerulean]-c[soil]",
+    subgroup = "gleba-grow-tiles",
     minable = {mining_time = 0.5, result = "overgrowth-cerulean-soil"},
     mined_sound = { filename = "__base__/sound/deconstruct-bricks.ogg", volume = 0.8}, -- sound?
     is_foundation = true,
     collision_mask = tile_collision_masks.ground(),
-    layer = gleba_tile_offset + 24,
+    layer = gleba_tile_offset + 32,
     searchable = true,
 
     transitions = data.raw["tile"]["landfill"].transitions,
@@ -282,7 +282,7 @@ data:extend({
 
     sprite_usage_surface = "gleba",
     variants = tile_variations_template_with_transitions(
-      "__space-age__/graphics/terrain/overgrowth-yumako-soil.png",
+      "__outer_moons__/graphics/terrain/overgrowth-cerulean-soil.png",
       {
         max_size = 4,
         [1] = { weights = {0.085, 0.085, 0.085, 0.085, 0.087, 0.085, 0.065, 0.085, 0.045, 0.045, 0.045, 0.045, 0.005, 0.025, 0.045, 0.045 } },
@@ -295,19 +295,19 @@ data:extend({
     landing_steps_sound = tile_sounds.landing.semi_wet,
     driving_sound = wetland_driving_sound,
     build_sound = data.raw["tile"]["landfill"].build_sound,
-    map_color={204, 183, 6},
-    scorch_mark_color = {r = 0.329, g = 0.242*2, b = 0.177, a = 1.000}
+    map_color={68, 170, 117},
+    scorch_mark_color = {r = 0.267, g = 0.667, b = 0.459, a = 1.000}
   },
   {
     type = "tile",
     name = "artificial-ochre-soil",
-    order = "e[jellynut]-c[artificial-ochre-soil]",
-    subgroup = "gleba-tiles",
+    order = "d[ochre]-b[soil]",
+    subgroup = "gleba-grow-tiles",
     minable = {mining_time = 0.5, result = "artificial-ochre-soil"},
     mined_sound = { filename = "__base__/sound/deconstruct-bricks.ogg", volume = 0.8}, -- sound?
     is_foundation = true,
     collision_mask = tile_collision_masks.ground(),
-    layer = gleba_tile_offset + 23,
+    layer = gleba_tile_offset + 31,
     searchable = true,
 
     transitions = data.raw["tile"]["landfill"].transitions,
@@ -316,7 +316,7 @@ data:extend({
 
     sprite_usage_surface = "gleba",
     variants = tile_variations_template_with_transitions(
-      "__space-age__/graphics/terrain/artificial-jellynut-soil.png",
+      "__outer_moons__/graphics/terrain/artificial-ochre-soil.png",
       {
         max_size = 4,
         [1] = { weights = {0.085, 0.085, 0.085, 0.085, 0.087, 0.085, 0.065, 0.085, 0.045, 0.045, 0.045, 0.045, 0.005, 0.025, 0.045, 0.045 } },
@@ -329,19 +329,19 @@ data:extend({
     landing_steps_sound = tile_sounds.landing.semi_wet,
     driving_sound = wetland_driving_sound,
     build_sound = data.raw["tile"]["landfill"].build_sound,
-    map_color={204, 6, 183},
-    scorch_mark_color = {r = 0.329, g = 0.242*2, b = 0.177, a = 1.000}
+    map_color={176, 134, 56},
+    scorch_mark_color = {r = 0.69, g = 0.525, b = 0.22, a = 1.000}
   },
   {
     type = "tile",
     name = "overgrowth-ochre-soil",
-    order = "e[jellynut]-d[overgrowth-ochre-soil]",
-    subgroup = "gleba-tiles",
+    order = "d[ochre]-c[soil]",
+    subgroup = "gleba-grow-tiles",
     minable = {mining_time = 0.5, result = "overgrowth-ochre-soil"},
     mined_sound = { filename = "__base__/sound/deconstruct-bricks.ogg", volume = 0.8}, -- sound?
     is_foundation = true,
     collision_mask = tile_collision_masks.ground(),
-    layer = gleba_tile_offset + 25,
+    layer = gleba_tile_offset + 33,
     searchable = true,
 
     transitions = data.raw["tile"]["landfill"].transitions,
@@ -350,7 +350,7 @@ data:extend({
 
     sprite_usage_surface = "gleba",
     variants = tile_variations_template_with_transitions(
-      "__space-age__/graphics/terrain/overgrowth-jellynut-soil.png",
+      "__outer_moons__/graphics/terrain/overgrowth-ochre-soil.png",
       {
         max_size = 4,
         [1] = { weights = {0.085, 0.085, 0.085, 0.085, 0.087, 0.085, 0.065, 0.085, 0.045, 0.045, 0.045, 0.045, 0.005, 0.025, 0.045, 0.045 } },
@@ -363,14 +363,82 @@ data:extend({
     landing_steps_sound = tile_sounds.landing.semi_wet,
     driving_sound = wetland_driving_sound,
     build_sound = data.raw["tile"]["landfill"].build_sound,
-    map_color={204, 6, 183},
-    scorch_mark_color = {r = 0.329, g = 0.242*2, b = 0.177, a = 1.000}
+    map_color={176, 134, 56},
+    scorch_mark_color = {r = 0.69, g = 0.525, b = 0.22, a = 1.000}
+  },
+  {
+    type = "tile",
+    name = "artificial-cuticle-soil",
+    order = "a[cuticle]-b[soil]",
+    subgroup = "gleba-grow-tiles",
+    minable = {mining_time = 0.5, result = "artificial-cuticle-soil"},
+    mined_sound = { filename = "__base__/sound/deconstruct-bricks.ogg", volume = 0.8}, -- sound?
+    is_foundation = true,
+    collision_mask = tile_collision_masks.ground(),
+    layer = gleba_tile_offset + 32,
+    searchable = true,
+
+    transitions = data.raw["tile"]["landfill"].transitions,
+    transitions_between_transitions = data.raw["tile"]["landfill"].transitions_between_transitions,
+    trigger_effect = tile_trigger_effects.landfill_trigger_effect(),
+
+    sprite_usage_surface = "gleba",
+    variants = tile_variations_template_with_transitions(
+      "__outer_moons__/graphics/terrain/artificial-cuticle-soil.png",
+      {
+        max_size = 4,
+        [1] = { weights = {0.085, 0.085, 0.085, 0.085, 0.087, 0.085, 0.065, 0.085, 0.045, 0.045, 0.045, 0.045, 0.005, 0.025, 0.045, 0.045 } },
+        [2] = { probability = 1, weights = {0.018, 0.020, 0.015, 0.025, 0.015, 0.020, 0.025, 0.015, 0.025, 0.025, 0.010, 0.025, 0.020, 0.025, 0.025, 0.010 }, },
+        [4] = { probability = 0.1, weights = {0.018, 0.020, 0.015, 0.025, 0.015, 0.020, 0.025, 0.015, 0.025, 0.025, 0.010, 0.025, 0.020, 0.025, 0.025, 0.010 }, },
+      }
+    ),
+
+    walking_sound = semi_wet_sound,
+    landing_steps_sound = tile_sounds.landing.semi_wet,
+    driving_sound = wetland_driving_sound,
+    build_sound = data.raw["tile"]["landfill"].build_sound,
+    map_color={168, 154, 166},
+    scorch_mark_color = {r = 0.659, g = 0.604, b = 0.651, a = 1.000}
+  },
+  {
+    type = "tile",
+    name = "overgrowth-cuticle-soil",
+    order = "a[cuticle]-c[soil]",
+    subgroup = "gleba-grow-tiles",
+    minable = {mining_time = 0.5, result = "overgrowth-cuticle-soil"},
+    mined_sound = { filename = "__base__/sound/deconstruct-bricks.ogg", volume = 0.8}, -- sound?
+    is_foundation = true,
+    collision_mask = tile_collision_masks.ground(),
+    layer = gleba_tile_offset + 35,
+    searchable = true,
+
+    transitions = data.raw["tile"]["landfill"].transitions,
+    transitions_between_transitions = data.raw["tile"]["landfill"].transitions_between_transitions,
+    trigger_effect = tile_trigger_effects.landfill_trigger_effect(),
+
+    sprite_usage_surface = "gleba",
+    variants = tile_variations_template_with_transitions(
+      "__outer_moons__/graphics/terrain/overgrowth-cuticle-soil.png",
+      {
+        max_size = 4,
+        [1] = { weights = {0.085, 0.085, 0.085, 0.085, 0.087, 0.085, 0.065, 0.085, 0.045, 0.045, 0.045, 0.045, 0.005, 0.025, 0.045, 0.045 } },
+        [2] = { probability = 1, weights = {0.018, 0.020, 0.015, 0.025, 0.015, 0.020, 0.025, 0.015, 0.025, 0.025, 0.010, 0.025, 0.020, 0.025, 0.025, 0.010 }, },
+        [4] = { probability = 0.1, weights = {0.018, 0.020, 0.015, 0.025, 0.015, 0.020, 0.025, 0.015, 0.025, 0.025, 0.010, 0.025, 0.020, 0.025, 0.025, 0.010 }, },
+      }
+    ),
+
+    walking_sound = semi_wet_sound,
+    landing_steps_sound = tile_sounds.landing.semi_wet,
+    driving_sound = wetland_driving_sound,
+    build_sound = data.raw["tile"]["landfill"].build_sound,
+    map_color={168, 154, 166},
+    scorch_mark_color = {r = 0.659, g = 0.604, b = 0.651, a = 1.000}
   },
   {
     type = "tile",
     name = "natural-yumako-soil",
-    order = "d[yumako]-c[natural-yumako-soil]",
-    subgroup = "gleba-tiles",
+    order = "b[virid]-a[natural-yumako-soil]",
+    subgroup = "gleba-grow-tiles",
     collision_mask = tile_collision_masks.ground(),
     autoplace = {probability_expression = "gleba_fertile_solid * 50000 - 10000 - gleba_biome_mask_green * 1000000"},
     layer_group = "ground-natural",
@@ -401,8 +469,8 @@ data:extend({
   {
     type = "tile",
     name = "natural-jellynut-soil",
-    order = "e[jellynut]-b[natural-jellynut-soil]",
-    subgroup = "gleba-tiles",
+    order = "c[sanguine]-a[natural-jellynut-soil]",
+    subgroup = "gleba-grow-tiles",
     collision_mask = tile_collision_masks.ground(),
     autoplace = {probability_expression = "gleba_fertile_solid * 50000 - 10000 - gleba_biome_mask_red * 1000000"},
     layer_group = "ground-natural",
@@ -696,8 +764,8 @@ data:extend({
       {
         type = "tile",
         name = "lowland-dead-skin",
-        order = "c[gleba-land-tiles]-a[lowland-cream-cauliflower]",
-        subgroup = "gleba-tiles",
+        order = "a[cuticle]-a[lowland-cream-cauliflower]",
+        subgroup = "gleba-grow-tiles",
         collision_mask = tile_collision_masks.ground(),
         autoplace = {probability_expression = "gleba_lowland * gleba_select(gleba_aux, 0.45, 0.65, 0.005, 0, 1) + 0.1 * gleba_select(gleba_temperature_normalised, -1, -0.2, 0.005, 0, 1)"},
         layer_group = "water-overlay",
@@ -722,7 +790,7 @@ data:extend({
         transitions_between_transitions = lava_stone_transitions_between_transitions,
         walking_sound = semi_wet_sound,
         landing_steps_sound = tile_sounds.landing.semi_wet,
-        map_color={95, 93, 88},
+        map_color={168, 154, 166},
         walking_speed_modifier = 1,
         vehicle_friction_modifier = 1,
         absorptions_per_second = tile_pollution.gleba,
@@ -1128,8 +1196,8 @@ data:extend({
       {
         type = "tile",
         name = "midland-turquoise-bark",
-        order = "c[gleba-land-tiles]-a[midland-turquoise-bark]",
-        subgroup = "gleba-tiles",
+        order = "e[cerulean]-a[midland-turquoise-bark]",
+        subgroup = "gleba-grow-tiles",
         collision_mask = tile_collision_masks.ground(),
         layer = gleba_tile_offset + 11,
         sprite_usage_surface = "gleba",
@@ -1148,7 +1216,7 @@ data:extend({
         transitions_between_transitions = lava_stone_transitions_between_transitions,
         walking_sound = soft_bark_sound,
         landing_steps_sound = tile_sounds.landing.bark,
-        map_color={46, 68, 48},
+        map_color={68, 170, 117},
         walking_speed_modifier = 1,
         vehicle_friction_modifier = 1,
         absorptions_per_second = tile_pollution.gleba,
@@ -1188,8 +1256,8 @@ data:extend({
       {
         type = "tile",
         name = "midland-yellow-crust-2", -- red
-        order = "c[gleba-land-tiles]-a[midland-yellow-crust]",
-        subgroup = "gleba-tiles",
+        order = "d[ochre]-a[midland-yellow-crust]",
+        subgroup = "gleba-grow-tiles",
         collision_mask = tile_collision_masks.ground(),
         layer_group = "ground-natural",
         layer = gleba_tile_offset + 13,
@@ -1209,7 +1277,7 @@ data:extend({
         transitions_between_transitions = lava_stone_transitions_between_transitions,
         walking_sound = dry_rock_sound,
         landing_steps_sound = tile_sounds.landing.rock,
-        map_color={114, 86, 40},
+        map_color={176, 134, 56},
         walking_speed_modifier = 1,
         vehicle_friction_modifier = 1,
         absorptions_per_second = tile_pollution.gleba,
@@ -1564,8 +1632,6 @@ data:extend({
     autoplace = {probability_expression = "gleba_shallows_aux_2 + 2 * min(gleba_select(gleba_aux, 0.3, 0.7, 0.005, 0, 1), gleba_rockpools_shallow)"},
     lowland_fog = true,
     effect = "wetland-grey",
-    --effect_color = { 76, 70, 79 },
-    --effect_color_secondary = { 76, 70, 79 },
     effect_color = { 57, 58, 73 },
     effect_color_secondary = { 76, 70, 79 },
     map_color = {r = 46, g = 45, b = 51},

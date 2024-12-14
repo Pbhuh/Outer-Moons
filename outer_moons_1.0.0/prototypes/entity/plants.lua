@@ -246,54 +246,289 @@ data:extend(
   },
   {
     type = "tree",
-    name = "slipstack",
-	icon = "__space-age__/graphics/icons/slipstack.png",
+    name = "slipstack", -- lubricant
+    icon = "__space-age__/graphics/icons/slipstack.png",
     flags = plant_flags,
 	hidden_in_factoriopedia = true,
-	factoriopedia_alternative = nil,
-	colors = minor_tints(),
-	variations = gleba_tree_variations("slipstack", 8, 5),
-	autoplace =
+	factoriopedia_alternative = "slipstack-plant",
+    minable =
     {
-      --control = "gleba_plants",
-      --order = "a[tree]-b[forest]-h",
-      probability_expression = "0",
-      richness_expression = "0"
+      mining_particle = "stone-particle",
+      mining_time = 0.5,
+      results =
+      {
+        {type = "item", name = "slipstack-polyp", amount = 50}
+      }
     },
+    mining_sound = sound_variations("__space-age__/sound/mining/axe-mining-slipstack", 5, 0.5),
+    mined_sound = sound_variations("__space-age__/sound/mining/mined-slipstack", 7, 0.4),
+    emissions_per_second = plant_emissions,
+    max_health = 100,
+    collision_box = {{-0.4, -0.8}, {0.4, 0.2}},
+    collision_mask = {layers={player=true, ground_tile=true, train=true, is_object=true, is_lower_object=true}},
+    selection_box = {{-1, -1}, {1, 1}},
+    drawing_box_vertical_extension = 0.8,
+    subgroup = "trees",
+    order = "a[tree]-c[gleba]-b[normal]-a[slipstack]",
+    impact_category = "tree",
+    factoriopedia_simulation = simulations.factoriopedia_slipstack,
+    autoplace =
+    {
+      control = "gleba_plants",
+      order = "a[tree]-b[forest]-a",
+      probability_expression = "min(0.05, 0.1 * (1 - gleba_plants_noise) * control:gleba_plants:size)",
+	  --placement_density = 0.5,
+      richness_expression = "random_penalty_at(1, 3)",
+      tile_restriction = {"wetland-dead-skin"}
+    },
+    variations = gleba_tree_variations("slipstack", 8, 5),
+    colors = minor_tints(),
+    ambient_sounds =
+    {
+      sound =
+      {
+        variations = sound_variations("__space-age__/sound/world/plants/slipstack", 9, 0.6),
+        advanced_volume_control =
+        {
+          fades = {fade_in = {curve_type = "cosine", from = {control = 0.5, volume_percentage = 0.0}, to = {1.5, 100.0}}}
+        }
+      },
+      radius = 7.5,
+      min_entity_count = 2,
+      max_entity_count = 10,
+      entity_to_sound_ratio = 0.3,
+      average_pause_seconds = 7
+    },
+    created_effect = {
+      type = "direct",
+      action_delivery =
+      {
+        type = "instant",
+        source_effects =
+        {
+          {
+            type = "create-decorative",
+            decorative = "coral-stunted",
+            spawn_min = 1,
+            spawn_max = 1,
+            spawn_min_radius = 0,
+            spawn_max_radius = 0.5
+          },
+          {
+            type = "create-decorative",
+            decorative = "coral-water",
+            spawn_min = 1,
+            spawn_max = 5,
+            spawn_min_radius = 0,
+            spawn_max_radius = 3
+          },
+          {
+            type = "create-decorative",
+            decorative = "coral-land",
+            spawn_min = 1,
+            spawn_max = 5,
+            spawn_min_radius = 0,
+            spawn_max_radius = 3
+          }
+        }
+      }
+    },	
+    map_color = {255, 255, 255},
   },
   {
     type = "tree",
     name = "lickmaw",
-	icon = "__space-age__/graphics/icons/lickmaw.png",
+    icon = "__space-age__/graphics/icons/lickmaw.png",
     flags = plant_flags,
 	hidden_in_factoriopedia = true,
-	factoriopedia_alternative = nil,
-	colors = minor_tints(),
-	variations = gleba_tree_variations("lickmaw", nil, nil, nil, nil, nil, util.by_pixel(52, -50)),
-	autoplace =
+	factoriopedia_alternative = "lickmaw-plant",
+    minable =
     {
-      --control = "gleba_plants",
-      --order = "a[tree]-b[forest]-h",
-      probability_expression = "0",
-      richness_expression = "0"
+      mining_particle = "wooden-particle",
+      mining_time = 0.5,
+      results =
+      {
+        {type = "item", name = "mawpouch", amount = 50},
+      },
+      mining_trigger =
+      {
+        {
+          type = "direct",
+          action_delivery =
+          {
+            {
+              type = "instant",
+              target_effects = spoilage_sound_trigger
+            }
+          }
+        }
+      }
     },
+    mining_sound = sound_variations("__space-age__/sound/mining/axe-mining-lickmaw", 5, 0.45),
+    mined_sound = sound_variations("__space-age__/sound/mining/mined-lickmaw", 5, 0.4),
+    emissions_per_second = plant_emissions,
+    max_health = 50,
+    collision_box = {{-0.4, -0.8}, {0.4, 0.2}},
+	collision_mask = {layers={player=true, ground_tile=true, train=true, is_object=true, is_lower_object=true}},
+    selection_box = {{-1, -1}, {1, 1}},
+    drawing_box_vertical_extension = 0.8,
+    subgroup = "trees",
+    order = "a[tree]-c[gleba]-b[normal]-e[lickmaw]",
+    impact_category = "tree",
+    factoriopedia_simulation = simulations.factoriopedia_lickmaw,
+    autoplace =
+    {
+      control = "gleba_plants",
+      order = "a[tree]-b[forest]-e",
+      probability_expression = "min(0.05, 0.1 * (1 - gleba_plants_noise) * control:gleba_plants:size)",
+	  --placement_density = 0.5,
+      richness_expression = "random_penalty_at(1, 3)",
+      tile_restriction = {"wetland-jellynut"}
+    },
+    variations = gleba_tree_variations("lickmaw", nil, nil, nil, nil, nil, util.by_pixel(52, -50)),
+    colors = minor_tints(),
+    ambient_sounds =
+    {
+      sound =
+      {
+        variations = sound_variations("__space-age__/sound/world/plants/lickmaw", 8, 0.5),
+        advanced_volume_control =
+        {
+          fades = {fade_in = {curve_type = "cosine", from = {control = 0.5, volume_percentage = 0.0}, to = {1.5, 100.0}}}
+        }
+      },
+      radius = 7.5,
+      min_entity_count = 1,
+      max_entity_count = 10,
+      entity_to_sound_ratio = 0.3,
+      average_pause_seconds = 7
+    },
+    created_effect = {
+      type = "direct",
+      action_delivery =
+      {
+        type = "instant",
+        source_effects =
+        {
+          {
+            type = "create-decorative",
+            decorative = "curly-roots-grey",
+            spawn_min = 1,
+            spawn_max = 1,
+            spawn_min_radius = 0,
+            spawn_max_radius = 2
+          },
+          {
+            type = "create-decorative",
+            decorative = "pink-lichen-decal",
+            spawn_min = 1,
+            spawn_max = 1,
+            spawn_min_radius = 0,
+            spawn_max_radius = 4
+          },
+          {
+            type = "create-decorative",
+            decorative = "pale-lettuce-lichen-cups-3x3",
+            spawn_min = 1,
+            spawn_max = 3,
+            spawn_min_radius = 1,
+            spawn_max_radius = 3
+          },
+          {
+            type = "create-decorative",
+            decorative = "split-gill-1x1",
+            spawn_min = 1,
+            spawn_max = 3,
+            spawn_min_radius = 1,
+            spawn_max_radius = 3
+          },
+        }
+      }
+    },	
+    map_color = {255, 255, 255},
   },
   {
     type = "tree",
-    name = "cuttlepop",
-	icon = "__space-age__/graphics/icons/cuttlepop.png",
+    name = "cuttlepop", -- in water. decorative
+    icon = "__space-age__/graphics/icons/cuttlepop.png",
     flags = plant_flags,
 	hidden_in_factoriopedia = true,
-	factoriopedia_alternative = nil,
-	colors = minor_tints(),
-	variations = gleba_tree_variations("cuttlepop", 5, 4),
-	autoplace =
+	factoriopedia_alternative = "cuttlepop-plant",
+    minable =
     {
-      --control = "gleba_plants",
-      --order = "a[tree]-b[forest]-h",
-      probability_expression = "0",
-      richness_expression = "0"
+      mining_particle = "wooden-particle",
+      mining_time = 0.5,
+      results =
+      {
+        {type = "item", name = "cuttlepod", amount = 50}
+      }
     },
+    mining_sound = sound_variations("__space-age__/sound/mining/mining-cuttlepop", 6, 0.8),
+    mined_sound = sound_variations("__space-age__/sound/mining/mined-cuttlepop", 5, 0.7),
+    emissions_per_second = plant_emissions,
+    max_health = 50,
+    collision_box = {{-0.8, -0.8}, {0.8, 0.8}},
+    collision_mask = {layers={player=true, ground_tile=true, train=true, is_object=true, is_lower_object=true}},
+    selection_box = {{-1, -1}, {1, 1}},
+    drawing_box_vertical_extension = 0.8,
+    subgroup = "trees",
+    order = "a[tree]-c[gleba]-b[normal]-i[cuttlepop]",
+    impact_category = "tree",
+    factoriopedia_simulation = simulations.factoriopedia_cuttlepop,
+    autoplace =
+    {
+      control = "gleba_plants",
+      order = "a[tree]-b[forest]-a",
+      probability_expression = "min(0.05, 0.1 * (1 - gleba_plants_noise) * control:gleba_plants:size)",
+	  --placement_density = 0.5,
+      richness_expression = "random_penalty_at(1, 3)",
+      tile_restriction = {"wetland-yumako"}
+    },
+    variations = gleba_tree_variations("cuttlepop", 5, 4),
+    colors = minor_tints(),
+    ambient_sounds =
+    {
+      sound =
+      {
+        variations = sound_variations("__space-age__/sound/world/plants/cuttlepop", 7, 0.5),
+        advanced_volume_control =
+        {
+          fades = {fade_in = {curve_type = "cosine", from = {control = 0.5, volume_percentage = 0.0}, to = {1.5, 100.0}}}
+        }
+      },
+      radius = 7.5,
+      min_entity_count = 3,
+      max_entity_count = 10,
+      entity_to_sound_ratio = 0.5,
+      average_pause_seconds = 13
+    },
+    created_effect = {
+      type = "direct",
+      action_delivery =
+      {
+        type = "instant",
+        source_effects =
+        {
+          {
+            type = "create-decorative",
+            decorative = "curly-roots-grey",
+            spawn_min = 1,
+            spawn_max = 1,
+            spawn_min_radius = 0,
+            spawn_max_radius = 0.5
+          },
+          {
+            type = "create-decorative",
+            decorative = "pale-lettuce-lichen-cups-3x3",
+            spawn_min = 1,
+            spawn_max = 3,
+            spawn_min_radius = 1,
+            spawn_max_radius = 3
+          }
+        }
+      }
+    },
+	map_color = {255, 255, 255},
   },
   {
     type = "tree",
@@ -462,7 +697,7 @@ data:extend(
     harvest_emissions = plant_harvest_emissions,
     max_health = 100,
     collision_box = {{-0.4, -0.8}, {0.4, 0.2}},
-	collision_mask = {layers={player=true, ground_tile=true, train=true, is_object=true, is_lower_object=true}},
+	--collision_mask = {layers={player=true, ground_tile=true, train=true, is_object=true, is_lower_object=true}},
     selection_box = {{-1, -1}, {1, 1}},
     drawing_box_vertical_extension = 0.8,
     subgroup = "trees",
@@ -473,10 +708,12 @@ data:extend(
     {
       control = "gleba_plants",
       order = "a[tree]-b[forest]-a",
-      probability_expression = "min(0.05, 0.1 * (1 - gleba_plants_noise) * control:gleba_plants:size)",
+     -- probability_expression = "min(0.05, 0.1 * (1 - gleba_plants_noise) * control:gleba_plants:size)",
+      probability_expression = "0",
 	  --placement_density = 0.5,
-      richness_expression = "random_penalty_at(1, 3)",
-      tile_restriction = {"wetland-light-dead-skin", "artificial-yumako-soil", "overgrowth-yumako-soil"}
+      richness_expression = "0",
+    --  richness_expression = "random_penalty_at(1, 3)",
+      tile_restriction = {"artificial-cuticle-soil", "overgrowth-cuticle-soil"}
     },
     variations = gleba_tree_variations("slipstack", 8, 5),
     colors = minor_tints(),
@@ -640,7 +877,7 @@ data:extend(
     harvest_emissions = plant_harvest_emissions,
     max_health = 50,
     collision_box = {{-0.4, -0.8}, {0.4, 0.2}},
-	collision_mask = {layers={player=true, ground_tile=true, train=true, is_object=true, is_lower_object=true}},
+	--collision_mask = {layers={player=true, ground_tile=true, train=true, is_object=true, is_lower_object=true}},
     selection_box = {{-1, -1}, {1, 1}},
     drawing_box_vertical_extension = 0.8,
     subgroup = "trees",
@@ -651,10 +888,12 @@ data:extend(
     {
       control = "gleba_plants",
       order = "a[tree]-b[forest]-b",
-      probability_expression = "min(0.05, 0.1 * (1 - gleba_plants_noise) * control:gleba_plants:size)",
+      --probability_expression = "min(0.05, 0.1 * (1 - gleba_plants_noise) * control:gleba_plants:size)",
+      probability_expression = "0",
 	  --placement_density = 0.5,
-      richness_expression = "random_penalty_at(1, 3)",
-      tile_restriction = {"wetland-jellynut", "artificial-jellynut-soil", "overgrowth-jellynut-soil"}
+      --richness_expression = "random_penalty_at(1, 3)",
+      richness_expression = "0",
+      tile_restriction = {"artificial-jellynut-soil", "overgrowth-jellynut-soil"}
     },
     variations = gleba_tree_variations("lickmaw", nil, nil, nil, nil, nil, util.by_pixel(52, -50)),
     colors = minor_tints(),
@@ -739,7 +978,7 @@ data:extend(
     harvest_emissions = plant_harvest_emissions,
     max_health = 50,
     collision_box = {{-0.8, -0.8}, {0.8, 0.8}},
-	collision_mask = {layers={player=true, ground_tile=true, train=true, is_object=true, is_lower_object=true}},
+	--collision_mask = {layers={player=true, ground_tile=true, train=true, is_object=true, is_lower_object=true}},
     selection_box = {{-1, -1}, {1, 1}},
     drawing_box_vertical_extension = 0.8,
     subgroup = "trees",
@@ -750,10 +989,12 @@ data:extend(
     {
       control = "gleba_plants",
       order = "a[tree]-b[forest]-a",
-      probability_expression = "min(0.05, 0.1 * (1 - gleba_plants_noise) * control:gleba_plants:size)",
+      --probability_expression = "min(0.05, 0.1 * (1 - gleba_plants_noise) * control:gleba_plants:size)",
+      probability_expression = "0",
 	  --placement_density = 0.5,
-      richness_expression = "random_penalty_at(1, 3)",
-      tile_restriction = {"wetland-yumako", "artificial-yumako-soil", "overgrowth-yumako-soil"}
+      --richness_expression = "random_penalty_at(1, 3)",
+      richness_expression = "0",
+      tile_restriction = {"artificial-yumako-soil", "overgrowth-yumako-soil"}
     },
     variations = gleba_tree_variations("cuttlepop", 5, 4),
     colors = {
@@ -841,7 +1082,7 @@ data:extend(
       order = "a[tree]-b[forest]-a",
       probability_expression = "min(0.2, 0.3 * (1 - gleba_plants_noise) * control:gleba_plants:size)",
       richness_expression = "random_penalty_at(2, 2)",
-      tile_restriction = {"midland-turquoise-bark-2", "artificial-ochre-soil", "overgrowth-ochre-soil"}
+      tile_restriction = {"midland-turquoise-bark", "artificial-cerulean-soil", "overgrowth-cerulean-soil"}
     },
     stateless_visualisation_variations =
     {
@@ -855,19 +1096,6 @@ data:extend(
       tree_stateless_visualisation(make_offsets_on_tree(320, 240, {{303, 200}, {303, 200}})),
       tree_stateless_visualisation(make_offsets_on_tree(280, 260, {{292, 197}, {292, 197}})),
       tree_stateless_visualisation(make_offsets_on_tree(320, 240, {{294, 191}, {294, 191}})),
-    },
-    autoplace =
-    {
-      control = "gleba_plants",
-      order = "a[tree]-b[forest]-e",
-      probability_expression = "max(main_probability, invasion_top_probability)",
-      richness_expression = "random_penalty_at(3, 1)",
-      local_expressions = {
-        main_box = "min(gleba_select(gleba_aux, 0, 0.5, 0.15, -10, 1), gleba_select(gleba_moisture, 0.25, 0.5, 0.01, -10, 1)) - 1",
-        main_probability = "min(0.05, 0.1 * (main_box + gleba_plants_noise - 0.25) * control:gleba_plants:size)", -- bigger patches, denser
-        invasion_top_box = "min(gleba_select(gleba_aux, 0, 0.5, 0.15, -10, 1), gleba_select(gleba_moisture, 0.1, 0.25, 0.01, -10, 1)) - 1",
-        invasion_top_probability = "min(0.05, 0.1 * (invasion_top_box + gleba_plants_noise - 0.55) * control:gleba_plants:size)", -- smaller patches, sparser
-      }
     },
     variations = gleba_tree_variations("stingfrond", 10, 5, 1.1, nil, nil, util.by_pixel(52, -60)),
     colors = {
@@ -968,8 +1196,8 @@ data:extend(
     subgroup = "trees",
     order = "a[tree]-c[gleba]-b[normal]-g[boompuff]",
     impact_category = "tree",
-    dying_explosion = { name = "boompuff-explosion" },
-    remains_when_mined = "boompuff-explosion",
+    --dying_explosion = { name = "boompuff-explosion" },
+    --remains_when_mined = "boompuff-explosion",
     factoriopedia_simulation = simulations.factoriopedia_boompuff,
 	autoplace =
     {
@@ -977,7 +1205,7 @@ data:extend(
       order = "a[tree]-b[forest]-a",
       probability_expression = "min(0.2, 0.3 * (1 - gleba_plants_noise) * control:gleba_plants:size)",
       richness_expression = "random_penalty_at(3, 1)",
-      tile_restriction = {"midland-yellow-crust-4", "artificial-ochre-soil", "overgrowth-ochre-soil"}
+      tile_restriction = {"midland-yellow-crust-2", "artificial-ochre-soil", "overgrowth-ochre-soil"}
     },
     variations = gleba_tree_variations("boompuff", 14, 5, 0.9),
     colors = lerp_colors({
@@ -1054,88 +1282,6 @@ data:extend(
     map_color = {255, 255, 255},
   },
   {
-    type = "explosion",
-    name = "boompuff-explosion",
-    hidden = true,
-    animations = table.deepcopy(data.raw.explosion.explosion.animations),
-    sound = table.deepcopy(data.raw.explosion.explosion.sound),
-    created_effect =
-    { -- use a projectile to delay the damage or a whole area detonates in a few ticks
-      type = "cluster",
-      cluster_count = 5,
-      distance = 3,
-      distance_deviation = 2,
-      action_delivery =
-      {
-        type = "projectile",
-        projectile = "boompuff-projectile",
-        direction_deviation = 0.6,
-        starting_speed = 0.1,
-        starting_speed_deviation = 0.08
-      }
-    }
-  },
-  {
-    type = "projectile",
-    name = "boompuff-projectile",
-    flags = {"not-on-map"},
-    hidden = true,
-    acceleration = 0.0001,
-    action =
-    {
-      {
-        type = "direct",
-        action_delivery =
-        {
-          type = "instant",
-          target_effects =
-          {
-            {
-              type = "create-entity",
-              entity_name = "explosion"
-            },
-            {
-              type = "invoke-tile-trigger",
-              repeat_count = 1
-            },
-          }
-        }
-      },
-      {
-        type = "area",
-        radius = 4,
-        action_delivery =
-        {
-          type = "instant",
-          target_effects =
-          {
-            {
-              type = "damage",
-              damage = {amount = 5, type = "explosion"}
-            },
-            {
-              type = "create-entity",
-              entity_name = "explosion"
-            }
-          }
-        }
-      }
-    },
-    animation = util.empty_sprite() --[[
-    {
-      filename = "__base__/graphics/entity/grenade/grenade.png",
-      draw_as_glow = true,
-      frame_count = 15,
-      line_length = 8,
-      animation_speed = 0.250,
-      width = 48,
-      height = 54,
-      shift = util.by_pixel(0.5, 0.5),
-      priority = "high",
-      scale = 0.1
-    }]]
-  },
-  {
     type = "plant",
     name = "sunnycomb-plant", -- sulfur
     icon = "__space-age__/graphics/icons/sunnycomb.png",
@@ -1181,7 +1327,7 @@ data:extend(
       order = "a[tree]-b[forest]-a",
       probability_expression = "min(0.2, 0.3 * (1 - gleba_plants_noise) * control:gleba_plants:size)",
       richness_expression = "random_penalty_at(2, 2)",
-      tile_restriction = {"lowland-dead-skin", "artificial-ochre-soil", "overgrowth-ochre-soil"}
+      tile_restriction = {"lowland-dead-skin", "artificial-cuticle-soil", "overgrowth-cuticle-soil"}
     },
     variations = gleba_tree_variations("sunnycomb", 10, 5, nil, 3200/5, 1120/2),
     colors = minor_tints(),
@@ -1234,7 +1380,7 @@ data:extend(
   {
     type = "tree",
     name = "water-cane", -- wood
-    icon = "__space-age__/graphics/icons/sunnycomb.png",
+    icon = "__outer_moons__/graphics/icons/water-cane.png",
     flags = plant_flags,
     minable =
     {

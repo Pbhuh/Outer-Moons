@@ -1183,7 +1183,7 @@ data:extend({
       seed1 = seed1,\z
       skip_span = 1,\z
       skip_offset = 1,\z
-      region_size = spacing * 5,\z
+      region_size = spacing * 3,\z
       density_expression = favorability,\z
       spot_favorability_expression = favorability,\z
       candidate_spot_count = 22,\z
@@ -1198,7 +1198,7 @@ data:extend({
   {
     type = "noise-expression",
     name = "gleba_stone_richness",
-    expression = "4000 * max(starting, gleba_simple_spot(1000, 6 * size ^ 0.5, 80 / frequency ^ 0.5, gleba_highland) * max(gleba_highland, gleba_midland_aux_2)) * richness / size",
+    expression = "6000 * max(starting, gleba_simple_spot(1000, 6 * size ^ 0.5, 80 / frequency ^ 0.5, gleba_highland) * max(gleba_highland, gleba_midland_aux_2)) * richness / size",
     local_expressions =
     {
       richness = "control:gleba_stone:richness",

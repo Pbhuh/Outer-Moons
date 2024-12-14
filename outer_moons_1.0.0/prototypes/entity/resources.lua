@@ -191,7 +191,7 @@ data:extend({
 		collision_box = {{-1.4, -1.4}, {1.4, 1.4}},
 		selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
 		autoplace = {
-		  order="a[resources]-b[saline]",
+		  order="c",
 		  --default_enabled = false,
 		  probability_expression = "selene_saline_geyser_probability",
 		  richness_expression = "selene_saline_geyser_richness"
@@ -305,7 +305,7 @@ data:extend({
 		collision_box = {{-1.4, -1.4}, {1.4, 1.4}},
 		selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
 		autoplace = {
-		  order="a[resources]-b[chlorine]",
+		  order="c",
 		  probability_expression = "mefitis_chlorine_geyser_probability",
 		  richness_expression = "mefitis_chlorine_geyser_richness"
 		},

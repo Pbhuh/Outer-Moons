@@ -422,7 +422,7 @@ data:extend
 	{
 		name = "selene-sand-1",
 		type = "tile",
-		order = "b[natural]-a[sand]",
+		order = "c[natural]-a[sand]",
 		subgroup = "selene-tiles",
 		collision_mask = tile_collision_masks.ground(),
 		autoplace = {
@@ -453,7 +453,7 @@ data:extend
 	{
 		name = "selene-sand-2",
 		type = "tile",
-		order = "b[natural]-b[sand]",
+		order = "c[natural]-b[sand]",
 		subgroup = "selene-tiles",
 		collision_mask = tile_collision_masks.ground(),
 		autoplace = {
@@ -484,7 +484,7 @@ data:extend
 	{
 		name = "selene-sand-3",
 		type = "tile",
-		order = "b[natural]-c[sand]",
+		order = "c[natural]-c[sand]",
 		subgroup = "selene-tiles",
 		collision_mask = tile_collision_masks.ground(),
 		autoplace = {

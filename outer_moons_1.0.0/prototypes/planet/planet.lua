@@ -774,7 +774,7 @@ data:extend(
     {
       ["day-night-cycle"] = 30 * minute,
       ["magnetic-field"] = 10,
-      pressure = 600,
+      pressure = 500,
       ["solar-power"] = 25,
       gravity = 10
     },
@@ -991,10 +991,10 @@ data:extend(
     surface_properties =
     {
       ["day-night-cycle"] = 30 * minute,
-      ["magnetic-field"] = 10,
-      pressure = 1500,
+      ["magnetic-field"] = 25,
+      pressure = 1200,
       ["solar-power"] = 10,
-      gravity = 10
+      gravity = 12
     },
     asteroid_spawn_influence = 1,
     asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.fulgora_aquilo, 0.9),

@@ -323,3 +323,44 @@ data.raw.lab["biolab"].inputs =
   "cryogenic-science-pack",
   "promethium-science-pack"
 }
+
+--order
+data.raw.fluid["crude-oil"].order = "a[fluid]-b[oil]-a[crude-oil]"
+data.raw.fluid["petroleum-gas"].order = "a[fluid]-b[oil]-b[petroleum-gas]"
+data.raw.fluid["light-oil"].order = "a[fluid]-b[oil]-d[light-oil]"
+data.raw.fluid["light-oil"].order = "a[fluid]-b[oil]-e[light-oil]"
+data.raw.fluid["lubricant"].order = "a[fluid]-b[oil]-g[lubricant]"
+data.raw.fluid["sulfuric-acid"].order = "a[fluid]-b[oil]-f[sulfuric-acid]"
+data.raw.recipe["solid-fuel-from-petroleum-gas"].order = "b[fluid-chemistry]-d[solid-fuel-from-petroleum-gas]"
+
+data.raw.capsule["raw-fish"].subgroup = "nauvis-agriculture"
+data.raw.capsule["raw-fish"].order = "b[nauvis-agriculture]-a[fish-breeding]"
+data.raw.item["tree-seed"].subgroup = "nauvis-agriculture"
+data.raw.item["tree-seed"].order = "b[nauvis-agriculture]-a[wood-processing]"
+data.raw.item["biter-egg"].subgroup = "nauvis-agriculture"
+data.raw.item["biter-egg"].order = "b[nauvis-agriculture]-d[nutrients-from-biter-egg]"
+data.raw.item["uranium-ore"].order = "h[uranium-ore]"
+data.raw.item["ice"].order = "i[ice]"
+data.raw.item["ice-platform"].order = "c[landfill]-i[ice-platform]"
+data.raw.item["foundation"].order = "c[landfill]-j[foundation]"
+
+data.raw.recipe["nutrients-from-spoilage"].subgroup = "agriculture-products"
+data.raw.recipe["nutrients-from-spoilage"].order = "c[nutrients]-a[nutrients-from-spoilage]"
+data.raw.recipe["nutrients-from-bioflux"].subgroup = "agriculture-products"
+data.raw.recipe["nutrients-from-bioflux"].order = "c[nutrients]-c[nutrients-from-bioflux]"
+data.raw.item["nutrients"].subgroup = "agriculture-products"
+data.raw.item["nutrients"].order = "a[organic-processing]-h[nutrients]"
+data.raw.item["spoilage"].subgroup = "agriculture-products"
+data.raw.item["spoilage"].order = "a[organic-processing]-i[spoilage]"
+data.raw.item["copper-bacteria"].order = "b[agriculture]-d[copper-bacteria]"
+data.raw.item["iron-bacteria"].order = "b[agriculture]-c[iron-bacteria]"
+data.raw.recipe["copper-bacteria"].order = "a[bacteria]-a[bacteria]-b[copper]"
+data.raw.recipe["copper-bacteria-cultivation"].order = "c[bacteria]-b[cultivation]-b[copper]"
+--data.raw.recipe["iron-bacteria"].order = "a[bacteria]-a[bacteria]-a[iron]"
+data.raw.recipe["iron-bacteria-cultivation"].order = "c[bacteria]-b[cultivation]-a[iron]"
+
+--disable
+data.raw.recipe["nutrients-from-yumako-mash"].hidden = true
+data.raw.recipe["coal-synthesis"].hidden = true
+data.raw.recipe["solid-fuel-from-heavy-oil"].hidden = true
+data.raw.recipe["solid-fuel-from-light-oil"].hidden = true

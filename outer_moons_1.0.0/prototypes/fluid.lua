@@ -2,13 +2,52 @@ data:extend(
 {
   {
     type = "fluid",
+    name = "sulfane",
+    icon = "__outer_moons__/graphics/icons/fluid/sulfane.png",
+    subgroup = "fluid",
+    order = "a[fluid]-b[oil]-c[sulfane]",
+    default_temperature = 25,
+	gas_temperature = -60,
+    heat_capacity = "0.1kJ",
+	default_temperature = 25,
+    base_color = {0.76, 0.76, 0},
+    flow_color = {0.66, 0.66, 0},
+    auto_barrel = false
+  },
+  {
+    type = "fluid",
+    name = "olefins",
+    icon = "__outer_moons__/graphics/icons/fluid/olefins.png",
+    subgroup = "fluid",
+    order = "a[fluid]-b[oil]-i[olefins]",
+    default_temperature = 25,
+    heat_capacity = "0.1kJ",
+	default_temperature = 25,
+    base_color = {0.83, 0.80, 0.94},
+    flow_color = {0.78, 0.75, 0.89},
+  },
+  {
+    type = "fluid",
+    name = "aromatics",
+    icon = "__outer_moons__/graphics/icons/fluid/aromatics.png",
+    subgroup = "fluid",
+    order = "a[fluid]-b[oil]-j[aromatics]",
+    default_temperature = 25,
+    heat_capacity = "0.1kJ",
+	default_temperature = 25,
+    base_color = {0.44, 0.41, 0.53},
+    flow_color = {0.49, 0.46, 0.58},
+  },
+  {
+    type = "fluid",
     name = "naphtha",
     subgroup = "fluid",
     default_temperature = 25,
+    heat_capacity = "0.1kJ",
     base_color = {0.69, 0.55, 0.42},
     flow_color = {0.79, 0.65, 0.52},
     icon = "__outer_moons__/graphics/icons/fluid/naphtha.png",
-    order = "a[fluid]-b[oil]-d[naphtha]"
+    order = "a[fluid]-b[oil]-h[naphtha]"
   },
 	---
   {
@@ -239,19 +278,6 @@ data:extend(
     heat_capacity = "0.1kJ",
     base_color = {0.9, 0.9, 0.9},
     flow_color = {0.95, 0.95, 0.95},
-    auto_barrel = false
-  },
-  {
-    type = "fluid",
-    name = "ethylene",
-    icon = "__outer_moons__/graphics/icons/fluid/ethylene.png",
-    subgroup = "fluid",
-    order = "b[new-fluid]-b[selene]-d[ethylene]",
-    default_temperature = 25,
-    heat_capacity = "0.1kJ",
-	default_temperature = 25,
-    base_color = {0.4, 0.2, 0.4},
-    flow_color = {0.8, 0.4, 0.8},
     auto_barrel = false
   },
   --Gleba

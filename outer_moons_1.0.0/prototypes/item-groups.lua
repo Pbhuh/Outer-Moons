@@ -38,6 +38,12 @@ data:extend(
   },
   {
     type = "item-subgroup",
+    name = "gleba-grow-tiles",
+    group = "tiles",
+    order = "e-c"
+  },
+  {
+    type = "item-subgroup",
     name = "fulgora-tiles",
     group = "tiles",
     order = "f"
@@ -73,71 +79,77 @@ data:extend(
     order = "k"
   },
   --
-   {
+  {
+    type = "item-subgroup",
+    name = "selene-resources",
+    group = "intermediate-products",
+    order = "l-a"
+  },
+  {
     type = "item-subgroup",
     name = "selene-processes",
     group = "intermediate-products",
-    order = "k"
+    order = "l-b"
   },
   {
     type = "item-subgroup",
     name = "vulcanus-processes",
     group = "intermediate-products",
-    order = "l"
+    order = "m"
   },
   {
     type = "item-subgroup",
     name = "gleba-processes",
     group = "intermediate-products",
-    order = "m"
+    order = "n"
   },
   {
     type = "item-subgroup",
     name = "fulgora-processes",
     group = "intermediate-products",
-    order = "q"
+    order = "r"
   },
   {
     type = "item-subgroup",
     name = "agriculture-processes",
     group = "intermediate-products",
-    order = "n"
+    order = "o"
   },
   {
     type = "item-subgroup",
     name = "agriculture-products",
     group = "intermediate-products",
-    order = "o"
+    order = "p"
   },
   {
     type = "item-subgroup",
     name = "nauvis-agriculture",
     group = "intermediate-products",
-    order = "p"
+    order = "q"
   },
   {
     type = "item-subgroup",
     name = "mefitis-processes",
     group = "intermediate-products",
-    order = "r"
+    order = "s"
   },
   {
     type = "item-subgroup",
     name = "aquilo-processes",
     group = "intermediate-products",
-    order = "s"
+    order = "t"
   },
   {
     type = "item-subgroup",
     name = "aiolos-processes",
     group = "intermediate-products",
-    order = "t"
+    order = "u"
   },
   {
     type = "item-subgroup",
     name = "feronia-processes",
     group = "intermediate-products",
-    order = "u"
+    order = "v"
   }
 }
 )
