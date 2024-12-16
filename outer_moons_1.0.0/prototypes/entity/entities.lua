@@ -11,6 +11,7 @@ local meld = require("meld")
 local simulations = require("__outer_moons__.prototypes.factoriopedia-simulations")
 local procession_graphic_catalogue_types = require("__base__/prototypes/planet/procession-graphic-catalogue-types")
 
+
 data:extend({
   
   scaled_cliff(
@@ -508,8 +509,8 @@ data:extend({
     circuit_wire_max_distance = assembling_machine_circuit_wire_max_distance,
     circuit_connector = circuit_connector_definitions["foundry"],
     fluid_boxes_off_when_no_fluid_recipe = true,
-    collision_box = { { -4, -4 }, { 4, 4 } },
-    selection_box = { { -4.2, -4.2 }, { 4.1, 4.1 } },
+    collision_box = { { -3.5, -3.5 }, { 3.5, 3.5 } },
+    selection_box = { { -3.5, -3.5 }, { 3.5, 3.5 } },
     heating_energy = "500kW",
     damaged_trigger_effect = hit_effects.entity(),
     drawing_box_vertical_extension = 1.5,
@@ -545,7 +546,7 @@ data:extend({
                     animation_speed = 0.5,
                     shift = util.by_pixel_hr(0, -16),
                     draw_as_shadow = true,
-                    scale = 0.49,
+                    scale = 0.43,
                 },
                 {
                     priority = "high",
@@ -554,7 +555,7 @@ data:extend({
                     frame_count = 120,
                     shift = util.by_pixel_hr(0, -16),
                     animation_speed = 0.5,
-                    scale = 0.5,
+                    scale = 0.4375,
                     stripes = {
                         {
                             filename = "__outer_moons__/graphics/entity/megafoundry/megafoundry-hr-animation-1.png",
@@ -571,6 +572,91 @@ data:extend({
             },
         },
         working_visualisations = {
+			
+			{
+				always_draw = true,
+				name = "output-pipe",
+				enabled_by_name = true,
+				north_animation = {
+				  filename = "__outer_moons__/graphics/entity/megafoundry/megafoundry-pipe-connections-north.png",
+				  width = 384,
+				  height = 160,
+				  shift = util.by_pixel( 0, -87),
+				  line_length = 1,
+				  repeat_count = 120,
+				  scale = 0.5
+				},
+				north_secondary_draw_order = -10, -- behind main animation
+				east_animation = {
+				  filename = "__outer_moons__/graphics/entity/megafoundry/megafoundry-pipe-connections-east.png",
+				  width = 64,
+				  height = 384,
+				  shift = util.by_pixel( 98, 0),
+				  line_length = 1,
+				  repeat_count = 120,
+				  scale = 0.5
+				},
+				south_animation = {
+				  filename = "__outer_moons__/graphics/entity/megafoundry/megafoundry-pipe-connections-south.png",
+				  width = 384,
+				  height = 172,
+				  shift = util.by_pixel( 0, 94.5),
+				  line_length = 1,
+				  repeat_count = 120,
+				  scale = 0.5
+				},
+				west_animation = {
+				  filename = "__outer_moons__/graphics/entity/megafoundry/megafoundry-pipe-connections-west.png",
+				  width = 64,
+				  height = 384,
+				  shift = util.by_pixel( -98, 0),
+				  line_length = 1,
+				  repeat_count = 120,
+				  scale = 0.5
+				},
+			},
+			{
+				always_draw = true,
+				name = "input-pipe",
+				enabled_by_name = true,
+				north_animation = {
+				  filename = "__outer_moons__/graphics/entity/megafoundry/megafoundry-pipe-connections-south.png",
+				  width = 384,
+				  height = 172,
+				  shift = util.by_pixel( 0, 94.5),
+				  line_length = 1,
+				  repeat_count = 120,
+				  scale = 0.5
+				},
+				east_animation = {
+				  filename = "__outer_moons__/graphics/entity/megafoundry/megafoundry-pipe-connections-west.png",
+				  width = 64,
+				  height = 384,
+				  shift = util.by_pixel( -98, 0),
+				  line_length = 1,
+				  repeat_count = 120,
+				  scale = 0.5
+				},
+				south_animation = {
+				  filename = "__outer_moons__/graphics/entity/megafoundry/megafoundry-pipe-connections-north.png",
+				  width = 384,
+				  height = 160,
+				  shift = util.by_pixel( 0, -87),
+				  line_length = 1,
+				  repeat_count = 120,
+				  scale = 0.5
+				},
+				south_secondary_draw_order = -10, -- behind main animation
+				west_animation = {
+				  filename = "__outer_moons__/graphics/entity/megafoundry/megafoundry-pipe-connections-east.png",
+				  width = 64,
+				  height = 384,
+				  shift = util.by_pixel( 98, 0),
+				  line_length = 1,
+				  repeat_count = 120,
+				  scale = 0.5
+				},
+			},
             {
                 fadeout = true,
                 secondary_draw_order = 1,
@@ -580,7 +666,7 @@ data:extend({
                     shift = util.by_pixel_hr(0, -16),
                     frame_count = 120,
                     draw_as_glow = true,
-                    scale = 0.5,
+                    scale = 0.4375,
                     animation_speed = 0.5,
                     blend_mode = "additive",
                     stripes = {
@@ -596,7 +682,7 @@ data:extend({
                         },
                     },
                 },
-            }
+            },
         },
 
         reset_animation_when_frozen = true,
@@ -605,7 +691,7 @@ data:extend({
 			--tint_as_overlay = true,
 			priority = "extra-high",
 			filename = "__outer_moons__/graphics/entity/megafoundry/megafoundry-frozen.png",
-			scale = 0.5,
+			scale = 0.4375,
 			width = 900,
 			height = 800,
 			--shift = util.by_pixel( 0, 0),
@@ -644,63 +730,63 @@ data:extend({
     {
       {
         production_type = "input",
-        pipe_picture = assembler2pipepictures(),
-        pipe_picture_frozen = require("__space-age__.prototypes.entity.foundry-pictures").pipe_picture_frozen,
-        pipe_covers = pipecoverspictures(),
-        always_draw_covers = false,
-        --enable_working_visualisations = { "input-pipe" },
-        volume = 1000,
-        pipe_connections = {{ flow_direction="input", direction = defines.direction.south, position = {-1, 3.8} }}
-      },
-      {
-        production_type = "input",
-        pipe_picture = assembler2pipepictures(),
+        pipe_picture = util.empty_sprite(),
         --pipe_picture_frozen = require("__space-age__.prototypes.entity.foundry-pictures").pipe_picture_frozen,
         pipe_covers = pipecoverspictures(),
         always_draw_covers = false,
-        --enable_working_visualisations = { "input-pipe" },
+        enable_working_visualisations = { "input-pipe" },
         volume = 1000,
-        pipe_connections = {{ flow_direction="input", direction = defines.direction.south, position = {0.5, 3.8} }}
+        pipe_connections = {{ flow_direction="input", direction = defines.direction.south, position = {-2, 3} }}
       },
 	  {
         production_type = "input",
-        pipe_picture = assembler2pipepictures(),
+        pipe_picture = util.empty_sprite(),
         --pipe_picture_frozen = require("__space-age__.prototypes.entity.foundry-pictures").pipe_picture_frozen,
         pipe_covers = pipecoverspictures(),
         always_draw_covers = false,
-        --enable_working_visualisations = { "input-pipe" },
+        enable_working_visualisations = { "input-pipe" },
         volume = 1000,
-        pipe_connections = {{ flow_direction="input", direction = defines.direction.south, position = {1.5, 3.8} }}
+        pipe_connections = {{ flow_direction="input", direction = defines.direction.south, position = {0, 3} }}
       },
-      {
-        production_type = "output",
-        pipe_picture = assembler2pipepictures(),
+	  {
+        production_type = "input",
+        pipe_picture = util.empty_sprite(),
         --pipe_picture_frozen = require("__space-age__.prototypes.entity.foundry-pictures").pipe_picture_frozen,
         pipe_covers = pipecoverspictures(),
         always_draw_covers = false,
-        --enable_working_visualisations = { "output-pipe" },
-        volume = 100,
-        pipe_connections = {{ flow_direction="output", direction = defines.direction.north, position = {-1, -3.8} }}
+        enable_working_visualisations = { "input-pipe" },
+        volume = 1000,
+        pipe_connections = {{ flow_direction="input", direction = defines.direction.south, position = {2, 3} }}
       },
       {
         production_type = "output",
-        pipe_picture = assembler2pipepictures(),
-        pipe_picture_frozen = require("__space-age__.prototypes.entity.foundry-pictures").pipe_picture_frozen,
+        pipe_picture = util.empty_sprite(),
+        --pipe_picture_frozen = require("__space-age__.prototypes.entity.foundry-pictures").pipe_picture_frozen,
         pipe_covers = pipecoverspictures(),
         always_draw_covers = false,
-        --enable_working_visualisations = { "output-pipe" },
+        enable_working_visualisations = { "output-pipe" },
         volume = 100,
-        pipe_connections = {{ flow_direction="output", direction = defines.direction.north, position = {0.5, -3.8} }}
+        pipe_connections = {{ flow_direction="output", direction = defines.direction.north, position = {-2, -3} }}
       },
 	  {
         production_type = "output",
-        pipe_picture = assembler2pipepictures(),
-        pipe_picture_frozen = require("__space-age__.prototypes.entity.foundry-pictures").pipe_picture_frozen,
+        pipe_picture = util.empty_sprite(),
+        --pipe_picture_frozen = require("__space-age__.prototypes.entity.foundry-pictures").pipe_picture_frozen,
         pipe_covers = pipecoverspictures(),
         always_draw_covers = false,
-        --enable_working_visualisations = { "output-pipe" },
+        enable_working_visualisations = { "output-pipe" },
         volume = 100,
-        pipe_connections = {{ flow_direction="output", direction = defines.direction.north, position = {1.5, -3.8} }}
+        pipe_connections = {{ flow_direction="output", direction = defines.direction.north, position = {0, -3} }}
+      },
+	  {
+        production_type = "output",
+        pipe_picture = util.empty_sprite(),
+        --pipe_picture_frozen = require("__space-age__.prototypes.entity.foundry-pictures").pipe_picture_frozen,
+        pipe_covers = pipecoverspictures(),
+        always_draw_covers = false,
+        enable_working_visualisations = { "output-pipe" },
+        volume = 100,
+        pipe_connections = {{ flow_direction="output", direction = defines.direction.north, position = {2, -3} }}
       }
     },
   }

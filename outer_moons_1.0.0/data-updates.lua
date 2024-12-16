@@ -332,14 +332,18 @@ data.raw.fluid["light-oil"].order = "a[fluid]-b[oil]-e[light-oil]"
 data.raw.fluid["lubricant"].order = "a[fluid]-b[oil]-g[lubricant]"
 data.raw.fluid["sulfuric-acid"].order = "a[fluid]-b[oil]-f[sulfuric-acid]"
 data.raw.recipe["solid-fuel-from-petroleum-gas"].order = "b[fluid-chemistry]-d[solid-fuel-from-petroleum-gas]"
+data.raw.resource["crude-oil"].order = "a-b-a[crude-oil]"
+data.raw.resource["sulfuric-acid-geyser"].order = "a-b-c[sulfuric-acid-geyser]"
+data.raw.resource["lithium-brine"].order = "a-b-e[lithium-brine]"
+data.raw.resource["fluorine-vent"].order = "a-b-f[fluorine-vent]"
 
 data.raw.capsule["raw-fish"].subgroup = "nauvis-agriculture"
-data.raw.capsule["raw-fish"].order = "b[nauvis-agriculture]-a[fish-breeding]"
+data.raw.capsule["raw-fish"].order = "b[nauvis-agriculture]-b[fish-breeding]"
 data.raw.item["tree-seed"].subgroup = "nauvis-agriculture"
 data.raw.item["tree-seed"].order = "b[nauvis-agriculture]-a[wood-processing]"
 data.raw.item["biter-egg"].subgroup = "nauvis-agriculture"
 data.raw.item["biter-egg"].order = "b[nauvis-agriculture]-d[nutrients-from-biter-egg]"
-data.raw.item["uranium-ore"].order = "h[uranium-ore]"
+data.raw.item["uranium-ore"].order = "g[uranium-ore]"
 data.raw.item["ice"].order = "i[ice]"
 data.raw.item["ice-platform"].order = "c[landfill]-i[ice-platform]"
 data.raw.item["foundation"].order = "c[landfill]-j[foundation]"
@@ -348,16 +352,37 @@ data.raw.recipe["nutrients-from-spoilage"].subgroup = "agriculture-products"
 data.raw.recipe["nutrients-from-spoilage"].order = "c[nutrients]-a[nutrients-from-spoilage]"
 data.raw.recipe["nutrients-from-bioflux"].subgroup = "agriculture-products"
 data.raw.recipe["nutrients-from-bioflux"].order = "c[nutrients]-c[nutrients-from-bioflux]"
-data.raw.item["nutrients"].subgroup = "agriculture-products"
-data.raw.item["nutrients"].order = "a[organic-processing]-h[nutrients]"
-data.raw.item["spoilage"].subgroup = "agriculture-products"
-data.raw.item["spoilage"].order = "a[organic-processing]-i[spoilage]"
-data.raw.item["copper-bacteria"].order = "b[agriculture]-d[copper-bacteria]"
-data.raw.item["iron-bacteria"].order = "b[agriculture]-c[iron-bacteria]"
+--data.raw.item["nutrients"].subgroup = "agriculture-products"
+data.raw.item["nutrients"].order = "a[agriculture]-h[nutrients]"
+--data.raw.item["spoilage"].subgroup = "agriculture-products"
+data.raw.item["spoilage"].order = "a[agriculture]-i[spoilage]"
+data.raw.item["copper-bacteria"].order = "c[bacteria]-b[copper-bacteria]"
+data.raw.item["iron-bacteria"].order = "c[bacteria]-a[iron-bacteria]"
+data.raw.recipe["copper-bacteria"].subgroup = "agriculture-products"
 data.raw.recipe["copper-bacteria"].order = "a[bacteria]-a[bacteria]-b[copper]"
+data.raw.recipe["copper-bacteria"].icon = "__outer_moons__/graphics/icons/mash-copper.png"
 data.raw.recipe["copper-bacteria-cultivation"].order = "c[bacteria]-b[cultivation]-b[copper]"
---data.raw.recipe["iron-bacteria"].order = "a[bacteria]-a[bacteria]-a[iron]"
 data.raw.recipe["iron-bacteria-cultivation"].order = "c[bacteria]-b[cultivation]-a[iron]"
+
+--Flamethrower
+data.raw["fluid-turret"]["flamethrower-turret"].attack_parameters.fluids = { {type = "crude-oil"},  {type = "heavy-oil", damage_modifier = 1.05}, {type = "light-oil", damage_modifier = 1.1}, {type = "ethanol", damage_modifier = 1.1} }
+
+--Pressure fix
+data.raw.recipe["metallurgic-science-pack"].surface_conditions = { { property = "pressure", min = 2000, max = 2000 } }
+data.raw.recipe["turbo-transport-belt"].surface_conditions = { { property = "pressure", min = 2000, max = 2000 } }
+data.raw.recipe["turbo-underground-belt"].surface_conditions = { { property = "pressure", min = 2000, max = 2000 } }
+data.raw.recipe["turbo-splitter"].surface_conditions = { { property = "pressure", min = 2000, max = 2000 } }
+data.raw.recipe["big-mining-drill"].surface_conditions = { { property = "pressure", min = 2000, max = 2000 } }
+data.raw.recipe["foundry"].surface_conditions = { { property = "pressure", min = 2000, max = 2000 } }
+
+
+data.raw.recipe["iron-bacteria"].surface_conditions = { { property = "pressure", min = 2500, max = 2500 } }
+data.raw.recipe["iron-bacteria-cultivation"].surface_conditions = { { property = "pressure", min = 2500, max = 2500 } }
+data.raw.recipe["copper-bacteria"].surface_conditions = { { property = "pressure", min = 2500, max = 2500 } }
+data.raw.recipe["copper-bacteria-cultivation"].surface_conditions = { { property = "pressure", min = 2500, max = 2500 } }
+data.raw.recipe["pentapod-egg"].surface_conditions = { { property = "pressure", min = 2500, max = 2500 } }
+data.raw.recipe["biochamber"].surface_conditions = { { property = "pressure", min = 2500, max = 2500 } }
+data.raw.recipe["agricultural-science-pack"].surface_conditions = { { property = "pressure", min = 2500, max = 2500 } }
 
 --disable
 data.raw.recipe["nutrients-from-yumako-mash"].hidden = true

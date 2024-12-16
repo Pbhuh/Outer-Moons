@@ -314,11 +314,60 @@ data:extend({
 		  quaternary = {r = 1.000, g = 0.804, b = 0.000, a = 1.000}, -- #ffcd00ff
 		}
 	},
+	-- Explosives
+	{
+		type = "recipe",
+		name = "niter",
+		icon = "__outer_moons__/graphics/icons/niter.png",
+		category = "chemistry",
+		order = "h[niter]",
+		surface_conditions =
+		{
+		  {
+			property = "pressure",
+			min = 1000,
+			max = 2000
+		  }
+		},
+		enabled = false,
+		allow_productivity = true,
+		auto_recycle = false,
+		energy_required = 2,
+		ingredients =
+		{
+		  {type = "item", name = "stone", amount = 5},
+		  {type = "fluid", name = "water", amount = 6},
+		  {type = "fluid", name = "sulfuric-acid", amount = 8},
+		},
+		results = {{type="item", name="niter", amount=2}}
+	},
+	{
+		type = "recipe",
+		name = "explosives",
+		category = "chemistry",
+		crafting_machine_tint =
+		{
+		  primary = {r = 0.968, g = 0.381, b = 0.259, a = 1.000}, -- #f66142ff
+		  secondary = {r = 0.892, g = 0.664, b = 0.534, a = 1.000}, -- #e3a988ff
+		  tertiary = {r = 1.000, g = 0.978, b = 0.513, a = 1.000}, -- #fff982ff
+		  quaternary = {r = 0.210, g = 0.170, b = 0.013, a = 1.000}, -- #352b03ff
+		},
+		energy_required = 4,
+		enabled = false,
+		ingredients =
+		{
+		  {type = "item", name = "sulfur", amount = 1},
+		  {type = "item", name = "coal", amount = 2},
+		  {type = "item", name = "niter", amount = 10}
+		},
+		results = {{type="item", name="explosives", amount=2}},
+		allow_productivity = true
+	},
 	--Silicon
 	{
 		type = "recipe",
 		name = "silicon-ore",
-		category = "crafting-with-fluid",
+		category = "chemistry",
 		enabled = false,
 		auto_recycle = false,
 		energy_required = 5,
@@ -326,7 +375,7 @@ data:extend({
 		{
 		  {type = "item", name = "stone", amount = 5},
 		  {type = "item", name = "coal", amount = 2},
-		  {type = "fluid", name = "sulfuric-acid", amount = 5}
+		  {type = "fluid", name = "sulfuric-acid", amount = 10}
 		},
 		results = {{type="item", name="silicon-ore", amount=1}},
 		allow_productivity = true
@@ -753,7 +802,6 @@ data:extend({
 		  quaternary = {r = 0.656, g = 0.562, b = 0.264, a = 1.000}, -- #a78f43ff
 		}
 	},
-	
 	--structures
 	{
 		type = "recipe",
@@ -823,7 +871,6 @@ data:extend({
 		allow_productivity = true
 	},
 	-- Vulcanus
-	
 	--Gleba
 	{
       type = "recipe",
@@ -861,12 +908,12 @@ data:extend({
       ingredients =
       {
         {type = "item", name = "slipstack-polyp", amount = 5},
-        {type = "fluid", name = "water", amount = 15, fluidbox_multiplier = 10},
+       -- {type = "fluid", name = "water", amount = 15, fluidbox_multiplier = 10},
       },
       results =
       {
 		{type = "item", name = "slipstack-seed", amount = 1, probability = 0.02},
-        {type = "item", name = "calcite", amount = 3},
+        --{type = "item", name = "calcite", amount = 3},
         {type = "fluid", name = "slipgoo", amount = 10},
       },
       subgroup = "agriculture-processes",
@@ -911,12 +958,12 @@ data:extend({
       ingredients =
       {
         {type = "item", name = "mawpouch", amount = 5},
-        {type = "fluid", name = "water", amount = 20, fluidbox_multiplier = 10},
+        --{type = "fluid", name = "water", amount = 20, fluidbox_multiplier = 10},
       },
       results =
       {
 		{type = "item", name = "lickmaw-seed", amount = 1, probability = 0.02},
-        {type = "item", name = "calcite", amount = 3},
+       -- {type = "item", name = "calcite", amount = 3},
         {type = "fluid", name = "mawslush", amount = 15},
       },
       subgroup = "agriculture-processes",
@@ -1044,8 +1091,8 @@ data:extend({
       {
         {type = "item", name = "yumako-mash", amount = 10},
         {type = "item", name = "jelly", amount = 5},
-        {type = "item", name = "sunnylattice", amount = 3},
-        {type = "item", name = "funnelbranch", amount = 2},
+        --{type = "item", name = "sunnylattice", amount = 3},
+        --{type = "item", name = "funnelbranch", amount = 2},
         {type = "fluid", name = "slipgoo", amount = 20, fluidbox_multiplier = 10},
         {type = "fluid", name = "mawslush", amount = 30, fluidbox_multiplier = 10},
       },
@@ -1067,7 +1114,7 @@ data:extend({
       type = "recipe",
       name = "bioflux",
       category = "organic-or-chemistry",
-      icon = "__outer_moons__/graphics/icons/fluid/bioslurry.png",
+      icon = "__outer_moons__/graphics/icons/bioflux-crystallization.png",
       enabled = false,
       energy_required = 12,
       ingredients =
@@ -1173,8 +1220,8 @@ data:extend({
 		{
 		  {
 			property = "pressure",
-			min = 2000,
-			max = 2000
+			min = 2500,
+			max = 2500
 		  }
 		},
 		enabled = false,
@@ -1192,20 +1239,22 @@ data:extend({
 	},
 	{
 		type = "recipe",
-		name = "niter",
+		name = "niter-synthesis",
 		icon = "__outer_moons__/graphics/icons/niter.png",
 		category = "organic-or-chemistry",
 		surface_conditions =
 		{
 		  {
 			property = "pressure",
-			min = 2000,
-			max = 2000
+			min = 2500,
+			max = 2500
 		  }
 		},
 		enabled = false,
 		allow_productivity = true,
 		auto_recycle = false,
+		subgroup = "agriculture-products",
+		order = "b[organic-products]-g[niter-synthesis]",
 		energy_required = 2,
 		ingredients =
 		{
@@ -1223,8 +1272,8 @@ data:extend({
 		{
 		  {
 			property = "pressure",
-			min = 2000,
-			max = 2000
+			min = 2500,
+			max = 2500
 		  }
 		},
 		crafting_machine_tint =
@@ -1251,14 +1300,14 @@ data:extend({
 	{
 		type = "recipe",
 		name = "iron-bacteria",
-		icon = "__space-age__/graphics/icons/iron-bacteria.png",
+		icon = "__outer_moons__/graphics/icons/funnelbranch-iron.png",
 		category = "organic-or-hand-crafting",
 		surface_conditions =
 		{
 		  {
 			property = "pressure",
-			min = 2000,
-			max = 2000
+			min = 2500,
+			max = 2500
 		  }
 		},
 		subgroup = "agriculture-processes",
@@ -1291,8 +1340,8 @@ data:extend({
 		{
 		  {
 			property = "pressure",
-			min = 2000,
-			max = 2000
+			min = 2500,
+			max = 2500
 		  }
 		},
 		enabled = false,
@@ -1320,7 +1369,7 @@ data:extend({
 		{
 		  {
 			property = "pressure",
-			min = 2000,
+			min = 2500,
 			max = 10000
 		  }
 		},
@@ -1343,8 +1392,8 @@ data:extend({
 		{
 		  {
 			property = "pressure",
-			min = 2000,
-			max = 2000
+			min = 2500,
+			max = 2500
 		  }
 		},
 		enabled = false,
@@ -1368,8 +1417,8 @@ data:extend({
 		{
 		  {
 			property = "pressure",
-			min = 2000,
-			max = 2000
+			min = 2500,
+			max = 2500
 		  }
 		},
 		enabled = false,
@@ -1393,8 +1442,8 @@ data:extend({
 		{
 		  {
 			property = "pressure",
-			min = 2000,
-			max = 2000
+			min = 2500,
+			max = 2500
 		  }
 		},
 		enabled = false,
@@ -1418,8 +1467,8 @@ data:extend({
 		{
 		  {
 			property = "pressure",
-			min = 2000,
-			max = 2000
+			min = 2500,
+			max = 2500
 		  }
 		},
 		enabled = false,
@@ -1443,8 +1492,8 @@ data:extend({
 		{
 		  {
 			property = "pressure",
-			min = 2000,
-			max = 2000
+			min = 2500,
+			max = 2500
 		  }
 		},
 		enabled = false,
@@ -1468,8 +1517,8 @@ data:extend({
 		{
 		  {
 			property = "pressure",
-			min = 2000,
-			max = 2000
+			min = 2500,
+			max = 2500
 		  }
 		},
 		enabled = false,
@@ -1493,8 +1542,8 @@ data:extend({
 		{
 		  {
 			property = "pressure",
-			min = 2000,
-			max = 2000
+			min = 2500,
+			max = 2500
 		  }
 		},
 		enabled = false,
@@ -1517,8 +1566,8 @@ data:extend({
 		{
 		  {
 			property = "pressure",
-			min = 2000,
-			max = 2000
+			min = 2500,
+			max = 2500
 		  }
 		},
 		enabled = false,
@@ -1542,8 +1591,8 @@ data:extend({
 		{
 		  {
 			property = "pressure",
-			min = 2000,
-			max = 2000
+			min = 2500,
+			max = 2500
 		  }
 		},
 		enabled = false,
@@ -1566,8 +1615,8 @@ data:extend({
 		{
 		  {
 			property = "pressure",
-			min = 2000,
-			max = 2000
+			min = 2500,
+			max = 2500
 		  }
 		},
 		enabled = false,

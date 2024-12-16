@@ -257,7 +257,8 @@ data:extend(
       mining_time = 0.5,
       results =
       {
-        {type = "item", name = "slipstack-polyp", amount = 50}
+        {type = "item", name = "slipstack-polyp", amount = 50},
+        {type = "item", name = "calcite", amount = 4},
       }
     },
     mining_sound = sound_variations("__space-age__/sound/mining/axe-mining-slipstack", 5, 0.5),
@@ -349,6 +350,7 @@ data:extend(
       results =
       {
         {type = "item", name = "mawpouch", amount = 50},
+        {type = "item", name = "calcite", amount = 4},
       },
       mining_trigger =
       {
@@ -460,7 +462,8 @@ data:extend(
       mining_time = 0.5,
       results =
       {
-        {type = "item", name = "cuttlepod", amount = 50}
+        {type = "item", name = "cuttlepod", amount = 50},
+        {type = "item", name = "calcite", amount = 4},
       }
     },
     mining_sound = sound_variations("__space-age__/sound/mining/mining-cuttlepop", 6, 0.8),
@@ -593,7 +596,8 @@ data:extend(
       mining_time = 0.5,
       results =
       {
-        {type = "item", name = "funnelwood", amount = 50}
+        {type = "item", name = "funnelwood", amount = 50},
+        {type = "item", name = "wood", amount = 4},
       },
       mining_trigger =
       {
@@ -619,7 +623,7 @@ data:extend(
     selection_box = {{-1, -1}, {1, 1}},
     drawing_box_vertical_extension = 0.8,
     subgroup = "trees",
-    order = "a[tree]-c[gleba]-b[normal]-b[funneltrunk]",
+    order = "a[tree]-c[gleba]-d[funneltrunk]",
     impact_category = "tree",
     factoriopedia_simulation = simulations.factoriopedia_funneltrunk,
     autoplace =
@@ -687,7 +691,8 @@ data:extend(
       mining_time = 0.5,
       results =
       {
-        {type = "item", name = "slipstack-polyp", amount = 50}
+        {type = "item", name = "slipstack-polyp", amount = 50},
+        {type = "item", name = "calcite", amount = 4},
       }
     },
     mining_sound = sound_variations("__space-age__/sound/mining/axe-mining-slipstack", 5, 0.5),
@@ -701,7 +706,7 @@ data:extend(
     selection_box = {{-1, -1}, {1, 1}},
     drawing_box_vertical_extension = 0.8,
     subgroup = "trees",
-    order = "a[tree]-c[gleba]-b[normal]-a[slipstack]",
+    order = "a[tree]-c[gleba]-a[slipstack]",
     impact_category = "tree",
     factoriopedia_simulation = simulations.factoriopedia_slipstack,
     autoplace =
@@ -780,7 +785,10 @@ data:extend(
     {
       mining_particle = "wooden-particle",
       mining_time = 0.5,
-      results = {{type = "item", name = "yumako", amount = 50}},
+      results = {
+		{type = "item", name = "yumako", amount = 50},
+        {type = "item", name = "wood", amount = 4},
+	  },
       mining_trigger =
       {
         {
@@ -806,7 +814,7 @@ data:extend(
     selection_box = {{-1, -1}, {1, 1}},
     drawing_box_vertical_extension = 0.8,
     subgroup = "trees",
-    order = "a[tree]-c[gleba]-a[seedable]-a[yumako-tree]",
+    order = "a[tree]-c[gleba]-f[yumako-tree]",
     impact_category = "tree",
     factoriopedia_simulation = simulations.factoriopedia_yumako_tree,
     autoplace =
@@ -854,7 +862,8 @@ data:extend(
       mining_time = 0.5,
       results =
       {
-        {type = "item", name = "mawpouch", amount = 50}
+        {type = "item", name = "mawpouch", amount = 50},
+        {type = "item", name = "calcite", amount = 4},
       },
       mining_trigger =
       {
@@ -881,7 +890,7 @@ data:extend(
     selection_box = {{-1, -1}, {1, 1}},
     drawing_box_vertical_extension = 0.8,
     subgroup = "trees",
-    order = "a[tree]-c[gleba]-b[normal]-e[lickmaw]",
+    order = "a[tree]-c[gleba]-e[lickmaw]",
     impact_category = "tree",
     factoriopedia_simulation = simulations.factoriopedia_lickmaw,
     autoplace =
@@ -968,7 +977,8 @@ data:extend(
       mining_time = 0.5,
       results =
       {
-        {type = "item", name = "cuttlepod", amount = 50}
+        {type = "item", name = "cuttlepod", amount = 50},
+        {type = "item", name = "calcite", amount = 4},
       }
     },
     mining_sound = sound_variations("__space-age__/sound/mining/mining-cuttlepop", 6, 0.8),
@@ -982,7 +992,7 @@ data:extend(
     selection_box = {{-1, -1}, {1, 1}},
     drawing_box_vertical_extension = 0.8,
     subgroup = "trees",
-    order = "a[tree]-c[gleba]-b[normal]-i[cuttlepop]",
+    order = "a[tree]-c[gleba]-c[cuttlepop]",
     impact_category = "tree",
     factoriopedia_simulation = simulations.factoriopedia_cuttlepop,
 	autoplace =
@@ -1060,7 +1070,8 @@ data:extend(
       mining_time = 0.5,
       results =
       {
-        {type = "item", name = "frondstalk", amount = 50}
+        {type = "item", name = "frondstalk", amount = 50},
+        {type = "item", name = "wood", amount = 4},
       }
     },
     mining_sound = sound_variations("__space-age__/sound/mining/axe-mining-stingfrond", 5, 0.5),
@@ -1073,7 +1084,7 @@ data:extend(
     selection_box = {{-1, -1}, {1, 1}},
     drawing_box_vertical_extension = 0.8,
     subgroup = "trees",
-    order = "a[tree]-c[gleba]-b[normal]-f[stingfrond]",
+    order = "a[tree]-c[gleba]-h[stingfrond]",
     impact_category = "tree",
     factoriopedia_simulation = simulations.factoriopedia_stingfrond,
     autoplace =
@@ -1169,7 +1180,8 @@ data:extend(
       mining_time = 0.5,
       results =
       {
-        {type = "item", name = "boompuff-bulb", amount = 50}
+        {type = "item", name = "boompuff-bulb", amount = 50},
+        {type = "item", name = "wood", amount = 4},
       },
       mining_trigger =
       {
@@ -1194,7 +1206,7 @@ data:extend(
     selection_box = {{-1, -1}, {1, 1}},
     drawing_box_vertical_extension = 0.8,
     subgroup = "trees",
-    order = "a[tree]-c[gleba]-b[normal]-g[boompuff]",
+    order = "a[tree]-c[gleba]-g[boompuff]",
     impact_category = "tree",
     --dying_explosion = { name = "boompuff-explosion" },
     --remains_when_mined = "boompuff-explosion",
@@ -1292,7 +1304,8 @@ data:extend(
       mining_time = 0.5,
       results =
       {
-        {type = "item", name = "sunnycomb", amount = 50}
+        {type = "item", name = "sunnycomb", amount = 50},
+        {type = "item", name = "calcite", amount = 4},
       },
       mining_trigger =
       {
@@ -1318,7 +1331,7 @@ data:extend(
     selection_box = {{-1, -1}, {1, 1}},
     drawing_box_vertical_extension = 0.8,
     subgroup = "trees",
-    order = "a[tree]-c[gleba]-b[normal]-h[sunnycomb]",
+    order = "a[tree]-c[gleba]-b[sunnycomb]",
     impact_category = "tree",
     factoriopedia_simulation = simulations.factoriopedia_sunnycomb,
 	autoplace =
@@ -1411,7 +1424,7 @@ data:extend(
     collision_mask = {layers={ground_tile=true, train=true, is_object=true, is_lower_object=true}}, -- not player
     drawing_box_vertical_extension = 0.8,
     subgroup = "trees",
-    order = "a[tree]-c[gleba]-c[decorative]-a[water-cane]",
+    order = "a[tree]-e[feronia]-a[water-cane]",
     impact_category = "tree",
     autoplace =
     {
@@ -1477,7 +1490,7 @@ data:extend(
     selection_box = {{-1, -1}, {1, 1}},
     drawing_box_vertical_extension = 0.8,
     subgroup = "trees",
-    order = "a[tree]-c[gleba]-b[normal]-d[teflilly]",
+    order = "a[tree]-e[feronia]-b[teflilly]",
     impact_category = "tree",
     factoriopedia_simulation = simulations.factoriopedia_teflilly,
     autoplace =
@@ -1590,7 +1603,7 @@ data:extend(
     selection_box = {{-1, -1}, {1, 1}},
     drawing_box_vertical_extension = 0.8,
     subgroup = "trees",
-    order = "a[tree]-c[gleba]-b[normal]-c[hairyclubnub]",
+    order = "a[tree]-e[feronia]-c[hairyclubnub]",
     impact_category = "tree",
     factoriopedia_simulation = simulations.factoriopedia_hairyclubnub,
     autoplace =
@@ -1665,7 +1678,7 @@ data:extend(
     selection_box = {{-1, -1}, {1, 1}},
     drawing_box_vertical_extension = 0.8,
     subgroup = "trees",
-    order = "a[tree]-c[gleba]-a[seedable]-b[jellystem]",
+    order = "a[tree]-e[feronia]-d[jellystem]",
     impact_category = "tree",
     factoriopedia_simulation = simulations.factoriopedia_jellystem,
     autoplace =

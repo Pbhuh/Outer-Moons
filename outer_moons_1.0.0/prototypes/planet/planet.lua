@@ -44,10 +44,10 @@ data:extend(
     surface_properties =
     {
       ["day-night-cycle"] = 1.5 * minute,
-      ["magnetic-field"] = 25,
+      ["magnetic-field"] = 75,
       ["solar-power"] = 400,
-      pressure = 4000,
-      gravity = 25
+      pressure = 2000,
+      gravity = 20
     },
     asteroid_spawn_influence = 1,
     asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus, 0.9),
@@ -145,10 +145,10 @@ data:extend(
     surface_properties =
     {
       ["day-night-cycle"] = 10 * minute,
-      ["magnetic-field"] = 25,
+      ["magnetic-field"] = 60,
       ["solar-power"] = 60,
-      pressure = 2000,
-      gravity = 16
+      pressure = 2500,
+      gravity = 25
     },
     surface_render_parameters=
     {
@@ -722,9 +722,9 @@ data:extend(
     {
       ["day-night-cycle"] = 60 * minute,
       ["magnetic-field"] = 5,
-      pressure = 100,
+      pressure = 150,
       ["solar-power"] = 300,
-      gravity = 5
+      gravity = 1.5
     },
     asteroid_spawn_influence = 1,
     asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.fulgora_aquilo, 0.9),
@@ -776,7 +776,7 @@ data:extend(
       ["magnetic-field"] = 10,
       pressure = 500,
       ["solar-power"] = 25,
-      gravity = 10
+      gravity = 5
     },
     asteroid_spawn_influence = 1,
     asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.fulgora_aquilo, 0.9),
@@ -883,9 +883,9 @@ data:extend(
     {
       ["day-night-cycle"] = 30 * minute,
       ["magnetic-field"] = 10,
-      pressure = 10000,
+      pressure = 5000,
       ["solar-power"] = 1,
-      gravity = 10
+      gravity = 25
     },
     asteroid_spawn_influence = 1,
     asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.fulgora_aquilo, 0.9),
@@ -1104,7 +1104,7 @@ data:extend(
     subgroup = "planets",
     gravity_pull = -10,
     distance = 60,
-    orientation = 0.33,
+    orientation = 0.4,
     magnitude = 1.0,
     label_orientation = 0.15,
     asteroid_spawn_influence = 1,
