@@ -105,6 +105,12 @@ data:extend(
   },
   {
     type = "item-subgroup",
+    name = "gleba-general",
+    group = "intermediate-products",
+    order = "p-b"
+  },
+  {
+    type = "item-subgroup",
     name = "fulgora-processes",
     group = "intermediate-products",
     order = "r"
@@ -119,7 +125,7 @@ data:extend(
     type = "item-subgroup",
     name = "agriculture-products",
     group = "intermediate-products",
-    order = "p"
+    order = "p-a"
   },
   {
     type = "item-subgroup",

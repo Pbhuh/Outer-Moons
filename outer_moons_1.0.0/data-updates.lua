@@ -349,20 +349,27 @@ data.raw.item["ice-platform"].order = "c[landfill]-i[ice-platform]"
 data.raw.item["foundation"].order = "c[landfill]-j[foundation]"
 
 data.raw.recipe["nutrients-from-spoilage"].subgroup = "agriculture-products"
-data.raw.recipe["nutrients-from-spoilage"].order = "c[nutrients]-a[nutrients-from-spoilage]"
+data.raw.recipe["nutrients-from-spoilage"].order = "c[nutrients]-b[nutrients-from-spoilage]"
 data.raw.recipe["nutrients-from-bioflux"].subgroup = "agriculture-products"
-data.raw.recipe["nutrients-from-bioflux"].order = "c[nutrients]-c[nutrients-from-bioflux]"
+data.raw.recipe["nutrients-from-bioflux"].order = "c[nutrients]-a[nutrients-from-bioflux]"
 --data.raw.item["nutrients"].subgroup = "agriculture-products"
 data.raw.item["nutrients"].order = "a[agriculture]-h[nutrients]"
 --data.raw.item["spoilage"].subgroup = "agriculture-products"
 data.raw.item["spoilage"].order = "a[agriculture]-i[spoilage]"
 data.raw.item["copper-bacteria"].order = "c[bacteria]-b[copper-bacteria]"
 data.raw.item["iron-bacteria"].order = "c[bacteria]-a[iron-bacteria]"
+
+data.raw.item["carbon-fiber"].hidden_in_factoriopedia = true
+data.raw.item["carbon-fiber"].subgroup = "gleba-general"
+data.raw.item["carbon-fiber"].order = "h[carbon-fiber]"
+
 data.raw.recipe["copper-bacteria"].subgroup = "agriculture-products"
-data.raw.recipe["copper-bacteria"].order = "a[bacteria]-a[bacteria]-b[copper]"
+data.raw.recipe["copper-bacteria"].order = "b[organic-products]-f[copper-bacteria]"
 data.raw.recipe["copper-bacteria"].icon = "__outer_moons__/graphics/icons/mash-copper.png"
 data.raw.recipe["copper-bacteria-cultivation"].order = "c[bacteria]-b[cultivation]-b[copper]"
 data.raw.recipe["iron-bacteria-cultivation"].order = "c[bacteria]-b[cultivation]-a[iron]"
+
+data.raw.item["recycler"].order = "f[recycler]"
 
 --Flamethrower
 data.raw["fluid-turret"]["flamethrower-turret"].attack_parameters.fluids = { {type = "crude-oil"},  {type = "heavy-oil", damage_modifier = 1.05}, {type = "light-oil", damage_modifier = 1.1}, {type = "ethanol", damage_modifier = 1.1} }

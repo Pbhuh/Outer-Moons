@@ -636,6 +636,11 @@ data:extend(
     },
     variations = gleba_tree_variations("funneltrunk", 5, 4),
     colors = minor_tints(),
+	agricultural_tower_tint =
+    {
+      primary = {r = 0.620, g = 0.307, b = 0.461, a = 1.000}, -- #eac1f5ff
+      secondary = {r = 0.336, g = 0.624, b = 0.340, a = 1.000}, -- #885289ff
+    },
     ambient_sounds =
     {
       sound =
@@ -722,6 +727,11 @@ data:extend(
     },
     variations = gleba_tree_variations("slipstack", 8, 5),
     colors = minor_tints(),
+	agricultural_tower_tint =
+    {
+      primary = {r = 0.620, g = 0.307, b = 0.461, a = 1.000}, -- #eac1f5ff
+      secondary = {r = 0.336, g = 0.624, b = 0.340, a = 1.000}, -- #885289ff
+    },
     ambient_sounds =
     {
       sound =
@@ -906,6 +916,11 @@ data:extend(
     },
     variations = gleba_tree_variations("lickmaw", nil, nil, nil, nil, nil, util.by_pixel(52, -50)),
     colors = minor_tints(),
+	agricultural_tower_tint =
+    {
+      primary = {r = 0.620, g = 0.307, b = 0.461, a = 1.000}, -- #eac1f5ff
+      secondary = {r = 0.336, g = 0.624, b = 0.340, a = 1.000}, -- #885289ff
+    },
     ambient_sounds =
     {
       sound =
@@ -1014,6 +1029,11 @@ data:extend(
       {r = 240, g = 240, b =  255},
       {r = 240, g = 255, b =  240},
     },
+	agricultural_tower_tint =
+    {
+      primary = {r = 0.620, g = 0.307, b = 0.461, a = 1.000}, -- #eac1f5ff
+      secondary = {r = 0.336, g = 0.624, b = 0.340, a = 1.000}, -- #885289ff
+    },
     ambient_sounds =
     {
       sound =
@@ -1115,6 +1135,11 @@ data:extend(
       {r = 255, g = 240, b =  255},
       {r = 240, g = 240, b =  255},
       {r = 240, g = 255, b =  240},
+    },
+	agricultural_tower_tint =
+    {
+      primary = {r = 0.620, g = 0.307, b = 0.461, a = 1.000}, -- #eac1f5ff
+      secondary = {r = 0.336, g = 0.624, b = 0.340, a = 1.000}, -- #885289ff
     },
     ambient_sounds =
     {
@@ -1233,6 +1258,11 @@ data:extend(
       {r = 220, g = 150, b =  180},
       {r = 230, g = 190, b =  240},
     }, {r = 255, g = 255, b = 255}, 0.5),
+	agricultural_tower_tint =
+    {
+      primary = {r = 0.620, g = 0.307, b = 0.461, a = 1.000}, -- #eac1f5ff
+      secondary = {r = 0.336, g = 0.624, b = 0.340, a = 1.000}, -- #885289ff
+    },
     ambient_sounds =
     {
       sound =
@@ -1344,6 +1374,11 @@ data:extend(
     },
     variations = gleba_tree_variations("sunnycomb", 10, 5, nil, 3200/5, 1120/2),
     colors = minor_tints(),
+    agricultural_tower_tint =
+    {
+      primary = {r = 0.620, g = 0.307, b = 0.461, a = 1.000}, -- #eac1f5ff
+      secondary = {r = 0.336, g = 0.624, b = 0.340, a = 1.000}, -- #885289ff
+    },
     ambient_sounds =
     {
       sound =

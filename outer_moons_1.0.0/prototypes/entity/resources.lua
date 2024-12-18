@@ -146,7 +146,7 @@ data:extend({
 		  minable =
 		  {
 			  mining_particle = "stone-particle",
-			  mining_time = 5,
+			  mining_time = 1.5,
 			  result = "phosphate",
 			  fluid_amount = 10,
 			  required_fluid = "sulfuric-acid"

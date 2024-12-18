@@ -346,19 +346,6 @@ data:extend(
     flow_color = {0.6, 0.51, 0.67},
     auto_barrel = false
   },
-  {
-    type = "fluid",
-    name = "bioslurry",
-    icon = "__outer_moons__/graphics/icons/fluid/bioslurry.png",
-    subgroup = "fluid",
-    order = "b[new-fluid]-d[gleba]-f[bioslurry]",
-    default_temperature = 25,
-    heat_capacity = "0.1kJ",
-	default_temperature = 25,
-    base_color = {0.4, 0.2, 0.4},
-    flow_color = {0.8, 0.4, 0.8},
-    --auto_barrel = false
-  },
   --Fulgora
   {
     type = "fluid",
