@@ -78,26 +78,9 @@ data:extend({
   -- Trees are "a", and resources will delete trees when placed.
   -- Oil is "c" so won't be placed if another resource is already there.
   -- "d" is available for another resource, but isn't used for now.
+  
+    
     resource(
-		{
-		  name = "metallic-regolith",
-		  order = "a",
-		  map_color = {r = 192/256, g = 186/256, b = 200/256, a = 1.000},
-		  minable =
-		  {
-			  mining_particle = "stone-particle",
-			  mining_time = 1,
-			  result = "metallic-regolith",
-		  },
-		  walking_sound = sounds.ore,
-		  mining_visualisation_tint = {r = 230/256, g = 247/256, b = 256/256, a = 1.000},
-		  factoriopedia_simulation = simulations.factoriopedia_metallic_regolith,
-		},
-		{
-		  probability_expression = 0
-		}
-	),
-   resource(
 		{
 		  name = "aluminum-ore",
 		  order = "b",
@@ -116,10 +99,31 @@ data:extend({
 		  probability_expression = 0
 		}
 	),
+	
+	--Selene
+    resource(
+		{
+		  name = "metallic-regolith",
+		  order = "b",
+		  map_color = {r = 192/256, g = 186/256, b = 200/256, a = 1.000},
+		  minable =
+		  {
+			  mining_particle = "stone-particle",
+			  mining_time = 1,
+			  result = "metallic-regolith",
+		  },
+		  walking_sound = sounds.ore,
+		  mining_visualisation_tint = {r = 230/256, g = 247/256, b = 256/256, a = 1.000},
+		  factoriopedia_simulation = simulations.factoriopedia_metallic_regolith,
+		},
+		{
+		  probability_expression = 0
+		}
+	),
     resource(
 		{
 		  name = "titanium-ore",
-		  order = "c",
+		  order = "b",
 		  map_color = {r = 161/256, g = 126/256, b = 122/256, a = 1.000},
 		  minable =
 		  {
@@ -180,7 +184,7 @@ data:extend({
 		  {
 			{
 			  type = "fluid",
-			  name = "saline",
+			  name = "brine",
 			  amount_min = 10,
 			  amount_max = 10,
 			  probability = 1

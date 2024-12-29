@@ -17,6 +17,49 @@ data:extend(
 {
   {
     type = "planet",
+    name = "nauvis",
+    icon = "__base__/graphics/icons/nauvis.png",
+    starmap_icon = "__base__/graphics/icons/starmap-planet-nauvis.png",
+    starmap_icon_size = 512,
+    gravity_pull = 10,
+    distance = 15,
+    orientation = 0.275,
+    magnitude = 1,
+    order = "a[nauvis]",
+    --subgroup = "planets", subgroup planets doesn't exist in base, so do we hide this somehow?
+    map_seed_offset = 0,
+    map_gen_settings = planet_map_gen_new.nauvis(),
+    pollutant_type = "pollution",
+    solar_power_in_space = 300,
+    planet_procession_set =
+    {
+      arrival = {"default-b"},
+      departure = {"default-rocket-a"}
+    },
+    surface_properties =
+    {
+      ["day-night-cycle"] = 7 * minute
+    },
+    surface_render_parameters =
+    {
+      clouds = effects.default_clouds_effect_properties()
+    },
+    persistent_ambient_sounds =
+    {
+      base_ambience = { filename = "__base__/sound/world/world_base_wind.ogg", volume = 0.3 },
+      wind = { filename = "__base__/sound/wind/wind.ogg", volume = 0.8 },
+      crossfade =
+      {
+        order = { "wind", "base_ambience" },
+        curve_type = "cosine",
+        from = { control = 0.35, volume_percentage = 0.0 },
+        to = { control = 2, volume_percentage = 100.0 }
+      }
+    },
+    procession_graphic_catalogue = planet_catalogue_nauvis,
+  },
+  {
+    type = "planet",
     name = "vulcanus",
     icon = "__space-age__/graphics/icons/vulcanus.png",
     starmap_icon = "__outer_moons__/graphics/icons/starmap-planet-vulcanus.png",

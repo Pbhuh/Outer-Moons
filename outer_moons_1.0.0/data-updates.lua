@@ -325,12 +325,6 @@ data.raw.lab["biolab"].inputs =
 }
 
 --order
-data.raw.fluid["crude-oil"].order = "a[fluid]-b[oil]-a[crude-oil]"
-data.raw.fluid["petroleum-gas"].order = "a[fluid]-b[oil]-b[petroleum-gas]"
-data.raw.fluid["light-oil"].order = "a[fluid]-b[oil]-d[light-oil]"
-data.raw.fluid["light-oil"].order = "a[fluid]-b[oil]-e[light-oil]"
-data.raw.fluid["lubricant"].order = "a[fluid]-b[oil]-g[lubricant]"
-data.raw.fluid["sulfuric-acid"].order = "a[fluid]-b[oil]-f[sulfuric-acid]"
 data.raw.recipe["solid-fuel-from-petroleum-gas"].order = "b[fluid-chemistry]-d[solid-fuel-from-petroleum-gas]"
 data.raw.resource["crude-oil"].order = "a-b-a[crude-oil]"
 data.raw.resource["sulfuric-acid-geyser"].order = "a-b-c[sulfuric-acid-geyser]"

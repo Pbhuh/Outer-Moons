@@ -109,7 +109,7 @@ data:extend({
 		},
 		results =
 		{
-		  {type = "fluid", name = "naphtha", amount = 15 },
+		  {type = "fluid", name = "olefins", amount = 15 },
 		},
 		allow_productivity = true,
 		main_product = "",
@@ -153,34 +153,7 @@ data:extend({
 	},
 	{
 		type = "recipe",
-		name = "olefins-extraction",
-		icon = "__outer_moons__/graphics/icons/fluid/olefins-extraction.png",
-		category = "chemistry-or-cryogenics",
-		subgroup = "fluid-recipes",
-		order = "b[fluid-chemistry]-e[olefins-extraction]",
-		energy_required = 2,
-		enabled = false,
-		ingredients =
-		{
-		  {type = "fluid", name = "naphtha", amount = 50 },
-		  {type = "fluid", name = "light-oil", amount = 20 },
-		},
-		results =
-		{
-		  {type = "fluid", name = "olefins", amount = 25 },
-		},
-		allow_productivity = true,
-		crafting_machine_tint =
-		{
-		  primary = {r = 0.69, g = 0.55, b = 0.42, a = 1.000}, -- #fefeffff
-		  secondary = {r = 0.86, g = 0.85, b = 0.30, a = 1.000}, -- #c4c4c4ff
-		  tertiary = {r = 0.768, g = 0.665, b = 0.762, a = 1.000}, -- #c3a9c2ff
-		  quaternary = {r = 0.000, g = 0.000, b = 0.000, a = 1.000}, -- #000000ff
-		}
-	},
-	{
-		type = "recipe",
-		name = "aromatics-extraction",
+		name = "aromatics-reforming",
 		icon = "__outer_moons__/graphics/icons/fluid/aromatics-extraction.png",
 		category = "chemistry-or-cryogenics",
 		subgroup = "fluid-recipes",
@@ -189,8 +162,8 @@ data:extend({
 		enabled = false,
 		ingredients =
 		{
-		  {type = "fluid", name = "naphtha", amount = 50 },
-		  {type = "fluid", name = "petroleum-gas", amount = 25 },
+		  {type = "fluid", name = "steam", amount = 50 },
+		  {type = "fluid", name = "olefins", amount = 25 },
 		},
 		results =
 		{
@@ -474,12 +447,12 @@ data:extend({
 		energy_required = 2,
 		ingredients =
 		{
-		  {type = "fluid", name = "saline", amount = 50},
+		  {type = "fluid", name = "brine", amount = 50},
 		},
 		results =
 		{
-		  {type = "item", name = "lye", amount = 1},
-		  {type = "fluid", name = "water", amount = 50},
+		  {type = "item", name = "lye", amount = 2},
+		  {type = "fluid", name = "hydrogen", amount = 50},
 		  {type = "fluid", name = "chlorine", amount = 20},
 		},
 		allow_productivity = true,

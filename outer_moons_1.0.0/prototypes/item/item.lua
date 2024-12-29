@@ -1395,13 +1395,28 @@ data:extend({
 		name = "megafoundry",
 		icon = "__outer_moons__/graphics/icons/megafoundry.png",
 		subgroup = "smelting-machine",
-		order = "e[megafoundry]",
+		order = "f[megafoundry]",
 		inventory_move_sound = item_sounds.mechanical_inventory_move,
 		pick_sound = item_sounds.mechanical_inventory_pickup,
 		drop_sound = item_sounds.mechanical_inventory_move,
 		place_result = "megafoundry",
 		stack_size = 10,
 		weight = 200 * kg,
+		--random_tint_color = item_tints.iron_rust		
+	},
+	
+	{
+		type = "item",
+		name = "industrial-furnace",
+		icon = "__outer_moons__/graphics/icons/industrial-furnace.png",
+		subgroup = "smelting-machine",
+		order = "d[industrial-furnace]",
+		inventory_move_sound = item_sounds.mechanical_inventory_move,
+		pick_sound = item_sounds.mechanical_inventory_pickup,
+		drop_sound = item_sounds.mechanical_inventory_move,
+		place_result = "industrial-furnace",
+		stack_size = 20,
+		weight = 100 * kg,
 		--random_tint_color = item_tints.iron_rust		
 	},
 	

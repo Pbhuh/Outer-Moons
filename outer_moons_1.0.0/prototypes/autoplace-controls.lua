@@ -1,5 +1,48 @@
 data:extend(
 {
+  --- Nauvis
+  {
+    type = "autoplace-control",
+    name = "aluminum_ore",
+    localised_name = {"", "[entity=aluminum-ore] ", {"entity-name.aluminum-ore"}},
+    richness = true,
+    order = "b-b",
+    category = "resource"
+  },
+  --- Selene
+  {
+    type = "autoplace-control",
+    name = "metallic_regolith",
+    localised_name = {"", "[entity=metallic-regolith] ", {"entity-name.metallic-regolith"}},
+    richness = true,
+    order = "b-a",
+    category = "resource"
+  },
+  {
+    type = "autoplace-control",
+    name = "aluminum_ore",
+    localised_name = {"", "[entity=aluminum-ore] ", {"entity-name.aluminum-ore"}},
+    richness = true,
+    order = "b-b",
+    category = "resource"
+  },
+  {
+    type = "autoplace-control",
+    name = "titanium_ore",
+    localised_name = {"", "[entity=titanium-ore] ", {"entity-name.titanium-ore"}},
+    richness = true,
+    order = "b-c",
+    category = "resource"
+  },  
+  {
+    type = "autoplace-control",
+    name = "saline_geyser",
+    localised_name = {"", "[entity=saline-geyser] ", {"entity-name.saline-geyser"}},
+    richness = true,
+    order = "b-d",
+    category = "resource"
+  },
+  --- Vulcanus
   {
     type = "autoplace-control",
     name = "vulcanus_coal",
@@ -32,6 +75,7 @@ data:extend(
     order = "c-c",
     category = "resource"
   },
+  --- Gleba
   {
     type = "autoplace-control",
     name = "gleba_stone",
@@ -40,6 +84,7 @@ data:extend(
     order = "d-a",
     category = "resource"
   },
+  --- Fulgora
   {
     type = "autoplace-control",
     name = "scrap",
@@ -48,6 +93,16 @@ data:extend(
     order = "e-a",
     category = "resource"
   },
+  --- Mefitis
+  {
+    type = "autoplace-control",
+    name = "chlorine_geyser",
+    localised_name = {"", "[entity=chlorine-geyser] ", {"entity-name.chlorine-geyser"}},
+    richness = true,
+    order = "e-b",
+    category = "resource"
+  },
+  --- Aquilo
   {
     type = "autoplace-control",
     name = "aquilo_crude_oil",
@@ -71,49 +126,8 @@ data:extend(
     richness = true,
     order = "g-b",
     category = "resource"
-  },
-  --amyz
-  {
-    type = "autoplace-control",
-    name = "metallic_regolith",
-    localised_name = {"", "[entity=metallic-regolith] ", {"entity-name.metallic-regolith"}},
-    richness = true,
-    order = "b-a",
-    category = "resource"
-  },
-  {
-    type = "autoplace-control",
-    name = "aluminum_ore",
-    localised_name = {"", "[entity=aluminum-ore] ", {"entity-name.aluminum-ore"}},
-    richness = true,
-    order = "b-b",
-    category = "resource"
-  },
-  {
-    type = "autoplace-control",
-    name = "titanium_ore",
-    localised_name = {"", "[entity=titanium-ore] ", {"entity-name.titanium-ore"}},
-    richness = true,
-    order = "b-c",
-    category = "resource"
-  },
-  {
-    type = "autoplace-control",
-    name = "saline_geyser",
-    localised_name = {"", "[entity=saline-geyser] ", {"entity-name.saline-geyser"}},
-    richness = true,
-    order = "b-d",
-    category = "resource"
-  },
-  {
-    type = "autoplace-control",
-    name = "chlorine_geyser",
-    localised_name = {"", "[entity=chlorine-geyser] ", {"entity-name.chlorine-geyser"}},
-    richness = true,
-    order = "e-b",
-    category = "resource"
-  },
-  -- cliffs
+  }, 
+  -- Cliffs
   {
     type = "autoplace-control",
     name = "gleba_cliff",
@@ -126,7 +140,7 @@ data:extend(
     order = "c-z-c",
     category = "cliff"
   },
-  -- terrain
+  --- Terrain
   {
     type = "autoplace-control",
     name = "vulcanus_volcanism",
@@ -155,7 +169,6 @@ data:extend(
     category = "terrain",
     can_be_disabled = false
   },
-  --amyz
   {
     type = "autoplace-control",
     name = "selene_craters",
@@ -170,16 +183,6 @@ data:extend(
     category = "terrain",
     can_be_disabled = false
   },
-  --enemy
-  {
-    type = "autoplace-control",
-    name = "gleba_enemy_base",
-    richness = false,
-    order = "z",
-    category = "enemy",
-    can_be_disabled = false
-  }
 }
 )
 
-data.raw["autoplace-control"]["enemy-base"].can_be_disabled = false
