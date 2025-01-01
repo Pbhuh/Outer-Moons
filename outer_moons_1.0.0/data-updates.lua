@@ -325,11 +325,36 @@ data.raw.lab["biolab"].inputs =
 }
 
 --order
-data.raw.recipe["solid-fuel-from-petroleum-gas"].order = "b[fluid-chemistry]-d[solid-fuel-from-petroleum-gas]"
 data.raw.resource["crude-oil"].order = "a-b-a[crude-oil]"
 data.raw.resource["sulfuric-acid-geyser"].order = "a-b-c[sulfuric-acid-geyser]"
 data.raw.resource["lithium-brine"].order = "a-b-e[lithium-brine]"
 data.raw.resource["fluorine-vent"].order = "a-b-f[fluorine-vent]"
+data.raw.recipe["simple-coal-liquefaction"].hidden = true
+
+data.raw.item["uranium-ore"].subgroup = "uranium-processing"
+data.raw.item["uranium-ore"].order = "a[uranium-processing]-a[uranium-ore]"
+
+data.raw.item["steel-plate"].subgroup = "alloy"
+data.raw.item["steel-plate"].order = "b[steel-plate]"
+
+data.raw.item["carbon"].subgroup = "chemical"
+data.raw.item["carbon"].order = "a[carbon]"
+data.raw.item["sulfur"].subgroup = "chemical"
+data.raw.item["sulfur"].order = "b[sulfur]"
+
+
+data.raw.item["solid-fuel"].subgroup = "chemical-product"
+data.raw.item["solid-fuel"].order = "a[solid-fuel]"
+data.raw.item["plastic-bar"].subgroup = "chemical-product"
+data.raw.item["plastic-bar"].order = "b[plastic-bar]"
+data.raw.item["battery"].subgroup = "chemical-product"
+data.raw.item["battery"].order = "c[battery]"
+data.raw.item["explosives"].subgroup = "chemical-product"
+data.raw.item["explosives"].order = "d[explosives]"
+
+data.raw.item["ice"].subgroup = "selene-resources"
+data.raw.item["ice"].order = "b[ice]"
+
 
 data.raw.capsule["raw-fish"].subgroup = "nauvis-agriculture"
 data.raw.capsule["raw-fish"].order = "b[nauvis-agriculture]-b[fish-breeding]"
@@ -337,8 +362,7 @@ data.raw.item["tree-seed"].subgroup = "nauvis-agriculture"
 data.raw.item["tree-seed"].order = "b[nauvis-agriculture]-a[wood-processing]"
 data.raw.item["biter-egg"].subgroup = "nauvis-agriculture"
 data.raw.item["biter-egg"].order = "b[nauvis-agriculture]-d[nutrients-from-biter-egg]"
-data.raw.item["uranium-ore"].order = "g[uranium-ore]"
-data.raw.item["ice"].order = "i[ice]"
+
 data.raw.item["ice-platform"].order = "c[landfill]-i[ice-platform]"
 data.raw.item["foundation"].order = "c[landfill]-j[foundation]"
 
@@ -363,7 +387,7 @@ data.raw.recipe["copper-bacteria"].icon = "__outer_moons__/graphics/icons/mash-c
 data.raw.recipe["copper-bacteria-cultivation"].order = "c[bacteria]-b[cultivation]-b[copper]"
 data.raw.recipe["iron-bacteria-cultivation"].order = "c[bacteria]-b[cultivation]-a[iron]"
 
-data.raw.item["recycler"].order = "f[recycler]"
+data.raw.item["recycler"].order = "h[recycler]"
 
 --Flamethrower
 data.raw["fluid-turret"]["flamethrower-turret"].attack_parameters.fluids = { {type = "crude-oil"},  {type = "heavy-oil", damage_modifier = 1.05}, {type = "light-oil", damage_modifier = 1.1}, {type = "ethanol", damage_modifier = 1.1} }
@@ -386,6 +410,34 @@ data.raw.recipe["biochamber"].surface_conditions = { { property = "pressure", mi
 data.raw.recipe["agricultural-science-pack"].surface_conditions = { { property = "pressure", min = 2500, max = 2500 } }
 
 --disable
+data.raw.item["stone-furnace"].hidden = true
+data.raw.item["stone-furnace"].subgroup = "other"
+data.raw.recipe["stone-furnace"].hidden = true
+data.raw.recipe["stone-furnace"].subgroup = "other"
+data.raw.furnace["stone-furnace"].hidden = true
+data.raw.furnace["stone-furnace"].next_upgrade = nil
+data.raw.furnace["stone-furnace"].subgroup = "other"
+data.raw.furnace["stone-furnace"].order = "z[stone-furnace]"
+
+data.raw.item["steel-furnace"].hidden = true
+data.raw.item["steel-furnace"].subgroup = "other"
+data.raw.recipe["steel-furnace"].hidden = true
+data.raw.recipe["steel-furnace"].subgroup = "other"
+data.raw.furnace["steel-furnace"].hidden = true
+data.raw.furnace["steel-furnace"].next_upgrade = nil
+data.raw.furnace["steel-furnace"].subgroup = "other"
+data.raw.furnace["steel-furnace"].order = "z[steel-furnace]"
+
+data.raw.item["electric-furnace"].hidden = true
+data.raw.item["electric-furnace"].subgroup = "other"
+data.raw.recipe["electric-furnace"].hidden = true
+data.raw.recipe["electric-furnace"].subgroup = "other"
+data.raw.furnace["electric-furnace"].hidden = true
+data.raw.furnace["electric-furnace"].subgroup = "other"
+data.raw.furnace["electric-furnace"].order = "z[electric-furnace]"
+
+data.raw.recipe["solid-fuel-from-petroleum-gas"].hidden = true
+
 data.raw.recipe["nutrients-from-yumako-mash"].hidden = true
 data.raw.recipe["coal-synthesis"].hidden = true
 data.raw.recipe["solid-fuel-from-heavy-oil"].hidden = true

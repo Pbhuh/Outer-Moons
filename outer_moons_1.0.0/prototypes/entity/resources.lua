@@ -47,6 +47,7 @@ local function resource(resource_parameters, autoplace_parameters)
       autoplace_control_name = resource_parameters.autoplace_control_name,
       base_density = autoplace_parameters.base_density,
       base_spots_per_km = autoplace_parameters.base_spots_per_km2,
+      has_starting_area_placement = autoplace_parameters.has_starting_area_placement,
       regular_rq_factor_multiplier = autoplace_parameters.regular_rq_factor_multiplier,
       starting_rq_factor_multiplier = autoplace_parameters.starting_rq_factor_multiplier,
       candidate_spot_count = autoplace_parameters.candidate_spot_count,
@@ -78,8 +79,55 @@ data:extend({
   -- Trees are "a", and resources will delete trees when placed.
   -- Oil is "c" so won't be placed if another resource is already there.
   -- "d" is available for another resource, but isn't used for now.
-  
-    
+    resource(
+		{
+		  name = "lead-ore",
+		  order = "b",
+		  map_color = {r = 32/256, g = 29/256, b = 6/256, a = 1.000},
+		  minable =
+		  {
+			  mining_particle = "stone-particle",
+			  mining_time = 1.5,
+			  result = "lead-ore",
+		  },
+		  walking_sound = sounds.ore,
+		  driving_sound = stone_driving_sound,
+		  mining_visualisation_tint = {r = 32/256, g = 29/256, b = 6/256, a = 1.000},
+		  factoriopedia_simulation = simulations.factoriopedia_lead_ore,
+		},
+		{
+		  base_density = 8,
+		  regular_rq_factor_multiplier = 1.10,
+		  starting_rq_factor_multiplier = 1.2,
+		  candidate_spot_count = 22, -- To match 0.17.50 placement
+		  has_starting_area_placement = true
+		}
+	),
+	resource(
+		{
+		  name = "nickel-ore",
+		  order = "b",
+		  map_color = {r = 123/256, g = 150/256, b = 116/256, a = 1.000},
+		  minable =
+		  {
+			  mining_particle = "stone-particle",
+			  mining_time = 2,
+			  result = "nickel-ore",
+			  fluid_amount = 10,
+			  required_fluid = "nitric-acid"
+		  },
+		  walking_sound = sounds.ore,
+		  driving_sound = stone_driving_sound,
+		  mining_visualisation_tint = {r = 123/256, g = 150/256, b = 116/256, a = 1.000},
+		  factoriopedia_simulation = simulations.factoriopedia_nickel_ore,
+		},
+		{
+		  base_density = 1,
+		  regular_rq_factor_multiplier = 1.0,
+		  starting_rq_factor_multiplier = 1.1,
+		  base_spots_per_km = 1.5
+		}
+	),    
     resource(
 		{
 		  name = "aluminum-ore",
@@ -88,18 +136,47 @@ data:extend({
 		  minable =
 		  {
 			  mining_particle = "stone-particle",
-			  mining_time = 3,
+			  mining_time = 2.5,
 			  result = "aluminum-ore",
+			 -- fluid_amount = 10,
+			 -- required_fluid = "sulfuric-acid"
 		  },
 		  walking_sound = sounds.ore,
 		  mining_visualisation_tint = {r = 135/256, g = 94/256, b = 77/256, a = 1.000},
 		  factoriopedia_simulation = simulations.factoriopedia_aluminum_ore,
 		},
 		{
-		  probability_expression = 0
+		  base_density = 1,
+		  regular_rq_factor_multiplier = 1.0,
+		  starting_rq_factor_multiplier = 1.1,
+		  base_spots_per_km = 1.25
 		}
 	),
-	
+	resource(
+		{
+		  name = "silicon-ore",
+		  order = "b",
+		  map_color = {r = 113/256, g = 93/256, b = 139/256, a = 1.000},
+		  minable =
+		  {
+			  mining_particle = "stone-particle",
+			  mining_time = 3,
+			  result = "silicon-ore",
+			  fluid_amount = 10,
+			  required_fluid = "sulfuric-acid"
+		  },
+		  walking_sound = sounds.ore,
+		  driving_sound = stone_driving_sound,
+		  mining_visualisation_tint = {r = 113/256, g = 93/256, b = 139/256, a = 1.000},
+		  factoriopedia_simulation = simulations.factoriopedia_silicon_ore,
+		},
+		{
+		  base_density = 1,
+		  regular_rq_factor_multiplier = 1.0,
+		  starting_rq_factor_multiplier = 1.1,
+		  base_spots_per_km = 1
+		}
+	),
 	--Selene
     resource(
 		{
@@ -131,7 +208,7 @@ data:extend({
 			  mining_time = 5,
 			  result = "titanium-ore",
 			  fluid_amount = 10,
-			  required_fluid = "chlorine"
+			  required_fluid = "hydrochloric-acid"
 		  },
 		  walking_sound = sounds.ore,
 		  mining_visualisation_tint = {r = 161/256, g = 126/256, b = 122/256, a = 1.000},
@@ -164,6 +241,102 @@ data:extend({
 		  probability_expression = 0
 		}
 	),
+	-- Fluids
+	{
+		type = "resource",
+		name = "natural-gas",
+		icon = "__outer_moons__/graphics/icons/natural-gas-resource.png",
+		flags = {"placeable-neutral"},
+		category = "basic-fluid",
+		subgroup = "mineable-fluids",
+		order="a-b-b",
+		infinite = false,
+		highlight = true,
+		minimum = 100000,
+		normal = 500000,
+		infinite_depletion_amount = 10,
+		resource_patch_search_radius = 12,
+		tree_removal_probability = 0.7,
+		tree_removal_max_distance = 32 * 32,
+		minable =
+		{
+		  mining_time = 1,
+		  results =
+		  {
+			{
+			  type = "fluid",
+			  name = "natural-gas",
+			  amount_min = 10,
+			  amount_max = 10,
+			  probability = 1
+			}
+		  }
+		},
+		walking_sound = sounds.oil,
+		driving_sound = oil_driving_sound,
+		collision_box = {{-1.4, -1.4}, {1.4, 1.4}},
+		selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
+		autoplace = resource_autoplace.resource_autoplace_settings
+		{
+		  name = "natural-gas",
+		  order = "c", -- Other resources are "b"; oil won't get placed if something else is already there.
+		  base_density = 4,
+		  base_spots_per_km2 = 1,
+		  random_probability = 1/48,
+		  random_spot_size_minimum = 1,
+		  random_spot_size_maximum = 1, -- don't randomize spot size
+		  additional_richness = 220000, -- this increases the total everywhere, so base_density needs to be decreased to compensate
+		  has_starting_area_placement = false,
+		  regular_rq_factor_multiplier = 1
+		},
+		stage_counts = {0},
+		stages =
+		{
+		  sheet = util.sprite_load("__outer_moons__/graphics/entity/natural-gas/natural-gas",
+		  {
+			priority = "extra-high",
+			scale = 0.5,
+			variation_count = 1,
+			frame_count = 4,
+		  })
+		},
+		draw_stateless_visualisation_under_building = false,
+		stateless_visualisation =
+		{
+		  {
+			count = 1,
+			render_layer = "smoke",
+			animation = {
+			  filename = "__base__/graphics/entity/crude-oil/oil-smoke-outer.png",
+			  frame_count = 47,
+			  line_length = 16,
+			  width = 90,
+			  height = 188,
+			  animation_speed = 0.3,
+			  shift = util.by_pixel(-2, -75),
+			  scale = 0.8,
+			  tint = util.multiply_color({r=0.35, g=0.3, b=0.3}, 0.5)
+			}
+		  },
+		  {
+			count = 1,
+			render_layer = "smoke",
+			animation = {
+			  filename = "__base__/graphics/entity/crude-oil/oil-smoke-inner.png",
+			  frame_count = 47,
+			  line_length = 16,
+			  width = 40,
+			  height = 84,
+			  animation_speed = 0.3,
+			  shift = util.by_pixel(0, -75),
+			  scale = 0.8,
+			  tint = util.multiply_color({r=0.45, g=0.4, b=0.4}, 0.5)
+			}
+		  }
+		},
+		map_color = {0.5, 0.45, 0.42},
+		map_grid = false
+	},
 	{
 		type = "resource",
 		name = "saline-geyser",
@@ -171,7 +344,7 @@ data:extend({
 		flags = {"placeable-neutral"},
 		category = "basic-fluid",
 		subgroup = "mineable-fluids",
-		order="a-b-b[saline-geyser]",
+		order="a-b-c[saline-geyser]",
 		highlight = true,
 		normal = 50000,
 		resource_patch_search_radius = 16,

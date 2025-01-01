@@ -3,10 +3,90 @@ data:extend(
   --- Nauvis
   {
     type = "autoplace-control",
-    name = "aluminum_ore",
+    name = "iron-ore",
+    localised_name = {"", "[entity=iron-ore] ", {"entity-name.iron-ore"}},
+    richness = true,
+    order = "a-a",
+    category = "resource"
+  },
+  {
+    type = "autoplace-control",
+    name = "copper-ore",
+    localised_name = {"", "[entity=copper-ore] ", {"entity-name.copper-ore"}},
+    richness = true,
+    order = "a-b",
+    category = "resource"
+  },
+  {
+    type = "autoplace-control",
+    name = "lead-ore",
+    localised_name = {"", "[entity=lead-ore] ", {"entity-name.lead-ore"}},
+    richness = true,
+    order = "a-c",
+    category = "resource"
+  },
+  {
+    type = "autoplace-control",
+    name = "nickel-ore",
+    localised_name = {"", "[entity=nickel-ore] ", {"entity-name.nickel-ore"}},
+    richness = true,
+    order = "a-d",
+    category = "resource"
+  },
+  {
+    type = "autoplace-control",
+    name = "aluminum-ore",
     localised_name = {"", "[entity=aluminum-ore] ", {"entity-name.aluminum-ore"}},
     richness = true,
-    order = "b-b",
+    order = "a-e",
+    category = "resource"
+  },
+  {
+    type = "autoplace-control",
+    name = "silicon-ore",
+    localised_name = {"", "[entity=silicon-ore] ", {"entity-name.silicon-ore"}},
+    richness = true,
+    order = "a-f",
+    category = "resource"
+  },
+  {
+    type = "autoplace-control",
+    name = "stone",
+    localised_name = {"", "[entity=stone] ", {"entity-name.stone"}},
+    richness = true,
+    order = "a-g",
+    category = "resource"
+  },
+  {
+    type = "autoplace-control",
+    name = "coal",
+    localised_name = {"", "[entity=coal] ", {"entity-name.coal"}},
+    richness = true,
+    order = "a-h",
+    category = "resource"
+  },
+  {
+    type = "autoplace-control",
+    name = "crude-oil",
+    localised_name = {"", "[entity=crude-oil] ", {"entity-name.crude-oil"}},
+    richness = true,
+    order = "a-i",
+    category = "resource"
+  },
+  {
+    type = "autoplace-control",
+    name = "natural-gas",
+    localised_name = {"", "[entity=natural-gas] ", {"entity-name.natural-gas"}},
+    richness = true,
+    order = "a-j",
+    category = "resource"
+  },
+  {
+    type = "autoplace-control",
+    name = "uranium-ore",
+    localised_name = {"", "[entity=uranium-ore] ", {"entity-name.uranium-ore"}},
+    richness = true,
+    order = "a-k",
     category = "resource"
   },
   --- Selene

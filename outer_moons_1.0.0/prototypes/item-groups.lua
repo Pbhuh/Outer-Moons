@@ -94,6 +94,69 @@ data:extend(
   --- Intermediates
   {
     type = "item-subgroup",
+    name = "fluid-recipes",
+    group = "intermediate-products",
+    order = "a-a"
+  },
+  {
+    type = "item-subgroup",
+    name = "electrolytic-recipes",
+    group = "intermediate-products",
+    order = "a-b"
+  },
+  {
+    type = "item-subgroup",
+    name = "purification-recipes",
+    group = "intermediate-products",
+    order = "a-c"
+  },
+  
+  {
+    type = "item-subgroup",
+    name = "raw-resource",
+    group = "intermediate-products",
+    order = "b"
+  },
+  {
+    type = "item-subgroup",
+    name = "raw-material",
+    group = "intermediate-products",
+    order = "c-a"
+  },
+  {
+    type = "item-subgroup",
+    name = "alloy",
+    group = "intermediate-products",
+    order = "c-b"
+  },
+  {
+    type = "item-subgroup",
+    name = "chemical",
+    group = "intermediate-products",
+    order = "c-c"
+  },
+  {
+    type = "item-subgroup",
+    name = "chemical-product",
+    group = "intermediate-products",
+    order = "c-d"
+  },
+  
+  {
+    type = "item-subgroup",
+    name = "intermediate-product",
+    group = "intermediate-products",
+    order = "g"
+  },
+  {
+    type = "item-subgroup",
+    name = "intermediate-recipe",
+    group = "intermediate-products",
+    order = "h"
+  },
+  
+  {
+    type = "item-subgroup",
     name = "selene-resources",
     group = "intermediate-products",
     order = "l-a"

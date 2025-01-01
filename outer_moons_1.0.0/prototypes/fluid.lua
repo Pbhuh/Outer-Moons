@@ -190,7 +190,7 @@ data:extend(
     base_color = {0.46, 0, 0},
     flow_color = {0.51, 0, 0},
     icon = "__outer_moons__/graphics/icons/fluid/carbon-monoxide.png",
-    order = "c[natl-gas]-b[carbon-monoxide]",	
+    order = "c[natl-gas]-c[carbon-monoxide]",	
     auto_barrel = false
   },
   {
@@ -203,7 +203,7 @@ data:extend(
     base_color = {0.31, 0.04, 0.04},
     flow_color = {0.36, 0.09, 0.09},
     icon = "__outer_moons__/graphics/icons/fluid/carbon-dioxide.png",
-    order = "c[natl-gas]-c[carbon-dioxide]",	
+    order = "c[natl-gas]-d[carbon-dioxide]",	
     auto_barrel = false
   },
   {
@@ -216,7 +216,7 @@ data:extend(
     base_color = {0.94, 0.01, 0.01},
     flow_color = {0.99, 0.06, 0.06},
     icon = "__outer_moons__/graphics/icons/fluid/methanol.png",
-    order = "c[natl-gas]-d[methanol]"
+    order = "c[natl-gas]-e[methanol]"
   },
   {
     type = "fluid",
@@ -228,7 +228,7 @@ data:extend(
     base_color = {0.74, 0.38, 0.38},
     flow_color = {0.79, 0.43, 0.43},
     icon = "__outer_moons__/graphics/icons/fluid/formaldehyde.png",
-    order = "c[natl-gas]-e[formaldehyde]",	
+    order = "c[natl-gas]-f[formaldehyde]",	
     auto_barrel = false
   },
   {
@@ -241,7 +241,7 @@ data:extend(
     base_color = {0.19, 0.06, 0.06},
     flow_color = {0.24, 0.11, 0.11},
     icon = "__outer_moons__/graphics/icons/fluid/phenol.png",
-    order = "c[natl-gas]-f[phenol]",	
+    order = "c[natl-gas]-g[phenol]",	
     auto_barrel = false
   },  
   --- Sulfur
@@ -303,8 +303,8 @@ data:extend(
     subgroup = "nitrogen-fluid",
     icon = "__outer_moons__/graphics/icons/fluid/ammonia.png",
     order = "e[nitrogen]-b[ammonia]",
-    default_temperature = -35,
-    max_temperature = -33,
+    default_temperature = 25,
+    gas_temperature = -33,
     heat_capacity = "0.1kJ",
     base_color = {0, 0, 0.6},
     flow_color = {0, 0, 0.7},
@@ -316,8 +316,8 @@ data:extend(
     subgroup = "nitrogen-fluid",
     icon = "__outer_moons__/graphics/icons/fluid/nitric-acid.png",
     order = "e[nitrogen]-c[nitric-acid]",
-    default_temperature = -35,
-    max_temperature = -33,
+    default_temperature = 25,
+    gas_temperature = 83,
     heat_capacity = "0.1kJ",
     base_color = {0.38, 0.21, 0.74},
     flow_color = {0.43, 0.26, 0.79},
@@ -509,7 +509,7 @@ data:extend(
 	default_temperature = 25,
     base_color = {0.74, 0.19, 0.44},
     flow_color = {0.79, 0.24, 0.49},
-    --auto_barrel = false
+    auto_barrel = false
   },
   {
     type = "fluid",
@@ -622,7 +622,7 @@ data:extend(
   {
     type = "fluid",
     name = "fluorine",
-    icon = "__space-age__/graphics/icons/fluid/fluorine.png",
+    icon = "__outer_moons__/graphics/icons/fluid/fluorine.png",
     subgroup = "aquilo-fluid",
     order = "l[aquilo]-c[fluorine]",
     default_temperature = 25,

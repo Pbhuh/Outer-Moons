@@ -1,8 +1,11 @@
 require("__base__/prototypes/factoriopedia-util");
 local simulations = {}
 
-simulations.factoriopedia_metallic_regolith = { init = make_resource("metallic-regolith") }
+simulations.factoriopedia_lead_ore = { init = make_resource("lead-ore") }
+simulations.factoriopedia_nickel_ore = { init = make_resource("nickel-ore") }
 simulations.factoriopedia_aluminum_ore = { init = make_resource("aluminum-ore") }
+simulations.factoriopedia_silicon_ore = { init = make_resource("silicon-ore") }
+simulations.factoriopedia_metallic_regolith = { init = make_resource("metallic-regolith") }
 simulations.factoriopedia_titanium_ore = { init = make_resource("titanium-ore") }
 
 simulations.factoriopedia_turbo_underground_belt =

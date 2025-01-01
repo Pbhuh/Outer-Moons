@@ -63,11 +63,11 @@ data:extend(
     {
 	  {
         type = "unlock-recipe",
-        recipe = "gibbsite-extraction"
+        recipe = "aluminate"
       },
       {
         type = "unlock-recipe",
-        recipe = "alumina-crystallization"
+        recipe = "alumina"
       },
 	  {
         type = "unlock-recipe",
@@ -131,30 +131,6 @@ data:extend(
   },
   {
     type = "technology",
-    name = "arc-furnace",
-    icon = "__outer_moons__/graphics/technology/arc-furnace.png",
-    icon_size = 256,
-    essential = true,
-    effects =
-    {
-	  {
-        type = "unlock-recipe",
-        recipe = "arc-furnace"
-      },
-	  {
-        type = "unlock-recipe",
-        recipe = "titanium-plate"
-      },
-    },
-    prerequisites = {"convector"},
-    research_trigger =
-    {
-      type = "craft-item",
-      item = "aluminum-plate"
-    }
-  },
-  {
-    type = "technology",
     name = "adv-assembler",
     icon = "__outer_moons__/graphics/technology/adv-assembler.png",
     icon_size = 256,
@@ -166,7 +142,7 @@ data:extend(
         recipe = "adv-assembling-machine"
       },
     },
-    prerequisites = {"arc-furnace", "titanium-plate"},
+    prerequisites = {"titanium-plate"},
     research_trigger =
     {
       type = "craft-item",

@@ -6,7 +6,15 @@ data:extend(
   },
   {
     type = "recipe-category",
-    name = "advanced-assembly"
+    name = "alloying"
+  }, 
+  {
+    type = "recipe-category",
+    name = "electrolysis"
+  },   
+  {
+    type = "recipe-category",
+    name = "robotics"
   },  
   {
     type = "recipe-category",
