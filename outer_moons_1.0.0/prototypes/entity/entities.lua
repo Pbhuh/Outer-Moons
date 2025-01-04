@@ -4,12 +4,71 @@ require ("util")
 require ("__space-age__.prototypes.entity.circuit-network")
 require ("__space-age__.prototypes.entity.space-platform-hub-cockpit")
 
+
 local hit_effects = require("__base__.prototypes.entity.hit-effects")
 local sounds = require("__base__.prototypes.entity.sounds")
 local space_age_sounds = require ("__space-age__.prototypes.entity.sounds")
 local meld = require("meld")
 local simulations = require("__outer_moons__.prototypes.factoriopedia-simulations")
 local procession_graphic_catalogue_types = require("__base__/prototypes/planet/procession-graphic-catalogue-types")
+
+shadowlesspipecoverspictures = function()
+  return
+  {
+    north =
+    {
+      layers =
+      {
+        {
+          filename = "__base__/graphics/entity/pipe-covers/pipe-cover-north.png",
+          priority = "extra-high",
+          width = 128,
+          height = 128,
+          scale = 0.5
+        },
+      }
+    },
+    east =
+    {
+      layers =
+      {
+        {
+          filename = "__base__/graphics/entity/pipe-covers/pipe-cover-east.png",
+          priority = "extra-high",
+          width = 128,
+          height = 128,
+          scale = 0.5
+        },
+      }
+    },
+    south =
+    {
+      layers =
+      {
+        {
+          filename = "__base__/graphics/entity/pipe-covers/pipe-cover-south.png",
+          priority = "extra-high",
+          width = 128,
+          height = 128,
+          scale = 0.5
+        },
+      }
+    },
+    west =
+    {
+      layers =
+      {
+        {
+          filename = "__base__/graphics/entity/pipe-covers/pipe-cover-west.png",
+          priority = "extra-high",
+          width = 128,
+          height = 128,
+          scale = 0.5
+        },
+      }
+    }
+  }
+end
 
 
 data:extend({
@@ -169,7 +228,7 @@ data:extend({
 		}
     },	
     source_inventory_size = 1,
-    crafting_categories = {"convecting"},
+    crafting_categories = {"convecting", "electronics-or-convecting"},
     crafting_speed = 1,
     energy_source =
     {
@@ -366,7 +425,7 @@ data:extend({
       {inventory_index = defines.inventory.assembling_machine_modules, shift = {0, 1.25}}
     },
     allowed_effects = {"consumption", "speed", "productivity", "pollution", "quality"},
-    crafting_categories = {"metallurgy", "pressing", "crafting-with-fluid-or-metallurgy", "metallurgy-or-assembling"},
+    crafting_categories = {"metallurgy", "pressing", "crafting-with-fluid-or-metallurgy", "metallurgy-or-assembling", "adv-metallurgy", "metallurgy-or-adv-metallurgy"},
     crafting_speed = 4,
     energy_source =
     {
@@ -1899,6 +1958,7 @@ data:extend({
     icon_size = 64,
     flags = {"placeable-neutral","placeable-player", "player-creation"},
     minable = {mining_time = 0.3, result = "industrial-furnace"},
+	effect_receiver = { base_effect = { productivity = 0.5 }},
     max_health = 1200,
     corpse = "big-remnants",
     alert_icon_shift = util.by_pixel(0, -12),
@@ -2260,5 +2320,403 @@ data:extend({
       rotate = false,
       orientation_to_variation = false
     }
+  },
+  {
+    type = "furnace",
+    name = "gas-vent",
+    icon = "__outer_moons__/graphics/icons/gas-vent.png",
+    flags = {"placeable-neutral", "placeable-player", "player-creation"},
+    minable = {mining_time = 0.2, result = "gas-vent"},
+    fast_replaceable_group = "pipe",
+    max_health = 150,
+    corpse = "pipe-to-ground-remnants",
+    dying_explosion = "pipe-to-ground-explosion",
+    collision_box = {{-0.3, -0.3}, {0.3, 0.3}},
+    selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
+    crafting_categories = {"venting"},
+    crafting_speed = 1,
+    resistances =
+    {
+      {
+        type = "fire",
+        percent = 80
+      },
+      {
+        type = "impact",
+        percent = 30
+      }
+
+    },
+    energy_source =
+    {
+      type = "electric",
+      usage_priority = "secondary-input",
+      emissions_per_minute = {pollution = 4}
+    },
+    energy_usage = "10kW",
+    source_inventory_size = 0,
+    result_inventory_size = 0,
+	graphics_set = {
+		animation = {
+			north = {
+				layers = {
+					{
+					  filename = "__outer_moons__/graphics/entity/gas-vent/gas-vent-base.png",
+					  repeat_count = 4,
+					  animation_speed = 1,
+					  width = 64,
+					  height = 192,
+					  x = 0,
+					  y = 0,
+					  tw = 64,
+					  th = 192,
+					  scale = 0.5,
+					  shift = {0, 0}
+					},
+					{
+					  filename = "__outer_moons__/graphics/entity/gas-vent/gas-vent-working.png",
+					  frame_count = 4,
+					  line_length = 1,
+					  animation_speed = 1,
+					  width = 64,
+					  height = 32,
+					  x = 0,
+					  y = 0,
+					  tw = 64,
+					  th = 32,
+					  scale = 0.5,
+					  shift = {0, -0.75}
+					},
+					{
+					  filename = "__outer_moons__/graphics/entity/gas-vent/gas-vent-shadow.png",
+					  repeat_count = 4,
+					  animation_speed = 1,
+					  draw_as_shadow = true,
+					  width = 160,
+					  height = 96,
+					  x = 0,
+					  y = 0,
+					  tw = 160,
+					  th = 96,
+					  scale = 0.5,
+					  shift = {0.75, 0.25}
+					},
+				}
+			},
+			east = {
+				layers = {
+					{
+					  filename = "__outer_moons__/graphics/entity/gas-vent/gas-vent-base.png",
+					  repeat_count = 4,
+					  animation_speed = 1,
+					  width = 64,
+					  height = 192,
+					  x = 64,
+					  y = 0,
+					  tw = 64,
+					  th = 192,
+					  scale = 0.5,
+					  shift = {0, 0}
+					},
+					{
+					  filename = "__outer_moons__/graphics/entity/gas-vent/gas-vent-working.png",
+					  frame_count = 4,
+					  line_length = 1,
+					  animation_speed = 1,
+					  width = 64,
+					  height = 32,
+					  x = 0,
+					  y = 0,
+					  tw = 64,
+					  th = 32,
+					  scale = 0.5,
+					  shift = {0, -0.75}
+					},
+					{
+					  filename = "__outer_moons__/graphics/entity/gas-vent/gas-vent-shadow.png",
+					  repeat_count = 4,
+					  animation_speed = 1,
+					  draw_as_shadow = true,
+					  width = 160,
+					  height = 96,
+					  x = 0,
+					  y = 96,
+					  tw = 160,
+					  th = 96,
+					  scale = 0.5,
+					  shift = {0.75, 0.25}
+					},
+				}
+			},
+			south = {
+				layers = {
+					{
+					  filename = "__outer_moons__/graphics/entity/gas-vent/gas-vent-base.png",
+					  repeat_count = 4,
+					  animation_speed = 1,
+					  width = 64,
+					  height = 192,
+					  x = 128,
+					  y = 0,
+					  tw = 64,
+					  th = 192,
+					  scale = 0.5,
+					  shift = {0, 0}
+					},
+					{
+					  filename = "__outer_moons__/graphics/entity/gas-vent/gas-vent-working.png",
+					  frame_count = 4,
+					  line_length = 1,
+					  animation_speed = 1,
+					  width = 64,
+					  height = 32,
+					  x = 0,
+					  y = 0,
+					  tw = 64,
+					  th = 32,
+					  scale = 0.5,
+					  shift = {0, -0.75}
+					},
+					{
+					  filename = "__outer_moons__/graphics/entity/gas-vent/gas-vent-shadow.png",
+					  repeat_count = 4,
+					  animation_speed = 1,
+					  draw_as_shadow = true,
+					  width = 160,
+					  height = 96,
+					  x = 0,
+					  y = 192,
+					  tw = 160,
+					  th = 96,
+					  scale = 0.5,
+					  shift = {0.75, 0.25}
+					},
+				}
+			},
+			west = {
+				layers = {
+					{
+					  filename = "__outer_moons__/graphics/entity/gas-vent/gas-vent-base.png",
+					  repeat_count = 4,
+					  animation_speed = 1,
+					  width = 64,
+					  height = 192,
+					  x = 192,
+					  y = 0,
+					  tw = 64,
+					  th = 192,
+					  scale = 0.5,
+					  shift = {0, 0}
+					},
+					{
+					  filename = "__outer_moons__/graphics/entity/gas-vent/gas-vent-working.png",
+					  frame_count = 4,
+					  line_length = 1,
+					  animation_speed = 1,
+					  width = 64,
+					  height = 32,
+					  x = 0,
+					  y = 0,
+					  tw = 64,
+					  th = 32,
+					  scale = 0.5,
+					  shift = {0, -0.75}
+					},
+					{
+					  filename = "__outer_moons__/graphics/entity/gas-vent/gas-vent-shadow.png",
+					  repeat_count = 4,
+					  animation_speed = 1,
+					  draw_as_shadow = true,
+					  width = 160,
+					  height = 96,
+					  x = 0,
+					  y = 288,
+					  tw = 160,
+					  th = 96,
+					  scale = 0.5,
+					  shift = {0.75, 0.25}
+					},
+				}
+			},
+		},
+		working_visualisations = {
+			{
+				animation = {
+					--{
+					  filename = "__outer_moons__/graphics/entity/gas-vent/gas-vent-status.png",
+					  draw_as_glow = true,
+					  frame_count = 30,
+					  line_length = 6,
+					  animation_speed = 1,
+					  width = 64,
+					  height = 64,
+					  x = 0,
+					  y = 0,
+					  tw = 64,
+					  th = 64,
+					  scale = 0.5,
+					  blend_mode = "additive",
+					  shift = {0, -0.5}
+					--},			
+				},
+				apply_recipe_tint = "secondary",
+				always_draw = true,
+			},
+			{
+				animation = {
+					--{
+					  filename = "__outer_moons__/graphics/entity/gas-vent/gas-vent-venting.png",
+					  frame_count = 30,
+					  line_length = 10,
+					  animation_speed = 1,
+					  width = 192,
+					  height = 192,
+					  x = 0,
+					  y = 0,
+					  tw = 192,
+					  th = 192,
+					  scale = 0.5,
+					  shift = {0, -120/64}
+					--},			
+				},
+				fadeout = true,
+				apply_recipe_tint = "primary",
+			},
+		},
+
+	},
+    working_sound =
+    {
+      sound = { filename = "__outer_moons__/sound/air-vent.ogg" },
+      apparent_volume = 1.5,
+    },
+    fluid_boxes = {
+		{
+			production_type = "input",
+			pipe_covers = shadowlesspipecoverspictures(),
+			volume = 100,
+			pipe_connections = {
+				{ flow_direction = "input", direction = defines.direction.north, position = { 0, 0 } },
+			},
+		},
+	},
+  },
+  {
+    type = "furnace",
+    name = "flare-stack",
+    icon = "__outer_moons__/graphics/icons/flare-stack.png",
+    flags = {"placeable-neutral", "placeable-player", "player-creation"},
+    minable = {mining_time = 0.2, result = "flare-stack"},
+    fast_replaceable_group = "flare-stack",
+    max_health = 200,
+    corpse = "big-remnants",
+    dying_explosion = "medium-explosion",
+    collision_box = {{-0.3, -0.3}, {0.3, 0.3}},
+    selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
+    crafting_categories = {"flaring"},
+    crafting_speed = 1,
+    resistances =
+    {
+      {
+        type = "fire",
+        percent = 80
+      },
+      {
+        type = "impact",
+        percent = 30
+      }
+
+    },
+    energy_source =
+    {
+      type = "electric",
+      usage_priority = "secondary-input",
+      emissions_per_minute = {pollution = 8}
+    },
+    energy_usage = "10kW",
+    source_inventory_size = 0,
+    result_inventory_size = 0,
+    stateless_visualisation =
+    {
+      {
+        animation =
+        {
+          layers = {
+            {
+              filename = "__outer_moons__/graphics/entity/flare-stack/flare-stack.png",
+              priority = "high",
+              width = 320,
+              height = 320,
+              scale = 0.5,
+              frame_count = 1,
+              shift = {1.5, -1.59375}
+            },
+            {
+              filename = "__outer_moons__/graphics/entity/flare-stack/flare-stack-shadow.png",
+              priority = "high",
+              width = 320,
+              height = 320,
+              scale = 0.5,
+              frame_count = 1,
+              shift = {1.5, -1.59375},
+              draw_as_shadow = true
+            },
+          }
+          
+        }
+      }
+    },
+    match_animation_speed_to_activity = false,
+    graphics_set = {
+      working_visualisations = {
+        {
+          animation =
+          {
+            layers = {
+              {
+                filename = "__outer_moons__/graphics/entity/flare-stack/flare-stack-fire.png",
+                priority = "high",
+                frame_count = 60,
+				line_length = 10,
+                width = 40,
+				height = 81,
+                scale = 0.5,
+                shift = {0, -4.3},
+                draw_as_glow = true,
+                run_mode = "backward"
+              },
+              {
+                filename = "__outer_moons__/graphics/entity/flare-stack/flare-stack-glow-top.png",
+                priority = "high",
+                repeat_count = 60,
+                width = 320,
+                height = 320,
+                scale = 0.5,
+                shift = {1.5, -1.59375},
+                draw_as_light = true,
+              },
+            }
+          },
+          --light = {intensity = 0.1, size = 5},
+          constant_speed = true
+        }
+      }
+    },
+    working_sound =
+    {
+      sound = { filename = "__base__/sound/oil-refinery.ogg" },
+      idle_sound = { filename = "__base__/sound/idle1.ogg", volume = 0.6 },
+      apparent_volume = 2.5,
+    },
+    fluid_boxes = {
+		{
+			production_type = "input",
+			pipe_covers = shadowlesspipecoverspictures(),
+			volume = 100,
+			pipe_connections = {
+				{ flow_direction = "input", direction = defines.direction.north, position = { 0, 0 } },
+			},
+		},
+	},
   },
 })

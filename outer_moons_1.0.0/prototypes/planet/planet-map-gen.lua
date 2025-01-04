@@ -155,6 +155,8 @@ planet_map_gen.gleba = function()
       enemy_base_frequency = "gleba_enemy_base_frequency",
       ["entity:phosphate:richness"] = "gleba_stone_richness",
       ["entity:phosphate:probability"] = "gleba_stone_probability",
+      ["entity:lead-ore:richness"] = "gleba_lead_richness",
+      ["entity:lead-ore:probability"] = "gleba_lead_probability",
 
       ["decorative:red-desert-bush:probability"] = "gleba_red_desert_bush_probability",
       ["decorative:white-desert-bush:probability"] = "gleba_white_desert_bush_probability",
@@ -174,6 +176,7 @@ planet_map_gen.gleba = function()
     autoplace_controls =
     {
       ["gleba_stone"] = {},
+      ["gleba_lead"] = {},
       ["gleba_plants"] = {},
       ["gleba_enemy_base"] = {},
       ["gleba_water"] = {},
@@ -317,6 +320,7 @@ planet_map_gen.gleba = function()
         settings =
         {
           ["phosphate"] = {},
+          ["lead-ore"] = {},
           ["iron-stromatolite"] = {},
           ["copper-stromatolite"] = {}
         }
@@ -338,8 +342,10 @@ planet_map_gen.selene = function()
       cliff_elevation = "cliff_elevation_from_elevation",
 	  ["entity:metallic-regolith:probability"] = "selene_metallic_regolith_probability",
       ["entity:metallic-regolith:richness"] = "selene_metallic_regolith_richness",
-	  ["entity:aluminum-ore:probability"] = "selene_aluminum_ore_probability",
-      ["entity:aluminum-ore:richness"] = "selene_aluminum_ore_richness",
+	  ["entity:ice:probability"] = "selene_ice_probability",
+      ["entity:ice:richness"] = "selene_ice_richness",
+	  ["entity:dry-ice:probability"] = "selene_dry_ice_probability",
+      ["entity:dry-ice:richness"] = "selene_dry_ice_richness",
       ["entity:titanium-ore:probability"] = "selene_titanium_ore_probability",
       ["entity:titanium-ore:richness"] = "selene_titanium_ore_richness",
       ["entity:saline-geyser:probability"] = "selene_saline_geyser_probability",
@@ -355,7 +361,8 @@ planet_map_gen.selene = function()
     {
       ["saline_geyser"] = {},
       ["metallic_regolith"] = {},
-      ["aluminum_ore"] = {},
+      ["ice"] = {},
+      ["dry_ice"] = {},
       ["titanium_ore"] = {},
       ["selene_craters"] = {},
     },
@@ -402,7 +409,8 @@ planet_map_gen.selene = function()
         {
           ["saline-geyser"] = {},
           ["metallic-regolith"] = {},
-          ["aluminum-ore"] = {},
+          ["ice"] = {},
+          ["dry-ice"] = {},
           ["titanium-ore"] = {},
           ["huge-selene-rock"] = {},
           ["big-selene-rock"] = {},

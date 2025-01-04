@@ -16,11 +16,9 @@ end
 local selene_base_tint = {1,1,1}
 
 local tintable_rock_tint = {0.5, 0.5, 0.5}
-local aluminum_rock_tint = {0.52, 0.36, 0.3} 
 local titanium_rock_tint = {0.63, 0.49, 0.48}
 
 tintable_rock_tint = combine_tint(selene_base_tint, tintable_rock_tint)
-aluminum_rock_tint = combine_tint(selene_base_tint, aluminum_rock_tint)
 titanium_rock_tint = combine_tint(selene_base_tint, titanium_rock_tint)
 
 data:extend{
@@ -362,11 +360,11 @@ data:extend{
       mining_time = 3,
       results =
       {
-        {type = "item", name = "stone", amount_min = 6, amount_max = 18},
-        {type = "item", name = "iron-ore", amount_min = 8, amount_max = 24},
-        {type = "item", name = "copper-ore", amount_min = 3, amount_max = 9},
-        {type = "item", name = "carbon", amount_min = 5, amount_max = 15},
-        {type = "item", name = "aluminum-ore", amount_min = 2, amount_max = 6}
+        {type = "item", name = "stone", amount_min = 8, amount_max = 24},
+        {type = "item", name = "iron-ore", amount_min = 6, amount_max = 18},
+        {type = "item", name = "copper-ore", amount_min = 4, amount_max = 12},
+        {type = "item", name = "silicon-ore", amount_min = 3, amount_max = 9},
+        {type = "item", name = "alumina", amount_min = 2, amount_max = 6}
       },
     },
     map_color = {129, 105, 78},
@@ -556,14 +554,14 @@ data:extend{
     {
       mining_particle = "stone-particle",
       mining_time = 2,
-      results =
+	  results =
       {
-        {type = "item", name = "stone", amount_min = 4, amount_max = 8},
-        {type = "item", name = "iron-ore", amount_min = 5, amount_max = 10},
+        {type = "item", name = "stone", amount_min = 5, amount_max = 10},
+        {type = "item", name = "iron-ore", amount_min = 4, amount_max = 8},
         {type = "item", name = "copper-ore", amount_min = 3, amount_max = 6},
-        {type = "item", name = "carbon", amount_min = 2, amount_max = 4},
-        {type = "item", name = "aluminum-ore", amount_min = 1, amount_max = 2}
-      }
+        {type = "item", name = "silicon-ore", amount_min = 2, amount_max = 4},
+        {type = "item", name = "alumina", amount_min = 1, amount_max = 2}
+      },
     },
     resistances =
     {

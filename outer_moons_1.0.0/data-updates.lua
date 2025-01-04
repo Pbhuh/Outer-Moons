@@ -20,6 +20,7 @@ if data.raw.resource["crude-oil"] then
                 }
             }
         }
+	data.raw.resource["crude-oil"].map_color = {0, 0, 0}
 end
 if data.raw.resource["sulfuric-acid-geyser"] then
 
@@ -35,7 +36,7 @@ if data.raw.resource["sulfuric-acid-geyser"] then
             results = {
                 {
                     type = "fluid",
-                    name = "sulfuric-acid",
+                    name = "volcanic-gas",
                     amount_min = 10,
                     amount_max = 10,
                     probability = 1
@@ -329,7 +330,32 @@ data.raw.resource["crude-oil"].order = "a-b-a[crude-oil]"
 data.raw.resource["sulfuric-acid-geyser"].order = "a-b-c[sulfuric-acid-geyser]"
 data.raw.resource["lithium-brine"].order = "a-b-e[lithium-brine]"
 data.raw.resource["fluorine-vent"].order = "a-b-f[fluorine-vent]"
+data.raw.recipe["molten-iron-from-lava"].icon = "__outer_moons__/graphics/icons/fluid/molten-iron-from-lava.png"
 data.raw.recipe["simple-coal-liquefaction"].hidden = true
+data.raw.recipe["steam-condensation"].subgroup = "phase-recipes"
+data.raw.recipe["ice-melting"].subgroup = "phase-recipes"
+data.raw.recipe["acid-neutralisation"].subgroup = "phase-recipes"
+
+data.raw.item["engine-unit"].order = "c[advanced-intermediates]-b[engine-unit]"
+data.raw.item["electric-engine-unit"].order = "c[advanced-intermediates]-c[electric-engine-unit]"
+data.raw.item["flying-robot-frame"].order = "c[advanced-intermediates]-d[flying-robot-frame]"
+data.raw.item["copper-cable"].subgroup = "circuit-parts"
+data.raw.item["centrifuge"].icon = "__outer_moons__/graphics/icons/centrifuge.png"
+data.raw.item["tungsten-plate"].icon = "__outer_moons__/graphics/icons/tungsten-plate.png"
+
+data.raw["assembling-machine"]["electromagnetic-plant"].crafting_categories = {"electromagnetics", "electronics", "electronics-with-fluid", "electronics-or-assembling", "electronics-or-convecting"}
+data.raw["assembling-machine"]["foundry"].crafting_categories = {"metallurgy", "pressing", "crafting-with-fluid-or-metallurgy", "metallurgy-or-assembling", "metallurgy-or-adv-metallurgy"}
+
+data.raw.item["oil-refinery"].subgroup = "fluid-machine"
+data.raw.item["oil-refinery"].order = "b[oil-refinery]"
+data.raw.item["chemical-plant"].subgroup = "fluid-machine"
+data.raw.item["chemical-plant"].order = "c[chemical-plant]"
+data.raw.item["electrolytic-plant"].subgroup = "fluid-machine"
+data.raw.item["electrolytic-plant"].order = "a[electrolytic-plant]"
+data.raw.item["cryogenic-plant"].subgroup = "fluid-machine"
+data.raw.item["cryogenic-plant"].order = "d[cryogenic-plant]"
+
+data.raw.recipe["plastic-bar"].hidden = true
 
 data.raw.item["uranium-ore"].subgroup = "uranium-processing"
 data.raw.item["uranium-ore"].order = "a[uranium-processing]-a[uranium-ore]"
@@ -352,6 +378,11 @@ data.raw.item["battery"].order = "c[battery]"
 data.raw.item["explosives"].subgroup = "chemical-product"
 data.raw.item["explosives"].order = "d[explosives]"
 
+data.raw.item["low-density-structure"].subgroup = "space-parts"
+data.raw.recipe["rocket-fuel"].category = "chemistry-or-cryogenics"
+data.raw.item["rocket-fuel"].subgroup = "space-parts"
+data.raw.item["rocket-part"].subgroup = "space-parts"
+
 data.raw.item["ice"].subgroup = "selene-resources"
 data.raw.item["ice"].order = "b[ice]"
 
@@ -365,6 +396,10 @@ data.raw.item["biter-egg"].order = "b[nauvis-agriculture]-d[nutrients-from-biter
 
 data.raw.item["ice-platform"].order = "c[landfill]-i[ice-platform]"
 data.raw.item["foundation"].order = "c[landfill]-j[foundation]"
+
+data.raw.recipe["molten-iron-from-lava"].subgroup = "lava-fluid"
+data.raw.recipe["molten-iron"].subgroup = "vulcanus-fluid"
+data.raw.recipe["molten-copper"].subgroup = "vulcanus-fluid"
 
 data.raw.recipe["nutrients-from-spoilage"].subgroup = "agriculture-products"
 data.raw.recipe["nutrients-from-spoilage"].order = "c[nutrients]-b[nutrients-from-spoilage]"
@@ -387,18 +422,18 @@ data.raw.recipe["copper-bacteria"].icon = "__outer_moons__/graphics/icons/mash-c
 data.raw.recipe["copper-bacteria-cultivation"].order = "c[bacteria]-b[cultivation]-b[copper]"
 data.raw.recipe["iron-bacteria-cultivation"].order = "c[bacteria]-b[cultivation]-a[iron]"
 
+data.raw.item["foundry"].order = "f[recycler]"
 data.raw.item["recycler"].order = "h[recycler]"
+
+data.raw.item["superconductor"].icon = "__outer_moons__/graphics/icons/superconductor.png"
+data.raw.item["supercapacitor"].icon = "__outer_moons__/graphics/icons/supercapacitor.png"
 
 --Flamethrower
 data.raw["fluid-turret"]["flamethrower-turret"].attack_parameters.fluids = { {type = "crude-oil"},  {type = "heavy-oil", damage_modifier = 1.05}, {type = "light-oil", damage_modifier = 1.1}, {type = "ethanol", damage_modifier = 1.1} }
 
 --Pressure fix
 data.raw.recipe["metallurgic-science-pack"].surface_conditions = { { property = "pressure", min = 2000, max = 2000 } }
-data.raw.recipe["turbo-transport-belt"].surface_conditions = { { property = "pressure", min = 2000, max = 2000 } }
-data.raw.recipe["turbo-underground-belt"].surface_conditions = { { property = "pressure", min = 2000, max = 2000 } }
-data.raw.recipe["turbo-splitter"].surface_conditions = { { property = "pressure", min = 2000, max = 2000 } }
 data.raw.recipe["big-mining-drill"].surface_conditions = { { property = "pressure", min = 2000, max = 2000 } }
-data.raw.recipe["foundry"].surface_conditions = { { property = "pressure", min = 2000, max = 2000 } }
 
 
 data.raw.recipe["iron-bacteria"].surface_conditions = { { property = "pressure", min = 2500, max = 2500 } }
@@ -408,6 +443,9 @@ data.raw.recipe["copper-bacteria-cultivation"].surface_conditions = { { property
 data.raw.recipe["pentapod-egg"].surface_conditions = { { property = "pressure", min = 2500, max = 2500 } }
 data.raw.recipe["biochamber"].surface_conditions = { { property = "pressure", min = 2500, max = 2500 } }
 data.raw.recipe["agricultural-science-pack"].surface_conditions = { { property = "pressure", min = 2500, max = 2500 } }
+
+--Equipment fix
+data.raw["night-vision-equipment"]["night-vision-equipment"].shape = { width = 1, height = 1, type = "full"  }
 
 --disable
 data.raw.item["stone-furnace"].hidden = true

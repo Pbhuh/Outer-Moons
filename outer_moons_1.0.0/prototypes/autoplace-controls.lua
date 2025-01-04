@@ -100,10 +100,18 @@ data:extend(
   },
   {
     type = "autoplace-control",
-    name = "aluminum_ore",
-    localised_name = {"", "[entity=aluminum-ore] ", {"entity-name.aluminum-ore"}},
+    name = "ice",
+    localised_name = {"", "[entity=ice] ", {"entity-name.ice"}},
     richness = true,
     order = "b-b",
+    category = "resource"
+  },
+  {
+    type = "autoplace-control",
+    name = "dry_ice",
+    localised_name = {"", "[entity=dry-ice] ", {"entity-name.dry-ice"}},
+    richness = true,
+    order = "b-c",
     category = "resource"
   },
   {
@@ -111,7 +119,7 @@ data:extend(
     name = "titanium_ore",
     localised_name = {"", "[entity=titanium-ore] ", {"entity-name.titanium-ore"}},
     richness = true,
-    order = "b-c",
+    order = "b-d",
     category = "resource"
   },  
   {
@@ -119,7 +127,7 @@ data:extend(
     name = "saline_geyser",
     localised_name = {"", "[entity=saline-geyser] ", {"entity-name.saline-geyser"}},
     richness = true,
-    order = "b-d",
+    order = "b-e",
     category = "resource"
   },
   --- Vulcanus
@@ -162,6 +170,14 @@ data:extend(
     localised_name = {"", "[entity=phosphate] ", {"entity-name.phosphate"}},
     richness = true,
     order = "d-a",
+    category = "resource"
+  },
+  {
+    type = "autoplace-control",
+    name = "gleba_lead",
+    localised_name = {"", "[entity=lead-ore] ", {"entity-name.lead-ore"}},
+    richness = true,
+    order = "d-b",
     category = "resource"
   },
   --- Fulgora

@@ -6,6 +6,8 @@ simulations.factoriopedia_nickel_ore = { init = make_resource("nickel-ore") }
 simulations.factoriopedia_aluminum_ore = { init = make_resource("aluminum-ore") }
 simulations.factoriopedia_silicon_ore = { init = make_resource("silicon-ore") }
 simulations.factoriopedia_metallic_regolith = { init = make_resource("metallic-regolith") }
+simulations.factoriopedia_metallic_regolith = { init = make_resource("ice-ore") }
+simulations.factoriopedia_metallic_regolith = { init = make_resource("dry-ice-ore") }
 simulations.factoriopedia_titanium_ore = { init = make_resource("titanium-ore") }
 
 simulations.factoriopedia_turbo_underground_belt =

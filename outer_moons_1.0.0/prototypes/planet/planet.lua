@@ -26,7 +26,7 @@ data:extend(
     orientation = 0.275,
     magnitude = 1,
     order = "a[nauvis]",
-    --subgroup = "planets", subgroup planets doesn't exist in base, so do we hide this somehow?
+    subgroup = "planets",
     map_seed_offset = 0,
     map_gen_settings = planet_map_gen_new.nauvis(),
     pollutant_type = "pollution",

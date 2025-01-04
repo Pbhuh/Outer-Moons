@@ -83,7 +83,7 @@ data:extend({
 		{
 		  name = "lead-ore",
 		  order = "b",
-		  map_color = {r = 32/256, g = 29/256, b = 6/256, a = 1.000},
+		  map_color = {r = 46/256, g = 34/256, b = 11/256, a = 1.000},
 		  minable =
 		  {
 			  mining_particle = "stone-particle",
@@ -92,14 +92,14 @@ data:extend({
 		  },
 		  walking_sound = sounds.ore,
 		  driving_sound = stone_driving_sound,
-		  mining_visualisation_tint = {r = 32/256, g = 29/256, b = 6/256, a = 1.000},
+		  mining_visualisation_tint = {r = 46/256, g = 34/256, b = 11/256, a = 1.000},
 		  factoriopedia_simulation = simulations.factoriopedia_lead_ore,
 		},
 		{
-		  base_density = 8,
+		  base_density = 6,
 		  regular_rq_factor_multiplier = 1.10,
 		  starting_rq_factor_multiplier = 1.2,
-		  candidate_spot_count = 22, -- To match 0.17.50 placement
+		  candidate_spot_count = 16, -- To match 0.17.50 placement
 		  has_starting_area_placement = true
 		}
 	),
@@ -113,8 +113,8 @@ data:extend({
 			  mining_particle = "stone-particle",
 			  mining_time = 2,
 			  result = "nickel-ore",
-			  fluid_amount = 10,
-			  required_fluid = "nitric-acid"
+			 -- fluid_amount = 10,
+			 -- required_fluid = "nitric-acid"
 		  },
 		  walking_sound = sounds.ore,
 		  driving_sound = stone_driving_sound,
@@ -122,17 +122,18 @@ data:extend({
 		  factoriopedia_simulation = simulations.factoriopedia_nickel_ore,
 		},
 		{
-		  base_density = 1,
-		  regular_rq_factor_multiplier = 1.0,
-		  starting_rq_factor_multiplier = 1.1,
-		  base_spots_per_km = 1.5
+		  base_density = 6,
+		  regular_rq_factor_multiplier = 1.10,
+		  starting_rq_factor_multiplier = 1.2,
+		  candidate_spot_count = 15, -- To match 0.17.50 placement
+		  has_starting_area_placement = true
 		}
 	),    
     resource(
 		{
 		  name = "aluminum-ore",
 		  order = "b",
-		  map_color = {r = 135/256, g = 94/256, b = 77/256, a = 1.000},
+		  map_color = {r = 157/256, g = 79/256, b = 48/256, a = 1.000},
 		  minable =
 		  {
 			  mining_particle = "stone-particle",
@@ -142,14 +143,14 @@ data:extend({
 			 -- required_fluid = "sulfuric-acid"
 		  },
 		  walking_sound = sounds.ore,
-		  mining_visualisation_tint = {r = 135/256, g = 94/256, b = 77/256, a = 1.000},
+		  mining_visualisation_tint = {r = 157/256, g = 79/256, b = 48/256, a = 1.000},
 		  factoriopedia_simulation = simulations.factoriopedia_aluminum_ore,
 		},
 		{
 		  base_density = 1,
 		  regular_rq_factor_multiplier = 1.0,
 		  starting_rq_factor_multiplier = 1.1,
-		  base_spots_per_km = 1.25
+		  base_spots_per_km = 1.5
 		}
 	),
 	resource(
@@ -171,10 +172,10 @@ data:extend({
 		  factoriopedia_simulation = simulations.factoriopedia_silicon_ore,
 		},
 		{
-		  base_density = 1,
+		  base_density = 2,
 		  regular_rq_factor_multiplier = 1.0,
 		  starting_rq_factor_multiplier = 1.1,
-		  base_spots_per_km = 1
+		  base_spots_per_km = 1.25
 		}
 	),
 	--Selene
@@ -192,6 +193,46 @@ data:extend({
 		  walking_sound = sounds.ore,
 		  mining_visualisation_tint = {r = 230/256, g = 247/256, b = 256/256, a = 1.000},
 		  factoriopedia_simulation = simulations.factoriopedia_metallic_regolith,
+		},
+		{
+		  probability_expression = 0
+		}
+	),
+    resource(
+		{
+		  name = "ice",
+		  order = "b",
+		  map_color = {r = 84/256, g = 119/256, b = 141/256, a = 1.000},
+		  minable =
+		  {
+			  mining_particle = "stone-particle",
+			  mining_time = 1,
+			  result = "ice",
+		  },
+		  walking_sound = sounds.ore,
+		  mining_visualisation_tint = {r = 84/256, g = 119/256, b = 141/256, a = 1.000},
+		  --category = "hard-solid",
+		  factoriopedia_simulation = simulations.factoriopedia_ice_ore,
+		},
+		{
+		  probability_expression = 0
+		}
+	),
+	resource(
+		{
+		  name = "dry-ice",
+		  order = "b",
+		  map_color = {r = 157/256, g = 152/256, b = 119/256, a = 1.000},
+		  minable =
+		  {
+			  mining_particle = "stone-particle",
+			  mining_time = 1,
+			  result = "dry-ice",
+		  },
+		  walking_sound = sounds.ore,
+		  mining_visualisation_tint = {r = 157/256, g = 152/256, b = 119/256, a = 1.000},
+		  --category = "hard-solid",
+		  factoriopedia_simulation = simulations.factoriopedia_dry_ice_ore,
 		},
 		{
 		  probability_expression = 0
@@ -222,7 +263,7 @@ data:extend({
 	resource(
 		{
 		  name = "phosphate",
-		  order = "a",
+		  order = "b",
 		  map_color = {r = 158/256, g = 103/256, b = 75/256, a = 1.000},
 		  minable =
 		  {
@@ -334,7 +375,7 @@ data:extend({
 			}
 		  }
 		},
-		map_color = {0.5, 0.45, 0.42},
+		map_color = {0.78, 0.2, 0.77},
 		map_grid = false
 	},
 	{

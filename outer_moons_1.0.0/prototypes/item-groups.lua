@@ -1,5 +1,18 @@
 data:extend(
 {
+  --- Production
+  {
+    type = "item-subgroup",
+    name = "smelting-machine",
+    group = "production",
+    order = "d-a"
+  },  
+  {
+    type = "item-subgroup",
+    name = "fluid-machine",
+    group = "production",
+    order = "d-b"
+  },
   --- Fluids
   {
     type = "item-subgroup",
@@ -45,9 +58,15 @@ data:extend(
   },
   {
     type = "item-subgroup",
+    name = "lava-fluid",
+    group = "fluids",
+    order = "h-a"
+  },
+  {
+    type = "item-subgroup",
     name = "vulcanus-fluid",
     group = "fluids",
-    order = "h"
+    order = "h-b"
   },
   {
     type = "item-subgroup",
@@ -89,27 +108,84 @@ data:extend(
     type = "item-subgroup",
     name = "space-fluid",
     group = "fluids",
-    order = "z"
+    order = "o"
   },
-  --- Intermediates
+  
   {
     type = "item-subgroup",
     name = "fluid-recipes",
-    group = "intermediate-products",
-    order = "a-a"
+    group = "fluids",
+    order = "z-a"
+  },  
+  {
+    type = "item-subgroup",
+    name = "hydrocarbon-recipes",
+    group = "fluids",
+    order = "z-b"
   },
   {
     type = "item-subgroup",
     name = "electrolytic-recipes",
-    group = "intermediate-products",
-    order = "a-b"
+    group = "fluids",
+    order = "z-c"
   },
   {
     type = "item-subgroup",
-    name = "purification-recipes",
-    group = "intermediate-products",
-    order = "a-c"
+    name = "phase-recipes",
+    group = "fluids",
+    order = "z-d"
   },
+  {
+    type = "item-subgroup",
+    name = "separation-recipes",
+    group = "fluids",
+    order = "z-e"
+  },
+  {
+    type = "item-subgroup",
+    name = "plastic-recipes",
+    group = "fluids",
+    order = "z-f"
+  },
+  {
+    type = "item-subgroup",
+    name = "sulfur-recipes",
+    group = "fluids",
+    order = "z-g"
+  },
+  {
+    type = "item-subgroup",
+    name = "nitrogen-recipes",
+    group = "fluids",
+    order = "z-h"
+  },
+  {
+    type = "item-subgroup",
+    name = "chlorine-recipes",
+    group = "fluids",
+    order = "z-i"
+  },
+  
+  
+  {
+    type = "item-subgroup",
+    name = "barrel",
+    group = "intermediate-products",
+    order = "z-f"
+  },
+  {
+    type = "item-subgroup",
+    name = "fill-barrel",
+    group = "intermediate-products",
+    order = "z-g"
+  },
+  {
+    type = "item-subgroup",
+    name = "empty-barrel",
+    group = "intermediate-products",
+    order = "z-h"
+  },
+  --- Intermediates
   
   {
     type = "item-subgroup",
@@ -146,7 +222,25 @@ data:extend(
     type = "item-subgroup",
     name = "intermediate-product",
     group = "intermediate-products",
-    order = "g"
+    order = "g-a"
+  },
+  {
+    type = "item-subgroup",
+    name = "circuit-parts",
+    group = "intermediate-products",
+    order = "g-b"
+  },
+  {
+    type = "item-subgroup",
+    name = "circuits",
+    group = "intermediate-products",
+    order = "g-c"
+  },
+  {
+    type = "item-subgroup",
+    name = "space-parts",
+    group = "intermediate-products",
+    order = "g-d"
   },
   {
     type = "item-subgroup",

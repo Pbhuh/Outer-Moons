@@ -151,50 +151,6 @@ data:extend(
   },
   {
     type = "technology",
-    name = "olefins-synthesis",
-    icon = "__outer_moons__/graphics/technology/chloralkali-process.png",
-    icon_size = 256,
-    essential = true,
-    effects =
-    {
-	  {
-        type = "unlock-recipe",
-        recipe = "chloralkali-process"
-      },
-    },
-    prerequisites = {"planet-discovery-selene"},
-    research_trigger =
-    {
-      type = "mine-entity",
-      entity = "big-selene-rock"
-    }
-  },
-  {
-    type = "technology",
-    name = "olefins-synthesis",
-    icon = "__outer_moons__/graphics/technology/olefins-synthesis.png",
-    icon_size = 256,
-    essential = true,
-    effects =
-    {
-	  {
-        type = "unlock-recipe",
-        recipe = "olefins-synthesis"
-      },
-	  {
-        type = "unlock-recipe",
-        recipe = "polyethlyene"
-      },	  
-    },
-    prerequisites = {"chloralkali-processing"},
-    research_trigger =
-    {
-      type = "craft-fluid",
-      fluid = "oxygen"
-    }
-  },
-  {
-    type = "technology",
     name = "liquid-oxygen-fuel",
     icon = "__outer_moons__/graphics/technology/liquid-ox-fuel.png",
     icon_size = 256,
@@ -210,7 +166,7 @@ data:extend(
         recipe = "oxygen-rocket-fuel"
       },	  
     },
-    prerequisites = {"olefins-synthesis", "convector"},
+    prerequisites = {"convector"},
     research_trigger =
     {
       type = "craft-fluid",

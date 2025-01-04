@@ -6,6 +6,18 @@ data:extend(
   },
   {
     type = "recipe-category",
+    name = "electronics-or-convecting"
+  },
+  {
+    type = "recipe-category",
+    name = "adv-metallurgy"
+  },
+  {
+    type = "recipe-category",
+    name = "metallurgy-or-adv-metallurgy"
+  },
+  {
+    type = "recipe-category",
     name = "alloying"
   }, 
   {
@@ -19,5 +31,13 @@ data:extend(
   {
     type = "recipe-category",
     name = "advanced-smelting"
-  }
+  },
+  {
+    type = "recipe-category",
+    name = "flaring"
+  },
+  {
+    type = "recipe-category",
+    name = "venting"
+  },
 })

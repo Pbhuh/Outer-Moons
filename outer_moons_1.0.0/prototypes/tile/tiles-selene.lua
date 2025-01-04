@@ -78,8 +78,8 @@ data:extend
   
   {
     type = "noise-expression",
-    name = "selene_aluminum_tile",
-    expression = "max(0, selene_aluminum_ore_probability)"
+    name = "selene_ice_tile",
+    expression = "max(0, selene_ice_probability)"
   },
 
   ---- lowlands
@@ -97,7 +97,7 @@ data:extend
     name ="crater_cracks_warm_range",
     expression = "selene_lowlands_biome * range_select_base(selene_elev, 8, 22, 1, 0, 5)\z
                   + (aux - 0.05)\z
-                  + selene_titanium_tile * selene_aluminum_tile"
+                  + selene_titanium_tile * selene_ice_tile"
   },
   {
     type = "noise-expression",
@@ -110,7 +110,7 @@ data:extend
     name = "crater_smooth_stone_warm_range",
     expression = "selene_lowlands_biome * range_select_base(selene_elev, 8, 20, 1, 0, 5)\z
                   - (aux - 0.05)\z
-                  + selene_titanium_tile * selene_aluminum_tile"
+                  + selene_titanium_tile * selene_ice_tile"
   },
   {
     type = "noise-expression",
