@@ -379,8 +379,8 @@ planet_map_gen.selene = function()
           ["selene-dust-5"] = {},
           ["selene-dust-6"] = {},
           ["selene-sand-1"] = {},
-          ["selene-sand-2"] = {},
-          ["selene-sand-3"] = {},
+         -- ["selene-sand-2"] = {},
+         -- ["selene-sand-3"] = {},
          -- ["selene-snow-patchy"] = {},
         }
       },
@@ -432,8 +432,10 @@ planet_map_gen.mefitis = function()
       aux = "mefitis_aux",
       cliffiness = "cliffiness_basic",
       cliff_elevation = "cliff_elevation_from_elevation",
-      ["entity:titanium-ore:probability"] = "mefitis_titanium_ore_probability",
-      ["entity:titanium-ore:richness"] = "mefitis_titanium_ore_richness",
+      ["entity:iridium-ore:probability"] = "mefitis_iridium_ore_probability",
+      ["entity:iridium-ore:richness"] = "mefitis_iridium_ore_richness",
+	  ["entity:osmium-ore:probability"] = "mefitis_osmium_ore_probability",
+      ["entity:osmium-ore:richness"] = "mefitis_osmium_ore_richness",
       ["entity:chlorine-geyser:probability"] = "mefitis_chlorine_geyser_probability",
       ["entity:chlorine-geyser:richness"] = "mefitis_chlorine_geyser_richness",
     },
@@ -446,7 +448,8 @@ planet_map_gen.mefitis = function()
     autoplace_controls =
     {
       ["chlorine_geyser"] = {},
-      --["titanium_ore"] = {},
+      --["iridium_ore"] = {},
+      --["osmium_ore"] = {},
       ["mefitis_volcanism"] = {},
     },
     autoplace_settings =
@@ -455,16 +458,15 @@ planet_map_gen.mefitis = function()
       {
         settings =
         {
-          --["mefitis-lava-dust"] = {},
           ["mefitis-dust-1"] = {},
           ["mefitis-dust-2"] = {},
           ["mefitis-dust-3"] = {},
           ["mefitis-dust-4"] = {},
           ["mefitis-dust-5"] = {},
           ["mefitis-dust-6"] = {},
-          ["mefitis-sand-1"] = {},
-          ["mefitis-sand-2"] = {},
-          ["mefitis-sand-3"] = {},
+          --["mefitis-sand-1"] = {},
+          --["mefitis-sand-2"] = {},
+          --["mefitis-sand-3"] = {},
           ["lava-caldera"] = {},
           ["lava-caldera-hot"] = {},
 		  ["sulfur_ocean"] = {},
@@ -500,8 +502,8 @@ planet_map_gen.mefitis = function()
         settings =
         {
           ["chlorine-geyser"] = {},
-          --["titanium-ore"] = {},
-         -- ["uranium-ore"] = {},
+          ["iridium-ore"] = {},
+          ["osmium-ore"] = {},
           ["huge-volcanic-rock"] = {},
           ["big-volcanic-rock"] = {},
           ["mefitis-crater-cliff"] = {},
@@ -516,32 +518,32 @@ planet_map_gen.aiolos = function()
   {
     property_expression_names =
     {
-      elevation = "fulgora_elevation",
+      elevation = "aiolos_elevation",
       temperature = "temperature_basic",
       moisture = "moisture_basic",
       aux = "aux_basic",
-      cliffiness = "fulgora_cliffiness",
+      cliffiness = "aiolos_cliffiness",
       cliff_elevation = "cliff_elevation_from_elevation",
     },
     cliff_settings =
     {
-      name = "cliff-fulgora",
-      control = "fulgora_cliff",
-      cliff_elevation_0 = 80,
+      name = "cliff-aiolos",
+      control = "aiolos_cliff",
+      cliff_elevation_0 = 20,
       -- Ideally the first cliff would be at elevation 0 on the coastline, but that doesn't work,
       -- so instead the coastline is moved to elevation 80.
       -- Also there needs to be a large cliff drop at the coast to avoid the janky cliff smoothing
       -- but it also fails if a corner goes below zero, so we need an extra buffer of 40.
       -- So the first cliff is at 80, and terrain near the cliff shouln't go close to 0 (usually above 40).
-      cliff_elevation_interval = 40,
+      cliff_elevation_interval = 20,
       cliff_smoothing = 0, -- This is critical for correct cliff placement on the coast.
       richness = 0.95
     },
     autoplace_controls =
     {
-      ["scrap"] = {},
-      ["fulgora_islands"] = {},
-      ["fulgora_cliff"] = {},
+      ["beryllium_ore"] = {},
+      ["aiolos_islands"] = {},
+      ["aiolos_cliff"] = {},
     },
     autoplace_settings =
     {
@@ -549,25 +551,21 @@ planet_map_gen.aiolos = function()
       {
         settings =
         {
-          ["oil-ocean-shallow"] = {},
-          ["oil-ocean-deep"] = {},
-          ["fulgoran-rock"] = {},
-          ["fulgoran-dust"] = {},
-          ["fulgoran-sand"] = {},
-          ["fulgoran-dunes"] = {},
-          ["fulgoran-walls"] = {},
-          ["fulgoran-paving"] = {},
-          ["fulgoran-conduit"] = {},
-          ["fulgoran-machinery"] = {},
+          ["clouds-shallow"] = {},
+          ["clouds-deep"] = {},
+          ["aiolos-rock"] = {},
+          ["aiolos-dust"] = {},
+          ["aiolos-sand"] = {},
+          ["aiolos-dunes"] = {},
         }
       },
       ["decorative"] =
       {
         settings =
         {
-          ["fulgoran-ruin-tiny"] = {},
-          ["fulgoran-gravewort"] = {},
-          ["urchin-cactus"] = {},
+        --  ["fulgoran-ruin-tiny"] = {},
+       --   ["fulgoran-gravewort"] = {},
+       --   ["urchin-cactus"] = {},
           ["medium-fulgora-rock"] = {},
           ["small-fulgora-rock"] = {},
           ["tiny-fulgora-rock"] = {},
@@ -577,16 +575,16 @@ planet_map_gen.aiolos = function()
       {
         settings =
         {
-          ["scrap"] = {},
-          ["fulgoran-ruin-vault"] = {},
-          ["fulgoran-ruin-attractor"] = {},
-          ["fulgoran-ruin-colossal"] = {},
-          ["fulgoran-ruin-huge"] = {},
-          ["fulgoran-ruin-big"] = {},
-          ["fulgoran-ruin-stonehenge"] = {},
-          ["fulgoran-ruin-medium"] = {},
-          ["fulgoran-ruin-small"] = {},
-          ["fulgurite"] = {},
+          ["beryllium-ore"] = {},
+        -- ["fulgoran-ruin-vault"] = {},
+        --  ["fulgoran-ruin-attractor"] = {},
+        --  ["fulgoran-ruin-colossal"] = {},
+        --  ["fulgoran-ruin-huge"] = {},
+        --  ["fulgoran-ruin-big"] = {},
+        --  ["fulgoran-ruin-stonehenge"] = {},
+        --  ["fulgoran-ruin-medium"] = {},
+        --  ["fulgoran-ruin-small"] = {},
+        --  ["fulgurite"] = {},
           ["big-fulgora-rock"] = {}
         }
       }

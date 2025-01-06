@@ -9,6 +9,8 @@ simulations.factoriopedia_metallic_regolith = { init = make_resource("metallic-r
 simulations.factoriopedia_metallic_regolith = { init = make_resource("ice-ore") }
 simulations.factoriopedia_metallic_regolith = { init = make_resource("dry-ice-ore") }
 simulations.factoriopedia_titanium_ore = { init = make_resource("titanium-ore") }
+simulations.factoriopedia_iridium_ore = { init = make_resource("iridium-ore") }
+simulations.factoriopedia_osmium_ore = { init = make_resource("osmium-ore") }
 
 simulations.factoriopedia_turbo_underground_belt =
 {
@@ -71,6 +73,24 @@ simulations.factoriopedia_cliff_selene =
 simulations.factoriopedia_cliff_mefitis =
 {
   planet = "mefitis",
+  hide_factoriopedia_gradient = true,
+  init =
+  [[
+    game.simulation.camera_position = {0, 2.5}
+    for x = -8, 8, 1 do
+      for y = -3, 4 do
+        game.surfaces[1].set_tiles{{position = {x, y}, name = "selene-dust-3"}}
+      end
+    end
+    for x = -8, 8, 4 do
+      game.surfaces[1].create_entity{name = "cliff-selene", position = {x, 0}, cliff_orientation = "west-to-east"}
+    end
+  ]]
+}
+
+simulations.factoriopedia_cliff_aiolos =
+{
+  planet = "aiolos",
   hide_factoriopedia_gradient = true,
   init =
   [[

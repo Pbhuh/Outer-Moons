@@ -562,7 +562,16 @@ data:extend{
   },
 
   ---- RESOURCES
-
+  {
+    type = "noise-expression",
+    name ="ice_craters_range",
+    expression = "400 * range_select_base(selene_crater_spots, 0.15, 10, 1, 0, 1)"
+  },
+  {
+    type = "noise-expression",
+    name ="dry_ice_craters_range",
+    expression = "300 * range_select_base(selene_crater_spots, 0.05, 0.3, 1, 0, 1)"
+  },
   {
     type = "noise-expression",
     name = "selene_resource_wobble_x",
@@ -585,7 +594,7 @@ data:extend{
   {
     type = "noise-expression",
     name = "selene_starting_ice", -- don't use the slider for radius
-    expression = "starting_spot_at_angle{ angle = selene_craters_angle - 10 * selene_starting_direction,\z
+    expression = "starting_spot_at_angle{ angle = selene_craters_angle - 90 * selene_starting_direction,\z
                                           distance = 150 * selene_starting_area_radius,\z
                                           radius = 30 / 1.5,\z
                                           x_distortion = 0.5 * selene_resource_wobble_x,\z
@@ -594,7 +603,7 @@ data:extend{
   {
     type = "noise-expression",
     name = "selene_starting_dry_ice", -- don't use the slider for radius
-    expression = "max(starting_spot_at_angle{ angle = selene_craters_angle + 20 * selene_starting_direction,\z
+    expression = "max(starting_spot_at_angle{ angle = selene_craters_angle + 90 * selene_starting_direction,\z
                                               distance = 500 * selene_starting_area_radius,\z
                                               radius = 30,\z
                                               x_distortion = 0.75 * selene_resource_wobble_x,\z

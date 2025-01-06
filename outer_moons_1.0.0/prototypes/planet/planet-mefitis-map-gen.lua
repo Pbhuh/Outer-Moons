@@ -13,12 +13,12 @@ data:extend{
   {
     type = "noise-expression",
     name = "mefitis_biome_contrast",
-    expression = 2 -- higher values mean sharper transitions
+    expression = 5 -- higher values mean sharper transitions
   },
   {
     type = "noise-expression",
     name = "mefitis_cracks_scale",
-    expression = 0.1
+    expression = 2
   },
   --used to be segmenataion_multiplier
   {
@@ -30,7 +30,7 @@ data:extend{
     --functions more like a cliffiness multiplier as all the mountain tiles have it offset.
     type = "noise-expression",
     name = "mefitis_mountains_elevation_multiplier",
-    expression = 1.1
+    expression = 2
   },
 
   ---- HELPERS
@@ -575,7 +575,16 @@ data:extend{
   },
   {
     type = "noise-expression",
-    name = "mefitis_starting_titanium", -- don't use the slider for radius becuase it can make titanium in the safe area
+    name = "mefitis_starting_iridium", -- don't use the slider for radius becuase it can make iridium in the safe area
+    expression = "starting_spot_at_angle{ angle = mefitis_basalts_angle + 30 * mefitis_starting_direction,\z
+                                          distance = 450 * mefitis_starting_area_radius,\z
+                                          radius = 30 / 1.5,\z
+                                          x_distortion = 0.5 * mefitis_resource_wobble_x,\z
+                                          y_distortion = 0.5 * mefitis_resource_wobble_y}"
+  },
+  {
+    type = "noise-expression",
+    name = "mefitis_starting_osmium", -- don't use the slider for radius becuase it can make osmium in the safe area
     expression = "starting_spot_at_angle{ angle = mefitis_basalts_angle - 10 * mefitis_starting_direction,\z
                                           distance = 450 * mefitis_starting_area_radius,\z
                                           radius = 30 / 1.5,\z
@@ -710,31 +719,60 @@ data:extend{
 
   {
     type = "noise-expression",
-    name = "mefitis_titanium_ore_size",
-    expression = "slider_rescale(control:titanium_ore:size, 2)"
+    name = "mefitis_iridium_ore_size",
+    expression = "slider_rescale(control:iridium_ore:size, 2)"
   },
   {
     type = "noise-expression",
-    name = "mefitis_titanium_ore_region",
+    name = "mefitis_iridium_ore_region",
     -- -1 to 1: needs a positive region for resources & decoratives plus a subzero baseline and skirt for surrounding decoratives.
-    expression = "max(mefitis_starting_titanium,\z
+    expression = "max(mefitis_starting_iridium,\z
                       min(1 - mefitis_starting_circle,\z
-                          mefitis_place_metal_spots(789, 15, 2,\z
-                                                     mefitis_titanium_ore_size * min(1.2, mefitis_ore_dist) * 25,\z
-                                                     control:titanium_ore:frequency,\z
+                          mefitis_place_metal_spots(987, 15, 2,\z
+                                                     mefitis_iridium_ore_size * min(1.2, mefitis_ore_dist) * 25,\z
+                                                     control:iridium_ore:frequency,\z
                                                      mefitis_mountains_resource_favorability)))"
   },
   {
     type = "noise-expression",
-    name = "mefitis_titanium_ore_probability",
-    expression = "(control:titanium_ore:size > 0) * (1000 * ((1 + mefitis_titanium_ore_region) * random_penalty_between(0.9, 1, 1) - 1))"
+    name = "mefitis_iridium_ore_probability",
+    expression = "(control:iridium_ore:size > 0) * (1000 * ((1 + mefitis_iridium_ore_region) * random_penalty_between(0.9, 1, 1) - 1))"
   },
   {
     type = "noise-expression",
-    name = "mefitis_titanium_ore_richness",
-    expression = "mefitis_titanium_ore_region * random_penalty_between(0.9, 1, 1)\z
-                  * 10000 * mefitis_starting_area_multiplier\z
-                  * control:titanium_ore:richness / mefitis_titanium_ore_size"
+    name = "mefitis_iridium_ore_richness",
+    expression = "mefitis_iridium_ore_region * random_penalty_between(0.9, 1, 1)\z
+                  * 4000 * mefitis_starting_area_multiplier\z
+                  * control:iridium_ore:richness / mefitis_iridium_ore_size"
+  },
+  
+  {
+    type = "noise-expression",
+    name = "mefitis_osmium_ore_size",
+    expression = "slider_rescale(control:osmium_ore:size, 2)"
+  },
+  {
+    type = "noise-expression",
+    name = "mefitis_osmium_ore_region",
+    -- -1 to 1: needs a positive region for resources & decoratives plus a subzero baseline and skirt for surrounding decoratives.
+    expression = "max(mefitis_starting_osmium,\z
+                      min(1 - mefitis_starting_circle,\z
+                          mefitis_place_metal_spots(789, 15, 2,\z
+                                                     mefitis_osmium_ore_size * min(1.2, mefitis_ore_dist) * 25,\z
+                                                     control:osmium_ore:frequency,\z
+                                                     mefitis_mountains_resource_favorability)))"
+  },
+  {
+    type = "noise-expression",
+    name = "mefitis_osmium_ore_probability",
+    expression = "(control:osmium_ore:size > 0) * (1000 * ((1 + mefitis_osmium_ore_region) * random_penalty_between(0.9, 1, 1) - 1))"
+  },
+  {
+    type = "noise-expression",
+    name = "mefitis_osmium_ore_richness",
+    expression = "mefitis_osmium_ore_region * random_penalty_between(0.9, 1, 1)\z
+                  * 3000 * mefitis_starting_area_multiplier\z
+                  * control:osmium_ore:richness / mefitis_osmium_ore_size"
   },
 
   {

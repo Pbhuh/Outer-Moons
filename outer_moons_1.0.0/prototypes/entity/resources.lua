@@ -282,6 +282,72 @@ data:extend({
 		  probability_expression = 0
 		}
 	),
+	resource(
+		{
+		  name = "iridium-ore",
+		  order = "b",
+		  map_color = {r = 123/256, g = 150/256, b = 116/256, a = 1.000},
+		  minable =
+		  {
+			  mining_particle = "stone-particle",
+			  mining_time = 2,
+			  result = "iridium-ore",
+			 -- fluid_amount = 10,
+			 -- required_fluid = "nitric-acid"
+		  },
+		  walking_sound = sounds.ore,
+		  driving_sound = stone_driving_sound,
+		  mining_visualisation_tint = {r = 123/256, g = 150/256, b = 116/256, a = 1.000},
+		  factoriopedia_simulation = simulations.factoriopedia_iridium_ore,
+		},
+		{
+		  probability_expression = 0
+		}
+	), 
+	resource(
+		{
+		  name = "osmium-ore",
+		  order = "b",
+		  map_color = {r = 123/256, g = 150/256, b = 116/256, a = 1.000},
+		  minable =
+		  {
+			  mining_particle = "stone-particle",
+			  mining_time = 2,
+			  result = "osmium-ore",
+			 -- fluid_amount = 10,
+			 -- required_fluid = "nitric-acid"
+		  },
+		  walking_sound = sounds.ore,
+		  driving_sound = stone_driving_sound,
+		  mining_visualisation_tint = {r = 123/256, g = 150/256, b = 116/256, a = 1.000},
+		  factoriopedia_simulation = simulations.factoriopedia_osmium_ore,
+		},
+		{
+		  probability_expression = 0
+		}
+	), 
+	resource(
+		{
+		  name = "beryllium-ore",
+		  order = "b",
+		  map_color = {r = 123/256, g = 150/256, b = 116/256, a = 1.000},
+		  minable =
+		  {
+			  mining_particle = "stone-particle",
+			  mining_time = 2,
+			  result = "beryllium-ore",
+			 -- fluid_amount = 10,
+			 -- required_fluid = "nitric-acid"
+		  },
+		  walking_sound = sounds.ore,
+		  driving_sound = stone_driving_sound,
+		  mining_visualisation_tint = {r = 123/256, g = 150/256, b = 116/256, a = 1.000},
+		  factoriopedia_simulation = simulations.factoriopedia_beryllium_ore,
+		},
+		{
+		  probability_expression = 0
+		}
+	),    
 	-- Fluids
 	{
 		type = "resource",

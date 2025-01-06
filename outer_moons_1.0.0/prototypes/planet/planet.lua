@@ -967,8 +967,9 @@ data:extend(
     --entities_require_heating = true,
     surface_render_parameters =
     {
+      
       fog = effects.default_fog_effect_properties(),
-      -- clouds = effects.default_clouds_effect_properties(),
+      --clouds = effects.default_clouds_effect_properties(),
 
       -- Should be based on the default day/night times, ie
       -- sun starts to set at 0.25
@@ -984,24 +985,6 @@ data:extend(
         {0.80, "__space-age__/graphics/lut/vulcanus-1-day.png"},
       },
 
-      terrain_tint_effect =
-      {
-        noise_texture =
-        {
-          filename = "__space-age__/graphics/terrain/vulcanus/tint-noise.png",
-          size = 4096
-        },
-
-        offset = { 0.2, 0, 0.4, 0.8 },
-        intensity = { 0.5, 0.2, 0.3, 1.0 },
-        scale_u = { 3, 1, 1, 1 },
-        scale_v = { 1, 1, 1, 1 },
-
-        global_intensity = 0.3,
-        global_scale = 0.1,
-        zoom_factor = 3,
-        zoom_intensity = 0.6
-      }
     }
   },
   {

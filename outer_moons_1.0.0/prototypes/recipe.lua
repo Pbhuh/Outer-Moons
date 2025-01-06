@@ -1016,6 +1016,28 @@ data:extend({
 	},
 	{
 		type = "recipe",
+		name = "explosives",
+		category = "chemistry-or-cryogenics",
+		crafting_machine_tint =
+		{
+		  primary = {r = 0.968, g = 0.381, b = 0.259, a = 1.000}, -- #f66142ff
+		  secondary = {r = 0.892, g = 0.664, b = 0.534, a = 1.000}, -- #e3a988ff
+		  tertiary = {r = 1.000, g = 0.978, b = 0.513, a = 1.000}, -- #fff982ff
+		  quaternary = {r = 0.210, g = 0.170, b = 0.013, a = 1.000}, -- #352b03ff
+		},
+		energy_required = 4,
+		enabled = false,
+		ingredients =
+		{
+		  {type = "item", name = "sulfur", amount = 1},
+		  {type = "item", name = "coal", amount = 2},
+		  {type = "item", name = "niter", amount = 10}
+		},
+		results = {{type="item", name="explosives", amount=2}},
+		allow_productivity = true
+	},
+	{
+		type = "recipe",
 		name = "battery",
 		category = "chemistry-or-cryogenics",
 		energy_required = 4,
@@ -1037,24 +1059,25 @@ data:extend({
 	},
 	{
 		type = "recipe",
-		name = "explosives",
+		name = "adv-battery",
 		category = "chemistry-or-cryogenics",
-		crafting_machine_tint =
-		{
-		  primary = {r = 0.968, g = 0.381, b = 0.259, a = 1.000}, -- #f66142ff
-		  secondary = {r = 0.892, g = 0.664, b = 0.534, a = 1.000}, -- #e3a988ff
-		  tertiary = {r = 1.000, g = 0.978, b = 0.513, a = 1.000}, -- #fff982ff
-		  quaternary = {r = 0.210, g = 0.170, b = 0.013, a = 1.000}, -- #352b03ff
-		},
-		energy_required = 4,
+		energy_required = 8,
 		enabled = false,
 		ingredients =
 		{
-		  {type = "item", name = "sulfur", amount = 1},
-		  {type = "item", name = "coal", amount = 2},
-		  {type = "item", name = "niter", amount = 10}
+		  {type = "item", name = "nickel-plate", amount = 1},
+		  {type = "item", name = "titanium-plate", amount = 1},
+		  {type = "item", name = "aluminum-cable", amount = 1},
+		  {type = "item", name = "lye", amount = 1},
 		},
-		results = {{type="item", name="explosives", amount=2}},
+		results = {{type="item", name="adv-battery", amount=1}},
+		crafting_machine_tint =
+		{
+		  primary = {r = 0.965, g = 0.482, b = 0.338, a = 1.000}, -- #f67a56ff
+		  secondary = {r = 0.831, g = 0.560, b = 0.222, a = 1.000}, -- #d38e38ff
+		  tertiary = {r = 0.728, g = 0.818, b = 0.443, a = 1.000}, -- #b9d070ff
+		  quaternary = {r = 0.939, g = 0.763, b = 0.191, a = 1.000}, -- #efc230ff
+		},
 		allow_productivity = true
 	},
 	-- Smelting
@@ -1417,6 +1440,35 @@ data:extend({
 		allow_productivity = true
 	},
 	--Circuit parts
+	{
+		type = "recipe",
+		name = "semiconductor",
+		category = "electronics-with-fluid",
+		ingredients =
+		{
+		  {type = "item", name = "silicon-wafer", amount = 1},
+		  {type = "item", name = "plastic-bar", amount = 1},
+		  {type = "fluid", name = "sulfuric-acid", amount = 5},
+		},
+		results = {{type="item", name="semiconductor", amount=2}},
+		enabled = false,
+		allow_productivity = true
+	},
+	{
+		type = "recipe",
+		name = "capacitor",
+		category = "electronics-or-assembling",
+		ingredients =
+		{	  
+		  {type = "item", name = "plastic-bar", amount = 1},
+		  {type = "item", name = "semiconductor", amount = 1},
+		  {type = "item", name = "electronic-circuit", amount = 2},
+		  {type = "item", name = "battery", amount = 1},
+		},
+		results = {{type="item", name="capacitor", amount=1}},
+		enabled = false,
+		allow_productivity = true
+	},
 	--Circuits
 	{
 		type = "recipe",
@@ -2096,6 +2148,7 @@ data:extend({
 		ingredients =
 		{
 		  {type = "fluid", name = "water", amount = 40},
+		  {type = "item", name = "salt", amount = 10},
 		},
 		results =
 		{
@@ -2406,7 +2459,7 @@ data:extend({
 		enabled = false,
 		ingredients =
 		{
-		  {type = "item", name = "electronic-circuit", amount = 5},
+		  {type = "item", name = "integrated-circuit", amount = 5},
 		  {type = "item", name = "iron-gear-wheel", amount = 5},
 		  {type = "item", name = "copper-cable", amount = 10},
 		  {type = "item", name = "steel-plate", amount = 20}
@@ -2431,7 +2484,7 @@ data:extend({
 		{
 		  {type = "item", name = "tungsten-carbide", amount = 50},
 		  {type = "item", name = "invar-plate", amount = 50},
-		  {type = "item", name = "electronic-circuit", amount = 30},
+		  {type = "item", name = "processing-unit", amount = 30},
 		  {type = "item", name = "refined-concrete", amount = 20},
 		  {type = "fluid", name = "lubricant", amount = 20}
 		},
@@ -2471,16 +2524,16 @@ data:extend({
 		{
 		  {
 			property = "pressure",
-			min = 0,
-			max = 100
+			min = 150,
+			max = 150
 		  }
 		},
 		ingredients =
 		{
-		  {type = "item", name = "assembling-machine-3", amount = 2},
-		  {type = "item", name = "productivity-module-2", amount = 2},
-		  {type = "item", name = "aluminum-plate", amount = 20},
-		  {type = "item", name = "titanium-plate", amount = 10}
+		  {type = "item", name = "processing-unit", amount = 30},
+		  {type = "item", name = "magnalium-plate", amount = 50},
+		  {type = "item", name = "electric-engine-unit", amount = 15},
+		  {type = "item", name = "bulk-inserter", amount = 2}
 		},
 		results = {{type="item", name="adv-assembling-machine", amount=1}}
 	},
@@ -3850,6 +3903,43 @@ data:extend({
 		quaternary = {r = 0.000, g = 0.000, b = 0.000, a = 1.000}, -- #000000ff
       }
     },
+	{
+		type = "recipe",
+		name = "superconductor",
+		category = "electromagnetics",
+		subgroup = "fulgora-processes",
+		order = "b[holmium]-d[superconductor]",
+		energy_required = 5,
+		ingredients =
+		{
+		  {type = "item", name = "holmium-plate", amount = 1},
+		  {type = "item", name = "copper-plate", amount = 1},
+		  {type = "item", name = "plastic-bar", amount = 1},
+		  {type = "fluid", name = "aromatics", amount = 5},
+		},
+		results = {{type = "item", name = "superconductor", amount = 2}},
+		allow_productivity = true,
+		enabled = false
+	},
+	{
+		type = "recipe",
+		name = "supercapacitor",
+		category = "electromagnetics",
+		subgroup = "fulgora-processes",
+		order = "b[holmium]-f[supercapacitor]",
+		energy_required = 10,
+		ingredients =
+		{
+		  {type = "item", name = "holmium-plate", amount = 2},
+		  {type = "item", name = "superconductor", amount = 2},
+		  {type = "item", name = "integrated-circuit", amount = 4},
+		  {type = "item", name = "adv-battery", amount = 1},
+		  {type = "fluid", name = "electrolyte", amount = 10},
+		},
+		results = {{type="item", name="supercapacitor", amount=1}},
+		allow_productivity = true,
+		enabled = false
+	},
 	--Inserters	
 	{
 		type = "recipe",
@@ -4324,5 +4414,85 @@ data:extend({
 		  {type = "fluid", name = "lubricant", amount = 100}
 		},
 		results = {{type="item", name="turbo-splitter", amount=1}}
+	},
+	
+	-- Combinators
+	{
+		type = "recipe",
+		name = "arithmetic-combinator",
+		enabled = false,
+		ingredients =
+		{
+		  {type = "item", name = "copper-cable", amount = 5},
+		  {type = "item", name = "integrated-circuit", amount = 5}
+		},
+		results = {{type="item", name="arithmetic-combinator", amount=1}}
+	},
+	{
+		type = "recipe",
+		name = "decider-combinator",
+		enabled = false,
+		ingredients =
+		{
+		  {type = "item", name = "copper-cable", amount = 5},
+		  {type = "item", name = "integrated-circuit", amount = 5}
+		},
+		results = {{type="item", name="decider-combinator", amount=1}}
+	},
+	{
+		type = "recipe",
+		name = "constant-combinator",
+		enabled = false,
+		ingredients =
+		{
+		  {type = "item", name = "copper-cable", amount = 5},
+		  {type = "item", name = "electronic-circuit", amount = 2}
+		},
+		results = {{type="item", name="constant-combinator", amount=1}}
+	},
+	{
+		type = "recipe",
+		name = "selector-combinator",
+		enabled = false,
+		ingredients =
+		{
+		  {type = "item", name = "advanced-circuit", amount = 2},
+		  {type = "item", name = "decider-combinator", amount = 5}
+		},
+		results = {{type="item", name="selector-combinator", amount=1}}
+	},
+	{
+		type = "recipe",
+		name = "power-switch",
+		enabled = false,
+		energy_required = 2,
+		ingredients =
+		{
+		  {type = "item", name = "iron-plate", amount = 5},
+		  {type = "item", name = "copper-cable", amount = 5},
+		  {type = "item", name = "electronic-circuit", amount = 2}
+		},
+		results = {{type="item", name="power-switch", amount=1}}
+	},
+	{
+		type = "recipe",
+		name = "programmable-speaker",
+		enabled = false,
+		energy_required = 2,
+		ingredients =
+		{
+		  {type = "item", name = "iron-plate", amount = 3},
+		  {type = "item", name = "iron-stick", amount = 4},
+		  {type = "item", name = "copper-cable", amount = 5},
+		  {type = "item", name = "electronic-circuit", amount = 4}
+		},
+		results = {{type="item", name="programmable-speaker", amount=1}}
+	},
+	{
+		type = "recipe",
+		name = "display-panel",
+		ingredients = {{type = "item", name = "plastic-bar", amount = 2}, {type = "item", name = "small-lamp", amount = 4}, {type = "item", name = "integrated-circuit", amount = 1}},
+		results = {{type="item", name="display-panel", amount=1}},
+		enabled = false
 	},
 })

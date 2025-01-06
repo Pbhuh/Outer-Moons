@@ -99,6 +99,19 @@ data:extend({
       factoriopedia_simulation = simulations.factoriopedia_cliff_selene
     }
   ),
+  scaled_cliff(
+    {
+      mod_name = "__outer_moons__",
+      name = "cliff-aiolos",
+      map_color = {65, 65, 65},
+      suffix = "aiolos",
+      subfolder = "aiolos",
+      scale = 1.0,
+      has_lower_layer = true,
+      sprite_size_multiplier = 2,
+      factoriopedia_simulation = simulations.factoriopedia_cliff_aiolos
+    }
+  ),
   
   {
     type = "assembling-machine",

@@ -139,6 +139,69 @@ data:extend({
         stack_size = 50,
         weight = 2 * kg
     },
+	{
+        type = "item",
+        name = "iridium-ore",
+        group = "intermediate-products",
+        icon = "__outer_moons__/graphics/icons/iridium-ore.png",
+		pictures =
+		{
+		  { size = 64, filename = "__outer_moons__/graphics/icons/iridium-ore.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/iridium-ore-2.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/iridium-ore-3.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/iridium-ore-4.png", scale = 0.5, mipmap_count = 4 },
+		},
+        subgroup = "mefitis-processes",
+		default_import_location = "mefitis",
+        order = "a[iridium-ore]",
+        inventory_move_sound = item_sounds.resource_inventory_move,
+        pick_sound = item_sounds.resource_inventory_pickup,
+        drop_sound = item_sounds.resource_inventory_move,
+        stack_size = 50,
+        weight = 2 * kg
+    },
+	{
+        type = "item",
+        name = "osmium-ore",
+        group = "intermediate-products",
+        icon = "__outer_moons__/graphics/icons/osmium-ore.png",
+		pictures =
+		{
+		  { size = 64, filename = "__outer_moons__/graphics/icons/osmium-ore.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/osmium-ore-2.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/osmium-ore-3.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/osmium-ore-4.png", scale = 0.5, mipmap_count = 4 },
+		},
+        subgroup = "mefitis-processes",
+		default_import_location = "mefitis",
+        order = "b[osmium-ore]",
+        inventory_move_sound = item_sounds.resource_inventory_move,
+        pick_sound = item_sounds.resource_inventory_pickup,
+        drop_sound = item_sounds.resource_inventory_move,
+        stack_size = 50,
+        weight = 2 * kg
+    },
+	{
+        type = "item",
+        name = "beryllium-ore",
+        group = "intermediate-products",
+        icon = "__outer_moons__/graphics/icons/nickel-ore.png",
+		pictures =
+		{
+		  { size = 64, filename = "__outer_moons__/graphics/icons/nickel-ore.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/nickel-ore-2.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/nickel-ore-3.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/nickel-ore-4.png", scale = 0.5, mipmap_count = 4 },
+		},
+        subgroup = "aiolos-processes",
+		default_import_location = "aiolos",
+        order = "a[beryllium-ore]",
+        inventory_move_sound = item_sounds.resource_inventory_move,
+        pick_sound = item_sounds.resource_inventory_pickup,
+        drop_sound = item_sounds.resource_inventory_move,
+        stack_size = 50,
+        weight = 2 * kg
+    },
 	-- Plates
 	{
 		type = "item",
@@ -527,6 +590,18 @@ data:extend({
 		weight = 0.5 * kg,
 	},	
 	-- Circuit parts
+	{
+		type = "item",
+		name = "adv-battery",
+		icon = "__outer_moons__/graphics/icons/adv-battery.png",
+		subgroup = "raw-material",
+		order = "b[chemistry]-f[adv-battery]",
+		inventory_move_sound = item_sounds.electric_small_inventory_move,
+		pick_sound = item_sounds.electric_small_inventory_pickup,
+		drop_sound = item_sounds.electric_small_inventory_move,
+		stack_size = 200,
+		weight = 2.5 * kg
+	},
 	
 	{
 		type = "item",

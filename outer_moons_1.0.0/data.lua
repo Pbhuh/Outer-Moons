@@ -18,6 +18,7 @@ require("__outer_moons__.prototypes.decorative.decoratives-mefitis")
 require("__outer_moons__.prototypes.tile.tiles-selene")
 require("__outer_moons__.prototypes.tile.tiles-gleba")
 require("__outer_moons__.prototypes.tile.tiles-mefitis")
+require("__outer_moons__.prototypes.tile.tiles-aiolos")
 
 planets = {
 "nauvis",

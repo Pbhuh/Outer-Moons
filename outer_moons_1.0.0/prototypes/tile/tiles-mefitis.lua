@@ -259,7 +259,7 @@ data:extend
   {
     type = "noise-expression",
     name = "mefitis_metal_tile",
-    expression = "max(0, mefitis_titanium_ore_probability)"
+    expression = "max(0, mefitis_iridium_ore_probability)"
   },
   ---- LAVA
   {
@@ -277,12 +277,12 @@ data:extend
   {
     type = "noise-expression",
     name ="lava_mountains_range",
-    expression = "1100 * range_select_base(mountain_lava_spots, 0.15, 10, 1, 0, 1)"
+    expression = "600 * range_select_base(mountain_lava_spots, 0.15, 10, 1, 0, 1)"
   },
   {
     type = "noise-expression",
     name ="lava_hot_mountains_range",
-    expression = "1000 * range_select_base(mountain_lava_spots, 0.05, 0.3, 1, 0, 1)"
+    expression = "500 * range_select_base(mountain_lava_spots, 0.05, 0.3, 1, 0, 1)"
   },
 
   ---- BASALTS
@@ -446,10 +446,10 @@ data:extend
     {
       probability_expression = "lava_mountains_range"
     },
-    effect = "lava-2",
+    effect = "cryolava-2",
     fluid = "lava",
-    effect_color = { 167, 59, 27 },
-    effect_color_secondary = { 49, 80, 14 },
+    effect_color = { 255, 179, 50 },
+    effect_color_secondary = { 181, 85, 41 },
     particle_tints = tile_graphics.lava_particle_tints,
     destroys_dropped_items = true,
     default_destroyed_dropped_item_trigger = destroyed_item_trigger,
@@ -457,7 +457,7 @@ data:extend
     layer_group = "water-overlay",
     sprite_usage_surface = "space",
     variants = tile_variations_template(
-      "__space-age__/graphics/terrain/vulcanus/lava.png",
+      "__outer_moons__/graphics/terrain/lava-caldera.png",
       "__base__/graphics/terrain/masks/transition-1.png",
       {
         max_size = 4,
@@ -466,7 +466,7 @@ data:extend
         [4] = { probability = 0.1, weights = {0.018, 0.020, 0.015, 0.025, 0.015, 0.020, 0.025, 0.015, 0.025, 0.025, 0.010, 0.025, 0.020, 0.025, 0.025, 0.010 }, },
       }
     ),
-    allowed_neighbors={"lava-hot"},
+    allowed_neighbors={"lava-caldera-hot"},
     transitions = {lava_to_out_of_map_transition},
     transitions_between_transitions = data.raw.tile["water"].transitions_between_transitions,
     walking_sound = data.raw.tile["water"].walking_sound,
@@ -504,10 +504,10 @@ data:extend
     {
       probability_expression = "lava_hot_mountains_range"
     },
-    effect = "lava",
+    effect = "cryolava",
     fluid = "lava",
-    effect_color = { 167, 59, 27 },
-    effect_color_secondary = { 49, 80, 14 },
+    effect_color = { 255, 179, 50 },
+    effect_color_secondary = { 181, 85, 41 },
     particle_tints = tile_graphics.lava_particle_tints,
     destroys_dropped_items = true,
     default_destroyed_dropped_item_trigger = destroyed_item_trigger,
@@ -519,7 +519,7 @@ data:extend
         main =
         {
           {
-            picture = "__space-age__/graphics/terrain/vulcanus/lava-hot.png",
+            picture = "__outer_moons__/graphics/terrain/lava-caldera-hot.png",
             count = 1,
             scale = 0.5,
             size = 1
@@ -527,7 +527,7 @@ data:extend
         },
       empty_transitions=true,
     },
-    allowed_neighbors={"lava"},
+    allowed_neighbors={"lava-caldera"},
     transitions = {lava_to_out_of_map_transition},
     transitions_between_transitions = data.raw.tile["water"].transitions_between_transitions,
     walking_sound = data.raw.tile["water"].walking_sound,
@@ -558,9 +558,9 @@ data:extend
     type = "tile",
     order = "f-a",
     subgroup = "mefitis-tiles",
-    collision_mask = tile_collision_masks.oil_ocean_deep(),
-    autoplace = {probability_expression = "mefitis_basalts_range"},
-    layer = 3,
+    collision_mask = tile_collision_masks.lava(),
+    autoplace = {probability_expression = "max(mefitis_basalts_range, volcanic_cracks_hot_range) + max(volcanic_cracks_warm_range, volcanic_cracks_cold_range) + max(0, volcanic_smooth_stone_warm_range)"},
+    layer = 20,
     layer_group = "water",
     map_color = { 217, 160, 40},
     walking_speed_modifier = 0.5,
@@ -660,8 +660,90 @@ data:extend
       far_zoom = 0.063,
     }
   },
+  {
+    type = "tile-effect",
+    name = "cryolava",
+    shader = "water",
+    water =
+    {
+      shader_variation = "lava",
+      textures =
+      {
+        {
+          filename = "__space-age__/graphics/terrain/vulcanus/lava-textures/lava-noise-texture.png",
+          width = 512,
+          height = 512
+        },
+        {
+          filename = "__outer_moons__/graphics/terrain/cryolava.png",
+          width = 512 * 4,
+          height = 512 * 2
+        }
+      },
+      texture_variations_columns = 1,
+      texture_variations_rows = 1,
+      secondary_texture_variations_columns = 4,
+      secondary_texture_variations_rows = 2,
+
+      animation_speed = 1.5,
+      animation_scale = { 0.7, 0.7 },
+      tick_scale = 1,
+
+      specular_lightness = { 22, 51, 17},
+      foam_color = { 59, 30, 9},
+      foam_color_multiplier = 1.3,
+
+      dark_threshold = { 0.755, 0.755 },
+      reflection_threshold = { 1, 1 },
+      specular_threshold = { 0.889, 0.291 },
+
+      near_zoom = 1 / 16,
+      far_zoom = 1 / 16
+    }
+  },
+  {
+    type = "tile-effect",
+    name = "cryolava-2",
+    shader = "water",
+    water =
+    {
+      shader_variation = "lava",
+      textures =
+      {
+        {
+          filename = "__space-age__/graphics/terrain/vulcanus/lava-textures/lava-noise-texture.png",
+          width = 512,
+          height = 512
+        },
+        {
+          filename = "__outer_moons__/graphics/terrain/coastal-cryolava.png",
+          width = 512 * 4,
+          height = 512 * 2
+        }
+      },
+      texture_variations_columns = 1,
+      texture_variations_rows = 1,
+      secondary_texture_variations_columns = 4,
+      secondary_texture_variations_rows = 2,
+
+      animation_speed = 1.5,
+      animation_scale = { 0.75, 0.75 },
+      tick_scale = 1,
+
+      specular_lightness = { 30, 48, 22 },
+      foam_color = { 73, 5, 5 },
+      foam_color_multiplier = 1,
+
+      dark_threshold = { 0.755, 0.755 },
+      reflection_threshold = { 1, 1 },
+      specular_threshold = { 0.889, 0.291 },
+
+      near_zoom = 1 / 16,
+      far_zoom = 1 / 16
+    }
+  },
   
-  ----------- GREY DIRT
+  ----------- RED DIRT
   {
 		name = "mefitis-dust-1",
 		type = "tile",
@@ -676,7 +758,7 @@ data:extend
 		vehicle_friction_modifier = 4,
 		sprite_usage_surface = "space",
 		variants = tile_variations_template_with_transitions(
-		  "__outer_moons__/graphics/terrain/mineral-grey-dirt-1.png",
+		  "__outer_moons__/graphics/terrain/mineral-red-dirt-1.png",
 		  {
 			max_size = 4,
 			[1] = { weights = {0.085, 0.085, 0.085, 0.085, 0.087, 0.085, 0.065, 0.085, 0.045, 0.045, 0.045, 0.045, 0.005, 0.025, 0.045, 0.045 } },
@@ -707,7 +789,7 @@ data:extend
 		vehicle_friction_modifier = 4,
 		sprite_usage_surface = "space",
 		variants = tile_variations_template_with_transitions(
-		  "__outer_moons__/graphics/terrain/mineral-grey-dirt-2.png",
+		  "__outer_moons__/graphics/terrain/mineral-red-dirt-2.png",
 		  {
 			max_size = 4,
 			[1] = { weights = {0.085, 0.085, 0.085, 0.085, 0.087, 0.085, 0.065, 0.085, 0.045, 0.045, 0.045, 0.045, 0.005, 0.025, 0.045, 0.045 } },
@@ -738,7 +820,7 @@ data:extend
 		vehicle_friction_modifier = 4,
 		sprite_usage_surface = "space",
 		variants = tile_variations_template_with_transitions(
-		  "__outer_moons__/graphics/terrain/mineral-grey-dirt-3.png",
+		  "__outer_moons__/graphics/terrain/mineral-red-dirt-3.png",
 		  {
 			max_size = 4,
 			[1] = { weights = {0.085, 0.085, 0.085, 0.085, 0.087, 0.085, 0.065, 0.085, 0.045, 0.045, 0.045, 0.045, 0.005, 0.025, 0.045, 0.045 } },
@@ -769,7 +851,7 @@ data:extend
 		vehicle_friction_modifier = 4,
 		sprite_usage_surface = "space",
 		variants = tile_variations_template_with_transitions(
-		  "__outer_moons__/graphics/terrain/mineral-grey-dirt-4.png",
+		  "__outer_moons__/graphics/terrain/mineral-red-dirt-4.png",
 		  {
 			max_size = 4,
 			[1] = { weights = {0.085, 0.085, 0.085, 0.085, 0.087, 0.085, 0.065, 0.085, 0.045, 0.045, 0.045, 0.045, 0.005, 0.025, 0.045, 0.045 } },
@@ -800,7 +882,7 @@ data:extend
 		vehicle_friction_modifier = 4,
 		sprite_usage_surface = "space",
 		variants = tile_variations_template_with_transitions(
-		  "__outer_moons__/graphics/terrain/mineral-grey-dirt-5.png",
+		  "__outer_moons__/graphics/terrain/mineral-red-dirt-5.png",
 		  {
 			max_size = 4,
 			[1] = { weights = {0.085, 0.085, 0.085, 0.085, 0.087, 0.085, 0.065, 0.085, 0.045, 0.045, 0.045, 0.045, 0.005, 0.025, 0.045, 0.045 } },
@@ -831,7 +913,7 @@ data:extend
 		vehicle_friction_modifier = 4,
 		sprite_usage_surface = "space",
 		variants = tile_variations_template_with_transitions(
-		  "__outer_moons__/graphics/terrain/mineral-grey-dirt-6.png",
+		  "__outer_moons__/graphics/terrain/mineral-red-dirt-6.png",
 		  {
 			max_size = 4,
 			[1] = { weights = {0.085, 0.085, 0.085, 0.085, 0.087, 0.085, 0.065, 0.085, 0.045, 0.045, 0.045, 0.045, 0.005, 0.025, 0.045, 0.045 } },
@@ -862,7 +944,7 @@ data:extend
 		vehicle_friction_modifier = 4,
 		sprite_usage_surface = "space",
 		variants = tile_variations_template_with_transitions(
-		  "__outer_moons__/graphics/terrain/mineral-grey-sand-1.png",
+		  "__outer_moons__/graphics/terrain/mineral-red-sand-1.png",
 		  {
 			max_size = 4,
 			[1] = { weights = {0.085, 0.085, 0.085, 0.085, 0.087, 0.085, 0.065, 0.085, 0.045, 0.045, 0.045, 0.045, 0.005, 0.025, 0.045, 0.045 } },
@@ -893,7 +975,7 @@ data:extend
 		vehicle_friction_modifier = 4,
 		sprite_usage_surface = "space",
 		variants = tile_variations_template_with_transitions(
-		  "__outer_moons__/graphics/terrain/mineral-grey-sand-1.png",
+		  "__outer_moons__/graphics/terrain/mineral-red-sand-2.png",
 		  {
 			max_size = 4,
 			[1] = { weights = {0.085, 0.085, 0.085, 0.085, 0.087, 0.085, 0.065, 0.085, 0.045, 0.045, 0.045, 0.045, 0.005, 0.025, 0.045, 0.045 } },
@@ -924,7 +1006,7 @@ data:extend
 		vehicle_friction_modifier = 4,
 		sprite_usage_surface = "space",
 		variants = tile_variations_template_with_transitions(
-		  "__outer_moons__/graphics/terrain/mineral-grey-sand-1.png",
+		  "__outer_moons__/graphics/terrain/mineral-red-sand-3.png",
 		  {
 			max_size = 4,
 			[1] = { weights = {0.085, 0.085, 0.085, 0.085, 0.087, 0.085, 0.065, 0.085, 0.045, 0.045, 0.045, 0.045, 0.005, 0.025, 0.045, 0.045 } },
@@ -944,9 +1026,9 @@ data:extend
 }
 -- add sulfur & caldera tiles to water tiles
 table.insert(water_tile_type_names, "sulfur_ocean")
-table.insert(water_tile_type_names, "lava-hot")
-table.insert(water_tile_type_names, "lava")
+table.insert(water_tile_type_names, "lava-caldera-hot")
+table.insert(water_tile_type_names, "lava-caldera")
 
--- add caldera tiles to water tiles 
-table.insert(lava_tile_type_names, "lava-hot")
-table.insert(lava_tile_type_names, "lava")
+-- add caldera tiles to lava tiles 
+table.insert(lava_tile_type_names, "lava-caldera-hot")
+table.insert(lava_tile_type_names, "lava-caldera")

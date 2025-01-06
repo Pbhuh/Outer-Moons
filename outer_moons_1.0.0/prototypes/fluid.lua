@@ -708,9 +708,59 @@ data:extend(
     flow_color = {0.1, 0.7, 0.4},
   },
   --- Aiolos
-  -- m
+  {
+    type = "fluid",
+    name = "phosphine",
+    icon = "__outer_moons__/graphics/icons/fluid/phosphine.png",
+    subgroup = "aiolos-fluid",
+    order = "m[aiolos]-a[phosphine]",
+    default_temperature = 25,
+    gas_temperature = -88,
+    heat_capacity = "0.01kJ",
+    base_color = {0.89, 0.45, 0},
+    flow_color = {0.89, 0.45, 0},
+    auto_barrel = false
+  },  
+  {
+    type = "fluid",
+    name = "phosphoric-acid",
+    icon = "__outer_moons__/graphics/icons/fluid/phosphoric-acid.png",
+    subgroup = "aiolos-fluid",
+    order = "m[aiolos]-b[phosphoric-acid]",
+    default_temperature = 25,
+    gas_temperature = 42,
+    heat_capacity = "0.01kJ",
+    base_color = {0.62, 0.31, 0},
+    flow_color = {0.62, 0.31, 0},
+    --auto_barrel = false
+  },  
   --- Feronia
-  -- n
+  {
+    type = "fluid",
+    name = "iodine",
+    icon = "__outer_moons__/graphics/icons/fluid/iodine.png",
+    subgroup = "feronia-fluid",
+    order = "n[feronia]-a[iodine]",
+    default_temperature = 25,
+    gas_temperature = 184,
+    heat_capacity = "0.01kJ",
+    base_color = {0.4, 0.08, 0.62},
+    flow_color = {0.4, 0.08, 0.62},
+    auto_barrel = false
+  }, 
+{
+    type = "fluid",
+    name = "hydroiodic-acid",
+    icon = "__outer_moons__/graphics/icons/fluid/hydroiodic-acid.png",
+    subgroup = "feronia-fluid",
+    order = "n[feronia]-b[hydroiodic-acid]",
+    default_temperature = 25,
+    gas_temperature = -35,
+    heat_capacity = "0.01kJ",
+    base_color = {0.5, 0.37, 0.59},
+    flow_color = {0.5, 0.37, 0.59},
+   -- auto_barrel = false
+  },  
   --- Space
   {
     type = "fluid",
