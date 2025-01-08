@@ -202,6 +202,27 @@ data:extend({
         stack_size = 50,
         weight = 2 * kg
     },
+	{
+        type = "item",
+        name = "cobalt-ore",
+        group = "intermediate-products",
+        icon = "__outer_moons__/graphics/icons/nickel-ore.png",
+		pictures =
+		{
+		  { size = 64, filename = "__outer_moons__/graphics/icons/nickel-ore.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/nickel-ore-2.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/nickel-ore-3.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/nickel-ore-4.png", scale = 0.5, mipmap_count = 4 },
+		},
+        subgroup = "feronia-processes",
+		default_import_location = "feronia",
+        order = "a[cobalt-ore]",
+        inventory_move_sound = item_sounds.resource_inventory_move,
+        pick_sound = item_sounds.resource_inventory_pickup,
+        drop_sound = item_sounds.resource_inventory_move,
+        stack_size = 50,
+        weight = 2 * kg
+    },
 	-- Plates
 	{
 		type = "item",
@@ -589,12 +610,24 @@ data:extend({
 		stack_size = 50,
 		weight = 0.5 * kg,
 	},	
+	{
+		type = "item",
+		name = "multicylinder-engine-unit",
+		icon = "__outer_moons__/graphics/icons/multicylinder-engine.png",
+		subgroup = "intermediate-product",
+		order = "c[advanced-intermediates]-c[multicylinder-engine]",
+		inventory_move_sound = item_sounds.metal_large_inventory_move,
+		pick_sound = item_sounds.metal_large_inventory_pickup,
+		drop_sound = item_sounds.metal_large_inventory_move,
+		stack_size = 50,
+		weight = 2.5 * kg
+	},
 	-- Circuit parts
 	{
 		type = "item",
 		name = "adv-battery",
 		icon = "__outer_moons__/graphics/icons/adv-battery.png",
-		subgroup = "raw-material",
+		subgroup = "chemical-product",
 		order = "b[chemistry]-f[adv-battery]",
 		inventory_move_sound = item_sounds.electric_small_inventory_move,
 		pick_sound = item_sounds.electric_small_inventory_pickup,

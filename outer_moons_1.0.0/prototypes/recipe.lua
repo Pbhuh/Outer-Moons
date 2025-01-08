@@ -1409,6 +1409,23 @@ data:extend({
 	},
 	{
 		type = "recipe",
+		name = "multicylinder-engine",
+		energy_required = 10,
+		category = "advanced-crafting",
+		ingredients =
+		{
+		  {type = "item", name = "engine-unit", amount = 8},
+		  {type = "item", name = "iron-gear-wheel", amount = 4},
+		  {type = "fluid", name = "lubricant", amount = 10},
+		  {type = "item", name = "electronic-circuit", amount = 2},
+		  {type = "item", name = "spark-plug", amount = 2},
+		},
+		results = {{type="item", name="engine-unit", amount=1}},
+		enabled = false,
+		allow_productivity = true
+	},
+	{
+		type = "recipe",
 		name = "electric-engine-unit",
 		category = "crafting-with-fluid",
 		energy_required = 10,
@@ -1416,7 +1433,7 @@ data:extend({
 		{
 		  {type = "item", name = "iron-stick", amount = 1},
 		  {type = "item", name = "aluminum-cable", amount = 2},
-		  {type = "fluid", name = "lubricant", amount = 15},
+		  {type = "fluid", name = "lubricant", amount = 20},
 		  {type = "item", name = "integrated-circuit", amount = 1},
 		  {type = "item", name = "nickel-plate", amount = 1}
 		},
@@ -1967,20 +1984,90 @@ data:extend({
 		main_product =  "molten-tungsten"
 	},
 	
+	
 	{
 		type = "recipe",
-		name = "casting-titanium-plate",
-		icon = "__outer_moons__/graphics/icons/casting-titanium.png",
+		name = "casting-lead",
 		category = "metallurgy",
 		subgroup = "vulcanus-processes",
-		order = "b[casting]-c[casting-titanium-plate]",
+		order = "b[casting]-c[casting-lead]",
+		icon = "__outer_moons__/graphics/icons/fluid/casting-lead.png",
+		enabled = false,
+		ingredients =
+		{
+		  {type = "fluid", name = "molten-lead", amount = 20, fluidbox_multiplier = 10},
+		},
+		energy_required = 3.2,
+		allow_decomposition = false,
+		results = {{type = "item", name = "lead-plate", amount = 2}},
+		allow_productivity = true
+	},
+	{
+		type = "recipe",
+		name = "casting-nickel",
+		category = "metallurgy",
+		subgroup = "vulcanus-processes",
+		order = "b[casting]-d[casting-nickel]",
+		icon = "__outer_moons__/graphics/icons/fluid/casting-nickel.png",
+		enabled = false,
+		ingredients =
+		{
+		  {type = "fluid", name = "molten-nickel", amount = 20, fluidbox_multiplier = 10},
+		},
+		energy_required = 3.2,
+		allow_decomposition = false,
+		results = {{type = "item", name = "nickel-plate", amount = 2}},
+		allow_productivity = true
+	},
+	{
+		type = "recipe",
+		name = "casting-aluminum",
+		category = "metallurgy",
+		subgroup = "vulcanus-processes",
+		order = "b[casting]-e[casting-aluminum]",
+		icon = "__outer_moons__/graphics/icons/fluid/casting-aluminum.png",
+		enabled = false,
+		ingredients =
+		{
+		  {type = "fluid", name = "molten-aluminum", amount = 20, fluidbox_multiplier = 10},
+		},
+		energy_required = 3.2,
+		allow_decomposition = false,
+		results = {{type = "item", name = "aluminum-plate", amount = 2}},
+		allow_productivity = true
+	},
+	{
+		type = "recipe",
+		name = "casting-silicon",
+		category = "metallurgy",
+		subgroup = "vulcanus-processes",
+		order = "b[casting]-f[casting-silicon]",
+		icon = "__outer_moons__/graphics/icons/fluid/casting-silicon.png",
+		enabled = false,
+		ingredients =
+		{
+		  {type = "fluid", name = "molten-silicon", amount = 20, fluidbox_multiplier = 10},
+		  {type = "fluid", name = "hydrochloric-acid", amount = 10, fluidbox_multiplier = 10},
+		},
+		energy_required = 3.2,
+		allow_decomposition = false,
+		results = {{type = "item", name = "silicon-wafer", amount = 2}},
+		allow_productivity = true
+	},
+	{
+		type = "recipe",
+		name = "casting-titanium",
+		icon = "__outer_moons__/graphics/icons/fluid/casting-titanium.png",
+		category = "metallurgy",
+		subgroup = "vulcanus-processes",
+		order = "b[casting]-g[casting-titanium]",
 		enabled = false,
 		ingredients =
 		{
 		  {type = "fluid", name = "molten-titanium", amount = 20, fluidbox_multiplier = 10},
 		},
 		energy_required = 3.2,
-		results = {{type="item", name="titanium-plate", amount=1}},
+		results = {{type="item", name="titanium-plate", amount=2}},
 		allow_productivity = true
 	},
 	{
@@ -1988,7 +2075,8 @@ data:extend({
 		name = "tungsten-plate",
 		category = "metallurgy",
 		subgroup = "vulcanus-processes",
-		order = "c[tungsten]-c[tungsten-plate]",
+		order = "b[casting]-h[titanium-plate]",
+		icon = "__outer_moons__/graphics/icons/fluid/casting-tungsten.png",
 		enabled = false,
 		ingredients =
 		{
@@ -2003,13 +2091,13 @@ data:extend({
 		name = "casting-invar",
 		category = "metallurgy",
 		subgroup = "vulcanus-processes",
-		order = "b[casting]-c[casting-invar]",
-		icon = "__space-age__/graphics/icons/casting-steel.png",
+		order = "c[casting]-a[casting-invar]",
+		icon = "__outer_moons__/graphics/icons/fluid/casting-invar.png",
 		enabled = false,
 		ingredients =
 		{
 		  {type = "fluid", name = "molten-iron", amount = 12, fluidbox_multiplier = 10},
-		  {type = "fluid", name = "molten-tungsten", amount = 8, fluidbox_multiplier = 10}
+		  {type = "fluid", name = "molten-nickel", amount = 8, fluidbox_multiplier = 10}
 		},
 		energy_required = 5,
 		allow_decomposition = false,
@@ -2021,8 +2109,8 @@ data:extend({
 		name = "casting-steel",
 		category = "metallurgy",
 		subgroup = "vulcanus-processes",
-		order = "b[casting]-c[casting-steel]",
-		icon = "__space-age__/graphics/icons/casting-steel.png",
+		order = "c[casting]-b[casting-steel]",
+		icon = "__outer_moons__/graphics/icons/fluid/casting-steel.png",
 		enabled = false,
 		ingredients =
 		{
@@ -2039,8 +2127,8 @@ data:extend({
 		name = "casting-duralumin",
 		category = "metallurgy",
 		subgroup = "vulcanus-processes",
-		order = "b[casting]-c[casting-duralumin]",
-		icon = "__space-age__/graphics/icons/casting-steel.png",
+		order = "c[casting]-c[casting-duralumin]",
+		icon = "__outer_moons__/graphics/icons/fluid/casting-duralumin.png",
 		enabled = false,
 		ingredients =
 		{
@@ -2057,8 +2145,8 @@ data:extend({
 		name = "casting-caelium",
 		category = "metallurgy",
 		subgroup = "vulcanus-processes",
-		order = "b[casting]-c[casting-caelium]",
-		icon = "__space-age__/graphics/icons/casting-steel.png",
+		order = "c[casting]-e[casting-caelium]",
+		icon = "__outer_moons__/graphics/icons/fluid/casting-caelium.png",
 		enabled = false,
 		ingredients =
 		{
@@ -2068,6 +2156,154 @@ data:extend({
 		energy_required = 5,
 		allow_decomposition = false,
 		results = {{type = "item", name = "caelium-plate", amount = 2}},
+		allow_productivity = true
+	},
+	{
+		type = "recipe",
+		name = "casting-magnalium",
+		category = "metallurgy",
+		subgroup = "vulcanus-processes",
+		order = "c[casting]-d[casting-magnalium]",
+		icon = "__outer_moons__/graphics/icons/fluid/casting-magnalium.png",
+		enabled = false,
+		ingredients =
+		{
+		  {type = "fluid", name = "molten-aluminum", amount = 10, fluidbox_multiplier = 10},
+		  {type = "fluid", name = "molten-magnesium", amount = 10, fluidbox_multiplier = 10}
+		},
+		energy_required = 5,
+		allow_decomposition = false,
+		results = {{type = "item", name = "magnalium-plate", amount = 2}},
+		allow_productivity = true
+	},
+	
+	--
+	{
+		type = "recipe",
+		name = "casting-pipe",
+		category = "metallurgy",
+		subgroup = "vulcanus-processes",
+		order = "d[casting]-f[casting-pipe]",
+		icon = "__outer_moons__/graphics/icons/fluid/casting-pipe.png",
+		enabled = false,
+		ingredients =
+		{
+		  {type = "fluid", name = "molten-lead", amount = 20, fluidbox_multiplier = 10},
+		  {type = "fluid", name = "molten-iron", amount = 10, fluidbox_multiplier = 10},
+		},
+		energy_required = 1,
+		allow_decomposition = false,
+		results = {{type = "item", name = "pipe", amount = 1}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "casting-pipe-to-ground",
+		category = "metallurgy",
+		subgroup = "vulcanus-processes",
+		order = "d[casting]-g[casting-pipe-to-ground]",
+		icon = "__outer_moons__/graphics/icons/fluid/casting-pipe-to-ground.png",
+		enabled = false,
+		ingredients =
+		{
+		  {type = "fluid", name = "molten-lead", amount = 40, fluidbox_multiplier = 10},
+		  {type = "fluid", name = "molten-iron", amount = 10, fluidbox_multiplier = 10},
+		  {type = "item", name = "pipe", amount = 10}
+		},
+		energy_required = 1,
+		allow_decomposition = false,
+		results = {{type = "item", name = "pipe-to-ground", amount = 2}},
+		allow_productivity = false
+	},
+	{
+		type = "recipe",
+		name = "casting-low-density-structure",
+		category = "metallurgy",
+		subgroup = "vulcanus-processes",
+		order = "d[casting]-f[low-density-structure]",
+		icon = "__outer_moons__/graphics/icons/fluid/casting-low-density-structure.png",
+		enabled = false,
+		ingredients =
+		{
+		  {type = "fluid", name = "molten-aluminum", amount = 50},
+		  {type = "item", name = "plastic-bar", amount = 15},
+		},
+		energy_required = 15,
+		allow_decomposition = false,
+		auto_recycle = false,
+		results = {{type = "item", name = "low-density-structure", amount = 1}},
+		allow_productivity = true
+	},
+	{
+		type = "recipe",
+		name = "concrete-from-molten-iron",
+		category = "metallurgy",
+		subgroup = "vulcanus-processes",
+		order = "b[casting]-g[concrete]",
+		icon = "__outer_moons__/graphics/icons/fluid/concrete-from-molten-silicon.png",
+		enabled = false,
+		ingredients =
+		{
+		  {type = "fluid", name = "molten-silicon", amount = 20},
+		  {type = "fluid", name = "water", amount = 100},
+		  {type = "item", name = "stone-brick", amount = 5},
+		},
+		energy_required = 10,
+		allow_decomposition = false,
+		results = {{type = "item", name = "concrete", amount = 10}},
+		allow_productivity = true
+	},
+	{
+		type = "recipe",
+		name = "refined-concrete-from-molten-iron",
+		category = "metallurgy",
+		subgroup = "vulcanus-processes",
+		order = "b[casting]-g[refined-concrete]",
+		icon = "__outer_moons__/graphics/icons/fluid/refined-concrete-from-molten-iron.png",
+		enabled = false,
+		ingredients =
+		{
+		  {type = "fluid", name = "molten-iron", amount = 40},
+		  {type = "fluid", name = "water", amount = 100},
+		  {type = "item", name = "concrete", amount = 20},
+		},
+		energy_required = 16,
+		allow_decomposition = false,
+		results = {{type = "item", name = "refined-concrete", amount = 10}},
+		allow_productivity = true
+	},
+	{
+		type = "recipe",
+		name = "casting-aluminum-cable",
+		category = "metallurgy",
+		subgroup = "vulcanus-processes",
+		order = "d[casting]-h[casting-aluminum-cable]",
+		icon = "__outer_moons__/graphics/icons/fluid/casting-aluminum-cable.png",
+		enabled = false,
+		ingredients =
+		{
+		  {type = "fluid", name = "molten-aluminum", amount = 5, fluidbox_multiplier = 5},
+		},
+		energy_required = 1,
+		allow_decomposition = false,
+		results = {{type = "item", name = "aluminum-cable", amount = 2}},
+		allow_productivity = true
+	},
+	{
+		type = "recipe",
+		name = "casting-fiber-optic",
+		category = "metallurgy",
+		subgroup = "vulcanus-processes",
+		order = "d[casting]-h[casting-copper-cable]",
+		icon = "__outer_moons__/graphics/icons/fluid/casting-fiber-optic.png",
+		enabled = false,
+		ingredients =
+		{
+		  {type = "fluid", name = "molten-copper", amount = 5, fluidbox_multiplier = 5},
+		},
+		energy_required = 1,
+		allow_decomposition = false,
+		results = {{type = "item", name = "fiber-optic", amount = 2}},
 		allow_productivity = true
 	},
 	

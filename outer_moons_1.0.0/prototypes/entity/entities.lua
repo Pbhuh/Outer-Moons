@@ -72,7 +72,33 @@ end
 
 
 data:extend({
-  
+  {
+    type = "trivial-smoke",
+    name = "aiolos-wind",
+    duration = 30,
+    fade_in_duration = 10,
+    fade_away_duration = 10,
+    spread_duration = 30,
+    start_scale = 1,
+    end_scale = 0.8,
+    --color = {0.8, 1, 0.9},
+    cyclic = true,
+    affected_by_wind = false,
+    --movement_slow_down_factor = 0,
+    --vertical_speed_slowdown = 0,
+    animation =
+    {
+      width = 512,
+      height = 512,
+      line_length = 1,
+      frame_count = 1,
+      priority = "high",
+      animation_speed = 0.0001,
+      --scale = 0.5,
+      filename = "__outer_moons__/graphics/entity/aiolos-wind/aiolos-wind.png",
+      flags = { "smoke" }
+    }
+  },
   scaled_cliff(
     {
       mod_name = "__outer_moons__",

@@ -967,8 +967,23 @@ data:extend(
     --entities_require_heating = true,
     surface_render_parameters =
     {
-      
-      fog = effects.default_fog_effect_properties(),
+      fog =
+      {
+        fog_type = "gleba",
+        shape_noise_texture =
+        {
+          filename = "__core__/graphics/clouds-noise.png",
+          size = 2048
+        },
+        detail_noise_texture =
+        {
+          filename = "__core__/graphics/clouds-detail-noise.png",
+          size = 2048
+        },
+        color1 = {55, 17, 38, 1.0},
+        color2 = {83, 55, 69, 1.0},
+        tick_factor = 0.00001,
+      },
       --clouds = effects.default_clouds_effect_properties(),
 
       -- Should be based on the default day/night times, ie
@@ -985,7 +1000,33 @@ data:extend(
         {0.80, "__space-age__/graphics/lut/vulcanus-1-day.png"},
       },
 
-    }
+    },
+	player_effects =
+    { -- TODO: replace with shader & find a way to have rain appear and disappear with weather system.
+      type = "cluster",
+      cluster_count = 5,
+      distance = 8,
+      distance_deviation = 11,
+      action_delivery =
+      {
+        type = "instant",
+        source_effects =
+        {
+          type = "create-trivial-smoke",
+          smoke_name = "aiolos-wind",
+          speed = {-0.5, 0},
+          initial_height = 1,
+          speed_multiplier = 2,
+          speed_multiplier_deviation = 0.5,
+          starting_frame = 1,
+          starting_frame_deviation = 1,
+          offset_deviation = {{-96, -56}, {96, 40}},
+          speed_from_center = 0.01,
+          speed_from_center_deviation = 0.02
+        }
+      }
+    },
+    ticks_between_player_effects = 1
   },
   {
     type = "planet",

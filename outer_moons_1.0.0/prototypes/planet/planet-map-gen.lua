@@ -448,8 +448,8 @@ planet_map_gen.mefitis = function()
     autoplace_controls =
     {
       ["chlorine_geyser"] = {},
-      --["iridium_ore"] = {},
-      --["osmium_ore"] = {},
+      ["iridium_ore"] = {},
+      ["osmium_ore"] = {},
       ["mefitis_volcanism"] = {},
     },
     autoplace_settings =
@@ -519,31 +519,26 @@ planet_map_gen.aiolos = function()
     property_expression_names =
     {
       elevation = "aiolos_elevation",
-      temperature = "temperature_basic",
-      moisture = "moisture_basic",
-      aux = "aux_basic",
-      cliffiness = "aiolos_cliffiness",
+      temperature = "aiolos_temperature",
+      moisture = "aiolos_moisture",
+      aux = "aiolos_aux",
+      cliffiness = "cliffiness_basic",
       cliff_elevation = "cliff_elevation_from_elevation",
+	  
+	--  ["entity:beryllium-ore:probability"] = "aiolos_beryllium_probability",
+    --  ["entity:beryllium-ore:richness"] = "aiolos_beryllium_richness",
     },
+    
     cliff_settings =
     {
       name = "cliff-aiolos",
-      control = "aiolos_cliff",
-      cliff_elevation_0 = 20,
-      -- Ideally the first cliff would be at elevation 0 on the coastline, but that doesn't work,
-      -- so instead the coastline is moved to elevation 80.
-      -- Also there needs to be a large cliff drop at the coast to avoid the janky cliff smoothing
-      -- but it also fails if a corner goes below zero, so we need an extra buffer of 40.
-      -- So the first cliff is at 80, and terrain near the cliff shouln't go close to 0 (usually above 40).
-      cliff_elevation_interval = 20,
-      cliff_smoothing = 0, -- This is critical for correct cliff placement on the coast.
-      richness = 0.95
+      cliff_elevation_interval = 100,
+      cliff_elevation_0 = 40
     },
     autoplace_controls =
     {
       ["beryllium_ore"] = {},
-      ["aiolos_islands"] = {},
-      ["aiolos_cliff"] = {},
+      ["aiolos_peaks"] = {},
     },
     autoplace_settings =
     {
@@ -551,12 +546,12 @@ planet_map_gen.aiolos = function()
       {
         settings =
         {
-          ["clouds-shallow"] = {},
-          ["clouds-deep"] = {},
-          ["aiolos-rock"] = {},
-          ["aiolos-dust"] = {},
-          ["aiolos-sand"] = {},
-          ["aiolos-dunes"] = {},
+          ["shallow-hydrocarbon-sea"] = {},
+          ["hydrocarbon-sea"] = {},
+          ["aiolos-dust-1"] = {},
+          ["aiolos-dust-2"] = {},
+          ["aiolos-dust-3"] = {},
+          ["aiolos-dust-4"] = {},
         }
       },
       ["decorative"] =
@@ -615,8 +610,8 @@ planet_map_gen.feronia = function()
       cliff_elevation = "cliff_elevation_from_elevation",
       enemy_base_radius = "gleba_enemy_base_radius",
       enemy_base_frequency = "gleba_enemy_base_frequency",
-      ["entity:stone:richness"] = "gleba_stone_richness",
-      ["entity:stone:probability"] = "gleba_stone_probability",
+      ["entity:cobalt-ore:richness"] = "gleba_stone_richness",
+      ["entity:cobalt-ore:probability"] = "gleba_stone_probability",
 
       ["decorative:red-desert-bush:probability"] = "gleba_red_desert_bush_probability",
       ["decorative:white-desert-bush:probability"] = "gleba_white_desert_bush_probability",
@@ -635,7 +630,7 @@ planet_map_gen.feronia = function()
     },
     autoplace_controls =
     {
-      ["gleba_stone"] = {},
+      ["cobalt_ore"] = {},
       ["gleba_plants"] = {},
       ["gleba_enemy_base"] = {},
       ["gleba_water"] = {},
@@ -778,7 +773,7 @@ planet_map_gen.feronia = function()
       {
         settings =
         {
-          ["stone"] = {},
+          ["cobalt-ore"] = {},
           ["iron-stromatolite"] = {},
           ["copper-stromatolite"] = {}
         }

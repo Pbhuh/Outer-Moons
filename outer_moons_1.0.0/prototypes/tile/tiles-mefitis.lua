@@ -567,7 +567,7 @@ data:extend
     vehicle_friction_modifier = 10,
     default_cover_tile = "foundation",
     absorptions_per_second = tile_pollution.water,
-    fluid = "sulfuric-acid",
+    fluid = "arsenic-solution",
     effect = "sulfur_ocean",
     effect_color = { 254, 216, 106 },
     effect_color_secondary = { 240, 171, 134 },

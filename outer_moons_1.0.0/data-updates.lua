@@ -136,10 +136,6 @@ data.raw.technology["foundry"].effects =
   },
   {
 	type = "unlock-recipe",
-	recipe = "casting-titanium-plate"
-  },  
-  {
-	type = "unlock-recipe",
 	recipe = "casting-iron-gear-wheel"
   },
   {
@@ -337,11 +333,12 @@ data.raw.recipe["ice-melting"].subgroup = "phase-recipes"
 data.raw.recipe["acid-neutralisation"].subgroup = "phase-recipes"
 
 data.raw.item["engine-unit"].order = "c[advanced-intermediates]-b[engine-unit]"
-data.raw.item["electric-engine-unit"].order = "c[advanced-intermediates]-c[electric-engine-unit]"
-data.raw.item["flying-robot-frame"].order = "c[advanced-intermediates]-d[flying-robot-frame]"
+data.raw.item["electric-engine-unit"].order = "c[advanced-intermediates]-d[electric-engine-unit]"
+data.raw.item["flying-robot-frame"].order = "c[advanced-intermediates]-e[flying-robot-frame]"
 data.raw.item["copper-cable"].subgroup = "circuit-parts"
 data.raw.item["centrifuge"].icon = "__outer_moons__/graphics/icons/centrifuge.png"
 data.raw.item["tungsten-plate"].icon = "__outer_moons__/graphics/icons/tungsten-plate.png"
+data.raw.item["tungsten-carbide"].icon = "__outer_moons__/graphics/icons/tungsten-carbide.png"
 
 data.raw["assembling-machine"]["electromagnetic-plant"].crafting_categories = {"electromagnetics", "electronics", "electronics-with-fluid", "electronics-or-assembling", "electronics-or-convecting"}
 data.raw["assembling-machine"]["foundry"].crafting_categories = {"metallurgy", "pressing", "crafting-with-fluid-or-metallurgy", "metallurgy-or-assembling", "metallurgy-or-adv-metallurgy"}
@@ -402,6 +399,9 @@ data.raw.item["foundation"].order = "c[landfill]-j[foundation]"
 data.raw.recipe["molten-iron-from-lava"].subgroup = "lava-fluid"
 data.raw.recipe["molten-iron"].subgroup = "vulcanus-fluid"
 data.raw.recipe["molten-copper"].subgroup = "vulcanus-fluid"
+data.raw.recipe["casting-iron-gear-wheel"].order = "d[casting]-a[casting-iron-gear-wheel]"
+data.raw.recipe["casting-iron-stick"].order = "d[casting]-b[casting-iron-stick]"
+data.raw.recipe["casting-copper-cable"].order = "d[casting]-c[casting-copper-cable]"
 
 data.raw.recipe["nutrients-from-spoilage"].subgroup = "agriculture-products"
 data.raw.recipe["nutrients-from-spoilage"].order = "c[nutrients]-b[nutrients-from-spoilage]"

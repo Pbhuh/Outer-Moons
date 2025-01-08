@@ -147,7 +147,7 @@ data:extend({
 		  factoriopedia_simulation = simulations.factoriopedia_aluminum_ore,
 		},
 		{
-		  base_density = 1,
+		  base_density = 2,
 		  regular_rq_factor_multiplier = 1.0,
 		  starting_rq_factor_multiplier = 1.1,
 		  base_spots_per_km = 1.5
@@ -286,7 +286,7 @@ data:extend({
 		{
 		  name = "iridium-ore",
 		  order = "b",
-		  map_color = {r = 123/256, g = 150/256, b = 116/256, a = 1.000},
+		  map_color = {r = 148/256, g = 145/256, b = 106/256, a = 1.000},
 		  minable =
 		  {
 			  mining_particle = "stone-particle",
@@ -297,7 +297,8 @@ data:extend({
 		  },
 		  walking_sound = sounds.ore,
 		  driving_sound = stone_driving_sound,
-		  mining_visualisation_tint = {r = 123/256, g = 150/256, b = 116/256, a = 1.000},
+		  category = "hard-solid",
+		  mining_visualisation_tint = {r = 148/256, g = 145/256, b = 106/256, a = 1.000},
 		  factoriopedia_simulation = simulations.factoriopedia_iridium_ore,
 		},
 		{
@@ -308,7 +309,7 @@ data:extend({
 		{
 		  name = "osmium-ore",
 		  order = "b",
-		  map_color = {r = 123/256, g = 150/256, b = 116/256, a = 1.000},
+		  map_color = {r = 96/256, g = 96/256, b = 119/256, a = 1.000},
 		  minable =
 		  {
 			  mining_particle = "stone-particle",
@@ -319,7 +320,8 @@ data:extend({
 		  },
 		  walking_sound = sounds.ore,
 		  driving_sound = stone_driving_sound,
-		  mining_visualisation_tint = {r = 123/256, g = 150/256, b = 116/256, a = 1.000},
+		  category = "hard-solid",
+		  mining_visualisation_tint = {r = 96/256, g = 96/256, b = 119/256, a = 1.000},
 		  factoriopedia_simulation = simulations.factoriopedia_osmium_ore,
 		},
 		{
@@ -341,13 +343,41 @@ data:extend({
 		  },
 		  walking_sound = sounds.ore,
 		  driving_sound = stone_driving_sound,
+		  category = "hard-solid",
 		  mining_visualisation_tint = {r = 123/256, g = 150/256, b = 116/256, a = 1.000},
 		  factoriopedia_simulation = simulations.factoriopedia_beryllium_ore,
 		},
 		{
-		  probability_expression = 0
+		  base_density = 0.5,
+		  regular_rq_factor_multiplier = 4.0,
+		  starting_rq_factor_multiplier = 4.5,
+		  base_spots_per_km = 11,	
+		  has_starting_area_placement = true
 		}
 	),    
+	resource(
+		{
+		  name = "cobalt-ore",
+		  order = "b",
+		  map_color = {r = 56/256, g = 58/256, b = 130/256, a = 1.000},
+		  minable =
+		  {
+			  mining_particle = "stone-particle",
+			  mining_time = 2,
+			  result = "cobalt-ore",
+			 -- fluid_amount = 10,
+			 -- required_fluid = "nitric-acid"
+		  },
+		  walking_sound = sounds.ore,
+		  driving_sound = stone_driving_sound,
+		  category = "hard-solid",
+		  mining_visualisation_tint = {r = 56/256, g = 58/256, b = 130/256, a = 1.000},
+		  factoriopedia_simulation = simulations.factoriopedia_osmium_ore,
+		},
+		{
+		  probability_expression = 0
+		}
+	), 
 	-- Fluids
 	{
 		type = "resource",

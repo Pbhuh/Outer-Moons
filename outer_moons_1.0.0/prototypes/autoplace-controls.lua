@@ -195,7 +195,7 @@ data:extend(
     name = "iridium_ore",
     localised_name = {"", "[entity=iridium-ore] ", {"entity-name.iridium-ore"}},
     richness = true,
-    order = "e-a",
+    order = "f-a",
     category = "resource"
   }, 
   {
@@ -203,7 +203,7 @@ data:extend(
     name = "osmium_ore",
     localised_name = {"", "[entity=osmium-ore] ", {"entity-name.osmium-ore"}},
     richness = true,
-    order = "e-a",
+    order = "f-b",
     category = "resource"
   },    
   {
@@ -211,7 +211,7 @@ data:extend(
     name = "chlorine_geyser",
     localised_name = {"", "[entity=chlorine-geyser] ", {"entity-name.chlorine-geyser"}},
     richness = true,
-    order = "e-c",
+    order = "f-c",
     category = "resource"
   },
   --- Aquilo
@@ -248,6 +248,15 @@ data:extend(
     order = "h-a",
     category = "resource"
   },  
+  --Feronia
+  {
+    type = "autoplace-control",
+    name = "cobalt_ore",
+    localised_name = {"", "[entity=cobalt-ore] ", {"entity-name.cobalt-ore"}},
+    richness = true,
+    order = "i-a",
+    category = "resource"
+  },
   -- Cliffs
   {
     type = "autoplace-control",
@@ -259,12 +268,6 @@ data:extend(
     type = "autoplace-control",
     name = "fulgora_cliff",
     order = "c-z-c",
-    category = "cliff"
-  },
-  {
-    type = "autoplace-control",
-    name = "aiolos_cliff",
-    order = "c-z-d",
     category = "cliff"
   },
   --- Terrain
@@ -312,7 +315,7 @@ data:extend(
   },
   {
     type = "autoplace-control",
-    name = "aiolos_islands",
+    name = "aiolos_peaks",
     order = "c-z-g",
     category = "terrain",
     can_be_disabled = false
