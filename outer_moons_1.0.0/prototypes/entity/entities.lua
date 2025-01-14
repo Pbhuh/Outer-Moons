@@ -12,6 +12,24 @@ local meld = require("meld")
 local simulations = require("__outer_moons__.prototypes.factoriopedia-simulations")
 local procession_graphic_catalogue_types = require("__base__/prototypes/planet/procession-graphic-catalogue-types")
 
+standard_status_colors = function()
+  return
+  {
+    -- If no_power, idle, no_minable_resources, disabled, insufficient_input or full_output is used, always_draw of corresponding layer must be set to true to draw it in those states.
+
+    no_power = {0, 0, 0, 0},                  -- If no_power is not specified or is nil, it defaults to clear color {0,0,0,0}
+
+    idle = {1, 0, 0, 1},                      -- If idle is not specified or is nil, it defaults to white.
+    no_minable_resources = {1, 0, 0, 1},      -- If no_minable_resources, disabled, insufficient_input or full_output are not specified or are nil, they default to idle color.
+    insufficient_input = {1, 0, 0, 1},
+    full_output = {1, 1, 0, 1},
+    disabled = {1, 1, 0, 1},
+
+    working = {0, 1, 0, 1},                   -- If working is not specified or is nil, it defaults to white.
+    low_power = {1, 1, 0, 1},                 -- If low_power is not specified or is nil, it defaults to working color.
+  }
+end
+
 shadowlesspipecoverspictures = function()
   return
   {
@@ -2373,7 +2391,15 @@ data:extend({
     collision_box = {{-0.3, -0.3}, {0.3, 0.3}},
     selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
     crafting_categories = {"venting"},
-    crafting_speed = 1,
+    crafting_speed = 0.5,
+	surface_conditions =
+	{
+	  {
+		property = "pressure",
+		min = 150,
+		max = 5000
+	  }
+	},
     resistances =
     {
       {
@@ -2393,9 +2419,12 @@ data:extend({
       emissions_per_minute = {pollution = 4}
     },
     energy_usage = "10kW",
-    source_inventory_size = 0,
     result_inventory_size = 0,
+    source_inventory_size = 0,
+    show_recipe_icon = false,	
+	show_recipe_icon_on_map = false,
 	graphics_set = {
+		status_colors = standard_status_colors(),
 		animation = {
 			north = {
 				layers = {
@@ -2598,7 +2627,10 @@ data:extend({
 					  shift = {0, -0.5}
 					--},			
 				},
-				apply_recipe_tint = "secondary",
+				
+				--apply_recipe_tint = "secondary",
+				apply_tint = "status",
+				tint_as_overlay = true,
 				always_draw = true,
 			},
 			{
@@ -2653,7 +2685,7 @@ data:extend({
     collision_box = {{-0.3, -0.3}, {0.3, 0.3}},
     selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
     crafting_categories = {"flaring"},
-    crafting_speed = 1,
+    crafting_speed = 0.5,
     resistances =
     {
       {
@@ -2666,6 +2698,14 @@ data:extend({
       }
 
     },
+	surface_conditions =
+	{
+	  {
+		property = "pressure",
+		min = 150,
+		max = 5000
+	  }
+	},
     energy_source =
     {
       type = "electric",
@@ -2673,8 +2713,10 @@ data:extend({
       emissions_per_minute = {pollution = 8}
     },
     energy_usage = "10kW",
-    source_inventory_size = 0,
     result_inventory_size = 0,
+    source_inventory_size = 0,
+    show_recipe_icon = false,
+	show_recipe_icon_on_map = false,
     stateless_visualisation =
     {
       {
@@ -2757,5 +2799,583 @@ data:extend({
 			},
 		},
 	},
+  },
+  {
+    type = "solar-panel",
+    name = "solar-array",
+    icon = "__outer_moons__/graphics/icons/solar-array.png",
+    flags = {"placeable-neutral", "player-creation"},
+    minable = {mining_time = 0.1, result = "solar-array"},
+    fast_replaceable_group = "solar-array",
+    max_health = 300,
+    corpse = "solar-array-remnants",
+    dying_explosion = "solar-panel-explosion",
+    collision_box = {{-2.9, -2.9}, {2.9, 2.9}},
+    selection_box = {{-3, -3}, {3, 3}},
+    damaged_trigger_effect = hit_effects.entity(),
+    energy_source =
+    {
+      type = "electric",
+      usage_priority = "solar"
+    },
+	picture =
+    {
+      layers =
+      {
+        {
+          filename = "__outer_moons__/graphics/entity/solar-array/solar-array.png",
+          width = 624,
+          height = 578,
+          scale = 0.32,
+          frame_count = 1,
+          direction_count = 1,
+          shift = util.by_pixel(10, -4),
+        },
+        {
+          filename = "__outer_moons__/graphics/entity/solar-array/solar-array-shadow.png",
+          width = 624,
+          height = 578,
+          scale = 0.32,
+          frame_count = 1,
+          direction_count = 1,
+          shift = util.by_pixel(12, 12),
+          draw_as_shadow = true,
+        }
+      }
+    },
+    impact_category = "glass",
+    production = "160kW"
+  },
+
+  {
+    type = "accumulator",
+    name = "superaccumulator",
+    icon = "__outer_moons__/graphics/icons/superaccumulator.png",
+    flags = {"placeable-neutral", "player-creation"},
+    minable = {mining_time = 0.1, result = "superaccumulator"},
+    fast_replaceable_group = "superaccumulator",
+    max_health = 200,
+    corpse = "accumulator-remnants",
+    dying_explosion = "accumulator-explosion",
+    collision_box = {{-1.4, -1.4}, {1.4, 1.4}},
+    selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
+    damaged_trigger_effect = hit_effects.entity(),
+    drawing_box_vertical_extension = 0.5,
+    energy_source =
+    {
+      type = "electric",
+      buffer_capacity = "32MJ",
+      usage_priority = "tertiary",
+      input_flow_limit = "760kW",
+      output_flow_limit = "760kW"
+    },
+    chargable_graphics =
+    {
+      picture = {
+		layers =
+		{
+		  {
+			filename = "__outer_moons__/graphics/entity/superaccumulator/superaccumulator.png",
+			priority = "high",
+			width = 188,
+			height = 230,
+			repeat_count = repeat_count,
+			shift = util.by_pixel(0, -5),
+			tint = tint,
+			animation_speed = 0.5,
+			scale = 0.52
+		  },
+		  {
+			filename = "__outer_moons__/graphics/entity/superaccumulator/superaccumulator-shadow.png",
+			priority = "high",
+			width = 234,
+			height = 147,
+			repeat_count = repeat_count,
+			shift = util.by_pixel(40, 12),
+			draw_as_shadow = true,
+			scale = 0.52,
+		  }
+		}
+	  },
+      charge_animation = {
+		layers =
+		{
+		  --advanced_accumulator_picture({ r=1, g=1, b=1, a=1 } , 24),
+		  {
+			  filename = "__outer_moons__/graphics/entity/superaccumulator/superaccumulator-charge.png",
+			  priority = "high",
+			  width = 178,
+			  height = 210,
+			  line_length = 6,
+			  frame_count = 24,
+			  draw_as_glow = true,
+			  shift = util.by_pixel(2, -10),
+			  scale = 0.75
+		  }
+		}
+	  },
+      charge_cooldown = 30,
+      discharge_animation = {
+		layers =
+		{
+		  --advanced_accumulator_picture({ r=1, g=1, b=1, a=1 } , 24),
+		  {
+			  filename = "__outer_moons__/graphics/entity/superaccumulator/superaccumulator-discharge.png",
+			  priority = "high",
+			  width = 174,
+			  height = 214,
+			  line_length = 6,
+			  frame_count = 24,
+			  draw_as_glow = true,
+			  shift = util.by_pixel(-1, -10),
+			  scale = 0.75
+		  }
+		}
+	  },
+      discharge_cooldown = 60
+      --discharge_light = {intensity = 0.7, size = 7, color = {r = 1.0, g = 1.0, b = 1.0}},
+    },
+    water_reflection = accumulator_reflection(),
+    impact_category = "metal",
+    open_sound = sounds.electric_large_open,
+    close_sound = sounds.electric_large_close,
+    working_sound =
+    {
+      main_sounds =
+      {
+        {
+          sound = {filename = "__base__/sound/accumulator-working.ogg", volume = 0.4, modifiers = volume_multiplier("main-menu", 1.44)},
+          match_volume_to_activity = true,
+          activity_to_volume_modifiers = {offset = 2, inverted = true},
+          fade_in_ticks = 4,
+          fade_out_ticks = 20
+        },
+        {
+          sound = {filename = "__base__/sound/accumulator-discharging.ogg", volume = 0.4, modifiers = volume_multiplier("main-menu", 1.44)},
+          match_volume_to_activity = true,
+          activity_to_volume_modifiers = {offset = 1},
+          fade_in_ticks = 4,
+          fade_out_ticks = 20
+        }
+      },
+      idle_sound = {filename = "__base__/sound/accumulator-idle.ogg", volume = 0.35},
+      max_sounds_per_type = 3,
+      audible_distance_modifier = 0.5
+    },
+
+    circuit_connector = circuit_connector_definitions["accumulator"],
+    circuit_wire_max_distance = default_circuit_wire_max_distance,
+
+    default_output_signal = {type = "virtual", name = "signal-A"}
+  },
+  {
+    type = "storage-tank",
+    name = "small-storage-tank",
+    icon = "__outer_moons__/graphics/icons/small-storage-tank.png",
+    flags = {"placeable-player", "player-creation"},
+    minable = {mining_time = 0.5, result = "small-storage-tank"},
+    max_health = 250,
+    corpse = "small-remnants",
+    dying_explosion = "storage-tank-explosion",
+    collision_box = {{-0.4, -0.4}, {0.4, 0.4}},
+    selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
+    fast_replaceable_group = "pipe",
+    damaged_trigger_effect = hit_effects.entity(),
+    drawing_box_vertical_extension = 1.35,
+    icon_draw_specification = {scale = 0.75, shift = {0, -0.33}},
+    fluid_box =
+    {
+      volume = 3000,
+      pipe_covers = pipecoverspictures(),
+      pipe_connections =
+      {
+        { direction = defines.direction.north, position = {0, 0} },
+        { direction = defines.direction.east, position = {0, 0} },
+        { direction = defines.direction.south, position = {0, 0} },
+        { direction = defines.direction.west, position = {0, 0} }
+      },
+      hide_connection_info = true
+    },
+    two_direction_only = false,
+    window_bounding_box = {{-0.1, -1.5 + 30 / 64}, {0.1, 0.5 - 46 / 64}},
+    pictures =
+    {
+      picture =
+      {
+        sheets =
+        {
+          {
+            filename = "__outer_moons__/graphics/entity/fluid-tanks/small-fluid-tank.png",
+            priority = "extra-high",
+            frames = 1,
+            width = 64,
+            height = 192,
+            shift = util.by_pixel(0, -32),
+            scale = 0.5
+          },
+          {
+            filename = "__outer_moons__/graphics/entity/fluid-tanks/small-fluid-tank.png",
+            priority = "extra-high",
+            frames = 1,
+            width = 160,
+            height = 128,
+			y = 192,
+            shift = util.by_pixel(24, 0),
+            scale = 0.5,
+            draw_as_shadow = true
+          }
+        }
+      },
+      fluid_background =
+      {
+        filename = "__base__/graphics/entity/storage-tank/fluid-background.png",
+        priority = "extra-high",
+        width = 32,
+        height = 15,
+		scale = 0.8
+      },
+      window_background =
+      {
+        filename = "__base__/graphics/entity/storage-tank/window-background.png",
+        priority = "extra-high",
+        width = 34,
+        height = 48,
+        scale = 0.4
+      },
+      flow_sprite =
+      {
+        filename = "__base__/graphics/entity/pipe/fluid-flow-low-temperature.png",
+        priority = "extra-high",
+        width = 160,
+        height = 20
+      },
+      gas_flow =
+      {
+        filename = "__base__/graphics/entity/pipe/steam.png",
+        priority = "extra-high",
+        line_length = 10,
+        width = 48,
+        height = 30,
+        frame_count = 60,
+        animation_speed = 0.25,
+        scale = 0.4
+      }
+    },
+    flow_length_in_ticks = 460*1.25,
+    impact_category = "metal-large",
+    open_sound = sounds.metal_large_open,
+    close_sound = sounds.metal_large_close,
+    working_sound =
+    {
+      sound = { filename = "__base__/sound/storage-tank.ogg", volume = 0.6 },
+      match_volume_to_activity = true,
+      audible_distance_modifier = 0.5,
+      max_sounds_per_type = 3
+    },
+
+    circuit_connector = circuit_connector_definitions.create_vector(universal_connector_template, {
+		{ variation = 26, main_offset = util.by_pixel(7, -5),
+		  shadow_offset = util.by_pixel(7, -3), show_shadow = false },
+		{ variation = 26, main_offset = util.by_pixel(7, -5),
+		  shadow_offset = util.by_pixel(7, -3), show_shadow = false },
+		{ variation = 26, main_offset = util.by_pixel(7, -5),
+		  shadow_offset = util.by_pixel(7, -3), show_shadow = false },
+		{ variation = 26, main_offset = util.by_pixel(7, -5),
+		  shadow_offset = util.by_pixel(7, -3), show_shadow = false }
+	}),
+    circuit_wire_max_distance = default_circuit_wire_max_distance,
+	heating_energy = "25kW",
+    water_reflection =
+    {
+      pictures =
+      {
+        filename = "__base__/graphics/entity/storage-tank/storage-tank-reflection.png",
+        priority = "extra-high",
+        width = 24,
+        height = 24,
+        shift = util.by_pixel(5, 35),
+        variation_count = 1,
+        scale = 5
+      },
+      rotate = false,
+      orientation_to_variation = false
+    }
+  },
+  {
+    type = "storage-tank",
+    name = "large-storage-tank",
+    icon = "__outer_moons__/graphics/icons/large-storage-tank.png",
+    flags = {"placeable-player", "player-creation"},
+    minable = {mining_time = 0.5, result = "large-storage-tank"},
+    max_health = 800,
+    corpse = "big-remnants",
+    dying_explosion = "storage-tank-explosion",
+    collision_box = {{-2.4, -2.4}, {2.4, 2.4}},
+    selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
+    fast_replaceable_group = "large-storage-tank",
+    damaged_trigger_effect = hit_effects.entity(),
+    icon_draw_specification = {scale = 2, shift = {0, -0.25}},
+    fluid_box =
+    {
+      volume = 100000,
+      pipe_covers = pipecoverspictures(),
+      pipe_connections =
+      {
+        { direction = defines.direction.north, position = {-2, -2} },
+		{ direction = defines.direction.north, position = { 2, -2} },
+		{ direction = defines.direction.east,  position = { 2, -2} },
+		{ direction = defines.direction.east,  position = { 2,  2} },
+		{ direction = defines.direction.south, position = { 2,  2} },
+		{ direction = defines.direction.south, position = {-2,  2} },
+		{ direction = defines.direction.west,  position = {-2,  2} },
+		{ direction = defines.direction.west,  position = {-2, -2} }
+      },
+      hide_connection_info = true
+    },
+    two_direction_only = true,
+    window_bounding_box = {{-0.2, 0.5 + 24 / 64}, {0.2, 2.5 - 41 / 64}},
+    pictures =
+    {
+      picture =
+      {
+        sheets =
+        {
+          {
+            filename = "__outer_moons__/graphics/entity/fluid-tanks/large-fluid-tank.png",
+            priority = "extra-high",
+            frames = 1,
+            width = 320,
+            height = 384,
+            shift = util.by_pixel(0, -16),
+            scale = 0.5
+          },
+          {
+            filename = "__outer_moons__/graphics/entity/fluid-tanks/large-fluid-tank.png",
+            priority = "extra-high",
+            frames = 1,
+            width = 384,
+            height = 352,
+			y = 384,
+            shift = util.by_pixel(16, 8),
+            scale = 0.5,
+            draw_as_shadow = true
+          }
+        }
+      },
+      fluid_background =
+      {
+        filename = "__base__/graphics/entity/storage-tank/fluid-background.png",
+        priority = "extra-high",
+        width = 32,
+        height = 15,		
+		scale = 0.8
+      },
+      window_background =
+      {
+        filename = "__base__/graphics/entity/storage-tank/window-background.png",
+        priority = "extra-high",
+        width = 34,
+        height = 48,
+        scale = 0.6
+      },
+      flow_sprite =
+      {
+        filename = "__base__/graphics/entity/pipe/fluid-flow-low-temperature.png",
+        priority = "extra-high",
+        width = 160,
+        height = 20
+      },
+      gas_flow =
+      {
+        filename = "__base__/graphics/entity/pipe/steam.png",
+        priority = "extra-high",
+        line_length = 10,
+        width = 48,
+        height = 30,
+        frame_count = 60,
+        animation_speed = 0.25,
+        scale = 0.6
+      }
+    },
+    flow_length_in_ticks = 690*0.833,
+    impact_category = "metal-large",
+    open_sound = sounds.metal_large_open,
+    close_sound = sounds.metal_large_close,
+    working_sound =
+    {
+      sound = { filename = "__base__/sound/storage-tank.ogg", volume = 0.6 },
+      match_volume_to_activity = true,
+      audible_distance_modifier = 0.5,
+      max_sounds_per_type = 3
+    },
+
+    circuit_connector = circuit_connector_definitions.create_vector(universal_connector_template, {
+		{ variation = 25, main_offset = util.by_pixel(-61.5, 33.5),
+		  shadow_offset = util.by_pixel(-61.5, 45.5), show_shadow = false },
+		{ variation = 25, main_offset = util.by_pixel(-61.5, 33.5),
+		  shadow_offset = util.by_pixel(-61.5, 45.5), show_shadow = false },
+		{ variation = 25, main_offset = util.by_pixel(-61.5, 33.5),
+		  shadow_offset = util.by_pixel(-61.5, 45.5), show_shadow = false },
+		{ variation = 25, main_offset = util.by_pixel(-61.5, 33.5),
+		  shadow_offset = util.by_pixel(-61.5, 45.5), show_shadow = false }
+	}),
+    circuit_wire_max_distance = default_circuit_wire_max_distance,
+	heating_energy = "250kW",
+    water_reflection =
+    {
+      pictures =
+      {
+        filename = "__base__/graphics/entity/storage-tank/storage-tank-reflection.png",
+        priority = "extra-high",
+        width = 24,
+        height = 24,
+        shift = util.by_pixel(5, 35),
+        variation_count = 1,
+        scale = 5
+      },
+      rotate = false,
+      orientation_to_variation = false
+    }
+  },
+  {
+        type = "furnace",
+        name = "scrubber",
+        icon = "__outer_moons__/graphics/icons/scrubber.png",
+        flags = { "placeable-neutral", "placeable-player", "player-creation" },
+        minable = { mining_time = 0.2, result = "scrubber" },
+        fast_replaceable_group = "scrubber",
+        max_health = 350,
+        corpse = "big-remnants",
+        dying_explosion = "big-explosion",
+        resistances = { { type = "fire", percent = 70 } },
+        collision_box = { { -1.2, -1.2 }, { 1.2, 1.2 } },
+        selection_box = { { -1.5, -1.5 }, { 1.5, 1.5 } },
+        damaged_trigger_effect = hit_effects.entity(),
+        module_slots = 0,
+        allowed_effects = { "consumption", "speed" },
+        crafting_categories = { "scrubbing" },
+        crafting_speed = 1,
+        source_inventory_size = 0,
+        result_inventory_size = 0,
+        show_recipe_icon = false,
+        show_recipe_icon_on_map = false,
+        energy_source = {
+            type = "electric",
+            usage_priority = "secondary-input",
+            emissions_per_minute = {
+                ["pollution"] = -30,
+            },
+        },
+		surface_conditions =
+		{
+		  {
+			property = "pressure",
+			min = 150,
+			max = 5000
+		  }
+		},
+        energy_usage = "150kW",
+        impact_category = "metal",
+        open_sound = sounds.machine_open,
+        close_sound = sounds.machine_close,
+        working_sound = {
+            apparent_volume = 1,
+            idle_sound = { filename = "__base__/sound/idle1.ogg" },
+            sound = { filename = "__outer_moons__/sound/scrubber.ogg" },
+            audible_distance_modifier = 0.5,
+            fade_in_ticks = 4,
+            fade_out_ticks = 20,
+        },
+		fluid_boxes =
+		{
+		  {
+			production_type = "output",
+			pipe_picture = util.empty_sprite(),
+			pipe_covers = pipecoverspictures(),
+			volume = 100,
+			pipe_connections = {{ flow_direction="output", direction = defines.direction.north, position = {0, -1} }},
+			secondary_draw_orders = { north = -1 }
+		  },
+		  {
+			production_type = "output",
+			pipe_picture = util.empty_sprite(),
+			pipe_covers = pipecoverspictures(),
+			volume = 100,
+			pipe_connections = {{ flow_direction="output", direction = defines.direction.east, position = {1, 0} }},
+			secondary_draw_orders = { north = -1 }
+		  },
+		  {
+			production_type = "output",
+			pipe_picture = util.empty_sprite(),
+			pipe_covers = pipecoverspictures(),
+			volume = 100,
+			pipe_connections = {{ flow_direction="output", direction = defines.direction.west, position = {-1, 0} }},
+			secondary_draw_orders = { north = -1 }
+		  },
+		  {
+			production_type = "output",
+			pipe_picture = util.empty_sprite(),
+			pipe_covers = pipecoverspictures(),
+			volume = 100,
+			pipe_connections = {{ flow_direction="output", direction = defines.direction.south, position = {0, 1} }},
+			secondary_draw_orders = { north = -1 }
+		  }
+		},
+		fluid_boxes_off_when_no_fluid_recipe = true,
+        graphics_set = {
+            animation = {
+                layers = {
+                    {
+                        filename = "__outer_moons__/graphics/entity/scrubber/scrubber-hr-shadow.png",
+                        priority = "high",
+                        size = { 400, 350 },
+                        shift = { 0, -0.4 },
+                        scale = 0.5,
+                        line_length = 1,
+                        repeat_count = 60,
+                        draw_as_shadow = true,
+                        animation_speed = 0.3,
+                    },
+                    {
+                        filename = "__outer_moons__/graphics/entity/scrubber/scrubber-hr-animation-1.png",
+                        size = { 210, 290 },
+                        shift = { 0, -0.4 },
+                        scale = 0.5,
+                        line_length = 8,
+                        frame_count = 60,
+                        animation_speed = 0.3,
+                    },
+                },
+            },
+        },
+    },
+  --Corpse
+  {
+    type = "corpse",
+    name = "solar-array-remnants",
+    icon = "__outer_moons__/graphics/icons/solar-array.png",
+    flags = {"placeable-neutral", "not-on-map"},
+    hidden_in_factoriopedia = true,
+    subgroup = "energy-remnants",
+    order = "a-c-a",
+    selection_box = {{-4.5, -4.5}, {4.5, 4.5}},
+    tile_width = 9,
+    tile_height = 9,
+    selectable_in_game = false,
+    time_before_removed = 60 * 60 * 15, -- 15 minutes
+    expires = false,
+    final_render_layer = "remnants",
+    remove_on_tile_placement = false,
+    animation = 
+    {
+      filename = "__outer_moons__/graphics/entity/solar-array/solar-array-remnants.png",
+      line_length = 1,
+      width = 624,
+      height = 578,
+      frame_count = 1,
+      direction_count = 1,
+      shift = util.by_pixel(10, 0),
+      scale = 0.5
+    }
   },
 })

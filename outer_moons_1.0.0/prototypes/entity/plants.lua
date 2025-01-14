@@ -257,7 +257,7 @@ data:extend(
       mining_time = 0.5,
       results =
       {
-        {type = "item", name = "slipstack-polyp", amount = 50},
+        {type = "item", name = "slipstack-polyp", amount = 20},
         {type = "item", name = "calcite", amount = 4},
       }
     },
@@ -349,7 +349,7 @@ data:extend(
       mining_time = 0.5,
       results =
       {
-        {type = "item", name = "mawpouch", amount = 50},
+        {type = "item", name = "mawpouch", amount = 20},
         {type = "item", name = "calcite", amount = 4},
       },
       mining_trigger =
@@ -462,7 +462,7 @@ data:extend(
       mining_time = 0.5,
       results =
       {
-        {type = "item", name = "cuttlepod", amount = 50},
+        {type = "item", name = "cuttlepod", amount = 20},
         {type = "item", name = "calcite", amount = 4},
       }
     },
@@ -596,7 +596,7 @@ data:extend(
       mining_time = 0.5,
       results =
       {
-        {type = "item", name = "funnelwood", amount = 50},
+        {type = "item", name = "funnelwood", amount = 20},
         {type = "item", name = "wood", amount = 4},
       },
       mining_trigger =
@@ -696,7 +696,7 @@ data:extend(
       mining_time = 0.5,
       results =
       {
-        {type = "item", name = "slipstack-polyp", amount = 50},
+        {type = "item", name = "slipstack-polyp", amount = 20},
         {type = "item", name = "calcite", amount = 4},
       }
     },
@@ -796,7 +796,7 @@ data:extend(
       mining_particle = "wooden-particle",
       mining_time = 0.5,
       results = {
-		{type = "item", name = "yumako", amount = 50},
+		{type = "item", name = "yumako", amount = 20},
         {type = "item", name = "wood", amount = 4},
 	  },
       mining_trigger =
@@ -872,7 +872,7 @@ data:extend(
       mining_time = 0.5,
       results =
       {
-        {type = "item", name = "mawpouch", amount = 50},
+        {type = "item", name = "mawpouch", amount = 20},
         {type = "item", name = "calcite", amount = 4},
       },
       mining_trigger =
@@ -992,7 +992,7 @@ data:extend(
       mining_time = 0.5,
       results =
       {
-        {type = "item", name = "cuttlepod", amount = 50},
+        {type = "item", name = "cuttlepod", amount = 20},
         {type = "item", name = "calcite", amount = 4},
       }
     },
@@ -1090,7 +1090,7 @@ data:extend(
       mining_time = 0.5,
       results =
       {
-        {type = "item", name = "frondstalk", amount = 50},
+        {type = "item", name = "frondstalk", amount = 20},
         {type = "item", name = "wood", amount = 4},
       }
     },
@@ -1205,7 +1205,7 @@ data:extend(
       mining_time = 0.5,
       results =
       {
-        {type = "item", name = "boompuff-bulb", amount = 50},
+        {type = "item", name = "boompuff-bulb", amount = 20},
         {type = "item", name = "wood", amount = 4},
       },
       mining_trigger =
@@ -1334,7 +1334,7 @@ data:extend(
       mining_time = 0.5,
       results =
       {
-        {type = "item", name = "sunnycomb", amount = 50},
+        {type = "item", name = "sunnycomb", amount = 20},
         {type = "item", name = "calcite", amount = 4},
       },
       mining_trigger =
@@ -1700,7 +1700,7 @@ data:extend(
     {
       mining_particle = "wooden-particle",
       mining_time = 0.5,
-      results = {{type = "item", name = "jellynut", amount = 50}},
+      results = {{type = "item", name = "jellynut", amount = 20}},
     },
     mining_sound = sound_variations("__space-age__/sound/mining/axe-mining-jellystem", 5, 0.4),
     mined_sound = sound_variations("__space-age__/sound/mining/mined-jellystem", 6, 0.35),

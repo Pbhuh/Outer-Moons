@@ -402,12 +402,12 @@ data:extend
 		vehicle_friction_modifier = 4,
 		
 		variants = tile_variations_template_with_transitions(
-		  "__outer_moons__/graphics/terrain/mineral-tan-sand.png",
+		  "__outer_moons__/graphics/terrain/vegetation-yellow-grass.png",
 		  {
 			max_size = 4,
 			[1] = { weights = {0.085, 0.085, 0.085, 0.085, 0.087, 0.085, 0.065, 0.085, 0.045, 0.045, 0.045, 0.045, 0.005, 0.025, 0.045, 0.045 } },
-			[2] = { probability = 1, weights = {0.018, 0.020, 0.015, 0.025, 0.015, 0.020, 0.025, 0.015, 0.025, 0.025, 0.010, 0.025, 0.020, 0.025, 0.025, 0.010 }, },
-			[4] = { probability = 0.1, weights = {0.018, 0.020, 0.015, 0.025, 0.015, 0.020, 0.025, 0.015, 0.025, 0.025, 0.010, 0.025, 0.020, 0.025, 0.025, 0.010 }, },
+			[2] = { probability = 1.5, weights = {0.018, 0.020, 0.015, 0.025, 0.015, 0.020, 0.025, 0.015, 0.025, 0.025, 0.010, 0.025, 0.020, 0.025, 0.025, 0.010 }, },
+			[4] = { probability = 1, weights = {0.018, 0.020, 0.015, 0.025, 0.015, 0.020, 0.025, 0.015, 0.025, 0.025, 0.010, 0.025, 0.020, 0.025, 0.025, 0.010 }, },
 		  }
 		),
 		transitions = lava_stone_transitions,
@@ -428,7 +428,7 @@ data:extend
 		autoplace = {
 		  probability_expression = "peak_soil_dark_range"
 		},
-		layer = 6,
+		layer = 7,
 		map_color={100, 100, 100},
 		vehicle_friction_modifier = 4,
 		variants =
@@ -492,7 +492,7 @@ data:extend
 		autoplace = {
 		  probability_expression = "peak_folds_warm_range"
 		},
-		layer = 7,
+		layer = 8,
 		map_color={100, 100, 100},
 		vehicle_friction_modifier = 4,
 		variants =
@@ -524,7 +524,7 @@ data:extend
 		order = "a[oil]-b[shallow]",
 		subgroup = "aiolos-tiles",
 		collision_mask = tile_collision_masks.oil_ocean_shallow(),
-		autoplace = {probability_expression = "peak_ash_cracks_range"}, -- target coast at cliff elevation
+		autoplace = {probability_expression = "2 * peak_ash_cracks_range"}, -- target coast at cliff elevation
 		layer = 4,
 		layer_group = "water",
 		map_color = { 74, 42, 43},
@@ -544,7 +544,7 @@ data:extend
 			main =
 			{
 			  {
-				picture = "__outer_moons__/graphics/terrain/aiolos-deep-clouds.png",
+				picture = "__outer_moons__/graphics/terrain/shallow-hydrocarbon-sea.png",
 				count = 1,
 				scale = 0.0625,
 				size = 1
@@ -579,8 +579,8 @@ data:extend
 		destroys_dropped_items = true,
 		fluid = "aliphatic-solution",
 		effect = "cloud-effect",
-		effect_color = { 19, 19, 19 },
-		effect_color_secondary = { 19, 19, 19 },
+		effect_color = { 19, 19, 19, 255 },
+		effect_color_secondary = { 19, 19, 19, 255 },
 		particle_tints = tile_graphics.fulgora_oil_ocean_particle_tints,
 		sprite_usage_surface = "space",
 		variants =
@@ -588,7 +588,7 @@ data:extend
 			main =
 			{
 			  {
-				picture = "__outer_moons__/graphics/terrain/aiolos-deep-clouds.png",
+				picture = "__outer_moons__/graphics/terrain/hydrocarbon-sea.png",
 				count = 1,
 				scale = 0.0625,
 				size = 1
@@ -635,7 +635,7 @@ data:extend
 			 -- scale = 0.0625
 			},
 			{
-			  filename = "__outer_moons__/graphics/terrain/aiolos-deep-clouds.png",
+			  filename = "__outer_moons__/graphics/terrain/hydrocarbon-sea.png",
 			  width = 512 * 4,
 			  height = 512 * 2,
 			 -- scale = 0.0625

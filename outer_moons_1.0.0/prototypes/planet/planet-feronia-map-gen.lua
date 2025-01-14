@@ -490,12 +490,12 @@ data:extend{
   {
     type = "noise-expression",
     name = "gleba_biome_mask_green",
-    expression = "aux > 0.375"
+    expression = "aux > 0.3"
   },
   {
     type = "noise-expression",
     name = "gleba_biome_mask_red",
-    expression = "aux < 0.625"
+    expression = "aux < 0.6"
   },
 
 --- Decoratives general
@@ -1183,7 +1183,7 @@ data:extend({
       seed1 = seed1,\z
       skip_span = 1,\z
       skip_offset = 1,\z
-      region_size = spacing * 5,\z
+      region_size = spacing * 3,\z
       density_expression = favorability,\z
       spot_favorability_expression = favorability,\z
       candidate_spot_count = 22,\z
@@ -1198,14 +1198,14 @@ data:extend({
   {
     type = "noise-expression",
     name = "gleba_stone_richness",
-    expression = "4000 * max(starting, gleba_simple_spot(1000, 6 * size ^ 0.5, 80 / frequency ^ 0.5, gleba_highland) * max(gleba_highland, gleba_midland_aux_2)) * richness / size",
+    expression = "8000 * max(starting, gleba_simple_spot(1000, 6 * size ^ 0.5, 80 / frequency ^ 0.5, gleba_highland) * max(gleba_highland, gleba_midland_aux_2)) * richness / size",
     local_expressions =
     {
       richness = "control:gleba_stone:richness",
       frequency = "control:gleba_stone:frequency",
       size = "control:gleba_stone:size",
       starting = "starting_spot_at_angle{ angle = gleba_starting_angle + 85 * gleba_starting_direction,\z
-                                          distance = 80 * gleba_starting_area_multiplier,\z
+                                          distance = 60 * gleba_starting_area_multiplier,\z
                                           radius = 7 * size ^ 0.5,\z
                                           x_distortion = gleba_wobble_x * 8,\z
                                           y_distortion = gleba_wobble_x * 8}"
@@ -1215,6 +1215,27 @@ data:extend({
     type = "noise-expression",
     name = "gleba_stone_probability",
     expression = "(control:gleba_stone:size > 0) * (gleba_stone_richness > 1)"
+  }, 
+  {
+    type = "noise-expression",
+    name = "gleba_lead_richness",
+    expression = "4000 * max(starting, gleba_simple_spot(1000, 6 * size ^ 0.5, 80 / frequency ^ 0.5, gleba_highland) * max(gleba_highland, gleba_midland_aux_2)) * richness / size",
+    local_expressions =
+    {
+      richness = "control:gleba_lead:richness",
+      frequency = "control:gleba_lead:frequency",
+      size = "control:gleba_lead:size",
+      starting = "starting_spot_at_angle{ angle = gleba_starting_angle + 45 * gleba_starting_direction,\z
+                                          distance = 90 * gleba_starting_area_multiplier,\z
+                                          radius = 7 * size ^ 0.5,\z
+                                          x_distortion = gleba_wobble_x * 8,\z
+                                          y_distortion = gleba_wobble_x * 8}"
+    }
+  },
+  {
+    type = "noise-expression",
+    name = "gleba_lead_probability",
+    expression = "(control:gleba_lead:size > 0) * (gleba_lead_richness > 1)"
   },
   {
     type = "noise-expression",

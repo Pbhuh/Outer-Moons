@@ -215,14 +215,14 @@ data:extend(
     category = "resource"
   },
   --- Aquilo
-  {
-    type = "autoplace-control",
-    name = "aquilo_crude_oil",
-    localised_name = {"", "[entity=crude-oil] ", {"entity-name.crude-oil"}},
-    richness = true,
-    order = "g-a",
-    category = "resource"
-  },
+  --{
+  --  type = "autoplace-control",
+  --  name = "aquilo_crude_oil",
+  --  localised_name = {"", "[entity=crude-oil] ", {"entity-name.crude-oil"}},
+  --  richness = true,
+  --  order = "g-a",
+  --  category = "resource"
+  --},
   {
     type = "autoplace-control",
     name = "fluorine_vent",

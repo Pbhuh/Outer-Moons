@@ -58,7 +58,7 @@ data:extend(
     name = "hydrogen",
     subgroup = "fluid",
     default_temperature = 25,
-    heat_capacity = "0.2kJ",
+    heat_capacity = "0.01kJ",
     icon = "__outer_moons__/graphics/icons/fluid/hydrogen.png",
     base_color = {0.95, 0.95, 0.95},
     flow_color = {0.9, 0.9, 0.9},
@@ -74,7 +74,7 @@ data:extend(
     order = "a[fluid]-f[oxygen]",
     default_temperature = 25,
 	gas_temperature = -180,
-    heat_capacity = "0.1kJ",
+    heat_capacity = "0.01kJ",
     base_color = {0.62, 0.11, 0.08},
     flow_color = {0.67, 0.16, 0.13},
     auto_barrel = false
@@ -87,7 +87,7 @@ data:extend(
     order = "a[fluid]-g[hydrogen-peroxide]",
     default_temperature = 25,
 	gas_temperature = 150,
-    heat_capacity = "0.1kJ",
+    heat_capacity = "0.01kJ",
     base_color = {0.52, 0.01, 0.03},
     flow_color = {0.57, 0.06, 0.03},
     auto_barrel = false
@@ -108,6 +108,7 @@ data:extend(
     name = "petroleum-gas",
     subgroup = "oil-fluid",
     default_temperature = 25,
+    gas_temperature = -42,
     base_color = {0.3, 0.1, 0.3},
     flow_color = {0.8, 0.8, 0.8},
     icon = "__base__/graphics/icons/fluid/petroleum-gas.png",
@@ -151,7 +152,7 @@ data:extend(
     order = "b[oil]-f[olefins]",
     default_temperature = 25,
     heat_capacity = "0.1kJ",
-	default_temperature = 25,
+	gas_temperature = -104,
     base_color = {0.83, 0.80, 0.94},
     flow_color = {0.78, 0.75, 0.89},
   },
@@ -163,7 +164,7 @@ data:extend(
     order = "b[oil]-g[aromatics]",
     default_temperature = 25,
     heat_capacity = "0.1kJ",
-	default_temperature = 25,
+	gas_temperature = 80,
     base_color = {0.44, 0.41, 0.53},
     flow_color = {0.49, 0.46, 0.58},
   },
@@ -185,7 +186,7 @@ data:extend(
     name = "methane",
     subgroup = "natl-gas-fluid",
     default_temperature = 25,
-	gas_temperature = 162,
+	gas_temperature = -161,
     heat_capacity = "0.1kJ",
     base_color = {0.55, 0.55, 0.55},
     flow_color = {0.6, 0.6, 0.6},
@@ -377,7 +378,19 @@ data:extend(
     auto_barrel = false
   },
   --- Selene
-  -- g
+   {
+    type = "fluid",
+    name = "helium",
+    icon = "__outer_moons__/graphics/icons/fluid/helium.png",
+    subgroup = "selene-fluid",
+    order = "g[selene]-a[helium]",
+    default_temperature = 25,
+	gas_temperature = -268,
+    heat_capacity = "0.1kJ",
+    base_color = {0.5, 0.23, 0.32},
+    flow_color = {0.5, 0.23, 0.32},
+    auto_barrel = false
+  },
   --- Vulcanus
   {
     type = "fluid",

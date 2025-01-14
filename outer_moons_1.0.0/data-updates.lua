@@ -69,8 +69,40 @@ end
 
 --- TECH
 data.raw["tool"]["space-science-pack"].icon = "__outer_moons__/graphics/icons/space-science-pack.png"
+data.raw["tool"]["space-science-pack"].subgroup = "science-pack-2"
+data.raw["tool"]["space-science-pack"].order = "b"
 data.raw["technology"]["space-science-pack"].icon = "__outer_moons__/graphics/technology/space-science-pack.png"
 data.raw["recipe"]["space-science-pack"].icon = "__outer_moons__/graphics/icons/space-science-pack.png"
+
+data.raw["tool"]["metallurgic-science-pack"].icon = "__outer_moons__/graphics/icons/metallurgic-science-pack.png"
+data.raw["tool"]["metallurgic-science-pack"].subgroup = "science-pack-2"
+data.raw["tool"]["metallurgic-science-pack"].order = "d"
+data.raw["technology"]["metallurgic-science-pack"].icon = "__outer_moons__/graphics/technology/metallurgic-science-pack.png"
+data.raw["recipe"]["metallurgic-science-pack"].icon = "__outer_moons__/graphics/icons/metallurgic-science-pack.png"
+
+data.raw["tool"]["agricultural-science-pack"].icon = "__outer_moons__/graphics/icons/agricultural-science-pack.png"
+data.raw["tool"]["agricultural-science-pack"].subgroup = "science-pack-2"
+data.raw["tool"]["agricultural-science-pack"].order = "e"
+data.raw["technology"]["agricultural-science-pack"].icon = "__outer_moons__/graphics/technology/agricultural-science-pack.png"
+data.raw["recipe"]["agricultural-science-pack"].icon = "__outer_moons__/graphics/icons/agricultural-science-pack.png"
+
+data.raw["tool"]["electromagnetic-science-pack"].icon = "__outer_moons__/graphics/icons/electromagnetic-science-pack.png"
+data.raw["tool"]["electromagnetic-science-pack"].subgroup = "science-pack-2"
+data.raw["tool"]["electromagnetic-science-pack"].order = "f"
+data.raw["technology"]["electromagnetic-science-pack"].icon = "__outer_moons__/graphics/technology/electromagnetic-science-pack.png"
+data.raw["recipe"]["electromagnetic-science-pack"].icon = "__outer_moons__/graphics/icons/electromagnetic-science-pack.png"
+
+data.raw["tool"]["cryogenic-science-pack"].icon = "__outer_moons__/graphics/icons/cryogenic-science-pack.png"
+data.raw["tool"]["cryogenic-science-pack"].subgroup = "science-pack-3"
+data.raw["tool"]["cryogenic-science-pack"].order = "b"
+data.raw["technology"]["cryogenic-science-pack"].icon = "__outer_moons__/graphics/technology/cryogenic-science-pack.png"
+data.raw["recipe"]["cryogenic-science-pack"].icon = "__outer_moons__/graphics/icons/cryogenic-science-pack.png"
+
+data.raw["tool"]["promethium-science-pack"].icon = "__outer_moons__/graphics/icons/deep-space-science-pack.png"
+data.raw["tool"]["promethium-science-pack"].subgroup = "science-pack-3"
+data.raw["tool"]["promethium-science-pack"].order = "f"
+data.raw["technology"]["promethium-science-pack"].icon = "__outer_moons__/graphics/technology/deep-space-science-pack.png"
+data.raw["recipe"]["promethium-science-pack"].icon = "__outer_moons__/graphics/icons/deep-space-science-pack.png"
 -- Rocket Silo
 data.raw.technology["rocket-silo"].effects =
 {
@@ -332,6 +364,37 @@ data.raw.recipe["steam-condensation"].subgroup = "phase-recipes"
 data.raw.recipe["ice-melting"].subgroup = "phase-recipes"
 data.raw.recipe["acid-neutralisation"].subgroup = "phase-recipes"
 
+data.raw["cargo-wagon"]["cargo-wagon"].quality_affects_inventory_size = true
+data.raw["fluid-wagon"]["fluid-wagon"].quality_affects_capacity = true
+
+data.raw.module["speed-module"].subgroup = "speed-module"
+data.raw.module["speed-module-2"].subgroup = "speed-module"
+data.raw.module["speed-module-3"].subgroup = "speed-module"
+
+data.raw.module["efficiency-module"].subgroup = "efficiency-module"
+data.raw.module["efficiency-module-2"].subgroup = "efficiency-module"
+data.raw.module["efficiency-module-3"].subgroup = "efficiency-module"
+
+data.raw.module["productivity-module"].subgroup = "productivity-module"
+data.raw.module["productivity-module-2"].subgroup = "productivity-module"
+data.raw.module["productivity-module-3"].subgroup = "productivity-module"
+
+data.raw.module["quality-module"].subgroup = "quality-module"
+data.raw.module["quality-module-2"].subgroup = "quality-module"
+data.raw.module["quality-module-3"].subgroup = "quality-module"
+
+data.raw.item["underground-belt"].subgroup = "underground"
+data.raw.item["fast-underground-belt"].subgroup = "underground"
+data.raw.item["express-underground-belt"].subgroup = "underground"
+
+data.raw.item["splitter"].subgroup = "splitter"
+data.raw.item["fast-splitter"].subgroup = "splitter"
+data.raw.item["express-splitter"].subgroup = "splitter"
+
+data.raw.item["loader"].subgroup = "loader"
+data.raw.item["fast-loader"].subgroup = "loader"
+data.raw.item["express-loader"].subgroup = "loader"
+
 data.raw.item["engine-unit"].order = "c[advanced-intermediates]-b[engine-unit]"
 data.raw.item["electric-engine-unit"].order = "c[advanced-intermediates]-d[electric-engine-unit]"
 data.raw.item["flying-robot-frame"].order = "c[advanced-intermediates]-e[flying-robot-frame]"
@@ -347,10 +410,23 @@ data.raw.item["oil-refinery"].subgroup = "fluid-machine"
 data.raw.item["oil-refinery"].order = "b[oil-refinery]"
 data.raw.item["chemical-plant"].subgroup = "fluid-machine"
 data.raw.item["chemical-plant"].order = "c[chemical-plant]"
-data.raw.item["electrolytic-plant"].subgroup = "fluid-machine"
-data.raw.item["electrolytic-plant"].order = "a[electrolytic-plant]"
 data.raw.item["cryogenic-plant"].subgroup = "fluid-machine"
 data.raw.item["cryogenic-plant"].order = "d[cryogenic-plant]"
+
+data.raw["heat-pipe"]["heat-pipe"].heating_radius = 2
+
+data.raw.item["accumulator"].subgroup = "energy-production"
+data.raw.item["solar-panel"].subgroup = "energy-production"
+data.raw.item["steam-engine"].subgroup = "energy-production"
+--data.raw.item["nuclear-reactor"].subgroup = "energy-production"
+data.raw.item["nuclear-reactor"].order = "e[nuclear-reactor]"
+data.raw.item["steam-turbine"].subgroup = "energy-production"
+--data.raw.item["fusion-reactor"].subgroup = "energy-production"
+data.raw.item["fusion-generator"].subgroup = "energy-production"
+
+data.raw.item["storage-tank"].order = "b[fluid]-b[storage-tank]"
+data.raw.item["heat-exchanger"].order = "c[heat-exchanger]"
+data.raw.item["heat-pipe"].order = "d[heat-pipe]"
 
 data.raw.recipe["plastic-bar"].hidden = true
 
@@ -370,9 +446,6 @@ data.raw.item["solid-fuel"].subgroup = "chemical-product"
 data.raw.item["solid-fuel"].order = "a[solid-fuel]"
 data.raw.item["plastic-bar"].subgroup = "chemical-product"
 data.raw.item["plastic-bar"].order = "b[plastic-bar]"
-data.raw.item["battery"].icon = "__outer_moons__/graphics/icons/battery.png"
-data.raw.item["battery"].subgroup = "chemical-product"
-data.raw.item["battery"].order = "d[battery]"
 data.raw.item["explosives"].subgroup = "chemical-product"
 data.raw.item["explosives"].order = "c[explosives]"
 
@@ -443,7 +516,6 @@ data.raw.recipe["iron-bacteria-cultivation"].surface_conditions = { { property =
 data.raw.recipe["copper-bacteria"].surface_conditions = { { property = "pressure", min = 2500, max = 2500 } }
 data.raw.recipe["copper-bacteria-cultivation"].surface_conditions = { { property = "pressure", min = 2500, max = 2500 } }
 data.raw.recipe["pentapod-egg"].surface_conditions = { { property = "pressure", min = 2500, max = 2500 } }
-data.raw.recipe["biochamber"].surface_conditions = { { property = "pressure", min = 2500, max = 2500 } }
 data.raw.recipe["agricultural-science-pack"].surface_conditions = { { property = "pressure", min = 2500, max = 2500 } }
 
 --Equipment fix

@@ -155,8 +155,6 @@ planet_map_gen.gleba = function()
       enemy_base_frequency = "gleba_enemy_base_frequency",
       ["entity:phosphate:richness"] = "gleba_stone_richness",
       ["entity:phosphate:probability"] = "gleba_stone_probability",
-      ["entity:lead-ore:richness"] = "gleba_lead_richness",
-      ["entity:lead-ore:probability"] = "gleba_lead_probability",
 
       ["decorative:red-desert-bush:probability"] = "gleba_red_desert_bush_probability",
       ["decorative:white-desert-bush:probability"] = "gleba_white_desert_bush_probability",
@@ -176,7 +174,6 @@ planet_map_gen.gleba = function()
     autoplace_controls =
     {
       ["gleba_stone"] = {},
-      ["gleba_lead"] = {},
       ["gleba_plants"] = {},
       ["gleba_enemy_base"] = {},
       ["gleba_water"] = {},
@@ -320,7 +317,6 @@ planet_map_gen.gleba = function()
         settings =
         {
           ["phosphate"] = {},
-          ["lead-ore"] = {},
           ["iron-stromatolite"] = {},
           ["copper-stromatolite"] = {}
         }
@@ -513,6 +509,72 @@ planet_map_gen.mefitis = function()
   }
 end
 
+planet_map_gen.aquilo = function()
+  return
+  {
+    property_expression_names =
+    {
+      elevation = "aquilo_elevation",
+      temperature = "aquilo_temperature",
+      moisture = "moisture_basic",
+      aux = "aquilo_aux",
+      cliffiness = "cliffiness_basic",
+      cliff_elevation = "cliff_elevation_from_elevation",
+     -- ["entity:crude-oil:probability"] = "aquilo_crude_oil_probability",
+     -- ["entity:crude-oil:richness"] = "aquilo_crude_oil_richness"
+    },
+    autoplace_controls =
+    {
+      ["lithium_brine"] = {},
+      ["fluorine_vent"] = {},
+     -- ["aquilo_crude_oil"] = {}
+    },
+    autoplace_settings =
+    {
+      ["tile"] =
+      {
+        settings =
+        {
+          ["snow-flat"] = {},
+          ["snow-crests"] = {},
+          ["snow-lumpy"] = {},
+          ["snow-patchy"] = {},
+          ["ice-rough"] = {},
+          ["ice-smooth"] = {},
+          ["brash-ice"] = {},
+          ["ammoniacal-ocean"] = {},
+          ["ammoniacal-ocean-2"] = {}
+        }
+      },
+      ["decorative"] =
+      {
+        settings =
+        {
+          ["lithium-iceberg-medium"] = {},
+          ["lithium-iceberg-small"] = {},
+          ["lithium-iceberg-tiny"] = {},
+          ["floating-iceberg-large"] = {},
+          ["floating-iceberg-small"] = {},
+          ["aqulio-ice-decal-blue"] = {},
+          ["aqulio-snowy-decal"] = {},
+          ["snow-drift-decal"] = {}
+        }
+      },
+      ["entity"] =
+      {
+        settings =
+        {
+          --["crude-oil"] = {},
+          ["lithium-brine"] = {},
+          ["fluorine-vent"] = {},
+          ["lithium-iceberg-huge"] = {},
+          ["lithium-iceberg-big"] = {}
+        }
+      }
+    }
+  }
+end
+
 planet_map_gen.aiolos = function()
   return
   {
@@ -548,7 +610,7 @@ planet_map_gen.aiolos = function()
         {
           ["shallow-hydrocarbon-sea"] = {},
           ["hydrocarbon-sea"] = {},
-          ["aiolos-dust-1"] = {},
+		  ["aiolos-dust-1"] = {},
           ["aiolos-dust-2"] = {},
           ["aiolos-dust-3"] = {},
           ["aiolos-dust-4"] = {},
@@ -608,8 +670,6 @@ planet_map_gen.feronia = function()
       temperature = "gleba_temperature",
       cliffiness = "gleba_cliffiness",
       cliff_elevation = "cliff_elevation_from_elevation",
-      enemy_base_radius = "gleba_enemy_base_radius",
-      enemy_base_frequency = "gleba_enemy_base_frequency",
       ["entity:cobalt-ore:richness"] = "gleba_stone_richness",
       ["entity:cobalt-ore:probability"] = "gleba_stone_probability",
 
@@ -632,7 +692,6 @@ planet_map_gen.feronia = function()
     {
       ["cobalt_ore"] = {},
       ["gleba_plants"] = {},
-      ["gleba_enemy_base"] = {},
       ["gleba_water"] = {},
       ["gleba_cliff"] = {},
     },

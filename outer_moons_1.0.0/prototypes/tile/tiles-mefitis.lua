@@ -634,7 +634,7 @@ data:extend
         },
         --specular highligts
         {
-          filename = "__space-age__/graphics/terrain/oil-ocean-deep-spec.png",
+          filename = "__outer_moons__/graphics/terrain/sulfur-ocean-deep-spec.png",
           width = 512 * 4,
           height = 512 * 2
         },
@@ -648,7 +648,7 @@ data:extend
       foam_color = {185,145,100}, -- #4e3838ff,
       foam_color_multiplier = 0.1,
 
-      animation_speed = 1.500,
+      animation_speed = 2.500,
       animation_scale = {3, 3},
 
       dark_threshold = {1.000, 1.000},

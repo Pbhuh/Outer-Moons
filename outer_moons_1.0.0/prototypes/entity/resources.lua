@@ -348,7 +348,7 @@ data:extend({
 		  factoriopedia_simulation = simulations.factoriopedia_beryllium_ore,
 		},
 		{
-		  base_density = 0.5,
+		  base_density = 1,
 		  regular_rq_factor_multiplier = 4.0,
 		  starting_rq_factor_multiplier = 4.5,
 		  base_spots_per_km = 11,	

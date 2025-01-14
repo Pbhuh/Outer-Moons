@@ -651,7 +651,7 @@ data:extend(
    -- label_orientation = 0.15,
     order = "h[aquilo]",
     subgroup = "planets",
-    map_gen_settings = planet_map_gen.aquilo(),
+    map_gen_settings = planet_map_gen_new.aquilo(),
     pollutant_type = nil,
     solar_power_in_space = 50,
     platform_procession_set =

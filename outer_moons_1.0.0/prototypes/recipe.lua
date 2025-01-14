@@ -102,6 +102,67 @@ data:extend({
 		},
 		results = {{type="item", name="substation", amount=1}}
 	},
+	-- Power production
+	{
+		type = "recipe",
+		name = "fusion-reactor",
+		category = "cryogenics",
+		surface_conditions =
+		{
+		  {
+			property = "pressure",
+			min = 100,
+			max = 600
+		  }
+		},
+		energy_required = 60,
+		enabled = false,
+		ingredients =
+		{
+		  {type = "item", name = "tungsten-plate", amount = 200},
+		  {type = "item", name = "superconductor", amount = 200},
+		  {type = "item", name = "quantum-supercomputer", amount = 250},
+		},
+		results = {{type="item", name="fusion-reactor", amount=1}},
+		requester_paste_multiplier = 1,
+		crafting_machine_tint =
+		{
+		  primary = {r = 0.298, g = 0.442, b = 0.518, a = 1.000}, -- #4c7084ff
+		  secondary = {r = 0.864, g = 0.706, b = 0.902, a = 1.000}, -- #dcb4e6ff
+		  tertiary = {r = 0.159, g = 0.136, b = 0.207, a = 1.000}, -- #282234ff
+		  quaternary = {r = 0.945, g = 0.370, b = 1.000, a = 1.000}, -- #f15effff
+		}
+	},
+	{
+		type = "recipe",
+		name = "fusion-generator",
+		category = "cryogenics",
+		surface_conditions =
+		{
+		  {
+			property = "pressure",
+			min = 100,
+			max = 600
+		  }
+		},
+		energy_required = 30,
+		enabled = false,
+		ingredients =
+		{
+		  {type = "item", name = "tungsten-plate", amount = 100},
+		  {type = "item", name = "superconductor", amount = 100},
+		  {type = "item", name = "quantum-supercomputer", amount = 50},
+		},
+		results = {{type="item", name="fusion-generator", amount=1}},
+		requester_paste_multiplier = 1,
+		crafting_machine_tint =
+		{
+		  primary = {r = 0.298, g = 0.442, b = 0.518, a = 1.000}, -- #4c7084ff
+		  secondary = {r = 0.864, g = 0.706, b = 0.902, a = 1.000}, -- #dcb4e6ff
+		  tertiary = {r = 0.159, g = 0.136, b = 0.207, a = 1.000}, -- #282234ff
+		  quaternary = {r = 0.945, g = 0.370, b = 1.000, a = 1.000}, -- #f15effff
+		}
+	},
 	-- Bots
 	{
 		type = "recipe",
@@ -200,6 +261,7 @@ data:extend({
 		},
 		results = {{type="item", name="roboport", amount=1}}
 	},
+	--
 	{
 		type = "recipe",
 		name = "offshore-pump",
@@ -226,6 +288,37 @@ data:extend({
 		results = {{type="item", name="pumpjack", amount=1}},
 		enabled = false
 	},
+	-- Trains
+	{
+		type = "recipe",
+		name = "locomotive",
+		energy_required = 4,
+		enabled = false,
+		ingredients =
+		{
+		  {type = "item", name = "multicylinder-engine-unit", amount = 10},
+		  {type = "item", name = "electronic-circuit", amount = 10},
+		  {type = "item", name = "steel-plate", amount = 30},
+		  {type = "item", name = "iron-gear-wheel", amount = 20}
+		},
+		results = {{type="item", name="locomotive", amount=1}}
+	},
+	{
+		type = "recipe",
+		name = "artillery-wagon",
+		energy_required = 4,
+		enabled = false,
+		ingredients =
+		{
+		  {type = "item", name = "multicylinder-engine-unit", amount = 24},
+		  {type = "item", name = "iron-gear-wheel", amount = 40},
+		  {type = "item", name = "tungsten-plate", amount = 60},
+		  {type = "item", name = "refined-concrete", amount = 60},
+		  {type = "item", name = "processing-unit", amount = 10}
+		},
+		results = {{type="item", name="artillery-wagon", amount=1}}
+	},
+	
 	--Concrete
 	{
 		type = "recipe",
@@ -548,7 +641,7 @@ data:extend({
 		{
 		  {type = "fluid", name = "hydrogen", amount = 15},
 		  {type = "fluid", name = "oxygen", amount = 15},
-		  {type = "item", name = "titanium-plate", amount = 1},
+		  {type = "item", name = "nickel-plate", amount = 1},
 		},
 		results =
 		{
@@ -1296,7 +1389,7 @@ data:extend({
 		icon = "__outer_moons__/graphics/icons/alumina.png",
 		category = "chemistry-or-cryogenics",
 		subgroup = "chemical",
-		order = "b[selene]-d[alumina]",
+		order = "c[alumina]",
 		auto_recycle = false,
 		energy_required = 2,
 		ingredients =
@@ -1361,7 +1454,10 @@ data:extend({
 		name = "fiber-optic",
 		category = "electronics-or-convecting",
 		enabled = false,
-		ingredients = {{type = "item", name = "silicon-ore", amount = 1}},
+		ingredients = {
+			{type = "item", name = "silicon-ore", amount = 1},
+			{type = "item", name = "sulfur", amount = 1},
+		},
 		results = {{type="item", name="fiber-optic", amount=2}},
 		allow_productivity = true
 	},
@@ -1409,7 +1505,7 @@ data:extend({
 	},
 	{
 		type = "recipe",
-		name = "multicylinder-engine",
+		name = "multicylinder-engine-unit",
 		energy_required = 10,
 		category = "advanced-crafting",
 		ingredients =
@@ -1420,7 +1516,7 @@ data:extend({
 		  {type = "item", name = "electronic-circuit", amount = 2},
 		  {type = "item", name = "spark-plug", amount = 2},
 		},
-		results = {{type="item", name="engine-unit", amount=1}},
+		results = {{type="item", name="multicylinder-engine-unit", amount=1}},
 		enabled = false,
 		allow_productivity = true
 	},
@@ -1459,15 +1555,15 @@ data:extend({
 	--Circuit parts
 	{
 		type = "recipe",
-		name = "semiconductor",
-		category = "electronics-with-fluid",
+		name = "transistor",
+		category = "electronics-or-assembling",
 		ingredients =
 		{
 		  {type = "item", name = "silicon-wafer", amount = 1},
-		  {type = "item", name = "plastic-bar", amount = 1},
-		  {type = "fluid", name = "sulfuric-acid", amount = 5},
+		  --{type = "item", name = "plastic-bar", amount = 1},
+		  {type = "item", name = "copper-cable", amount = 2},
 		},
-		results = {{type="item", name="semiconductor", amount=2}},
+		results = {{type="item", name="transistor", amount=2}},
 		enabled = false,
 		allow_productivity = true
 	},
@@ -1478,13 +1574,119 @@ data:extend({
 		ingredients =
 		{	  
 		  {type = "item", name = "plastic-bar", amount = 1},
-		  {type = "item", name = "semiconductor", amount = 1},
-		  {type = "item", name = "electronic-circuit", amount = 2},
+		  {type = "item", name = "aluminum-cable", amount = 1},
+		  {type = "item", name = "electronic-circuit", amount = 1},
 		  {type = "item", name = "battery", amount = 1},
 		},
 		results = {{type="item", name="capacitor", amount=1}},
 		enabled = false,
 		allow_productivity = true
+	},
+	{
+		type = "recipe",
+		name = "peripheral-interface",
+		category = "electronics-or-assembling",
+		ingredients =
+		{	  
+		  {type = "item", name = "plastic-bar", amount = 1},
+		  {type = "item", name = "aluminum-cable", amount = 2},
+		  {type = "item", name = "electronic-circuit", amount = 4},
+		},
+		results = {{type="item", name="peripheral-interface", amount=1}},
+		enabled = false,
+		allow_productivity = true
+	},
+	{
+		type = "recipe",
+		name = "microprocessor",
+		category = "electronics-or-assembling",
+		ingredients =
+		{	  
+		  {type = "item", name = "plastic-bar", amount = 2},
+		  {type = "item", name = "aluminum-plate", amount = 1},
+		  {type = "item", name = "transistor", amount = 8},
+		  {type = "item", name = "integrated-circuit", amount = 4},
+		},
+		results = {{type="item", name="microprocessor", amount=1}},
+		enabled = false,
+		allow_productivity = true
+	},
+	{
+		type = "recipe",
+		name = "memory-stick",
+		category = "electronics-or-assembling",
+		ingredients =
+		{	  
+		  {type = "item", name = "transistor", amount = 16},
+		  {type = "item", name = "copper-plate", amount = 1},
+		  {type = "item", name = "capacitor", amount = 2},
+		  {type = "item", name = "plastic-bar", amount = 1},
+		},
+		results = {{type="item", name="memory-stick", amount=1}},
+		enabled = false,
+		allow_productivity = true
+	},
+	{
+		type = "recipe",
+		name = "storage-drive",
+		category = "electronics-or-assembling",
+		ingredients =
+		{	  
+		  {type = "item", name = "iron-plate", amount = 2},
+		  {type = "item", name = "copper-cable", amount = 2},
+		  {type = "item", name = "electric-engine-unit", amount = 1},
+		  {type = "item", name = "plastic-bar", amount = 1},
+		},
+		results = {{type="item", name="storage-drive", amount=1}},
+		enabled = false,
+		allow_productivity = true
+	},
+	{
+		type = "recipe",
+		name = "motherboard",
+		category = "electronics-or-assembling",
+		ingredients =
+		{	  
+		  {type = "item", name = "tungsten-carbide", amount = 8},
+		  {type = "item", name = "carbon-fiber", amount = 4},
+		  {type = "item", name = "superconductor", amount = 6},
+		},
+		results = {{type="item", name="motherboard", amount=1}},
+		enabled = false,
+		allow_productivity = true
+	},
+	{
+		type = "recipe",
+		name = "cooling-system",
+		category = "electronics-or-assembling",
+		ingredients =
+		{	  
+		  {type = "item", name = "plastic-bar", amount = 2},
+		  {type = "item", name = "electric-engine-unit", amount = 1},
+		  {type = "item", name = "magnesium-plate", amount = 1},
+		},
+		results = {{type="item", name="cooling-system", amount=1}},
+		enabled = false,
+		allow_productivity = true
+	},
+	
+	{
+		type = "recipe",
+		name = "osmium-superconductor",
+		category = "electromagnetics",
+		subgroup = "mefitis-processes",
+		order = "d[osmium-superconductor]",
+		energy_required = 5,
+		ingredients =
+		{
+		  {type = "item", name = "osmium-plate", amount = 1},
+		  {type = "item", name = "copper-plate", amount = 1},
+		  {type = "item", name = "plastic-bar", amount = 1},
+		  {type = "item", name = "arsenene", amount = 5},
+		},
+		results = {{type = "item", name = "osmium-superconductor", amount = 2}},
+		allow_productivity = true,
+		enabled = false
 	},
 	--Circuits
 	{
@@ -1511,7 +1713,8 @@ data:extend({
 		{
 		  {type = "item", name = "electronic-circuit", amount = 2},
 		  {type = "item", name = "silicon-wafer", amount = 2},
-		  {type = "item", name = "aluminum-cable", amount = 4}
+		  {type = "item", name = "aluminum-cable", amount = 3},
+		  {type = "item", name = "transistor", amount = 8},
 		},
 		results = {{type="item", name="integrated-circuit", amount=1}},
 		allow_productivity = true
@@ -1525,8 +1728,9 @@ data:extend({
 		ingredients =
 		{
 		  {type = "item", name = "integrated-circuit", amount = 3},
-		  {type = "item", name = "semiconductor", amount = 2},
-		  {type = "item", name = "capacitor", amount = 2}
+		  {type = "item", name = "fiber-optic", amount = 4},
+		  {type = "item", name = "peripheral-interface", amount = 8},
+		  {type = "item", name = "capacitor", amount = 4}
 		},
 		results = {{type="item", name="advanced-circuit", amount=1}},
 		allow_productivity = true
@@ -1540,8 +1744,9 @@ data:extend({
 		ingredients =
 		{
 		  {type = "item", name = "advanced-circuit", amount = 4},
-		  {type = "item", name = "titanium-plate", amount = 2},
-		  {type = "item", name = "fiber-optic", amount = 5}
+		  {type = "item", name = "microprocessor", amount = 4},
+		  {type = "item", name = "memory-stick", amount = 5},
+		  {type = "item", name = "storage-drive", amount = 5},
 		},
 		results = {{type="item", name="processing-unit", amount=1}},
 		allow_productivity = true
@@ -2294,12 +2499,12 @@ data:extend({
 		name = "casting-fiber-optic",
 		category = "metallurgy",
 		subgroup = "vulcanus-processes",
-		order = "d[casting]-h[casting-copper-cable]",
+		order = "d[casting]-h[casting-fiber-optic]",
 		icon = "__outer_moons__/graphics/icons/fluid/casting-fiber-optic.png",
 		enabled = false,
 		ingredients =
 		{
-		  {type = "fluid", name = "molten-copper", amount = 5, fluidbox_multiplier = 5},
+		  {type = "fluid", name = "molten-silicon", amount = 5, fluidbox_multiplier = 5},
 		},
 		energy_required = 1,
 		allow_decomposition = false,
@@ -2441,7 +2646,7 @@ data:extend({
 		  {type = "item", name = "iron-ore", amount = 1, probability = 0.6, show_details_in_recipe_tooltip = false},
 		  {type = "item", name = "silicon-ore", amount = 1, probability = 0.5, show_details_in_recipe_tooltip = false},
 		  {type = "item", name = "alumina", amount = 1, probability = 0.3, show_details_in_recipe_tooltip = false},
-		  {type = "item", name = "titanium-ore", amount = 1, probability = 0.15, show_details_in_recipe_tooltip = false},
+		  {type = "item", name = "titanium-ore", amount = 1, probability = 0.2, show_details_in_recipe_tooltip = false},
 		},
 		allow_productivity = true,
 		enabled = false,
@@ -2525,8 +2730,9 @@ data:extend({
 			{type="item", name="alumina", amount=1, probability=0.4, show_details_in_recipe_tooltip = false},
 			{type="item", name="iron-ore", amount=1, probability=0.35, show_details_in_recipe_tooltip = false},
 			{type="item", name="copper-ore", amount=1, probability=0.3, show_details_in_recipe_tooltip = false},
-			{type="item", name="magnesium-ore", amount=1, probability=0.25, show_details_in_recipe_tooltip = false},
-			{type="item", name="sulfur", amount=1, probability=0.2, show_details_in_recipe_tooltip = false},
+			{type="item", name="nickel-ore", amount=1, probability=0.25, show_details_in_recipe_tooltip = false},
+			{type="item", name="magnesium-ore", amount=1, probability=0.2, show_details_in_recipe_tooltip = false},
+			{type="item", name="sulfur", amount=1, probability=0.15, show_details_in_recipe_tooltip = false},
 			--{type="item", name="aluminum-ore", amount=1, probability=0.03},
 			--{type="item", name="titanium-ore", amount=1, probability=0.02},
 			{type="item", name="uranium-ore", amount=1, probability=0.05, show_details_in_recipe_tooltip = false}
@@ -2705,6 +2911,41 @@ data:extend({
 	},
 	{
 		type = "recipe",
+		name = "electrolytic-plant",
+		enabled = false,
+		ingredients =
+		{
+		  {type = "item", name = "electronic-circuit", amount = 5},
+		  {type = "item", name = "steel-plate", amount = 5},
+		  {type = "item", name = "copper-cable", amount = 5},
+		  {type = "item", name = "pipe", amount = 5}
+		},
+		results = {{type="item", name="electrolytic-plant", amount=1}}
+	},
+	{
+		type = "recipe",
+		name = "lightning-rod",
+		category = "electronics",
+		surface_conditions =
+		{
+		  {
+			property = "magnetic-field",
+			min = 99,
+			max = 99
+		  }
+		},
+		energy_required = 5,
+		ingredients =
+		{
+		  {type = "item", name = "aluminum-cable", amount = 12},
+		  {type = "item", name = "steel-plate", amount = 8},
+		  {type = "item", name = "stone-brick", amount = 4},
+		},
+		results = {{type="item", name="lightning-rod", amount=1}},
+		enabled = false
+	},
+	{
+		type = "recipe",
 		name = "foundry",
 		category = "metallurgy-or-assembling",
 		surface_conditions =
@@ -2726,6 +2967,30 @@ data:extend({
 		},
 		energy_required = 10,
 		results = {{type="item", name="foundry", amount=1}}
+	},
+	{
+		type = "recipe",
+		name = "biochamber",
+		category = "organic-or-assembling",
+		surface_conditions =
+		{
+		  {
+			property = "pressure",
+			min = 2500,
+			max = 2500
+		  }
+		},
+		energy_required = 20,
+		ingredients =
+		{
+		  {type = "item", name = "nutrients", amount = 5},
+		  {type = "item", name = "pentapod-egg", amount = 1},
+		  {type = "item", name = "iron-plate", amount = 20},
+		  {type = "item", name = "processing-unit", amount = 5},
+		  {type = "item", name = "landfill", amount = 1}
+		},
+		results = {{type="item", name="biochamber", amount=1}},
+		enabled = false
 	},
 	{
 		type = "recipe",
@@ -2839,6 +3104,140 @@ data:extend({
 		allow_productivity = true
 	},
 	-- Military
+	
+	{
+		type = "recipe",
+		name = "car",
+		enabled = false,
+		energy_required = 2,
+		ingredients =
+		{
+		  {type = "item", name = "multicylinder-engine-unit", amount = 1},
+		  {type = "item", name = "aluminum-plate", amount = 20},
+		  {type = "item", name = "iron-gear-wheel", amount = 10},
+		  {type = "item", name = "steel-plate", amount = 5}
+		},
+		results = {{type="item", name="car", amount=1}}
+	},
+	{
+		type = "recipe",
+		name = "tank",
+		enabled = false,
+		energy_required = 5,
+		ingredients =
+		{
+		  {type = "item", name = "multicylinder-engine-unit", amount = 8},
+		  {type = "item", name = "steel-plate", amount = 50},
+		  {type = "item", name = "iron-gear-wheel", amount = 15},
+		  {type = "item", name = "advanced-circuit", amount = 10}
+		},
+		results = {{type="item", name="tank", amount=1}}
+	},
+	{
+		type = "recipe",
+		name = "spidertron",
+		enabled = false,
+		energy_required = 10,
+		ingredients =
+		{
+		  {type = "item", name = "exoskeleton-equipment", amount = 4},
+		  {type = "item", name = "fission-reactor-equipment", amount = 2},
+		  {type = "item", name = "rocket-turret", amount = 1},
+		  {type = "item", name = "computing-core", amount = 10},
+		  {type = "item", name = "radar", amount = 2},
+		  {type = "item", name = "multicylinder-engine-unit", amount = 16},
+		 -- {type = "item", name = "raw-fish", amount = 1}
+		},
+		results = {{type="item", name="spidertron", amount=1}}
+	},
+		
+		
+	{
+		type = "recipe",
+		name = "poison-capsule",
+		enabled = false,
+		energy_required = 8,
+		ingredients =
+		{
+		  {type = "item", name = "steel-plate", amount = 2},
+		  {type = "item", name = "electronic-circuit", amount = 2},
+		  {type = "item", name = "coal", amount = 5},
+		  {type = "item", name = "sulfur", amount = 5},
+		},
+		results = {{type="item", name="poison-capsule", amount=1}}
+	},
+	{
+		type = "recipe",
+		name = "slowdown-capsule",
+		enabled = false,
+		energy_required = 8,
+		ingredients =
+		{
+		  {type = "item", name = "steel-plate", amount = 2},
+		  {type = "item", name = "electronic-circuit", amount = 2},
+		  {type = "item", name = "coal", amount = 5},
+		  {type = "item", name = "salt", amount = 5},
+		},
+		results = {{type="item", name="slowdown-capsule", amount=1}}
+	},
+	
+	{
+		type = "recipe",
+		name = "railgun",
+		category = "cryogenics",
+		enabled = false,
+		energy_required = 10,
+		ingredients =
+		{
+		  {type = "item", name = "iridium-plate", amount = 10},
+		  {type = "item", name = "osmium-superconductor", amount = 10},
+		  {type = "item", name = "quantum-supercomputer", amount = 20},
+		},
+		results = {{type="item", name="railgun", amount=1}},
+		crafting_machine_tint =
+		{
+		  primary = {r = 0.504, g = 0.448, b = 0.321, a = 1.000}, -- #807251ff
+		  secondary = {r = 0.312, g = 0.519, b = 0.601, a = 1.000}, -- #4f8499ff
+		  tertiary = {r = 0.402, g = 0.558, b = 0.880, a = 1.000}, -- #668ee0ff
+		  quaternary = {r = 0.246, g = 0.246, b = 0.246, a = 1.000}, -- #3e3e3eff
+		}
+	},
+	{
+		type = "recipe",
+		name = "railgun-turret",
+		category = "cryogenics",
+		enabled = false,
+		energy_required = 10,
+		ingredients =
+		{
+		  {type = "item", name = "quantum-supercomputer", amount = 50},
+		  {type = "item", name = "iridium-plate", amount = 30},
+		  {type = "item", name = "osmium-superconductor", amount = 50},
+		  {type = "item", name = "graphene", amount = 20},
+		},
+		results = {{type="item", name="railgun-turret", amount=1}},
+		crafting_machine_tint =
+		{
+		  primary = {r = 0.504, g = 0.448, b = 0.321, a = 1.000}, -- #807251ff
+		  secondary = {r = 0.312, g = 0.519, b = 0.601, a = 1.000}, -- #4f8499ff
+		  tertiary = {r = 0.402, g = 0.558, b = 0.880, a = 1.000}, -- #668ee0ff
+		  quaternary = {r = 0.246, g = 0.246, b = 0.246, a = 1.000}, -- #3e3e3eff
+		}
+	},
+	{
+		type = "recipe",
+		name = "railgun-ammo",
+		enabled = false,
+		energy_required = 25,
+		ingredients =
+		{
+		  {type = "item", name = "iridium-plate", amount = 5},
+		  --{type = "item", name = "cobalt-cable", amount = 10},
+		  {type = "item", name = "aluminum-cable", amount = 10},
+		  {type = "item", name = "explosives", amount = 2},
+		},
+		results = {{type="item", name="railgun-ammo", amount=1}}
+	},
 	
 	{
 		type = "recipe",
@@ -4113,6 +4512,23 @@ data:extend({
       }
     },
 	{
+		type = "recipe",
+		name = "electrolyte",
+		category = "electrolysis",
+		subgroup = "fulgora-processes",
+		order = "b[holmium]-e[electrolyte]",
+		energy_required = 5,
+		ingredients =
+		{
+		  {type = "item", name = "stone", amount = 1},
+		  {type = "fluid", name = "heavy-oil", amount = 10},
+		  {type = "fluid", name = "holmium-solution", amount = 10},
+		},
+		results = {{type = "fluid", name = "electrolyte", amount = 10}},
+		allow_productivity = true,
+		enabled = false
+	},
+	{
       type = "recipe",
       name = "amalgamate-microplastic",
       category = "convecting",
@@ -4629,7 +5045,7 @@ data:extend({
 	},
 	{
 		type = "recipe",
-		name = "turbo-splitter",
+		name = "hyper-splitter",
 		category = "adv-metallurgy",
 		surface_conditions =
 		{
@@ -4649,7 +5065,7 @@ data:extend({
 		  {type = "item", name = "computing-core", amount = 5},
 		  {type = "fluid", name = "lubricant", amount = 100}
 		},
-		results = {{type="item", name="turbo-splitter", amount=1}}
+		results = {{type="item", name="hyper-splitter", amount=1}}
 	},
 	
 	-- Combinators
@@ -4730,5 +5146,863 @@ data:extend({
 		ingredients = {{type = "item", name = "plastic-bar", amount = 2}, {type = "item", name = "small-lamp", amount = 4}, {type = "item", name = "integrated-circuit", amount = 1}},
 		results = {{type="item", name="display-panel", amount=1}},
 		enabled = false
+	},
+	--Scrubbing
+	{
+		type = "recipe",
+		name = "nauvis-scrubbing",
+		icon = "__outer_moons__/graphics/icons/starmap-planet-nauvis.png",
+		energy_required = 10,
+		enabled = true,
+		--hidden_in_factoriopedia = true,
+		category = "scrubbing",
+		subgroup = "scrubber-recipes",
+		order = "a",
+		surface_conditions =
+		{
+		  {
+			property = "pressure",
+			min = 1000,
+			max = 1000
+		  }
+		},
+		results =
+		{
+		  {type = "fluid", name = "nitrogen", amount = 7.5},
+		  {type = "fluid", name = "oxygen", amount = 2},
+		  {type = "fluid", name = "carbon-dioxide", amount = 0.5},
+		},
+	},
+	{
+		type = "recipe",
+		name = "selene-scrubbing",
+		icon = "__outer_moons__/graphics/icons/starmap-planet-selene.png",
+		energy_required = 10,
+		enabled = true,
+		--hidden_in_factoriopedia = true,
+		category = "scrubbing",
+		subgroup = "scrubber-recipes",
+		order = "b",
+		surface_conditions =
+		{
+		  {
+			property = "pressure",
+			min = 150,
+			max = 150
+		  }
+		},
+		results =
+		{
+		  {type = "fluid", name = "helium", amount = 1},
+		  {type = "fluid", name = "steam", amount = 0.25},
+		  {type = "fluid", name = "carbon-dioxide", amount = 0.25},
+		},
+	},
+	{
+		type = "recipe",
+		name = "vulcanus-scrubbing",
+		icon = "__outer_moons__/graphics/icons/starmap-planet-vulcanus.png",
+		energy_required = 10,
+		enabled = true,
+		--hidden_in_factoriopedia = true,
+		category = "scrubbing",
+		subgroup = "scrubber-recipes",
+		order = "c",
+		surface_conditions =
+		{
+		  {
+			property = "pressure",
+			min = 2000,
+			max = 2000
+		  }
+		},
+		results =
+		{
+		  {type = "fluid", name = "sulfur-dioxide", amount = 12},
+		  {type = "fluid", name = "carbon-dioxide", amount = 5},
+		  {type = "fluid", name = "steam", amount = 2},
+		  {type = "fluid", name = "nitrogen", amount = 1},
+		},
+	},
+	{
+		type = "recipe",
+		name = "gleba-scrubbing",
+		icon = "__outer_moons__/graphics/icons/starmap-planet-gleba.png",
+		energy_required = 10,
+		enabled = true,
+		--hidden_in_factoriopedia = true,
+		category = "scrubbing",
+		subgroup = "scrubber-recipes",
+		order = "d",
+		surface_conditions =
+		{
+		  {
+			property = "pressure",
+			min = 2500,
+			max = 2500
+		  }
+		},
+		results =
+		{
+		  {type = "fluid", name = "oxygen", amount = 15},
+		  {type = "fluid", name = "ammonia", amount = 5},
+		  {type = "fluid", name = "nitrogen", amount = 3},
+		  {type = "fluid", name = "carbon-dioxide", amount = 2},
+		},
+	},
+	{
+		type = "recipe",
+		name = "fulgora-scrubbing",
+		icon = "__outer_moons__/graphics/icons/starmap-planet-fulgora.png",
+		energy_required = 10,
+		enabled = true,
+		--hidden_in_factoriopedia = true,
+		category = "scrubbing",
+		subgroup = "scrubber-recipes",
+		order = "e",
+		surface_conditions =
+		{
+		  {
+			property = "pressure",
+			min = 800,
+			max = 800
+		  }
+		},
+		results =
+		{
+		  {type = "fluid", name = "carbon-dioxide", amount = 4},
+		  {type = "fluid", name = "oxygen", amount = 2},
+		  {type = "fluid", name = "hydrogen", amount = 1},
+		  {type = "fluid", name = "helium", amount = 1},
+		},
+	},
+	{
+		type = "recipe",
+		name = "mefitis-scrubbing",
+		icon = "__outer_moons__/graphics/icons/starmap-planet-mefitis.png",
+		energy_required = 10,
+		enabled = true,
+		--hidden_in_factoriopedia = true,
+		category = "scrubbing",
+		subgroup = "scrubber-recipes",
+		order = "f",
+		surface_conditions =
+		{
+		  {
+			property = "pressure",
+			min = 500,
+			max = 500
+		  }
+		},
+		results =
+		{
+		  {type = "fluid", name = "sulfur-dioxide", amount = 3},
+		  {type = "fluid", name = "chlorine", amount = 1},
+		  {type = "fluid", name = "carbon-dioxide", amount = 1},
+		},
+	},
+	{
+		type = "recipe",
+		name = "aquilo-scrubbing",
+		icon = "__outer_moons__/graphics/icons/starmap-planet-aquilo.png",
+		energy_required = 10,
+		enabled = true,
+		--hidden_in_factoriopedia = true,
+		category = "scrubbing",
+		subgroup = "scrubber-recipes",
+		order = "g",
+		surface_conditions =
+		{
+		  {
+			property = "pressure",
+			min = 300,
+			max = 300
+		  }
+		},
+		results =
+		{
+		  {type = "fluid", name = "carbon-dioxide", amount = 4},
+		  {type = "fluid", name = "fluorine", amount = 3},
+		  {type = "fluid", name = "nitrogen", amount = 1},
+		},
+	},
+	{
+		type = "recipe",
+		name = "aiolos-scrubbing",
+		icon = "__outer_moons__/graphics/icons/starmap-planet-aiolos.png",
+		energy_required = 10,
+		enabled = true,
+		--hidden_in_factoriopedia = true,
+		category = "scrubbing",
+		subgroup = "scrubber-recipes",
+		order = "h",
+		surface_conditions =
+		{
+		  {
+			property = "pressure",
+			min = 5000,
+			max = 5000
+		  }
+		},
+		results =
+		{
+		  {type = "fluid", name = "nitrogen", amount = 40},
+		  {type = "fluid", name = "methane", amount = 5},
+		  {type = "fluid", name = "phosphine", amount = 3},
+		  {type = "fluid", name = "steam", amount = 2},
+		},
+	},
+	{
+		type = "recipe",
+		name = "feronia-scrubbing",
+		icon = "__outer_moons__/graphics/icons/starmap-planet-feronia.png",
+		energy_required = 10,
+		enabled = true,
+		--hidden_in_factoriopedia = true,
+		category = "scrubbing",
+		subgroup = "scrubber-recipes",
+		order = "i",
+		surface_conditions =
+		{
+		  {
+			property = "pressure",
+			min = 1200,
+			max = 1200
+		  }
+		},
+		results =
+		{
+		  {type = "fluid", name = "oxygen", amount = 6},
+		  {type = "fluid", name = "iodine", amount = 3},
+		  {type = "fluid", name = "nitrogen", amount = 2},
+		  {type = "fluid", name = "carbon-dioxide", amount = 1},
+		},
+	},
+	--Flaring
+	{
+		type = "recipe",
+		name = "crude-flaring",
+		icon = "__base__/graphics/icons/fluid/crude-oil.png",
+		energy_required = 1,
+		enabled = true,
+		hidden_in_factoriopedia = true,
+		category = "flaring",
+		subgroup = "fluid-recipes",
+		order = "a",
+		ingredients =
+		{
+		  {type = "fluid", name = "crude-oil", amount = 10}
+		},
+	},
+	{
+		type = "recipe",
+		name = "heavy-oil-flaring",
+		icon = "__base__/graphics/icons/fluid/heavy-oil.png",
+		energy_required = 1,
+		enabled = true,
+		hidden_in_factoriopedia = true,
+		category = "flaring",
+		subgroup = "fluid-recipes",
+		order = "a",
+		ingredients =
+		{
+		  {type = "fluid", name = "heavy-oil", amount = 10}
+		},
+	},
+	{
+		type = "recipe",
+		name = "light-oil-flaring",
+		icon = "__base__/graphics/icons/fluid/light-oil.png",
+		energy_required = 1,
+		enabled = true,
+		hidden_in_factoriopedia = true,
+		category = "flaring",
+		subgroup = "fluid-recipes",
+		order = "a",
+		ingredients =
+		{
+		  {type = "fluid", name = "light-oil", amount = 10}
+		},
+	},
+	{
+		type = "recipe",
+		name = "lubricant-flaring",
+		icon = "__base__/graphics/icons/fluid/lubricant.png",
+		energy_required = 1,
+		enabled = true,
+		hidden_in_factoriopedia = true,
+		category = "flaring",
+		subgroup = "fluid-recipes",
+		order = "a",
+		ingredients =
+		{
+		  {type = "fluid", name = "lubricant", amount = 10}
+		},
+	},
+	{
+		type = "recipe",
+		name = "aromatics-flaring",
+		icon = "__outer_moons__/graphics/icons/fluid/aromatics.png",
+		energy_required = 1,
+		enabled = true,
+		hidden_in_factoriopedia = true,
+		category = "flaring",
+		subgroup = "fluid-recipes",
+		order = "a",
+		ingredients =
+		{
+		  {type = "fluid", name = "aromatics", amount = 10}
+		},
+	},
+	{
+		type = "recipe",
+		name = "methanol-flaring",
+		icon = "__outer_moons__/graphics/icons/fluid/methanol.png",
+		energy_required = 1,
+		enabled = true,
+		hidden_in_factoriopedia = true,
+		category = "flaring",
+		subgroup = "fluid-recipes",
+		order = "a",
+		ingredients =
+		{
+		  {type = "fluid", name = "methanol", amount = 10}
+		},
+	},
+	{
+		type = "recipe",
+		name = "phenol-flaring",
+		icon = "__outer_moons__/graphics/icons/fluid/phenol.png",
+		energy_required = 1,
+		enabled = true,
+		hidden_in_factoriopedia = true,
+		category = "flaring",
+		subgroup = "fluid-recipes",
+		order = "a",
+		ingredients =
+		{
+		  {type = "fluid", name = "phenol", amount = 10}
+		},
+	},
+	{
+		type = "recipe",
+		name = "sulfuric-acid-flaring",
+		icon = "__base__/graphics/icons/fluid/sulfuric-acid.png",
+		energy_required = 1,
+		enabled = true,
+		hidden_in_factoriopedia = true,
+		category = "flaring",
+		subgroup = "fluid-recipes",
+		order = "a",
+		ingredients =
+		{
+		  {type = "fluid", name = "sulfuric-acid", amount = 10}
+		},
+	},
+	{
+		type = "recipe",
+		name = "nitric-acid-flaring",
+		icon = "__outer_moons__/graphics/icons/fluid/nitric-acid.png",
+		energy_required = 1,
+		enabled = true,
+		hidden_in_factoriopedia = true,
+		category = "flaring",
+		subgroup = "fluid-recipes",
+		order = "a",
+		ingredients =
+		{
+		  {type = "fluid", name = "nitric-acid", amount = 10}
+		},
+	},
+	{
+		type = "recipe",
+		name = "ethanol-flaring",
+		icon = "__outer_moons__/graphics/icons/fluid/ethanol.png",
+		energy_required = 1,
+		enabled = true,
+		hidden_in_factoriopedia = true,
+		category = "flaring",
+		subgroup = "fluid-recipes",
+		order = "a",
+		ingredients =
+		{
+		  {type = "fluid", name = "ethanol", amount = 10}
+		},
+	},
+	{
+		type = "recipe",
+		name = "phosphoric-acid-flaring",
+		icon = "__outer_moons__/graphics/icons/fluid/phosphoric-acid.png",
+		energy_required = 1,
+		enabled = true,
+		hidden_in_factoriopedia = true,
+		category = "flaring",
+		subgroup = "fluid-recipes",
+		order = "a",
+		ingredients =
+		{
+		  {type = "fluid", name = "phosphoric-acid", amount = 10}
+		},
+	},
+	--Venting
+	{
+		type = "recipe",
+		name = "steam-venting",
+		icon = "__base__/graphics/icons/fluid/steam.png",
+		energy_required = 1,
+		enabled = true,
+		hidden_in_factoriopedia = true,
+		category = "venting",
+		subgroup = "fluid-recipes",
+		order = "a",
+		ingredients =
+		{
+		  {type = "fluid", name = "steam", amount = 10}
+		},
+		crafting_machine_tint =
+		{
+		  primary = {r = 1, g = 1, b = 1, a = 1.000},
+		  secondary = {r = 0.078, g = 0.552, b = 0.092, a = 1.000},
+		}
+	},
+	{
+		type = "recipe",
+		name = "hydrogen-venting",
+		icon = "__outer_moons__/graphics/icons/fluid/hydrogen.png",
+		energy_required = 1,
+		enabled = true,
+		hidden_in_factoriopedia = true,
+		category = "venting",
+		subgroup = "fluid-recipes",
+		order = "a",
+		ingredients =
+		{
+		  {type = "fluid", name = "hydrogen", amount = 10}
+		},
+		crafting_machine_tint =
+		{
+		  primary = {r = 1, g = 1, b = 1, a = 1.000},
+		  secondary = {r = 0.078, g = 0.552, b = 0.092, a = 1.000},
+		}
+	},
+	{
+		type = "recipe",
+		name = "oxygen-venting",
+		icon = "__outer_moons__/graphics/icons/fluid/oxygen.png",
+		energy_required = 1,
+		enabled = true,
+		hidden_in_factoriopedia = true,
+		category = "venting",
+		subgroup = "fluid-recipes",
+		order = "a",
+		ingredients =
+		{
+		  {type = "fluid", name = "oxygen", amount = 10}
+		},
+		crafting_machine_tint =
+		{
+		  primary = {r = 1, g = 1, b = 1, a = 1.000},
+		  secondary = {r = 0.078, g = 0.552, b = 0.092, a = 1.000},
+		}
+	},
+	{
+		type = "recipe",
+		name = "petroleum-gas-venting",
+		icon = "__base__/graphics/icons/fluid/petroleum-gas.png",
+		energy_required = 1,
+		enabled = true,
+		hidden_in_factoriopedia = true,
+		category = "venting",
+		subgroup = "fluid-recipes",
+		order = "a",
+		ingredients =
+		{
+		  {type = "fluid", name = "petroleum-gas", amount = 10}
+		},
+		crafting_machine_tint =
+		{
+		  primary = {r = 0.966, g = 0.975, b = 0.857, a = 1.000},
+		  secondary = {r = 0.078, g = 0.552, b = 0.092, a = 1.000},
+		}
+	},
+	{
+		type = "recipe",
+		name = "olefins-venting",
+		icon = "__outer_moons__/graphics/icons/fluid/olefins.png",
+		energy_required = 1,
+		enabled = true,
+		hidden_in_factoriopedia = true,
+		category = "venting",
+		subgroup = "fluid-recipes",
+		order = "a",
+		ingredients =
+		{
+		  {type = "fluid", name = "olefins", amount = 10}
+		},
+		crafting_machine_tint =
+		{
+		  primary = {r = 1, g = 1, b = 1, a = 1.000},
+		  secondary = {r = 0.078, g = 0.552, b = 0.092, a = 1.000},
+		}
+	},
+	{
+		type = "recipe",
+		name = "natural-gas-venting",
+		icon = "__outer_moons__/graphics/icons/fluid/natural-gas.png",
+		energy_required = 1,
+		enabled = true,
+		hidden_in_factoriopedia = true,
+		category = "venting",
+		subgroup = "fluid-recipes",
+		order = "a",
+		ingredients =
+		{
+		  {type = "fluid", name = "natural-gas", amount = 10}
+		},
+		crafting_machine_tint =
+		{
+		  primary = {r = 1, g = 1, b = 1, a = 1.000},
+		  secondary = {r = 0.078, g = 0.552, b = 0.092, a = 1.000},
+		}
+	},
+	{
+		type = "recipe",
+		name = "methane-venting",
+		icon = "__outer_moons__/graphics/icons/fluid/methane.png",
+		energy_required = 1,
+		enabled = true,
+		hidden_in_factoriopedia = true,
+		category = "venting",
+		subgroup = "fluid-recipes",
+		order = "a",
+		ingredients =
+		{
+		  {type = "fluid", name = "methane", amount = 10}
+		},
+		crafting_machine_tint =
+		{
+		  primary = {r = 1, g = 1, b = 1, a = 1.000},
+		  secondary = {r = 0.078, g = 0.552, b = 0.092, a = 1.000},
+		}
+	},
+	{
+		type = "recipe",
+		name = "carbon-monoxide-venting",
+		icon = "__outer_moons__/graphics/icons/fluid/carbon-monoxide.png",
+		energy_required = 1,
+		enabled = true,
+		hidden_in_factoriopedia = true,
+		category = "venting",
+		subgroup = "fluid-recipes",
+		order = "a",
+		ingredients =
+		{
+		  {type = "fluid", name = "carbon-monoxide", amount = 10}
+		},
+		crafting_machine_tint =
+		{
+		  primary = {r = 1, g = 1, b = 1, a = 1.000},
+		  secondary = {r = 0.078, g = 0.552, b = 0.092, a = 1.000},
+		}
+	},
+	{
+		type = "recipe",
+		name = "carbon-dioxide-venting",
+		icon = "__outer_moons__/graphics/icons/fluid/carbon-dioxide.png",
+		energy_required = 1,
+		enabled = true,
+		hidden_in_factoriopedia = true,
+		category = "venting",
+		subgroup = "fluid-recipes",
+		order = "a",
+		ingredients =
+		{
+		  {type = "fluid", name = "carbon-dioxide", amount = 10}
+		},
+		crafting_machine_tint =
+		{
+		  primary = {r = 1, g = 1, b = 1, a = 1.000},
+		  secondary = {r = 0.078, g = 0.552, b = 0.092, a = 1.000},
+		}
+	},
+	{
+		type = "recipe",
+		name = "formaldehyde-venting",
+		icon = "__outer_moons__/graphics/icons/fluid/formaldehyde.png",
+		energy_required = 1,
+		enabled = true,
+		hidden_in_factoriopedia = true,
+		category = "venting",
+		subgroup = "fluid-recipes",
+		order = "a",
+		ingredients =
+		{
+		  {type = "fluid", name = "formaldehyde", amount = 10}
+		},
+		crafting_machine_tint =
+		{
+		  primary = {r = 1, g = 1, b = 1, a = 1.000},
+		  secondary = {r = 0.078, g = 0.552, b = 0.092, a = 1.000},
+		}
+	},
+	{
+		type = "recipe",
+		name = "sulfane-venting",
+		icon = "__outer_moons__/graphics/icons/fluid/sulfane.png",
+		energy_required = 1,
+		enabled = true,
+		hidden_in_factoriopedia = true,
+		category = "venting",
+		subgroup = "fluid-recipes",
+		order = "a",
+		ingredients =
+		{
+		  {type = "fluid", name = "sulfane", amount = 10}
+		},
+		crafting_machine_tint =
+		{
+		  primary = {r = 0.975, g = 0.911, b = 0.5, a = 1.000},
+		  secondary = {r = 0.078, g = 0.552, b = 0.092, a = 1.000},
+		}
+	},
+	{
+		type = "recipe",
+		name = "sulfur-dioxide-venting",
+		icon = "__outer_moons__/graphics/icons/fluid/sulfur-dioxide.png",
+		energy_required = 1,
+		enabled = true,
+		hidden_in_factoriopedia = true,
+		category = "venting",
+		subgroup = "fluid-recipes",
+		order = "a",
+		ingredients =
+		{
+		  {type = "fluid", name = "sulfur-dioxide", amount = 10}
+		},
+		crafting_machine_tint =
+		{
+		  primary = {r = 0.975, g = 0.911, b = 0.5, a = 1.000},
+		  secondary = {r = 0.078, g = 0.552, b = 0.092, a = 1.000},
+		}
+	},
+	{
+		type = "recipe",
+		name = "nitrogen-venting",
+		icon = "__outer_moons__/graphics/icons/fluid/nitrogen.png",
+		energy_required = 1,
+		enabled = true,
+		hidden_in_factoriopedia = true,
+		category = "venting",
+		subgroup = "fluid-recipes",
+		order = "a",
+		ingredients =
+		{
+		  {type = "fluid", name = "nitrogen", amount = 10}
+		},
+		crafting_machine_tint =
+		{
+		  primary = {r = 0.695, g = 0.901, b = 0.971, a = 1.000},
+		  secondary = {r = 0.078, g = 0.552, b = 0.092, a = 1.000},
+		}
+	},
+	{
+		type = "recipe",
+		name = "ammonia-venting",
+		icon = "__outer_moons__/graphics/icons/fluid/ammonia.png",
+		energy_required = 1,
+		enabled = true,
+		hidden_in_factoriopedia = true,
+		category = "venting",
+		subgroup = "fluid-recipes",
+		order = "a",
+		ingredients =
+		{
+		  {type = "fluid", name = "ammonia", amount = 10}
+		},
+		crafting_machine_tint =
+		{
+		  primary = {r = 0.695, g = 0.901, b = 0.971, a = 1.000},
+		  secondary = {r = 0.078, g = 0.552, b = 0.092, a = 1.000},
+		}
+	},
+	{
+		type = "recipe",
+		name = "chlorine-venting",
+		icon = "__outer_moons__/graphics/icons/fluid/chlorine.png",
+		energy_required = 1,
+		enabled = true,
+		hidden_in_factoriopedia = true,
+		category = "venting",
+		subgroup = "fluid-recipes",
+		order = "a",
+		ingredients =
+		{
+		  {type = "fluid", name = "chlorine", amount = 10}
+		},
+		crafting_machine_tint =
+		{
+		  primary = {r = 0.289, g = 0.632, b = 0.267, a = 1.000},
+		  secondary = {r = 0.078, g = 0.552, b = 0.092, a = 1.000},
+		}
+	},
+	{
+		type = "recipe",
+		name = "hydrochloric-acid-venting",
+		icon = "__outer_moons__/graphics/icons/fluid/hydrochloric-acid.png",
+		energy_required = 1,
+		enabled = true,
+		hidden_in_factoriopedia = true,
+		category = "venting",
+		subgroup = "fluid-recipes",
+		order = "a",
+		ingredients =
+		{
+		  {type = "fluid", name = "hydrochloric-acid", amount = 10}
+		},
+		crafting_machine_tint =
+		{
+		  primary = {r = 0.289, g = 0.632, b = 0.267, a = 1.000},
+		  secondary = {r = 0.078, g = 0.552, b = 0.092, a = 1.000},
+		}
+	},
+	{
+		type = "recipe",
+		name = "vinyl-chloride-venting",
+		icon = "__outer_moons__/graphics/icons/fluid/vinyl-chloride.png",
+		energy_required = 1,
+		enabled = true,
+		hidden_in_factoriopedia = true,
+		category = "venting",
+		subgroup = "fluid-recipes",
+		order = "a",
+		ingredients =
+		{
+		  {type = "fluid", name = "vinyl-chloride", amount = 10}
+		},
+		crafting_machine_tint =
+		{
+		  primary = {r = 0.688, g = 0.836, b = 0.679, a = 1.000},
+		  secondary = {r = 0.078, g = 0.552, b = 0.092, a = 1.000},
+		}
+	},
+	{
+		type = "recipe",
+		name = "helium-venting",
+		icon = "__outer_moons__/graphics/icons/fluid/helium.png",
+		energy_required = 1,
+		enabled = true,
+		hidden_in_factoriopedia = true,
+		category = "venting",
+		subgroup = "fluid-recipes",
+		order = "a",
+		ingredients =
+		{
+		  {type = "fluid", name = "helium", amount = 10}
+		},
+		crafting_machine_tint =
+		{
+		  primary = {r = 1, g = 1, b = 1, a = 1.000},
+		  secondary = {r = 0.078, g = 0.552, b = 0.092, a = 1.000},
+		}
+	},
+	{
+		type = "recipe",
+		name = "volcanic-gas-venting",
+		icon = "__outer_moons__/graphics/icons/fluid/volcanic-gas.png",
+		energy_required = 1,
+		enabled = true,
+		hidden_in_factoriopedia = true,
+		category = "venting",
+		subgroup = "fluid-recipes",
+		order = "a",
+		ingredients =
+		{
+		  {type = "fluid", name = "volcanic-gas", amount = 10}
+		},
+		crafting_machine_tint =
+		{
+		  primary = {r = 0.831, g = 0.671, b = 0.268, a = 1.000},
+		  secondary = {r = 0.078, g = 0.552, b = 0.092, a = 1.000},
+		}
+	},
+	{
+		type = "recipe",
+		name = "fluorine-venting",
+		icon = "__outer_moons__/graphics/icons/fluid/fluorine.png",
+		energy_required = 1,
+		enabled = true,
+		hidden_in_factoriopedia = true,
+		category = "venting",
+		subgroup = "fluid-recipes",
+		order = "a",
+		ingredients =
+		{
+		  {type = "fluid", name = "fluorine", amount = 10}
+		},
+		crafting_machine_tint =
+		{
+		  primary = {r = 0.471, g = 0.629, b = 0.585, a = 1.000},
+		  secondary = {r = 0.078, g = 0.552, b = 0.092, a = 1.000},
+		}
+	},
+	{
+		type = "recipe",
+		name = "phosphine-venting",
+		icon = "__outer_moons__/graphics/icons/fluid/phosphine.png",
+		energy_required = 1,
+		enabled = true,
+		hidden_in_factoriopedia = true,
+		category = "venting",
+		subgroup = "fluid-recipes",
+		order = "a",
+		ingredients =
+		{
+		  {type = "fluid", name = "phosphine", amount = 10}
+		},
+		crafting_machine_tint =
+		{
+		  primary = {r = 0.746, g = 0.497, b = 0.02, a = 1.000},
+		  secondary = {r = 0.078, g = 0.552, b = 0.092, a = 1.000},
+		}
+	},
+	{
+		type = "recipe",
+		name = "iodine-venting",
+		icon = "__outer_moons__/graphics/icons/fluid/iodine.png",
+		energy_required = 1,
+		enabled = true,
+		hidden_in_factoriopedia = true,
+		category = "venting",
+		subgroup = "fluid-recipes",
+		order = "a",
+		ingredients =
+		{
+		  {type = "fluid", name = "iodine", amount = 10}
+		},
+		crafting_machine_tint =
+		{
+		  primary = {r = 0.484, g = 0.241, b = 0.731, a = 1.000},
+		  secondary = {r = 0.078, g = 0.552, b = 0.092, a = 1.000},
+		}
+	},
+	{
+		type = "recipe",
+		name = "hydroiodic-acid-venting",
+		icon = "__outer_moons__/graphics/icons/fluid/hydroiodic-acid.png",
+		energy_required = 1,
+		enabled = true,
+		hidden_in_factoriopedia = true,
+		category = "venting",
+		subgroup = "fluid-recipes",
+		order = "a",
+		ingredients =
+		{
+		  {type = "fluid", name = "hydroiodic-acid", amount = 10}
+		},
+		crafting_machine_tint =
+		{
+		  primary = {r = 0.484, g = 0.241, b = 0.731, a = 1.000},
+		  secondary = {r = 0.078, g = 0.552, b = 0.092, a = 1.000},
+		}
 	},
 })

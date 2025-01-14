@@ -40,4 +40,8 @@ data:extend(
     type = "recipe-category",
     name = "venting"
   },
+  {
+    type = "recipe-category",
+    name = "scrubbing"
+  },
 })

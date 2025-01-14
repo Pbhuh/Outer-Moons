@@ -1,6 +1,73 @@
 data:extend(
 {
+  --- Logistics
+  {
+    type = "item-subgroup",
+    name = "belt",
+    group = "logistics",
+    order = "b"
+  },
+  {
+    type = "item-subgroup",
+    name = "underground",
+    group = "logistics",
+    order = "b-b"
+  },
+  {
+    type = "item-subgroup",
+    name = "splitter",
+    group = "logistics",
+    order = "b-c"
+  },
+  {
+    type = "item-subgroup",
+    name = "loader",
+    group = "logistics",
+    order = "b-d"
+  },
+  {
+    type = "item-subgroup",
+    name = "module",
+    group = "production",
+    order = "f-a"
+  },
+  {
+    type = "item-subgroup",
+    name = "speed-module",
+    group = "production",
+    order = "f-b"
+  },
+  {
+    type = "item-subgroup",
+    name = "efficiency-module",
+    group = "production",
+    order = "f-c"
+  },
+  {
+    type = "item-subgroup",
+    name = "productivity-module",
+    group = "production",
+    order = "f-d"
+  },
+  {
+    type = "item-subgroup",
+    name = "quality-module",
+    group = "production",
+    order = "f-e"
+  },
   --- Production
+  {
+    type = "item-subgroup",
+    name = "energy",
+    group = "production",
+    order = "b-a"
+  },
+  {
+    type = "item-subgroup",
+    name = "energy-production",
+    group = "production",
+    order = "b-b"
+  },
   {
     type = "item-subgroup",
     name = "smelting-machine",
@@ -165,6 +232,12 @@ data:extend(
     group = "fluids",
     order = "z-i"
   },
+  {
+    type = "item-subgroup",
+    name = "scrubber-recipes",
+    group = "fluids",
+    order = "z-z"
+  },
   
   
   {
@@ -326,6 +399,24 @@ data:extend(
     name = "feronia-processes",
     group = "intermediate-products",
     order = "v"
+  },
+  {
+    type = "item-subgroup",
+    name = "science-pack",
+    group = "intermediate-products",
+    order = "y-a"
+  },
+  {
+    type = "item-subgroup",
+    name = "science-pack-2",
+    group = "intermediate-products",
+    order = "y-b"
+  },
+  {
+    type = "item-subgroup",
+    name = "science-pack-3",
+    group = "intermediate-products",
+    order = "y-c"
   },
   --- Tiles
   {
