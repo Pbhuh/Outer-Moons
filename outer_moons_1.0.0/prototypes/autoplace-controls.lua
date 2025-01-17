@@ -192,26 +192,18 @@ data:extend(
   --- Mefitis
   {
     type = "autoplace-control",
-    name = "iridium_ore",
-    localised_name = {"", "[entity=iridium-ore] ", {"entity-name.iridium-ore"}},
+    name = "heavy_metal",
+    localised_name = {"", "[entity=heavy-metal] ", {"entity-name.heavy-metal"}},
     richness = true,
     order = "f-a",
     category = "resource"
-  }, 
-  {
-    type = "autoplace-control",
-    name = "osmium_ore",
-    localised_name = {"", "[entity=osmium-ore] ", {"entity-name.osmium-ore"}},
-    richness = true,
-    order = "f-b",
-    category = "resource"
-  },    
+  },  
   {
     type = "autoplace-control",
     name = "chlorine_geyser",
     localised_name = {"", "[entity=chlorine-geyser] ", {"entity-name.chlorine-geyser"}},
     richness = true,
-    order = "f-c",
+    order = "f-b",
     category = "resource"
   },
   --- Aquilo

@@ -23,11 +23,27 @@ data:extend(
   {
     type = "recipe-category",
     name = "electrolysis"
-  },   
+  }, 
+{
+    type = "recipe-category",
+    name = "adv-electrolysis"
+  },  
+  {
+    type = "recipe-category",
+    name = "assembly-or-robotics"
+  },
+  {
+    type = "recipe-category",
+    name = "fluid-assembly-or-robotics"
+  },
   {
     type = "recipe-category",
     name = "robotics"
   },  
+  {
+    type = "recipe-category",
+    name = "robotics-or-scrubbing"
+  }, 
   {
     type = "recipe-category",
     name = "advanced-smelting"
@@ -43,5 +59,17 @@ data:extend(
   {
     type = "recipe-category",
     name = "scrubbing"
+  },
+  {
+    type = "recipe-category",
+    name = "genetics"
+  }, 
+  {
+    type = "recipe-category",
+    name = "quantum"
+  },
+  {
+    type = "recipe-category",
+    name = "plutonium-processing"
   },
 })

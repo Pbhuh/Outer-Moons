@@ -259,7 +259,7 @@ data:extend
   {
     type = "noise-expression",
     name = "mefitis_metal_tile",
-    expression = "max(0, mefitis_iridium_ore_probability)"
+    expression = "max(0, mefitis_heavy_metal_probability)"
   },
   ---- LAVA
   {

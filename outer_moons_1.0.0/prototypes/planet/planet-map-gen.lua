@@ -428,10 +428,8 @@ planet_map_gen.mefitis = function()
       aux = "mefitis_aux",
       cliffiness = "cliffiness_basic",
       cliff_elevation = "cliff_elevation_from_elevation",
-      ["entity:iridium-ore:probability"] = "mefitis_iridium_ore_probability",
-      ["entity:iridium-ore:richness"] = "mefitis_iridium_ore_richness",
-	  ["entity:osmium-ore:probability"] = "mefitis_osmium_ore_probability",
-      ["entity:osmium-ore:richness"] = "mefitis_osmium_ore_richness",
+      ["entity:heavy-metal:probability"] = "mefitis_heavy_metal_probability",
+      ["entity:heavy-metal:richness"] = "mefitis_heavy_metal_richness",
       ["entity:chlorine-geyser:probability"] = "mefitis_chlorine_geyser_probability",
       ["entity:chlorine-geyser:richness"] = "mefitis_chlorine_geyser_richness",
     },
@@ -444,8 +442,7 @@ planet_map_gen.mefitis = function()
     autoplace_controls =
     {
       ["chlorine_geyser"] = {},
-      ["iridium_ore"] = {},
-      ["osmium_ore"] = {},
+      ["heavy_metal"] = {},
       ["mefitis_volcanism"] = {},
     },
     autoplace_settings =
@@ -498,8 +495,7 @@ planet_map_gen.mefitis = function()
         settings =
         {
           ["chlorine-geyser"] = {},
-          ["iridium-ore"] = {},
-          ["osmium-ore"] = {},
+          ["heavy-metal"] = {},
           ["huge-volcanic-rock"] = {},
           ["big-volcanic-rock"] = {},
           ["mefitis-crater-cliff"] = {},

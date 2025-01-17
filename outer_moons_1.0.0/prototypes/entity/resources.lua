@@ -83,7 +83,7 @@ data:extend({
 		{
 		  name = "lead-ore",
 		  order = "b",
-		  map_color = {r = 46/256, g = 34/256, b = 11/256, a = 1.000},
+		  map_color = {r = 109/256, g = 80/256, b = 80/256, a = 1.000},
 		  minable =
 		  {
 			  mining_particle = "stone-particle",
@@ -92,7 +92,7 @@ data:extend({
 		  },
 		  walking_sound = sounds.ore,
 		  driving_sound = stone_driving_sound,
-		  mining_visualisation_tint = {r = 46/256, g = 34/256, b = 11/256, a = 1.000},
+		  mining_visualisation_tint = {r = 109/256, g = 80/256, b = 80/256, a = 1.000},
 		  factoriopedia_simulation = simulations.factoriopedia_lead_ore,
 		},
 		{
@@ -133,7 +133,7 @@ data:extend({
 		{
 		  name = "aluminum-ore",
 		  order = "b",
-		  map_color = {r = 157/256, g = 79/256, b = 48/256, a = 1.000},
+		  map_color = {r = 152/256, g = 95/256, b = 91/256, a = 1.000},
 		  minable =
 		  {
 			  mining_particle = "stone-particle",
@@ -143,7 +143,7 @@ data:extend({
 			 -- required_fluid = "sulfuric-acid"
 		  },
 		  walking_sound = sounds.ore,
-		  mining_visualisation_tint = {r = 157/256, g = 79/256, b = 48/256, a = 1.000},
+		  mining_visualisation_tint = {r = 152/256, g = 95/256, b = 91/256, a = 1.000},
 		  factoriopedia_simulation = simulations.factoriopedia_aluminum_ore,
 		},
 		{
@@ -284,45 +284,22 @@ data:extend({
 	),
 	resource(
 		{
-		  name = "iridium-ore",
+		  name = "heavy-metal",
 		  order = "b",
-		  map_color = {r = 148/256, g = 145/256, b = 106/256, a = 1.000},
+		  map_color = {r = 219/256, g = 219/256, b = 255/256, a = 1.000},
 		  minable =
 		  {
 			  mining_particle = "stone-particle",
-			  mining_time = 2,
-			  result = "iridium-ore",
+			  mining_time = 5,
+			  result = "heavy-metal",
 			 -- fluid_amount = 10,
 			 -- required_fluid = "nitric-acid"
 		  },
 		  walking_sound = sounds.ore,
 		  driving_sound = stone_driving_sound,
 		  category = "hard-solid",
-		  mining_visualisation_tint = {r = 148/256, g = 145/256, b = 106/256, a = 1.000},
-		  factoriopedia_simulation = simulations.factoriopedia_iridium_ore,
-		},
-		{
-		  probability_expression = 0
-		}
-	), 
-	resource(
-		{
-		  name = "osmium-ore",
-		  order = "b",
-		  map_color = {r = 96/256, g = 96/256, b = 119/256, a = 1.000},
-		  minable =
-		  {
-			  mining_particle = "stone-particle",
-			  mining_time = 2,
-			  result = "osmium-ore",
-			 -- fluid_amount = 10,
-			 -- required_fluid = "nitric-acid"
-		  },
-		  walking_sound = sounds.ore,
-		  driving_sound = stone_driving_sound,
-		  category = "hard-solid",
-		  mining_visualisation_tint = {r = 96/256, g = 96/256, b = 119/256, a = 1.000},
-		  factoriopedia_simulation = simulations.factoriopedia_osmium_ore,
+		  mining_visualisation_tint = {r = 219/256, g = 219/256, b = 255/256, a = 1.000},
+		  factoriopedia_simulation = simulations.factoriopedia_heavy_metal,
 		},
 		{
 		  probability_expression = 0

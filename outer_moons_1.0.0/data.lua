@@ -20,6 +20,11 @@ require("__outer_moons__.prototypes.tile.tiles-gleba")
 require("__outer_moons__.prototypes.tile.tiles-mefitis")
 require("__outer_moons__.prototypes.tile.tiles-aiolos")
 
+require("__outer_moons__.prototypes.entity.asteroid")
+require("__outer_moons__.prototypes.entity.explosions")
+require("__outer_moons__.prototypes.entity.smoke")
+require("__outer_moons__.prototypes.particles")
+
 planets = {
 "nauvis",
 }

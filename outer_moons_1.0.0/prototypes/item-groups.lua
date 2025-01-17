@@ -27,6 +27,18 @@ data:extend(
   },
   {
     type = "item-subgroup",
+    name = "terrain",
+    group = "logistics",
+    order = "i-a"
+  },
+  {
+    type = "item-subgroup",
+    name = "terrain-gleba",
+    group = "logistics",
+    order = "i-b"
+  },
+  {
+    type = "item-subgroup",
     name = "module",
     group = "production",
     order = "f-a"
@@ -338,7 +350,25 @@ data:extend(
     type = "item-subgroup",
     name = "vulcanus-processes",
     group = "intermediate-products",
-    order = "m"
+    order = "m-a"
+  },
+  {
+    type = "item-subgroup",
+    name = "vulcanus-casting",
+    group = "intermediate-products",
+    order = "m-b"
+  },
+  {
+    type = "item-subgroup",
+    name = "vulcanus-alloys",
+    group = "intermediate-products",
+    order = "m-c"
+  },
+  {
+    type = "item-subgroup",
+    name = "vulcanus-products",
+    group = "intermediate-products",
+    order = "m-d"
   },
   {
     type = "item-subgroup",

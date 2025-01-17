@@ -575,16 +575,7 @@ data:extend{
   },
   {
     type = "noise-expression",
-    name = "mefitis_starting_iridium", -- don't use the slider for radius becuase it can make iridium in the safe area
-    expression = "starting_spot_at_angle{ angle = mefitis_basalts_angle + 90 * mefitis_starting_direction,\z
-                                          distance = 450 * mefitis_starting_area_radius,\z
-                                          radius = 30 / 1.5,\z
-                                          x_distortion = 0.5 * mefitis_resource_wobble_x,\z
-                                          y_distortion = 0.5 * mefitis_resource_wobble_y}"
-  },
-  {
-    type = "noise-expression",
-    name = "mefitis_starting_osmium", -- don't use the slider for radius becuase it can make osmium in the safe area
+    name = "mefitis_starting_heavy_metal", -- don't use the slider for radius becuase it can make heavy metal in the safe area
     expression = "starting_spot_at_angle{ angle = mefitis_basalts_angle - 90 * mefitis_starting_direction,\z
                                           distance = 450 * mefitis_starting_area_radius,\z
                                           radius = 30 / 1.5,\z
@@ -717,62 +708,34 @@ data:extend{
                                                                favorability = favor_biome > 0.9})"
   },
 
-  {
-    type = "noise-expression",
-    name = "mefitis_iridium_ore_size",
-    expression = "slider_rescale(control:iridium_ore:size, 2)"
-  },
-  {
-    type = "noise-expression",
-    name = "mefitis_iridium_ore_region",
-    -- -1 to 1: needs a positive region for resources & decoratives plus a subzero baseline and skirt for surrounding decoratives.
-    expression = "max(mefitis_starting_iridium,\z
-                      min(1 - mefitis_starting_circle,\z
-                          mefitis_place_metal_spots(987, 20, 2,\z
-                                                     mefitis_iridium_ore_size * min(1.2, mefitis_ore_dist) * 25,\z
-                                                     control:iridium_ore:frequency,\z
-                                                     mefitis_mountains_resource_favorability)))"
-  },
-  {
-    type = "noise-expression",
-    name = "mefitis_iridium_ore_probability",
-    expression = "(control:iridium_ore:size > 0) * (1000 * ((1 + mefitis_iridium_ore_region) * random_penalty_between(0.9, 1, 1) - 1))"
-  },
-  {
-    type = "noise-expression",
-    name = "mefitis_iridium_ore_richness",
-    expression = "mefitis_iridium_ore_region * random_penalty_between(0.9, 1, 1)\z
-                  * 1000 * mefitis_starting_area_multiplier\z
-                  * control:iridium_ore:richness / mefitis_iridium_ore_size"
-  },
   
   {
     type = "noise-expression",
-    name = "mefitis_osmium_ore_size",
-    expression = "slider_rescale(control:osmium_ore:size, 2)"
+    name = "mefitis_heavy_metal_size",
+    expression = "slider_rescale(control:heavy_metal:size, 2)"
   },
   {
     type = "noise-expression",
-    name = "mefitis_osmium_ore_region",
+    name = "mefitis_heavy_metal_region",
     -- -1 to 1: needs a positive region for resources & decoratives plus a subzero baseline and skirt for surrounding decoratives.
-    expression = "max(mefitis_starting_osmium,\z
+    expression = "max(mefitis_starting_heavy_metal,\z
                       min(1 - mefitis_starting_circle,\z
                           mefitis_place_metal_spots(789, 15, 2,\z
-                                                     mefitis_osmium_ore_size * min(1.2, mefitis_ore_dist) * 25,\z
-                                                     control:osmium_ore:frequency,\z
+                                                     mefitis_heavy_metal_size * min(1.2, mefitis_ore_dist) * 25,\z
+                                                     control:heavy_metal:frequency,\z
                                                      mefitis_mountains_resource_favorability)))"
   },
   {
     type = "noise-expression",
-    name = "mefitis_osmium_ore_probability",
-    expression = "(control:osmium_ore:size > 0) * (1000 * ((1 + mefitis_osmium_ore_region) * random_penalty_between(0.9, 1, 1) - 1))"
+    name = "mefitis_heavy_metal_probability",
+    expression = "(control:heavy_metal:size > 0) * (1000 * ((1 + mefitis_heavy_metal_region) * random_penalty_between(0.9, 1, 1) - 1))"
   },
   {
     type = "noise-expression",
-    name = "mefitis_osmium_ore_richness",
-    expression = "mefitis_osmium_ore_region * random_penalty_between(0.9, 1, 1)\z
+    name = "mefitis_heavy_metal_richness",
+    expression = "mefitis_heavy_metal_region * random_penalty_between(0.9, 1, 1)\z
                   * 500 * mefitis_starting_area_multiplier\z
-                  * control:osmium_ore:richness / mefitis_osmium_ore_size"
+                  * control:heavy_metal:richness / mefitis_heavy_metal_size"
   },
 
   {
@@ -845,4 +808,3 @@ data:extend{
     -- 0.1 / slider_rescale(var('control:rocks:frequency'), 2),\z
   }
 }
-

@@ -141,40 +141,19 @@ data:extend({
     },
 	{
         type = "item",
-        name = "iridium-ore",
+        name = "heavy-metal",
         group = "intermediate-products",
-        icon = "__outer_moons__/graphics/icons/iridium-ore.png",
+        icon = "__outer_moons__/graphics/icons/heavy-metal.png",
 		pictures =
 		{
-		  { size = 64, filename = "__outer_moons__/graphics/icons/iridium-ore.png", scale = 0.5, mipmap_count = 4 },
-		  { size = 64, filename = "__outer_moons__/graphics/icons/iridium-ore-2.png", scale = 0.5, mipmap_count = 4 },
-		  { size = 64, filename = "__outer_moons__/graphics/icons/iridium-ore-3.png", scale = 0.5, mipmap_count = 4 },
-		  { size = 64, filename = "__outer_moons__/graphics/icons/iridium-ore-4.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/heavy-metal.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/heavy-metal-2.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/heavy-metal-3.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/heavy-metal-4.png", scale = 0.5, mipmap_count = 4 },
 		},
         subgroup = "mefitis-processes",
 		default_import_location = "mefitis",
-        order = "a[iridium-ore]",
-        inventory_move_sound = item_sounds.resource_inventory_move,
-        pick_sound = item_sounds.resource_inventory_pickup,
-        drop_sound = item_sounds.resource_inventory_move,
-        stack_size = 50,
-        weight = 2 * kg
-    },
-	{
-        type = "item",
-        name = "osmium-ore",
-        group = "intermediate-products",
-        icon = "__outer_moons__/graphics/icons/osmium-ore.png",
-		pictures =
-		{
-		  { size = 64, filename = "__outer_moons__/graphics/icons/osmium-ore.png", scale = 0.5, mipmap_count = 4 },
-		  { size = 64, filename = "__outer_moons__/graphics/icons/osmium-ore-2.png", scale = 0.5, mipmap_count = 4 },
-		  { size = 64, filename = "__outer_moons__/graphics/icons/osmium-ore-3.png", scale = 0.5, mipmap_count = 4 },
-		  { size = 64, filename = "__outer_moons__/graphics/icons/osmium-ore-4.png", scale = 0.5, mipmap_count = 4 },
-		},
-        subgroup = "mefitis-processes",
-		default_import_location = "mefitis",
-        order = "b[osmium-ore]",
+        order = "a[heavy-metal]",
         inventory_move_sound = item_sounds.resource_inventory_move,
         pick_sound = item_sounds.resource_inventory_pickup,
         drop_sound = item_sounds.resource_inventory_move,
@@ -185,13 +164,13 @@ data:extend({
         type = "item",
         name = "beryllium-ore",
         group = "intermediate-products",
-        icon = "__outer_moons__/graphics/icons/nickel-ore.png",
+        icon = "__outer_moons__/graphics/icons/beryllium-ore.png",
 		pictures =
 		{
-		  { size = 64, filename = "__outer_moons__/graphics/icons/nickel-ore.png", scale = 0.5, mipmap_count = 4 },
-		  { size = 64, filename = "__outer_moons__/graphics/icons/nickel-ore-2.png", scale = 0.5, mipmap_count = 4 },
-		  { size = 64, filename = "__outer_moons__/graphics/icons/nickel-ore-3.png", scale = 0.5, mipmap_count = 4 },
-		  { size = 64, filename = "__outer_moons__/graphics/icons/nickel-ore-4.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/beryllium-ore.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/beryllium-ore-2.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/beryllium-ore-3.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/beryllium-ore-4.png", scale = 0.5, mipmap_count = 4 },
 		},
         subgroup = "aiolos-processes",
 		default_import_location = "aiolos",
@@ -206,13 +185,13 @@ data:extend({
         type = "item",
         name = "cobalt-ore",
         group = "intermediate-products",
-        icon = "__outer_moons__/graphics/icons/nickel-ore.png",
+        icon = "__outer_moons__/graphics/icons/cobalt-ore.png",
 		pictures =
 		{
-		  { size = 64, filename = "__outer_moons__/graphics/icons/nickel-ore.png", scale = 0.5, mipmap_count = 4 },
-		  { size = 64, filename = "__outer_moons__/graphics/icons/nickel-ore-2.png", scale = 0.5, mipmap_count = 4 },
-		  { size = 64, filename = "__outer_moons__/graphics/icons/nickel-ore-3.png", scale = 0.5, mipmap_count = 4 },
-		  { size = 64, filename = "__outer_moons__/graphics/icons/nickel-ore-4.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/cobalt-ore.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/cobalt-ore-2.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/cobalt-ore-3.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/cobalt-ore-4.png", scale = 0.5, mipmap_count = 4 },
 		},
         subgroup = "feronia-processes",
 		default_import_location = "feronia",
@@ -315,6 +294,32 @@ data:extend({
 		stack_size = 100,
 		weight = 1 * kg,
 	},
+	{
+		type = "item",
+		name = "cobalt-plate",		
+        group = "intermediate-products",
+		icon = "__outer_moons__/graphics/icons/cobalt-plate.png",
+		subgroup = "feronia-processes",
+		order = "b[cobalt-plate]",
+		inventory_move_sound = item_sounds.metal_small_inventory_move,
+		pick_sound = item_sounds.metal_small_inventory_pickup,
+		drop_sound = item_sounds.metal_small_inventory_move,
+		stack_size = 100,
+		weight = 1 * kg,
+	},
+	{
+		type = "item",
+		name = "tungsten-plate",
+		icon = "__outer_moons__/graphics/icons/tungsten-plate.png",
+		subgroup = "vulcanus-processes",
+		order = "c[tungsten]-c[tungsten-plate]",
+		inventory_move_sound = item_sounds.metal_small_inventory_move,
+		pick_sound = item_sounds.metal_small_inventory_pickup,
+		drop_sound = item_sounds.metal_small_inventory_move,
+		stack_size = 100,
+		default_import_location = "vulcanus",
+		weight = 1 * kg
+	},
 	-- Alloy plates
 	{
 		type = "item",
@@ -361,6 +366,19 @@ data:extend({
         group = "intermediate-products",
 		icon = "__outer_moons__/graphics/icons/osmiridium-plate.png",
 		subgroup = "mefitis-processes",
+		order = "c[osmium-plate]",
+		inventory_move_sound = item_sounds.metal_small_inventory_move,
+		pick_sound = item_sounds.metal_small_inventory_pickup,
+		drop_sound = item_sounds.metal_small_inventory_move,
+		stack_size = 100,
+		weight = 2 * kg,
+	},
+	{
+		type = "item",
+		name = "beryllium-plate",		
+        group = "intermediate-products",
+		icon = "__outer_moons__/graphics/icons/beryllium-plate.png",
+		subgroup = "aiolos-processes",
 		order = "c[osmium-plate]",
 		inventory_move_sound = item_sounds.metal_small_inventory_move,
 		pick_sound = item_sounds.metal_small_inventory_pickup,
@@ -1475,7 +1493,7 @@ data:extend({
 		type = "item",
 		name = "artificial-yumako-soil",
 		icon = "__outer_moons__/graphics/icons/artificial-virid-soil.png",
-		subgroup = "terrain",
+		subgroup = "terrain-gleba",
 		order = "c[landfill]-c[artificial]",
 		inventory_move_sound = item_sounds.landfill_inventory_move,
 		pick_sound = item_sounds.landfill_inventory_pickup,
@@ -1504,7 +1522,7 @@ data:extend({
 		type = "item",
 		name = "overgrowth-yumako-soil",
 		icon = "__outer_moons__/graphics/icons/overgrowth-virid-soil.png",
-		subgroup = "terrain",
+		subgroup = "terrain-gleba",
 		order = "c[landfill]-c[overgrowth]",
 		inventory_move_sound = item_sounds.landfill_inventory_move,
 		pick_sound = item_sounds.landfill_inventory_pickup,
@@ -1569,7 +1587,7 @@ data:extend({
 		type = "item",
 		name = "artificial-jellynut-soil",
 		icon = "__outer_moons__/graphics/icons/artificial-sanguine-soil.png",
-		subgroup = "terrain",
+		subgroup = "terrain-gleba",
 		order = "c[landfill]-d[artificial]",
 		inventory_move_sound = item_sounds.landfill_inventory_move,
 		pick_sound = item_sounds.landfill_inventory_pickup,
@@ -1602,7 +1620,7 @@ data:extend({
 		type = "item",
 		name = "overgrowth-jellynut-soil",
 		icon = "__outer_moons__/graphics/icons/overgrowth-sanguine-soil.png",
-		subgroup = "terrain",
+		subgroup = "terrain-gleba",
 		order = "c[landfill]-d[overgrowth]",
 		inventory_move_sound = item_sounds.landfill_inventory_move,
 		pick_sound = item_sounds.landfill_inventory_pickup,
@@ -1667,7 +1685,7 @@ data:extend({
 		type = "item",
 		name = "artificial-ochre-soil",
 		icon = "__outer_moons__/graphics/icons/artificial-ochre-soil.png",
-		subgroup = "terrain",
+		subgroup = "terrain-gleba",
 		order = "c[landfill]-e[artificial]",
 		inventory_move_sound = item_sounds.landfill_inventory_move,
 		pick_sound = item_sounds.landfill_inventory_pickup,
@@ -1691,7 +1709,7 @@ data:extend({
 		type = "item",
 		name = "overgrowth-ochre-soil",
 		icon = "__outer_moons__/graphics/icons/overgrowth-ochre-soil.png",
-		subgroup = "terrain",
+		subgroup = "terrain-gleba",
 		order = "c[landfill]-e[overgrowth]",
 		inventory_move_sound = item_sounds.landfill_inventory_move,
 		pick_sound = item_sounds.landfill_inventory_pickup,
@@ -1756,7 +1774,7 @@ data:extend({
 		type = "item",
 		name = "artificial-cerulean-soil",
 		icon = "__outer_moons__/graphics/icons/artificial-cerulean-soil.png",
-		subgroup = "terrain",
+		subgroup = "terrain-gleba",
 		order = "c[landfill]-f[artificial]",
 		inventory_move_sound = item_sounds.landfill_inventory_move,
 		pick_sound = item_sounds.landfill_inventory_pickup,
@@ -1782,7 +1800,7 @@ data:extend({
 		type = "item",
 		name = "overgrowth-cerulean-soil",
 		icon = "__outer_moons__/graphics/icons/overgrowth-cerulean-soil.png",
-		subgroup = "terrain",
+		subgroup = "terrain-gleba",
 		order = "c[landfill]-f[overgrowth]",
 		inventory_move_sound = item_sounds.landfill_inventory_move,
 		pick_sound = item_sounds.landfill_inventory_pickup,
@@ -1847,7 +1865,7 @@ data:extend({
 		type = "item",
 		name = "artificial-cuticle-soil",
 		icon = "__outer_moons__/graphics/icons/artificial-cuticle-soil.png",
-		subgroup = "terrain",
+		subgroup = "terrain-gleba",
 		order = "c[landfill]-b[artificial]",
 		inventory_move_sound = item_sounds.landfill_inventory_move,
 		pick_sound = item_sounds.landfill_inventory_pickup,
@@ -1871,7 +1889,7 @@ data:extend({
 		type = "item",
 		name = "overgrowth-cuticle-soil",
 		icon = "__outer_moons__/graphics/icons/overgrowth-cuticle-soil.png",
-		subgroup = "terrain",
+		subgroup = "terrain-gleba",
 		order = "c[landfill]-b[overgrowth]",
 		inventory_move_sound = item_sounds.landfill_inventory_move,
 		pick_sound = item_sounds.landfill_inventory_pickup,
@@ -1948,6 +1966,35 @@ data:extend({
         stack_size = 200,
         weight = 0.5 * kg
     },
+	-- Aiolos
+	{
+        type = "item",
+        name = "filter",
+        group = "intermediate-products",
+        icon = "__outer_moons__/graphics/icons/filter.png",
+        subgroup = "aiolos-processes",
+		default_import_location = "aiolos",
+        order = "a[filters]",
+        inventory_move_sound = item_sounds.resource_inventory_move,
+        pick_sound = item_sounds.resource_inventory_pickup,
+        drop_sound = item_sounds.resource_inventory_move,
+        stack_size = 100,
+        weight = 1 * kg
+    },
+	{
+        type = "item",
+        name = "used-filter",
+        group = "intermediate-products",
+        icon = "__outer_moons__/graphics/icons/used-filter.png",
+        subgroup = "aiolos-processes",
+		default_import_location = "aiolos",
+        order = "a[filters]",
+        inventory_move_sound = item_sounds.resource_inventory_move,
+        pick_sound = item_sounds.resource_inventory_pickup,
+        drop_sound = item_sounds.resource_inventory_move,
+        stack_size = 100,
+        weight = 1 * kg
+    },
 	-- Feronia
 	{
 		type = "capsule",
@@ -1998,7 +2045,160 @@ data:extend({
 		fuel_category = "chemical",
 		fuel_value = "4MJ"
 	},
+	-- Space
+	{
+		type = "item",
+		name = "silicaceous-asteroid-chunk",
+		icon = "__outer_moons__/graphics/icons/silicaceous-asteroid-chunk.png",
+		subgroup = "space-material",
+		order = "b[carbonic]b-e[chunk]",
+		inventory_move_sound = space_age_item_sounds.rock_inventory_move,
+		pick_sound = space_age_item_sounds.rock_inventory_pickup,
+		drop_sound = space_age_item_sounds.rock_inventory_move,
+		stack_size = 1,
+		weight = 100 * kg
+	},
+	{
+		type = "item",
+		name = "plasma-thruster",
+		icon = "__outer_moons__/graphics/icons/plasma-thruster.png",
+		subgroup = "space-platform",
+		order = "f[plasma-thruster]b",
+		inventory_move_sound = space_age_item_sounds.rocket_inventory_move,
+		pick_sound = space_age_item_sounds.rocket_inventory_pickup,
+		drop_sound = space_age_item_sounds.rocket_inventory_move,
+		place_result = "plasma-thruster",
+		stack_size = 5,
+		weight = 500*kg
+	},
+	-- Nuclear
+	{
+		type = "item",
+		name = "plutonium-239",
+		icon = "__outer_moons__/graphics/icons/plutonium-239.png",
+		pictures =
+		{
+		  layers =
+		  {
+			{
+			  size = 64,
+			  filename = "__outer_moons__/graphics/icons/plutonium-239.png",
+			  scale = 0.5,
+			  mipmap_count = 4
+			},
+			{
+			  draw_as_light = true,
+			  blend_mode = "additive",
+			  size = 64,
+			  filename = "__outer_moons__/graphics/icons/plutonium-239.png",
+			  scale = 0.5,
+			  tint = {0.3, 0.3, 0.3, 0.3}
+			}
+		  }
+		},
+		subgroup = "uranium-processing",
+		color_hint = { text = "+" },
+		order = "a[uranium-processing]-d[plutonium-239]",
+		inventory_move_sound = item_sounds.nuclear_inventory_move,
+		pick_sound = item_sounds.nuclear_inventory_pickup,
+		drop_sound = item_sounds.nuclear_inventory_move,
+		stack_size = 100,
+		weight = 50*kg
+	},
+	{
+		type = "item",
+		name = "uranium-fuel-cell",
+		icon = "__base__/graphics/icons/uranium-fuel-cell.png",
+		pictures =
+		{
+		  layers =
+		  {
+			{
+			  size = 64,
+			  filename = "__base__/graphics/icons/uranium-fuel-cell.png",
+			  scale = 0.5,
+			  mipmap_count = 4
+			},
+			{
+			  draw_as_light = true,
+			  size = 64,
+			  filename = "__base__/graphics/icons/uranium-fuel-cell-light.png",
+			  scale = 0.5
+			}
+		  }
+		},
+		subgroup = "uranium-processing",
+		order = "b[uranium-products]-a[uranium-fuel-cell]",
+		fuel_glow_color = {0, 1, 0, 1},
+		inventory_move_sound = item_sounds.nuclear_inventory_move,
+		pick_sound = item_sounds.nuclear_inventory_pickup,
+		drop_sound = item_sounds.nuclear_inventory_move,
+		fuel_category = "nuclear",
+		burnt_result = "depleted-uranium-fuel-cell",
+		fuel_value = "8GJ",
+		stack_size = 50,
+		weight = 100 * kg
+	},
+	{
+		type = "item",
+		name = "MOX-fuel-cell",
+		icon = "__outer_moons__/graphics/icons/MOX-fuel-cell.png",
+		pictures =
+		{
+		  layers =
+		  {
+			{
+			  size = 64,
+			  filename = "__outer_moons__/graphics/icons/MOX-fuel-cell.png",
+			  scale = 0.5,
+			  mipmap_count = 4
+			},
+			{
+			  draw_as_light = true,
+			  size = 64,
+			  filename = "__base__/graphics/icons/uranium-fuel-cell-light.png",
+			  scale = 0.5
+			}
+		  }
+		},
+		subgroup = "uranium-processing",
+		order = "c[plutonium-products]-c[MOX-fuel-cell]",
+		fuel_glow_color = {1, 0.5, 0, 1},
+		inventory_move_sound = item_sounds.nuclear_inventory_move,
+		pick_sound = item_sounds.nuclear_inventory_pickup,
+		drop_sound = item_sounds.nuclear_inventory_move,
+		fuel_category = "nuclear",
+		burnt_result = "depleted-MOX-fuel-cell",
+		fuel_value = "10GJ",
+		stack_size = 50,
+		weight = 100*kg
+	},
+	{
+		type = "item",
+		name = "depleted-MOX-fuel-cell",
+		icon = "__outer_moons__/graphics/icons/depleted-MOX-fuel-cell.png",
+		subgroup = "uranium-processing",
+		order = "c[plutonium-products]-d[depleted-MOX-fuel-cell]",
+		inventory_move_sound = item_sounds.nuclear_inventory_move,
+		pick_sound = item_sounds.nuclear_inventory_pickup,
+		drop_sound = item_sounds.nuclear_inventory_move,
+		stack_size = 50,
+		weight = 100*kg
+	},
 	-- structures
+	{
+		type = "item",
+		name = "adv-beacon",
+		icon = "__outer_moons__/graphics/icons/adv-beacon.png",
+		subgroup = "module",
+		order = "b[adv-beacon]",
+		inventory_move_sound = item_sounds.mechanical_inventory_move,
+		pick_sound = item_sounds.mechanical_inventory_pickup,
+		drop_sound = item_sounds.mechanical_inventory_move,
+		place_result = "adv-beacon",
+		stack_size = 20,
+		weight = 5 * kg,
+	},
 	{
 		type = "item",
 		name = "small-storage-tank",
@@ -2107,8 +2307,35 @@ data:extend({
 	},
 	{
 		type = "item",
+		name = "electrorefinery",
+		icon = "__outer_moons__/graphics/icons/electrorefinery.png",
+		subgroup = "fluid-machine",
+		order = "e[electrorefinery]",
+		inventory_move_sound = item_sounds.mechanical_inventory_move,
+		pick_sound = item_sounds.mechanical_inventory_pickup,
+		drop_sound = item_sounds.mechanical_inventory_move,
+		place_result = "electrorefinery",
+		stack_size = 10,
+		weight = 200 * kg,	
+	},
+	{
+		type = "item",
+		name = "radiothermal-generator",
+		icon = "__outer_moons__/graphics/icons/RTG.png",
+		subgroup = "energy",
+		order = "f[nuclear-energy]-b[radiothermal-generator]",
+		inventory_move_sound = item_sounds.reactor_inventory_move,
+		pick_sound = item_sounds.reactor_inventory_pickup,
+		drop_sound = item_sounds.reactor_inventory_move,
+		place_result = "radiothermal-generator",
+		weight = 1 * tons,
+		stack_size = 10
+	},
+	{
+		type = "item",
 		name = "convector",
 		icon = "__outer_moons__/graphics/icons/convector.png",
+		icon_draw_specification = {scale = 2, shift = {0, -0.3}},
 		subgroup = "smelting-machine",
 		order = "e[convector]",
 		inventory_move_sound = item_sounds.mechanical_inventory_move,
@@ -2154,6 +2381,19 @@ data:extend({
 		pick_sound = item_sounds.mechanical_inventory_pickup,
 		drop_sound = item_sounds.mechanical_inventory_move,
 		place_result = "megafoundry",
+		stack_size = 10,
+		weight = 200 * kg,	
+	},
+	{
+		type = "item",
+		name = "gene-chamber",
+		icon = "__outer_moons__/graphics/icons/gene-chamber.png",
+		subgroup = "agriculture",
+		order = "g[gene-chamber]",
+		inventory_move_sound = item_sounds.mechanical_inventory_move,
+		pick_sound = item_sounds.mechanical_inventory_pickup,
+		drop_sound = item_sounds.mechanical_inventory_move,
+		place_result = "gene-chamber",
 		stack_size = 10,
 		weight = 200 * kg,	
 	},
@@ -2525,8 +2765,51 @@ data:extend({
     pick_sound = item_sounds.mechanical_inventory_pickup,
     drop_sound = item_sounds.mechanical_inventory_move,
     place_result = "vacuum-loader",
-    stack_size = 50
+    stack_size = 50,
+    weight = 40 * kg
   },
-  --
-  
+  -- Inserters
+  {
+    type = "item",
+    name = "fast-long-handed-inserter",
+    icon = "__outer_moons__/graphics/icons/fast-long-handed-inserter.png",
+    subgroup = "inserter",
+    color_hint = { text = "L" },
+    order = "d[fast-long-handed-inserter]",
+    inventory_move_sound = item_sounds.inserter_inventory_move,
+    pick_sound = item_sounds.inserter_inventory_pickup,
+    drop_sound = item_sounds.inserter_inventory_move,
+    place_result = "fast-long-handed-inserter",
+    stack_size = 50,
+    weight = 20 * kg
+  },
+  {
+    type = "item",
+    name = "bulk-long-handed-inserter",
+    icon = "__outer_moons__/graphics/icons/long-handed-bulk-inserter.png",
+    subgroup = "inserter",
+    color_hint = { text = "L" },
+    order = "f[long-handed-bulk-inserter]",
+    inventory_move_sound = item_sounds.inserter_inventory_move,
+    pick_sound = item_sounds.inserter_inventory_pickup,
+    drop_sound = item_sounds.inserter_inventory_move,
+    place_result = "bulk-long-handed-inserter",
+    stack_size = 50,
+    weight = 20 * kg
+  },
+  {
+    type = "item",
+    name = "stack-long-handed-inserter",
+    icon = "__outer_moons__/graphics/icons/long-handed-stack-inserter.png",
+    subgroup = "inserter",
+    color_hint = { text = "S" },
+    order = "i[stack-long-handed-inserter]",
+    inventory_move_sound = item_sounds.wire_inventory_move,
+    pick_sound = item_sounds.wire_inventory_pickup,
+    drop_sound = item_sounds.wire_inventory_move,
+    place_result = "stack-long-handed-inserter",
+    stack_size = 50,
+    default_import_location = "selene",
+    weight = 20 * kg
+  },
 })

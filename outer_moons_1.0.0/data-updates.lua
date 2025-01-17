@@ -406,6 +406,13 @@ data.raw.item["tungsten-carbide"].icon = "__outer_moons__/graphics/icons/tungste
 data.raw["assembling-machine"]["electromagnetic-plant"].crafting_categories = {"electromagnetics", "electronics", "electronics-with-fluid", "electronics-or-assembling", "electronics-or-convecting"}
 data.raw["assembling-machine"]["foundry"].crafting_categories = {"metallurgy", "pressing", "crafting-with-fluid-or-metallurgy", "metallurgy-or-assembling", "metallurgy-or-adv-metallurgy"}
 
+data.raw["assembling-machine"]["assembling-machine-1"].crafting_categories = {"crafting", "basic-crafting", "advanced-crafting", "assembly-or-robotics"}
+data.raw["assembling-machine"]["assembling-machine-2"].crafting_categories = {"basic-crafting", "crafting", "advanced-crafting", "crafting-with-fluid", "assembly-or-robotics", "fluid-assembly-or-robotics"}
+data.raw["assembling-machine"]["assembling-machine-3"].crafting_categories = {"basic-crafting", "crafting", "advanced-crafting", "crafting-with-fluid", "assembly-or-robotics", "fluid-assembly-or-robotics"}
+
+
+data.raw.item["nuclear-fuel"].stack_size = 5
+
 data.raw.item["oil-refinery"].subgroup = "fluid-machine"
 data.raw.item["oil-refinery"].order = "b[oil-refinery]"
 data.raw.item["chemical-plant"].subgroup = "fluid-machine"
@@ -472,8 +479,13 @@ data.raw.item["foundation"].order = "c[landfill]-j[foundation]"
 data.raw.recipe["molten-iron-from-lava"].subgroup = "lava-fluid"
 data.raw.recipe["molten-iron"].subgroup = "vulcanus-fluid"
 data.raw.recipe["molten-copper"].subgroup = "vulcanus-fluid"
+data.raw.recipe["casting-iron"].subgroup = "vulcanus-casting"
+data.raw.recipe["casting-copper"].subgroup = "vulcanus-casting"
+data.raw.recipe["casting-iron-gear-wheel"].subgroup = "vulcanus-products"
 data.raw.recipe["casting-iron-gear-wheel"].order = "d[casting]-a[casting-iron-gear-wheel]"
+data.raw.recipe["casting-iron-stick"].subgroup = "vulcanus-products"
 data.raw.recipe["casting-iron-stick"].order = "d[casting]-b[casting-iron-stick]"
+data.raw.recipe["casting-copper-cable"].subgroup = "vulcanus-products"
 data.raw.recipe["casting-copper-cable"].order = "d[casting]-c[casting-copper-cable]"
 
 data.raw.recipe["nutrients-from-spoilage"].subgroup = "agriculture-products"
@@ -502,6 +514,11 @@ data.raw.item["recycler"].order = "h[recycler]"
 
 data.raw.item["superconductor"].icon = "__outer_moons__/graphics/icons/superconductor.png"
 data.raw.item["supercapacitor"].icon = "__outer_moons__/graphics/icons/supercapacitor.png"
+
+data.raw.item["beacon"].weight = 50 * kg
+
+data.raw.inserter["long-handed-inserter"].next_upgrade = "fast-long-handed-inserter"
+data.raw.inserter["stack-inserter"].default_import_location = "selene"
 
 --Flamethrower
 data.raw["fluid-turret"]["flamethrower-turret"].attack_parameters.fluids = { {type = "crude-oil"},  {type = "heavy-oil", damage_modifier = 1.05}, {type = "light-oil", damage_modifier = 1.1}, {type = "ethanol", damage_modifier = 1.1} }
