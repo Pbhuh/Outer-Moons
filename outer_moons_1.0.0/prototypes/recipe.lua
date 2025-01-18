@@ -2022,6 +2022,28 @@ data:extend({
     },
 	{
 		type = "recipe",
+		name = "molten-iron-from-lava",
+		icon = "__outer_moons__/graphics/icons/fluid/molten-iron-from-lava.png",
+		category = "metallurgy",
+		subgroup = "lava-fluid",
+		order = "a[melting]-a[lava-a]",
+		auto_recycle = false,
+		enabled = false,
+		ingredients =
+		{
+		  {type = "fluid", name = "lava", amount = 500},
+		  {type = "item", name = "calcite", amount = 2},
+		},
+		energy_required = 16,
+		results =
+		{
+		  {type = "fluid", name = "molten-iron", amount = 250},
+		  {type = "item", name = "stone", amount = 10},
+		},
+		allow_productivity = true
+	},
+	{
+		type = "recipe",
 		name = "molten-copper-from-lava",
 		icon = "__space-age__/graphics/icons/fluid/molten-copper-from-lava.png",
 		category = "metallurgy",
@@ -2032,7 +2054,7 @@ data:extend({
 		ingredients =
 		{
 		  {type = "fluid", name = "lava", amount = 500},
-		  {type = "item", name = "calcite", amount = 1},
+		  {type = "item", name = "calcite", amount = 2},
 		},
 		energy_required = 16,
 		results =
@@ -2054,7 +2076,7 @@ data:extend({
 		ingredients =
 		{
 		  {type = "fluid", name = "lava", amount = 500},
-		  {type = "item", name = "calcite", amount = 1},
+		  {type = "item", name = "calcite", amount = 2},
 		},
 		energy_required = 16,
 		results =
@@ -2076,7 +2098,7 @@ data:extend({
 		ingredients =
 		{
 		  {type = "fluid", name = "lava", amount = 500},
-		  {type = "item", name = "calcite", amount = 1},
+		  {type = "item", name = "calcite", amount = 2},
 		},
 		energy_required = 16,
 		results =
@@ -2098,7 +2120,7 @@ data:extend({
 		ingredients =
 		{
 		  {type = "fluid", name = "lava", amount = 500},
-		  {type = "item", name = "calcite", amount = 1},
+		  {type = "item", name = "calcite", amount = 2},
 		},
 		energy_required = 16,
 		results =
@@ -2120,7 +2142,7 @@ data:extend({
 		ingredients =
 		{
 		  {type = "fluid", name = "lava", amount = 500},
-		  {type = "item", name = "calcite", amount = 1},
+		  {type = "item", name = "calcite", amount = 2},
 		},
 		energy_required = 16,
 		results =
@@ -2375,10 +2397,27 @@ data:extend({
 	},
 	{
 		type = "recipe",
+		name = "casting-magnesium",
+		icon = "__outer_moons__/graphics/icons/fluid/casting-magnesium.png",
+		category = "metallurgy",
+		subgroup = "vulcanus-casting",
+		order = "b[casting]-h[casting-magnesium]",
+		enabled = false,
+		ingredients =
+		{
+		  {type = "fluid", name = "molten-magnesium", amount = 20, fluidbox_multiplier = 10},
+		},
+		energy_required = 3.2,
+		results = {{type="item", name="magnesium-plate", amount=2}},
+		allow_productivity = true
+	},
+	
+	{
+		type = "recipe",
 		name = "tungsten-plate",
 		category = "metallurgy",
 		subgroup = "vulcanus-casting",
-		order = "b[casting]-h[titanium-plate]",
+		order = "b[casting]-i[titanium-plate]",
 		icon = "__outer_moons__/graphics/icons/fluid/casting-tungsten.png",
 		enabled = false,
 		ingredients =
@@ -2797,13 +2836,11 @@ data:extend({
 		ingredients =
 		{
 		  {type = "fluid", name = "carbon-dioxide", amount = 20},
-		  {type = "fluid", name = "hydrogen", amount = 20},
 		},
 		results =
 		{
-		  {type = "item", name = "carbon", amount = 8},
-		  {type = "fluid", name = "carbon-monoxide", amount = 12},
-		  {type = "fluid", name = "water", amount = 20},
+		  {type = "item", name = "carbon", amount = 20},
+		  {type = "fluid", name = "oxygen", amount = 20},
 		},
 		allow_productivity = true,
 		enabled = false,
@@ -5319,7 +5356,7 @@ data:extend({
 	{
 		type = "recipe",
 		name = "nauvis-scrubbing",
-		icon = "__base__/graphics/icons/nauvis.png",
+		icon = "__outer_moons__/graphics/icons/fluid/nauvis-scrubbing.png",
 		energy_required = 10,
 		enabled = true,
 		--hidden_in_factoriopedia = true,
@@ -5349,7 +5386,7 @@ data:extend({
 	{
 		type = "recipe",
 		name = "selene-scrubbing",
-		icon = "__outer_moons__/graphics/icons/selene.png",
+		icon = "__outer_moons__/graphics/icons/fluid/selene-scrubbing.png",
 		energy_required = 10,
 		enabled = true,
 		--hidden_in_factoriopedia = true,
@@ -5379,7 +5416,7 @@ data:extend({
 	{
 		type = "recipe",
 		name = "vulcanus-scrubbing",
-		icon = "__space-age__/graphics/icons/vulcanus.png",
+		icon = "__outer_moons__/graphics/icons/fluid/vulcanus-scrubbing.png",
 		energy_required = 10,
 		enabled = true,
 		--hidden_in_factoriopedia = true,
@@ -5409,7 +5446,7 @@ data:extend({
 	{
 		type = "recipe",
 		name = "gleba-scrubbing",
-		icon = "__space-age__/graphics/icons/gleba.png",
+		icon = "__outer_moons__/graphics/icons/fluid/gleba-scrubbing.png",
 		energy_required = 10,
 		enabled = true,
 		--hidden_in_factoriopedia = true,
@@ -5439,7 +5476,7 @@ data:extend({
 	{
 		type = "recipe",
 		name = "fulgora-scrubbing",
-		icon = "__space-age__/graphics/icons/fulgora.png",
+		icon = "__outer_moons__/graphics/icons/fluid/fulgora-scrubbing.png",
 		energy_required = 10,
 		enabled = true,
 		--hidden_in_factoriopedia = true,
@@ -5469,7 +5506,7 @@ data:extend({
 	{
 		type = "recipe",
 		name = "mefitis-scrubbing",
-		icon = "__outer_moons__/graphics/icons/mefitis.png",
+		icon = "__outer_moons__/graphics/icons/fluid/mefitis-scrubbing.png",
 		energy_required = 10,
 		enabled = true,
 		--hidden_in_factoriopedia = true,
@@ -5499,7 +5536,7 @@ data:extend({
 	{
 		type = "recipe",
 		name = "aquilo-scrubbing",
-		icon = "__space-age__/graphics/icons/aquilo.png",
+		icon = "__outer_moons__/graphics/icons/fluid/aquilo-scrubbing.png",
 		energy_required = 10,
 		enabled = true,
 		--hidden_in_factoriopedia = true,
@@ -5528,7 +5565,7 @@ data:extend({
 	{
 		type = "recipe",
 		name = "aiolos-scrubbing",
-		icon = "__outer_moons__/graphics/icons/aiolos.png",
+		icon = "__outer_moons__/graphics/icons/fluid/aiolos-scrubbing.png",
 		energy_required = 10,
 		enabled = true,
 		--hidden_in_factoriopedia = true,
@@ -5558,7 +5595,7 @@ data:extend({
 	{
 		type = "recipe",
 		name = "feronia-scrubbing",
-		icon = "__outer_moons__/graphics/icons/feronia.png",
+		icon = "__outer_moons__/graphics/icons/fluid/feronia-scrubbing.png",
 		energy_required = 10,
 		enabled = true,
 		--hidden_in_factoriopedia = true,

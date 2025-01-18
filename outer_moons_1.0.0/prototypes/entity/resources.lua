@@ -83,7 +83,7 @@ data:extend({
 		{
 		  name = "lead-ore",
 		  order = "b",
-		  map_color = {r = 109/256, g = 80/256, b = 80/256, a = 1.000},
+		  map_color = {r = 69/256, g = 55/256, b = 75/256, a = 1.000},
 		  minable =
 		  {
 			  mining_particle = "stone-particle",
@@ -92,7 +92,7 @@ data:extend({
 		  },
 		  walking_sound = sounds.ore,
 		  driving_sound = stone_driving_sound,
-		  mining_visualisation_tint = {r = 109/256, g = 80/256, b = 80/256, a = 1.000},
+		  mining_visualisation_tint = {r = 69/256, g = 55/256, b = 75/256, a = 1.000},
 		  factoriopedia_simulation = simulations.factoriopedia_lead_ore,
 		},
 		{
@@ -107,7 +107,7 @@ data:extend({
 		{
 		  name = "nickel-ore",
 		  order = "b",
-		  map_color = {r = 123/256, g = 150/256, b = 116/256, a = 1.000},
+		  map_color = {r = 86/256, g = 91/256, b = 69/256, a = 1.000},
 		  minable =
 		  {
 			  mining_particle = "stone-particle",
@@ -118,7 +118,7 @@ data:extend({
 		  },
 		  walking_sound = sounds.ore,
 		  driving_sound = stone_driving_sound,
-		  mining_visualisation_tint = {r = 123/256, g = 150/256, b = 116/256, a = 1.000},
+		  mining_visualisation_tint = {r = 86/256, g = 91/256, b = 69/256, a = 1.000},
 		  factoriopedia_simulation = simulations.factoriopedia_nickel_ore,
 		},
 		{

@@ -723,7 +723,7 @@ data:extend{
                           mefitis_place_metal_spots(789, 15, 2,\z
                                                      mefitis_heavy_metal_size * min(1.2, mefitis_ore_dist) * 25,\z
                                                      control:heavy_metal:frequency,\z
-                                                     mefitis_mountains_resource_favorability)))"
+                                                     mefitis_basalts_resource_favorability)))"
   },
   {
     type = "noise-expression",

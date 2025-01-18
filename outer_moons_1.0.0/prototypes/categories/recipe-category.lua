@@ -70,6 +70,14 @@ data:extend(
   },
   {
     type = "recipe-category",
+    name = "synthesis"
+  },
+  {
+    type = "recipe-category",
+    name = "particle-physics"
+  },
+  {
+    type = "recipe-category",
     name = "plutonium-processing"
   },
 })

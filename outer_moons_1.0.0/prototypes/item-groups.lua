@@ -41,31 +41,31 @@ data:extend(
     type = "item-subgroup",
     name = "module",
     group = "production",
-    order = "f-a"
+    order = "g-a"
   },
   {
     type = "item-subgroup",
     name = "speed-module",
     group = "production",
-    order = "f-b"
+    order = "g-b"
   },
   {
     type = "item-subgroup",
     name = "efficiency-module",
     group = "production",
-    order = "f-c"
+    order = "g-c"
   },
   {
     type = "item-subgroup",
     name = "productivity-module",
     group = "production",
-    order = "f-d"
+    order = "g-d"
   },
   {
     type = "item-subgroup",
     name = "quality-module",
     group = "production",
-    order = "f-e"
+    order = "g-e"
   },
   --- Production
   {
@@ -91,6 +91,18 @@ data:extend(
     name = "fluid-machine",
     group = "production",
     order = "d-b"
+  },
+  {
+    type = "item-subgroup",
+    name = "labs",
+    group = "production",
+    order = "f-a"
+  },
+  {
+    type = "item-subgroup",
+    name = "environmental-protection",
+    group = "production",
+    order = "f-b"
   },
   --- Fluids
   {

@@ -410,6 +410,49 @@ data.raw["assembling-machine"]["assembling-machine-1"].crafting_categories = {"c
 data.raw["assembling-machine"]["assembling-machine-2"].crafting_categories = {"basic-crafting", "crafting", "advanced-crafting", "crafting-with-fluid", "assembly-or-robotics", "fluid-assembly-or-robotics"}
 data.raw["assembling-machine"]["assembling-machine-3"].crafting_categories = {"basic-crafting", "crafting", "advanced-crafting", "crafting-with-fluid", "assembly-or-robotics", "fluid-assembly-or-robotics"}
 
+data.raw.item["lab"].subgroup = "labs"
+data.raw.item["biolab"].subgroup = "labs"
+
+data.raw.lab["lab"].inputs = {
+	"automation-science-pack",
+	"logistic-science-pack",
+	"military-science-pack",
+	"chemical-science-pack",
+	"production-science-pack",
+	"utility-science-pack",
+	"nuclear-science-pack",
+	"space-science-pack",
+	"lunar-science-pack",
+	"metallurgic-science-pack",
+	"agricultural-science-pack",
+	"electromagnetic-science-pack",
+	"material-science-pack",
+	"cryogenic-science-pack",
+	"pneumatic-science-pack",
+	"genetic-science-pack",
+	"particle-science-pack",
+	"promethium-science-pack"
+}
+data.raw.lab["biolab"].inputs = {
+	"automation-science-pack",
+	"logistic-science-pack",
+	"military-science-pack",
+	"chemical-science-pack",
+	"production-science-pack",
+	"utility-science-pack",
+	"nuclear-science-pack",
+	"space-science-pack",
+	"lunar-science-pack",
+	"metallurgic-science-pack",
+	"agricultural-science-pack",
+	"electromagnetic-science-pack",
+	"material-science-pack",
+	"cryogenic-science-pack",
+	"pneumatic-science-pack",
+	"genetic-science-pack",
+	"particle-science-pack",
+	"promethium-science-pack"
+}
 
 data.raw.item["nuclear-fuel"].stack_size = 5
 
@@ -476,7 +519,6 @@ data.raw.item["biter-egg"].order = "b[nauvis-agriculture]-d[nutrients-from-biter
 data.raw.item["ice-platform"].order = "c[landfill]-i[ice-platform]"
 data.raw.item["foundation"].order = "c[landfill]-j[foundation]"
 
-data.raw.recipe["molten-iron-from-lava"].subgroup = "lava-fluid"
 data.raw.recipe["molten-iron"].subgroup = "vulcanus-fluid"
 data.raw.recipe["molten-copper"].subgroup = "vulcanus-fluid"
 data.raw.recipe["casting-iron"].subgroup = "vulcanus-casting"

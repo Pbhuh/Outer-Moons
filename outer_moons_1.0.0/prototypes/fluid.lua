@@ -668,6 +668,32 @@ data:extend(
     icon = "__outer_moons__/graphics/icons/fluid/arsenic-solution.png",
     order = "k[mefitis]-a[arsenic-solution]",	
     auto_barrel = false
+  },  
+  {
+    type = "fluid",
+    name = "molten-iridium",
+    icon = "__outer_moons__/graphics/icons/fluid/molten-iridium.png",
+    subgroup = "mefitis-fluid",
+    order = "k[mefitis]-b[molten-iridium]",
+    default_temperature = 1500,
+    max_temperature = 4000,
+    heat_capacity = "0.01kJ",
+    base_color = {0.72, 0.68, 0.35},
+    flow_color = {0.72, 0.68, 0.35},
+    auto_barrel = false
+  },
+  {
+    type = "fluid",
+    name = "molten-osmium",
+    icon = "__outer_moons__/graphics/icons/fluid/molten-osmium.png",
+    subgroup = "mefitis-fluid",
+    order = "k[mefitis]-c[molten-osmium]",
+    default_temperature = 1500,
+    max_temperature = 4000,
+    heat_capacity = "0.01kJ",
+    base_color = {0.41, 0.45, 0.69},
+    flow_color = {0.41, 0.45, 0.69},
+    auto_barrel = false
   },
   --- Aquilo
   {
@@ -798,7 +824,7 @@ data:extend(
     flow_color = {0.4, 0.08, 0.62},
     auto_barrel = false
   }, 
-{
+  {
     type = "fluid",
     name = "hydroiodic-acid",
     icon = "__outer_moons__/graphics/icons/fluid/hydroiodic-acid.png",
@@ -811,6 +837,58 @@ data:extend(
     flow_color = {0.5, 0.37, 0.59},
    -- auto_barrel = false
   },  
+  {
+    type = "fluid",
+    name = "adenine",
+    icon = "__outer_moons__/graphics/icons/fluid/adenine.png",
+    subgroup = "feronia-fluid",
+    order = "n[feronia]-d[adenine]",
+    default_temperature = 25,
+    gas_temperature = 100,
+    heat_capacity = "0.01kJ",
+    base_color = {0.5, 0.37, 0.59},
+    flow_color = {0.5, 0.37, 0.59},
+    auto_barrel = false
+  }, 
+  {
+    type = "fluid",
+    name = "thymine",
+    icon = "__outer_moons__/graphics/icons/fluid/thymine.png",
+    subgroup = "feronia-fluid",
+    order = "n[feronia]-e[thymine]",
+    default_temperature = 25,
+    gas_temperature = 100,
+    heat_capacity = "0.01kJ",
+    base_color = {0.5, 0.37, 0.59},
+    flow_color = {0.5, 0.37, 0.59},
+    auto_barrel = false
+  }, 
+  {
+    type = "fluid",
+    name = "guanine",
+    icon = "__outer_moons__/graphics/icons/fluid/guanine.png",
+    subgroup = "feronia-fluid",
+    order = "n[feronia]-f[guanine]",
+    default_temperature = 25,
+    gas_temperature = 100,
+    heat_capacity = "0.01kJ",
+    base_color = {0.5, 0.37, 0.59},
+    flow_color = {0.5, 0.37, 0.59},
+    auto_barrel = false
+  }, 
+  {
+    type = "fluid",
+    name = "cytosine",
+    icon = "__outer_moons__/graphics/icons/fluid/cytosine.png",
+    subgroup = "feronia-fluid",
+    order = "n[feronia]-g[cytosine]",
+    default_temperature = 25,
+    gas_temperature = 100,
+    heat_capacity = "0.01kJ",
+    base_color = {0.5, 0.37, 0.59},
+    flow_color = {0.5, 0.37, 0.59},
+    auto_barrel = false
+  }, 
   --- Space
   {
     type = "fluid",

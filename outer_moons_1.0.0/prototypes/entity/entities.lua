@@ -764,8 +764,8 @@ data:extend({
     circuit_wire_max_distance = assembling_machine_circuit_wire_max_distance,
     circuit_connector = circuit_connector_definitions["foundry"],
     fluid_boxes_off_when_no_fluid_recipe = true,
-    collision_box = { { -3.5, -3.5 }, { 3.5, 3.5 } },
-    selection_box = { { -3.5, -3.5 }, { 3.5, 3.5 } },
+    collision_box = { { -2.5, -3.5 }, { 2.5, 2.5 } },
+    selection_box = { { -2.5, -3.5 }, { 2.5, 2.5 } },
     heating_energy = "500kW",
     damaged_trigger_effect = hit_effects.entity(),
     drawing_box_vertical_extension = 1.5,
@@ -800,7 +800,7 @@ data:extend({
                     animation_speed = 0.5,
                     shift = util.by_pixel_hr(0, -48),
                     draw_as_shadow = true,
-                    scale = 0.4375,
+                    scale = 0.3125,
                 },
                 {
                     priority = "high",
@@ -809,7 +809,7 @@ data:extend({
                     frame_count = 80,
                     shift = util.by_pixel_hr(0, -48),
                     animation_speed = 0.5,
-                    scale = 0.4375,
+                    scale = 0.3125,
                     stripes = {
                         {
                             filename = "__outer_moons__/graphics/entity/disruptor/disruptor-hr-animation-1.png",
@@ -920,7 +920,7 @@ data:extend({
                     shift = util.by_pixel_hr(0, -48),
                     frame_count = 80,
                     draw_as_glow = true,
-                    scale = 0.4375,
+                    scale = 0.3125,
                     animation_speed = 0.5,
                     blend_mode = "additive",
                     stripes = {
@@ -980,7 +980,7 @@ data:extend({
         always_draw_covers = false,
         enable_working_visualisations = { "input-pipe" },
         volume = 1000,
-        pipe_connections = {{ flow_direction="input", direction = defines.direction.south, position = {-2, 3} }}
+        pipe_connections = {{ flow_direction="input", direction = defines.direction.south, position = {-2, 2} }}
       },
 	  {
         production_type = "input",
@@ -990,7 +990,7 @@ data:extend({
         always_draw_covers = false,
         enable_working_visualisations = { "input-pipe" },
         volume = 1000,
-        pipe_connections = {{ flow_direction="input", direction = defines.direction.south, position = {0, 3} }}
+        pipe_connections = {{ flow_direction="input", direction = defines.direction.south, position = {0, 2} }}
       },
 	  {
         production_type = "input",
@@ -1000,7 +1000,7 @@ data:extend({
         always_draw_covers = false,
         enable_working_visualisations = { "input-pipe" },
         volume = 1000,
-        pipe_connections = {{ flow_direction="input", direction = defines.direction.south, position = {2, 3} }}
+        pipe_connections = {{ flow_direction="input", direction = defines.direction.south, position = {2, 2} }}
       },
       {
         production_type = "output",
@@ -1010,7 +1010,7 @@ data:extend({
         always_draw_covers = false,
         enable_working_visualisations = { "output-pipe" },
         volume = 100,
-        pipe_connections = {{ flow_direction="output", direction = defines.direction.north, position = {-2, -3} }}
+        pipe_connections = {{ flow_direction="output", direction = defines.direction.north, position = {-2, -2} }}
       },
 	  {
         production_type = "output",
@@ -1020,7 +1020,7 @@ data:extend({
         always_draw_covers = false,
         enable_working_visualisations = { "output-pipe" },
         volume = 100,
-        pipe_connections = {{ flow_direction="output", direction = defines.direction.north, position = {0, -3} }}
+        pipe_connections = {{ flow_direction="output", direction = defines.direction.north, position = {0, -2} }}
       },
 	  {
         production_type = "output",
@@ -1030,7 +1030,7 @@ data:extend({
         always_draw_covers = false,
         enable_working_visualisations = { "output-pipe" },
         volume = 100,
-        pipe_connections = {{ flow_direction="output", direction = defines.direction.north, position = {2, -3} }}
+        pipe_connections = {{ flow_direction="output", direction = defines.direction.north, position = {2, -2} }}
       }
     },
   },
@@ -3228,6 +3228,7 @@ data:extend({
     selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
     crafting_categories = {"venting"},
     crafting_speed = 0.5,
+	heating_energy = "25kW",
 	surface_conditions =
 	{
 	  {
@@ -3521,6 +3522,7 @@ data:extend({
     collision_box = {{-0.3, -0.3}, {0.3, 0.3}},
     selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
     crafting_categories = {"flaring"},
+	heating_energy = "25kW",
     crafting_speed = 0.5,
     resistances =
     {
@@ -3680,7 +3682,7 @@ data:extend({
       }
     },
     impact_category = "glass",
-    production = "160kW"
+    production = "100kW"
   },
 
   {
@@ -3700,10 +3702,10 @@ data:extend({
     energy_source =
     {
       type = "electric",
-      buffer_capacity = "32MJ",
+      buffer_capacity = "16MJ",
       usage_priority = "tertiary",
-      input_flow_limit = "760kW",
-      output_flow_limit = "760kW"
+      input_flow_limit = "500kW",
+      output_flow_limit = "500kW"
     },
     chargable_graphics =
     {
@@ -3821,7 +3823,7 @@ data:extend({
     icon_draw_specification = {scale = 0.75, shift = {0, -0.33}},
     fluid_box =
     {
-      volume = 3000,
+      volume = 2500,
       pipe_covers = pipecoverspictures(),
       pipe_connections =
       {
@@ -4310,20 +4312,14 @@ data:extend({
         impact_category = "metal",
         open_sound = sounds.machine_open,
         close_sound = sounds.machine_close,
-        working_sound = {
-		  apparent_volume = 1.5,
-		  idle_sound = {
-			filename = "__base__/sound/idle1.ogg",
-			volume = 0.6
-		  },
-		  sound = {
-			{
-			  filename = "__base__/sound/chemical-plant.ogg",
-			  volume = 0.8
-			}
-		  }
+        working_sound =
+		{
+		  sound = {filename = "__space-age__/sound/entity/biochamber/biochamber-loop.ogg", volume = 0.7},
+		  max_sounds_per_type = 3,
+		  fade_in_ticks = 4,
+		  fade_out_ticks = 20
 		},
-		
+		fluid_boxes_off_when_no_fluid_recipe = true,
 		fluid_boxes =
 		{
 		  {
@@ -4455,6 +4451,575 @@ data:extend({
 			}
 		}
     },
+	{
+        type = "assembling-machine",
+        name = "quantum-stabilizer",
+        icon = "__outer_moons__/graphics/icons/quantum-stabilizer.png",
+        flags = { "placeable-neutral", "placeable-player", "player-creation" },
+        minable = { mining_time = 0.2, result = "quantum-stabilizer" },
+        fast_replaceable_group = "quantum-stabilizer",
+        max_health = 350,
+        corpse = "big-remnants",
+		dying_explosion = "massive-explosion",
+		circuit_wire_max_distance = assembling_machine_circuit_wire_max_distance,
+		circuit_connector = circuit_connector_definitions["foundry"],
+        resistances = { { type = "fire", percent = 70 } },
+        collision_box = { { -2.9, -2.9 }, { 2.9, 2.9 } },
+        selection_box = { { -3, -3 }, { 3, 3 } },
+		effect_receiver = { base_effect = { productivity = 0.5 }},
+        damaged_trigger_effect = hit_effects.entity(),
+        module_slots = 8,
+		allowed_effects = {"consumption", "speed", "productivity", "pollution", "quality"},
+        crafting_categories = { "quantum", "electromagnetics", "electronics", "electronics-with-fluid", "electronics-or-assembling" },
+        crafting_speed = 1,
+		heating_energy = "500kW",
+        --show_recipe_icon = false,
+        --show_recipe_icon_on_map = false,
+		energy_source =
+		{
+		  type = "electric",
+		  usage_priority = "secondary-input",
+		  emissions_per_minute = {pollution = 6}
+		},
+        energy_usage = "800kW",
+        impact_category = "metal",
+        open_sound = sounds.machine_open,
+		close_sound = sounds.machine_close,
+		working_sound = {
+		  apparent_volume = 1.5,
+		  idle_sound = {
+			filename = "__base__/sound/idle1.ogg",
+			volume = 0.6
+		  },
+		  sound = {
+			{
+			  filename = "__base__/sound/accumulator-discharging.ogg",
+			  volume = 0.8
+			}
+		  }
+		},
+		--fluid_boxes_off_when_no_fluid_recipe = true,
+		fluid_boxes =
+		{
+		  {
+			production_type = "input",
+			pipe_picture = util.empty_sprite(),
+			pipe_covers = shadowlesspipecoverspictures(),
+			volume = 1000,
+			pipe_connections = {{ flow_direction="input", direction = defines.direction.north, position = {1.5, -2.5} }},
+			secondary_draw_orders = { north = -1 }
+		  },
+		  {
+			production_type = "input",
+			pipe_picture = util.empty_sprite(),
+			pipe_covers = shadowlesspipecoverspictures(),
+			volume = 1000,
+			pipe_connections = {{ flow_direction="input", direction = defines.direction.north, position = {-1.5, -2.5} }},
+			secondary_draw_orders = { north = -1 }
+		  },
+		  {
+			production_type = "output",
+			pipe_picture = util.empty_sprite(),
+			pipe_covers = shadowlesspipecoverspictures(),
+			volume = 100,
+			pipe_connections = {{ flow_direction="output", direction = defines.direction.south, position = {1.5, 2.5} }},
+			secondary_draw_orders = { north = -1 }
+		  },
+		  {
+			production_type = "output",
+			pipe_picture = util.empty_sprite(),
+			pipe_covers = shadowlesspipecoverspictures(),
+			volume = 100,
+			pipe_connections = {{ flow_direction="output", direction = defines.direction.south, position = {-1.5, 2.5} }},
+			secondary_draw_orders = { north = -1 }
+		  },
+		},
+		graphics_set = {
+			animation = {
+				layers = {
+					{
+						filename = "__outer_moons__/graphics/entity/quantum-stabilizer/quantum-stabilizer-hr-shadow.png",
+						priority = "high",
+						width = 900,
+						height = 420,
+						frame_count = 1,
+						line_length = 1,
+						repeat_count = 100,
+						animation_speed = 1,
+						shift = { 0, -0.25 },
+						draw_as_shadow = true,
+						scale = 0.5,
+					},
+					{
+						priority = "high",
+						width = 410,
+						height = 410,
+						frame_count = 100,
+						animation_speed = 1,
+						shift = { 0, -0.25 },
+						scale = 0.5,
+						stripes = {
+							{
+								filename = "__outer_moons__/graphics/entity/quantum-stabilizer/quantum-stabilizer-hr-animation-1.png",
+								width_in_frames = 8,
+								height_in_frames = 8,
+							},
+							{
+								filename = "__outer_moons__/graphics/entity/quantum-stabilizer/quantum-stabilizer-hr-animation-2.png",
+								width_in_frames = 8,
+								height_in_frames = 5,
+							},
+						},
+					},
+				},
+			},
+			working_visualisations = {
+				{
+					fadeout = true,
+					secondary_draw_order = 1,
+					animation = {
+						priority = "high",
+						size = { 410, 410 },
+						shift = { 0, -0.25 },
+						frame_count = 100,
+						draw_as_glow = true,
+						scale = 0.5,
+						animation_speed = 1,
+						blend_mode = "additive",
+						stripes = {
+							{
+								filename = "__outer_moons__/graphics/entity/quantum-stabilizer/quantum-stabilizer-hr-emission-1.png",
+								width_in_frames = 8,
+								height_in_frames = 8,
+							},
+							{
+								filename = "__outer_moons__/graphics/entity/quantum-stabilizer/quantum-stabilizer-hr-emission-2.png",
+								width_in_frames = 8,
+								height_in_frames = 5,
+							},
+						},
+					},
+				}
+			},
+			reset_animation_when_frozen = true,
+			frozen_patch = { 
+				--tint = {0.5, 0.5, 0.8},
+				--tint_as_overlay = true,
+				priority = "extra-high",
+				filename = "__outer_moons__/graphics/entity/convector/convector-frozen.png",
+				scale = 0.45,
+				width = 360,
+				height = 350,
+				--shift = util.by_pixel( 0, 0),
+			}
+		},	
+    },
+	{
+        type = "assembling-machine",
+        name = "synthesizer",
+        icon = "__outer_moons__/graphics/icons/synthesizer.png",
+        flags = { "placeable-neutral", "placeable-player", "player-creation" },
+        minable = { mining_time = 0.2, result = "synthesizer" },
+        fast_replaceable_group = "synthesizer",
+        max_health = 350,
+        corpse = "big-remnants",
+		dying_explosion = "massive-explosion",
+		circuit_wire_max_distance = assembling_machine_circuit_wire_max_distance,
+		circuit_connector = circuit_connector_definitions["foundry"],
+        resistances = { { type = "fire", percent = 70 } },
+        collision_box = { { -1.9, -1.9 }, { 1.9, 1.9 } },
+        selection_box = { { -2, -2 }, { 2, 2 } },
+		effect_receiver = { base_effect = { productivity = 0.5 }},
+        damaged_trigger_effect = hit_effects.entity(),
+        module_slots = 8,
+		allowed_effects = {"consumption", "speed", "productivity", "pollution", "quality"},
+        crafting_categories = { "synthesis" },
+        crafting_speed = 1,
+		heating_energy = "500kW",
+        --show_recipe_icon = false,
+        --show_recipe_icon_on_map = false,
+		energy_source =
+		{
+		  type = "electric",
+		  usage_priority = "secondary-input",
+		  emissions_per_minute = {pollution = 10}
+		},
+        energy_usage = "1000kW",
+        impact_category = "metal",
+        open_sound = sounds.machine_open,
+        close_sound = sounds.machine_close,
+        working_sound = {
+		  apparent_volume = 1.5,
+		  idle_sound = {
+			filename = "__base__/sound/idle1.ogg",
+			volume = 0.6
+		  },
+		  sound = {
+			{
+			  filename = "__base__/sound/chemical-plant.ogg",
+			  volume = 0.8
+			}
+		  }
+		},
+		--fluid_boxes_off_when_no_fluid_recipe = true,
+		fluid_boxes =
+		{
+		  {
+			production_type = "input",
+			pipe_picture = util.empty_sprite(),
+			pipe_covers = shadowlesspipecoverspictures(),
+			volume = 1000,
+			pipe_connections = {{ flow_direction="input", direction = defines.direction.north, position = {1.5, -1.5} }},
+			secondary_draw_orders = { north = -1 }
+		  },
+		  {
+			production_type = "input",
+			pipe_picture = util.empty_sprite(),
+			pipe_covers = shadowlesspipecoverspictures(),
+			volume = 1000,
+			pipe_connections = {{ flow_direction="input", direction = defines.direction.north, position = {-1.5, -1.5} }},
+			secondary_draw_orders = { north = -1 }
+		  },
+		  {
+			production_type = "output",
+			pipe_picture = util.empty_sprite(),
+			pipe_covers = shadowlesspipecoverspictures(),
+			volume = 100,
+			pipe_connections = {{ flow_direction="output", direction = defines.direction.south, position = {1.5, 1.5} }},
+			secondary_draw_orders = { north = -1 }
+		  },
+		  {
+			production_type = "output",
+			pipe_picture = util.empty_sprite(),
+			pipe_covers = shadowlesspipecoverspictures(),
+			volume = 100,
+			pipe_connections = {{ flow_direction="output", direction = defines.direction.south, position = {-1.5, 1.5} }},
+			secondary_draw_orders = { north = -1 }
+		  },
+		},
+		graphics_set = {
+			animation = {
+				layers = {
+					{
+						filename = "__outer_moons__/graphics/entity/synthesizer/synthesizer-hr-shadow.png",
+						priority = "high",
+						size = { 600, 400 },
+						shift = { 0, 0 },
+						scale = 0.5,
+						line_length = 1,
+						repeat_count = 60,
+						draw_as_shadow = true,
+						animation_speed = 0.5,
+						shift = { 0, -0.5 },
+
+					},
+					{
+						filename = "__outer_moons__/graphics/entity/synthesizer/synthesizer-hr-animation.png",
+						size = { 320, 370 },
+						shift = { 0, 0 },
+						scale = 0.5,
+						line_length = 8,
+						frame_count = 60,
+						animation_speed = 0.5,
+						shift = { 0, -0.5 },
+
+					},
+				},
+			},
+			reset_animation_when_frozen = true,
+		}
+    },
+	{
+        type = "assembling-machine",
+        name = "particle-collider",
+        icon = "__outer_moons__/graphics/icons/particle-collider.png",
+        flags = { "placeable-neutral", "placeable-player", "player-creation" },
+        minable = { mining_time = 0.2, result = "particle-collider" },
+        fast_replaceable_group = "particle-collider",
+        max_health = 500,
+        corpse = "big-remnants",
+		dying_explosion = "massive-explosion",
+		circuit_wire_max_distance = assembling_machine_circuit_wire_max_distance,
+		circuit_connector = circuit_connector_definitions["foundry"],
+        resistances = { { type = "fire", percent = 70 } },
+        collision_box = { { -2.9, -2.9 }, { 2.9, 2.9 } },
+        selection_box = { { -3, -3 }, { 3, 3 } },
+		effect_receiver = { base_effect = { productivity = 0.5 }},
+        damaged_trigger_effect = hit_effects.entity(),
+        module_slots = 4,
+		allowed_effects = {"consumption", "speed", "productivity", "pollution", "quality"},
+        crafting_categories = { "particle-physics" },
+        crafting_speed = 1,
+		heating_energy = "500kW",
+        --show_recipe_icon = false,
+        --show_recipe_icon_on_map = false,
+		energy_source =
+		{
+		  type = "electric",
+		  usage_priority = "secondary-input",
+		},
+        energy_usage = "5000kW",
+        impact_category = "metal",
+        open_sound = sounds.machine_open,
+        close_sound = sounds.machine_close,
+        working_sound =
+		{
+		  sound =
+		  {
+			filename = "__space-age__/sound/entity/fusion/fusion-generator.ogg",
+			volume = 0.15,
+			speed_smoothing_window_size = 60,
+			advanced_volume_control = {attenuation = "exponential"}
+		  },
+		  use_doppler_shift = false,
+		  match_speed_to_activity = true,
+		  activity_to_speed_modifiers = {multiplier = 1.2},
+		  match_volume_to_activity = true,
+		  audible_distance_modifier = 0.8,
+		  max_sounds_per_type = 2,
+		  fade_in_ticks = 4,
+		  fade_out_ticks = 20
+		},
+		--fluid_boxes_off_when_no_fluid_recipe = true,
+		fluid_boxes =
+		{
+		  {
+			production_type = "input",
+			pipe_picture = util.empty_sprite(),
+			pipe_covers = shadowlesspipecoverspictures(),
+			volume = 1000,
+			pipe_connections = {{ flow_direction="input", direction = defines.direction.north, position = {1.5, -2.5} }},
+			secondary_draw_orders = { north = -1 }
+		  },
+		  {
+			production_type = "input",
+			pipe_picture = util.empty_sprite(),
+			pipe_covers = shadowlesspipecoverspictures(),
+			volume = 1000,
+			pipe_connections = {{ flow_direction="input", direction = defines.direction.north, position = {-1.5, -2.5} }},
+			secondary_draw_orders = { north = -1 }
+		  },
+		  {
+			production_type = "output",
+			pipe_picture = util.empty_sprite(),
+			pipe_covers = shadowlesspipecoverspictures(),
+			volume = 100,
+			pipe_connections = {{ flow_direction="output", direction = defines.direction.south, position = {1.5, 2.5} }},
+			secondary_draw_orders = { north = -1 }
+		  },
+		  {
+			production_type = "output",
+			pipe_picture = util.empty_sprite(),
+			pipe_covers = shadowlesspipecoverspictures(),
+			volume = 100,
+			pipe_connections = {{ flow_direction="output", direction = defines.direction.south, position = {-1.5, 2.5} }},
+			secondary_draw_orders = { north = -1 }
+		  },
+		},
+		graphics_set = {
+			animation = {
+				layers = {
+					{
+						filename = "__outer_moons__/graphics/entity/particle-collider/particle-collider-hr-shadow.png",
+						priority = "high",
+						size = { 700, 600 },
+						scale = 0.5,
+						line_length = 1,
+						repeat_count = 60,
+						draw_as_shadow = true,
+						animation_speed = 0.5,
+						shift = { 0, -0.25 },
+					},
+					{
+						filename = "__outer_moons__/graphics/entity/particle-collider/particle-collider-hr-animation-1.png",
+						size = { 400, 400 },
+						scale = 0.5,
+						line_length = 8,
+						frame_count = 60,
+						animation_speed = 0.5,
+						shift = { 0, -0.25 },
+					},
+				},
+			},
+			working_visualisations = {
+				{
+					fadeout = true,
+					secondary_draw_order = 1,
+					animation = {
+						priority = "high",
+						size = { 400, 400 },
+						shift = { 0, -0.5 },
+						frame_count = 60,
+						draw_as_glow = true,
+						scale = 0.5,
+						animation_speed = 0.5,
+						blend_mode = "additive",
+						stripes = {
+							{
+								filename = "__outer_moons__/graphics/entity/particle-collider/particle-collider-hr-emission-1.png",
+								width_in_frames = 8,
+								height_in_frames = 8,
+							},
+						},
+					},
+				}
+			},
+			reset_animation_when_frozen = true,
+		}
+    },
+	{
+		type = "lab",
+		name = "skylab",
+		icon = "__outer_moons__/graphics/icons/space-science-lab.png",
+		flags = {"placeable-player", "player-creation"},
+		minable = {mining_time = 0.2, result = "skylab"},
+		fast_replaceable_group = "skylab",
+		max_health = 150,
+		corpse = "lab-remnants",
+		dying_explosion = "lab-explosion",
+		collision_box = {{-3.2, -3.2}, {3.2, 3.2}}, -- 7 wide
+        selection_box = {{-3.5, -3.5}, {3.5, 3.5}}, -- 7 wide
+        display_box = {{-3.5, -4.8}, {3.5, 3.5}}, -- 7 wide
+		damaged_trigger_effect = hit_effects.entity(),
+		resistances =
+		{
+		  {
+			type = "fire",
+			percent = 70
+		  }
+		},
+		surface_conditions =
+		{
+		  {
+			property = "pressure",
+			min = 0,
+			max = 0
+		  }
+		},
+		off_animation = {
+          layers = {
+            {
+                filename = "__outer_moons__/graphics/entity/space-science-lab/space-science-lab-inactive.png",
+                frame_count = 1,
+                height = 541,
+                width = 467,
+                shift = { 0/32, -12/32},
+                scale = 0.5,
+            },
+            {
+                draw_as_shadow = true,
+                filename = "__outer_moons__/graphics/entity/space-science-lab/space-science-lab-shadow.png",
+                frame_count = 1,
+                width = 599,
+                height = 345,
+                scale = 0.5,
+                shift = { 1.40625, 0.34375 },
+            }
+          }
+        },
+        on_animation = {
+          layers = {
+            {
+                filename = "__outer_moons__/graphics/entity/space-science-lab/space-science-lab-base.png",
+                width = 467,
+                height = 290,
+                line_length = 1,
+                frame_count = 1,
+                repeat_count = 64,
+                animation_speed = 0.5,
+                shift = { 0/32, 50.75/32 },
+                scale = 0.5,
+            },
+            {
+                height = 448,
+                width = 402,
+                frame_count = 64,
+                animation_speed = 0.5,
+                shift = { 0.75/32, -34.75/32 },
+                stripes =
+                {
+                  {
+                   filename = "__outer_moons__/graphics/entity/space-science-lab/space-science-lab-1.png",
+                   width_in_frames = 4,
+                   height_in_frames = 4,
+                  },
+                  {
+                   filename = "__outer_moons__/graphics/entity/space-science-lab/space-science-lab-2.png",
+                   width_in_frames = 4,
+                   height_in_frames = 4,
+                  },
+                  {
+                   filename = "__outer_moons__/graphics/entity/space-science-lab/space-science-lab-3.png",
+                   width_in_frames = 4,
+                   height_in_frames = 4,
+                  },
+                  {
+                   filename = "__outer_moons__/graphics/entity/space-science-lab/space-science-lab-4.png",
+                   width_in_frames = 4,
+                   height_in_frames = 4,
+                  },
+                },
+                scale = 0.5,
+            },
+            {
+                draw_as_shadow = true,
+                filename = "__outer_moons__/graphics/entity/space-science-lab/space-science-lab-shadow.png",
+                width = 599,
+                height = 345,
+                line_length = 1,
+                frame_count = 1,
+                repeat_count = 64,
+                animation_speed = 1,
+                scale = 0.5,
+                shift = { 1.40625, 0.34375 },
+            }
+          }
+        },
+		working_sound =
+		{
+		  sound = { filename = "__base__/sound/lab.ogg", volume = 0.7, modifiers = { volume_multiplier("main-menu", 2.2), volume_multiplier("tips-and-tricks", 0.8) } },
+		  audible_distance_modifier = 0.7,
+		  fade_in_ticks = 4,
+		  fade_out_ticks = 20
+		},
+		impact_category = "glass",
+		open_sound = { filename = "__base__/sound/open-close/lab-open.ogg", volume = 0.6 },
+		close_sound = { filename = "__base__/sound/open-close/lab-close.ogg", volume = 0.6 },
+		energy_source =
+		{
+		  type = "electric",
+		  usage_priority = "secondary-input"
+		},
+		energy_usage = "60kW",
+		researching_speed = 1,
+		inputs =
+		{
+		    "automation-science-pack",
+			"logistic-science-pack",
+			"military-science-pack",
+			"chemical-science-pack",
+			"production-science-pack",
+			"utility-science-pack",
+			"nuclear-science-pack",
+			"space-science-pack",
+			"lunar-science-pack",
+			"metallurgic-science-pack",
+			"agricultural-science-pack",
+			"electromagnetic-science-pack",
+			"material-science-pack",
+			"cryogenic-science-pack",
+			"pneumatic-science-pack",
+			"genetic-science-pack",
+			"particle-science-pack",
+			"promethium-science-pack"
+		},
+		module_slots = 2,
+		icons_positioning =
+		{
+		  {inventory_index = defines.inventory.lab_modules, shift = {0, 0.9}},
+		  {inventory_index = defines.inventory.lab_input, shift = {0, 0}, max_icons_per_row = 4, separation_multiplier = 1/1.1}
+		},
+	  },
 	{
 		type = "inserter",
 		name = "fast-long-handed-inserter",

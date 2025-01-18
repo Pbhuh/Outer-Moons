@@ -155,6 +155,8 @@ planet_map_gen.gleba = function()
       enemy_base_frequency = "gleba_enemy_base_frequency",
       ["entity:phosphate:richness"] = "gleba_stone_richness",
       ["entity:phosphate:probability"] = "gleba_stone_probability",
+      ["entity:lead-ore:richness"] = "gleba_lead_richness",
+      ["entity:lead-ore:probability"] = "gleba_lead_probability",
 
       ["decorative:red-desert-bush:probability"] = "gleba_red_desert_bush_probability",
       ["decorative:white-desert-bush:probability"] = "gleba_white_desert_bush_probability",
@@ -174,6 +176,7 @@ planet_map_gen.gleba = function()
     autoplace_controls =
     {
       ["gleba_stone"] = {},
+      ["gleba_lead"] = {},
       ["gleba_plants"] = {},
       ["gleba_enemy_base"] = {},
       ["gleba_water"] = {},
@@ -317,6 +320,7 @@ planet_map_gen.gleba = function()
         settings =
         {
           ["phosphate"] = {},
+          ["lead-ore"] = {},
           ["iron-stromatolite"] = {},
           ["copper-stromatolite"] = {}
         }
@@ -516,14 +520,14 @@ planet_map_gen.aquilo = function()
       aux = "aquilo_aux",
       cliffiness = "cliffiness_basic",
       cliff_elevation = "cliff_elevation_from_elevation",
-     -- ["entity:crude-oil:probability"] = "aquilo_crude_oil_probability",
-     -- ["entity:crude-oil:richness"] = "aquilo_crude_oil_richness"
+      ["entity:natural-gas:probability"] = "aquilo_crude_oil_probability",
+      ["entity:natural-gas:richness"] = "aquilo_crude_oil_richness"
     },
     autoplace_controls =
     {
       ["lithium_brine"] = {},
       ["fluorine_vent"] = {},
-     -- ["aquilo_crude_oil"] = {}
+      ["aquilo_crude_oil"] = {}
     },
     autoplace_settings =
     {
@@ -560,7 +564,7 @@ planet_map_gen.aquilo = function()
       {
         settings =
         {
-          --["crude-oil"] = {},
+          ["natural-gas"] = {},
           ["lithium-brine"] = {},
           ["fluorine-vent"] = {},
           ["lithium-iceberg-huge"] = {},
