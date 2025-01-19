@@ -198,8 +198,8 @@ data:extend{
     type = "noise-expression",
     name = "mefitis_basalts_start",
     expression = "2 * starting_spot_at_angle{ angle = mefitis_basalts_angle,\z
-                                              distance = 250,\z
-                                              radius = 550 * mefitis_starting_area_radius,\z
+                                              distance = 190,\z
+                                              radius = 450 * mefitis_starting_area_radius,\z
                                               x_distortion = 0.1 * mefitis_starting_area_radius * (mefitis_wobble_x + mefitis_wobble_large_x + mefitis_wobble_huge_x),\z
                                               y_distortion = 0.1 * mefitis_starting_area_radius * (mefitis_wobble_y + mefitis_wobble_large_y + mefitis_wobble_huge_y)}"
   },
@@ -575,9 +575,9 @@ data:extend{
   },
   {
     type = "noise-expression",
-    name = "mefitis_starting_heavy_metal", -- don't use the slider for radius becuase it can make heavy metal in the safe area
+    name = "mefitis_starting_heavy_metal", -- don't use the slider for radius becuase it can make heavy_metal in the safe area
     expression = "starting_spot_at_angle{ angle = mefitis_basalts_angle - 90 * mefitis_starting_direction,\z
-                                          distance = 450 * mefitis_starting_area_radius,\z
+                                          distance = 250 * mefitis_starting_area_radius,\z
                                           radius = 30 / 1.5,\z
                                           x_distortion = 0.5 * mefitis_resource_wobble_x,\z
                                           y_distortion = 0.5 * mefitis_resource_wobble_y}"
@@ -623,7 +623,7 @@ data:extend{
     expression = "clamp(((mefitis_basalts_biome_full * (mefitis_starting_area < 0.01)) - buffer) * contrast, 0, 1)",
     local_expressions =
     {
-      buffer = 0.3, -- push ores away from biome edges.
+      buffer = 0.5, -- push ores away from biome edges.
       contrast = 2
     }
   },
@@ -720,7 +720,7 @@ data:extend{
     -- -1 to 1: needs a positive region for resources & decoratives plus a subzero baseline and skirt for surrounding decoratives.
     expression = "max(mefitis_starting_heavy_metal,\z
                       min(1 - mefitis_starting_circle,\z
-                          mefitis_place_metal_spots(789, 15, 2,\z
+                          mefitis_place_metal_spots(355911, 15, 2,\z
                                                      mefitis_heavy_metal_size * min(1.2, mefitis_ore_dist) * 25,\z
                                                      control:heavy_metal:frequency,\z
                                                      mefitis_basalts_resource_favorability)))"
@@ -734,7 +734,7 @@ data:extend{
     type = "noise-expression",
     name = "mefitis_heavy_metal_richness",
     expression = "mefitis_heavy_metal_region * random_penalty_between(0.9, 1, 1)\z
-                  * 500 * mefitis_starting_area_multiplier\z
+                  * 3000 * mefitis_starting_area_multiplier\z
                   * control:heavy_metal:richness / mefitis_heavy_metal_size"
   },
 
@@ -749,7 +749,7 @@ data:extend{
     -- -1 to 1: needs a positive region for resources & decoratives plus a subzero baseline and skirt for surrounding decoratives.
     expression = "max(mefitis_starting_chlorine,\z
                       min(1 - mefitis_starting_circle,\z
-                          mefitis_place_chlorine_spots(759, 9, 0,\z
+                          mefitis_place_chlorine_spots(987, 9, 0,\z
                                                       mefitis_chlorine_geyser_size * min(1.1, mefitis_geyser_dist) * 20,\z
                                                       control:chlorine_geyser:frequency,\z
                                                       mefitis_mountains_chlorine_favorability)))"
@@ -808,3 +808,4 @@ data:extend{
     -- 0.1 / slider_rescale(var('control:rocks:frequency'), 2),\z
   }
 }
+

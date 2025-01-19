@@ -111,8 +111,8 @@ data:extend({
 		{
 		  {
 			property = "pressure",
-			min = 100,
-			max = 600
+			min = 300,
+			max = 300
 		  }
 		},
 		energy_required = 60,
@@ -141,8 +141,8 @@ data:extend({
 		{
 		  {
 			property = "pressure",
-			min = 100,
-			max = 600
+			min = 300,
+			max = 300
 		  }
 		},
 		energy_required = 30,
@@ -1786,6 +1786,30 @@ data:extend({
 		allow_productivity = true,
 		enabled = false
 	},
+	{
+		type = "recipe",
+		name = "quantum-processor",
+		category = "quantum",
+		subgroup = "outer-processes",
+		order = "c[quantum-processor]",
+		energy_required = 30,
+		ingredients =
+		{
+		 -- {type = "item", name = "indium-wafer", amount = 2},
+		  {type = "item", name = "lithium-plate", amount = 1},
+		  {type = "item", name = "osmium-superconductor", amount = 4},
+		  {type = "item", name = "graphene", amount = 8},
+		  {type = "fluid", name = "hydroiodic-acid", amount = 10, ignored_by_stats = 5},
+		  {type = "fluid", name = "fluoroketone-cold", amount = 10, ignored_by_stats = 5},
+		},
+		results = {
+		  {type = "item", name = "quantum-processor", amount = 1},
+		  {type = "fluid", name = "fluoroketone-hot", amount = 5, temperature = 180, ignored_by_stats = 5, ignored_by_productivity = 5}
+		},
+		allow_productivity = true,
+		main_product = "quantum-processor",
+		enabled = false,
+	},
 	--Circuits
 	{
 		type = "recipe",
@@ -2840,6 +2864,32 @@ data:extend({
 		results =
 		{
 		  {type = "item", name = "carbon", amount = 20},
+		  {type = "fluid", name = "oxygen", amount = 20},
+		},
+		allow_productivity = true,
+		enabled = false,
+		always_show_made_in = true,
+		always_show_products = true,
+		allow_decomposition = false,
+	},
+	{
+		type = "recipe",
+		name = "carbon-methanation",
+		icon = "__outer_moons__/graphics/icons/fluid/carbon-dioxide-electrolysis.png",
+		category = "electrolysis",
+		subgroup = "electrolytic-recipes",
+		order = "a[electrolysis]-cd[carbon-dioxide-electrolysis]",
+		auto_recycle = false,
+		energy_required = 50,
+		ingredients =
+		{
+		  {type = "item", name = "tungsten-carbide", amount = 1},
+		  {type = "fluid", name = "carbon-dioxide", amount = 20},
+		  {type = "fluid", name = "hydrogen", amount = 40},
+		},
+		results =
+		{
+		  {type = "fluid", name = "methane", amount = 20},
 		  {type = "fluid", name = "oxygen", amount = 20},
 		},
 		allow_productivity = true,
@@ -5786,6 +5836,66 @@ data:extend({
 		ingredients =
 		{
 		  {type = "fluid", name = "phosphoric-acid", amount = 10}
+		},
+	},
+	{
+		type = "recipe",
+		name = "adenine-flaring",
+		icon = "__outer_moons__/graphics/icons/fluid/adenine.png",
+		energy_required = 1,
+		enabled = true,
+		hidden_in_factoriopedia = true,
+		category = "flaring",
+		subgroup = "fluid-recipes",
+		order = "a",
+		ingredients =
+		{
+		  {type = "fluid", name = "adenine", amount = 10}
+		},
+	},
+	{
+		type = "recipe",
+		name = "guanine-flaring",
+		icon = "__outer_moons__/graphics/icons/fluid/guanine.png",
+		energy_required = 1,
+		enabled = true,
+		hidden_in_factoriopedia = true,
+		category = "flaring",
+		subgroup = "fluid-recipes",
+		order = "a",
+		ingredients =
+		{
+		  {type = "fluid", name = "guanine", amount = 10}
+		},
+	},
+	{
+		type = "recipe",
+		name = "thymine-flaring",
+		icon = "__outer_moons__/graphics/icons/fluid/thymine.png",
+		energy_required = 1,
+		enabled = true,
+		hidden_in_factoriopedia = true,
+		category = "flaring",
+		subgroup = "fluid-recipes",
+		order = "a",
+		ingredients =
+		{
+		  {type = "fluid", name = "thymine", amount = 10}
+		},
+	},
+	{
+		type = "recipe",
+		name = "cytosine-flaring",
+		icon = "__outer_moons__/graphics/icons/fluid/cytosine.png",
+		energy_required = 1,
+		enabled = true,
+		hidden_in_factoriopedia = true,
+		category = "flaring",
+		subgroup = "fluid-recipes",
+		order = "a",
+		ingredients =
+		{
+		  {type = "fluid", name = "cytosine", amount = 10}
 		},
 	},
 	--Venting

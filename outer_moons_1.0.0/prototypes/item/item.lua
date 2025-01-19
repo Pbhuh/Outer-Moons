@@ -36,6 +36,48 @@ data:extend({
 	-- Ore
 	{
         type = "item",
+        name = "osmium-ore",
+        group = "intermediate-products",
+        icon = "__outer_moons__/graphics/icons/lead-ore.png",
+		pictures =
+		{
+		  { size = 64, filename = "__outer_moons__/graphics/icons/lead-ore.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/lead-ore-2.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/lead-ore-3.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/lead-ore-4.png", scale = 0.5, mipmap_count = 4 },
+		},
+        subgroup = "raw-resource",
+		default_import_location = "nauvis",
+        order = "g[lead-ore]",
+        inventory_move_sound = item_sounds.resource_inventory_move,
+        pick_sound = item_sounds.resource_inventory_pickup,
+        drop_sound = item_sounds.resource_inventory_move,
+        stack_size = 50,
+        weight = 2 * kg
+    },
+	{
+        type = "item",
+        name = "iridium-ore",
+        group = "intermediate-products",
+        icon = "__outer_moons__/graphics/icons/lead-ore.png",
+		pictures =
+		{
+		  { size = 64, filename = "__outer_moons__/graphics/icons/lead-ore.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/lead-ore-2.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/lead-ore-3.png", scale = 0.5, mipmap_count = 4 },
+		  { size = 64, filename = "__outer_moons__/graphics/icons/lead-ore-4.png", scale = 0.5, mipmap_count = 4 },
+		},
+        subgroup = "raw-resource",
+		default_import_location = "nauvis",
+        order = "g[lead-ore]",
+        inventory_move_sound = item_sounds.resource_inventory_move,
+        pick_sound = item_sounds.resource_inventory_pickup,
+        drop_sound = item_sounds.resource_inventory_move,
+        stack_size = 50,
+        weight = 2 * kg
+    },
+	{
+        type = "item",
         name = "lead-ore",
         group = "intermediate-products",
         icon = "__outer_moons__/graphics/icons/lead-ore.png",
@@ -2266,6 +2308,19 @@ data:extend({
 		stack_size = 50,
 		weight = 10 * kg,
 	},
+	{
+		type = "item",
+		name = "wind-turbine",
+		icon = "__outer_moons__/graphics/icons/wind-turbine.png",
+		subgroup = "environmental-protection",
+		order = "d[wind-turbine]",
+		inventory_move_sound = item_sounds.metal_small_inventory_move,
+		pick_sound = item_sounds.metal_small_inventory_pickup,
+		drop_sound = item_sounds.metal_small_inventory_move,
+		place_result = "wind-turbine",
+		stack_size = 50,
+		weight = 20 * kg,
+	},	
 	{
 		type = "item",
 		name = "solar-array",

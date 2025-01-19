@@ -3,7 +3,7 @@ data:extend{
   {
     type = "noise-expression",
     name = "selene_ore_spacing",
-    expression = 96
+    expression = 64
   },
   {
     type = "noise-expression",

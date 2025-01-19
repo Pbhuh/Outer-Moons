@@ -440,7 +440,13 @@ data:extend(
     type = "item-subgroup",
     name = "feronia-processes",
     group = "intermediate-products",
-    order = "v"
+    order = "v-a"
+  },
+  {
+    type = "item-subgroup",
+    name = "outer-processes",
+    group = "intermediate-products",
+    order = "v-b"
   },
   {
     type = "item-subgroup",

@@ -122,7 +122,7 @@ data:extend({
     {
       mod_name = "__outer_moons__",
       name = "cliff-selene",
-      map_color = {65, 65, 65},
+      map_color = {144, 119, 87},
       suffix = "selene",
       subfolder = "selene",
       scale = 1.0,
@@ -135,7 +135,7 @@ data:extend({
     {
       mod_name = "__outer_moons__",
       name = "cliff-mefitis",
-      map_color = {65, 65, 65},
+      map_color = {144, 119, 87},
       suffix = "mefitis",
       subfolder = "mefitis",
       scale = 1.0,
@@ -148,7 +148,7 @@ data:extend({
     {
       mod_name = "__outer_moons__",
       name = "cliff-aiolos",
-      map_color = {65, 65, 65},
+      map_color = {144, 119, 87},
       suffix = "aiolos",
       subfolder = "aiolos",
       scale = 1.0,
@@ -157,6 +157,105 @@ data:extend({
       factoriopedia_simulation = simulations.factoriopedia_cliff_aiolos
     }
   ),
+  scaled_cliff(
+    {
+      mod_name = "__outer_moons__",
+      name = "cliff-feronia",
+      map_color = {144, 119, 87},
+      suffix = "feronia",
+      subfolder = "feronia",
+      scale = 1.0,
+      has_lower_layer = true,
+      sprite_size_multiplier = 2,
+      factoriopedia_simulation = simulations.factoriopedia_cliff_feronia
+    }
+  ),
+  
+  {
+    type = "electric-energy-interface",
+    name = "wind-turbine",
+    icons = {{icon = "__outer_moons__/graphics/icons/wind-turbine.png"}},
+    flags = {"placeable-neutral","placeable-player", "player-creation"},
+    minable = {mining_time = 0.1, result = "wind-turbine"},
+    max_health = 200,
+    corpse = "medium-remnants",
+    dying_explosion = "assembling-machine-1-explosion",
+    subgroup = "environmental-protection",
+    collision_box = {{-0.9, -0.9}, {0.9, 0.9}},
+    selection_box = {{-1, -1}, {1, 1}},
+    damaged_trigger_effect = hit_effects.entity(),
+    drawing_box_vertical_extension = 0.5,
+	heating_energy = "50kW",
+    resistances = {
+        {type = "fire",     percent = 70},
+        {type = "physical", percent = 15},
+        {type = "impact",   percent = 15}
+    },
+	surface_conditions = {{property = "pressure", min = 500}},
+    energy_source =
+    {
+      type = "electric",
+      usage_priority = "primary-output",
+      buffer_capacity = "50kW",
+	  input_flow_limit = "0kW",
+	  output_flow_limit = "50kW",
+	  render_no_power_icon = false
+    },
+
+    energy_production = "50kW",
+    energy_usage = "0kW",
+	continuous_animation = true,
+    animation = { 
+		layers = { 			
+			{
+				filename = "__outer_moons__/graphics/entity/wind-turbine/hr-wind-turbine-shadow.png",
+				priority = "extra-high",
+				width = 242,
+				height = 100,
+				scale = 0.52,
+				frame_count = 30,
+				line_length = 6,
+				animation_speed = 0.5,
+				draw_as_shadow = true,
+				shift = {1.15, 0.05}
+			},
+			{
+				filename = "__outer_moons__/graphics/entity/wind-turbine/hr-wind-turbine.png",
+				priority = "extra-high",
+				width = 196,
+				height = 286,
+				scale = 0.4,
+				frame_count = 30,
+				line_length = 6,
+				animation_speed = 0.5,
+				shift = {0, -1}
+			},
+		} 
+	},
+    open_sound = sounds.machine_open,
+    close_sound = sounds.machine_close,
+	working_sound = {
+        sound  = { filename = "__outer_moons__/sound/wind-turbine-rotating.ogg", volume = 0.6 },
+        idle_sound  = { filename = "__outer_moons__/sound/wind-turbine-rotating.ogg", volume = 0.15 },
+        audible_distance_modifier = 0.7,
+        max_sounds_per_type = 3
+    },
+    impact_category = "metal",
+	water_reflection = {
+        pictures = {
+			filename = "__outer_moons__/graphics/entity/wind-turbine/wind-turbine-reflection.png",
+			priority = "extra-high",
+			width = 20,
+			height = 25,
+			shift = util.by_pixel(0, 40),
+			variation_count = 1,
+			scale = 5,
+		},
+        rotate = false,
+        orientation_to_variation = false
+    },
+	
+  },
   
   {
     type = "assembling-machine",
@@ -764,8 +863,8 @@ data:extend({
     circuit_wire_max_distance = assembling_machine_circuit_wire_max_distance,
     circuit_connector = circuit_connector_definitions["foundry"],
     fluid_boxes_off_when_no_fluid_recipe = true,
-    collision_box = { { -2.5, -3.5 }, { 2.5, 2.5 } },
-    selection_box = { { -2.5, -3.5 }, { 2.5, 2.5 } },
+    collision_box = { { -2.5, -2.5 }, { 2.5, 2.5 } },
+    selection_box = { { -2.5, -2.5 }, { 2.5, 2.5 } },
     heating_energy = "500kW",
     damaged_trigger_effect = hit_effects.entity(),
     drawing_box_vertical_extension = 1.5,
@@ -798,7 +897,7 @@ data:extend({
                     line_length = 1,
                     repeat_count = 80,
                     animation_speed = 0.5,
-                    shift = util.by_pixel_hr(0, -48),
+                    shift = util.by_pixel_hr(0, -24),
                     draw_as_shadow = true,
                     scale = 0.3125,
                 },
@@ -807,7 +906,7 @@ data:extend({
                     width = 590,
                     height = 590,
                     frame_count = 80,
-                    shift = util.by_pixel_hr(0, -48),
+                    shift = util.by_pixel_hr(0, -24),
                     animation_speed = 0.5,
                     scale = 0.3125,
                     stripes = {
@@ -917,7 +1016,7 @@ data:extend({
                 animation = {
                     priority = "high",
                     size = { 590, 590 },
-                    shift = util.by_pixel_hr(0, -48),
+                    shift = util.by_pixel_hr(0, -24),
                     frame_count = 80,
                     draw_as_glow = true,
                     scale = 0.3125,
@@ -978,7 +1077,7 @@ data:extend({
         --pipe_picture_frozen = require("__space-age__.prototypes.entity.foundry-pictures").pipe_picture_frozen,
         pipe_covers = pipecoverspictures(),
         always_draw_covers = false,
-        enable_working_visualisations = { "input-pipe" },
+       -- enable_working_visualisations = { "input-pipe" },
         volume = 1000,
         pipe_connections = {{ flow_direction="input", direction = defines.direction.south, position = {-2, 2} }}
       },
@@ -988,7 +1087,7 @@ data:extend({
         --pipe_picture_frozen = require("__space-age__.prototypes.entity.foundry-pictures").pipe_picture_frozen,
         pipe_covers = pipecoverspictures(),
         always_draw_covers = false,
-        enable_working_visualisations = { "input-pipe" },
+       -- enable_working_visualisations = { "input-pipe" },
         volume = 1000,
         pipe_connections = {{ flow_direction="input", direction = defines.direction.south, position = {0, 2} }}
       },
@@ -998,7 +1097,7 @@ data:extend({
         --pipe_picture_frozen = require("__space-age__.prototypes.entity.foundry-pictures").pipe_picture_frozen,
         pipe_covers = pipecoverspictures(),
         always_draw_covers = false,
-        enable_working_visualisations = { "input-pipe" },
+       -- enable_working_visualisations = { "input-pipe" },
         volume = 1000,
         pipe_connections = {{ flow_direction="input", direction = defines.direction.south, position = {2, 2} }}
       },
@@ -1008,7 +1107,7 @@ data:extend({
         --pipe_picture_frozen = require("__space-age__.prototypes.entity.foundry-pictures").pipe_picture_frozen,
         pipe_covers = pipecoverspictures(),
         always_draw_covers = false,
-        enable_working_visualisations = { "output-pipe" },
+       -- enable_working_visualisations = { "output-pipe" },
         volume = 100,
         pipe_connections = {{ flow_direction="output", direction = defines.direction.north, position = {-2, -2} }}
       },
@@ -1018,7 +1117,7 @@ data:extend({
         --pipe_picture_frozen = require("__space-age__.prototypes.entity.foundry-pictures").pipe_picture_frozen,
         pipe_covers = pipecoverspictures(),
         always_draw_covers = false,
-        enable_working_visualisations = { "output-pipe" },
+        --enable_working_visualisations = { "output-pipe" },
         volume = 100,
         pipe_connections = {{ flow_direction="output", direction = defines.direction.north, position = {0, -2} }}
       },
@@ -1028,7 +1127,7 @@ data:extend({
         --pipe_picture_frozen = require("__space-age__.prototypes.entity.foundry-pictures").pipe_picture_frozen,
         pipe_covers = pipecoverspictures(),
         always_draw_covers = false,
-        enable_working_visualisations = { "output-pipe" },
+       -- enable_working_visualisations = { "output-pipe" },
         volume = 100,
         pipe_connections = {{ flow_direction="output", direction = defines.direction.north, position = {2, -2} }}
       }
@@ -4319,7 +4418,7 @@ data:extend({
 		  fade_in_ticks = 4,
 		  fade_out_ticks = 20
 		},
-		fluid_boxes_off_when_no_fluid_recipe = true,
+		--fluid_boxes_off_when_no_fluid_recipe = true,
 		fluid_boxes =
 		{
 		  {
@@ -4328,6 +4427,7 @@ data:extend({
 			pipe_covers = shadowlesspipecoverspictures(),
 			volume = 1000,
 			pipe_connections = {{ flow_direction="input", direction = defines.direction.north, position = {1.5, -3} }},
+			enable_working_visualisations = { "input-pipe" },
 			secondary_draw_orders = { north = -1 }
 		  },
 		  {
@@ -4336,6 +4436,7 @@ data:extend({
 			pipe_covers = shadowlesspipecoverspictures(),
 			volume = 1000,
 			pipe_connections = {{ flow_direction="input", direction = defines.direction.north, position = {-1.5, -3} }},
+			--enable_working_visualisations = { "input-pipe" },
 			secondary_draw_orders = { north = -1 }
 		  },
 		  {
@@ -4344,6 +4445,7 @@ data:extend({
 			pipe_covers = shadowlesspipecoverspictures(),
 			volume = 1000,
 			pipe_connections = {{ flow_direction="input", direction = defines.direction.south, position = {1.5, 3} }},
+			enable_working_visualisations = { "input-pipe2" },
 			secondary_draw_orders = { north = -1 }
 		  },
 		  {
@@ -4352,6 +4454,7 @@ data:extend({
 			pipe_covers = shadowlesspipecoverspictures(),
 			volume = 1000,
 			pipe_connections = {{ flow_direction="input", direction = defines.direction.south, position = {-1.5, 3} }},
+			--enable_working_visualisations = { "input-pipe2" },
 			secondary_draw_orders = { north = -1 }
 		  },
 		  {
@@ -4360,6 +4463,7 @@ data:extend({
 			pipe_covers = shadowlesspipecoverspictures(),
 			volume = 100,
 			pipe_connections = {{ flow_direction="output", direction = defines.direction.east, position = {3, 1.5} }},
+			enable_working_visualisations = { "output-pipe" },
 			secondary_draw_orders = { north = -1 }
 		  },
 		  {
@@ -4368,6 +4472,7 @@ data:extend({
 			pipe_covers = shadowlesspipecoverspictures(),
 			volume = 100,
 			pipe_connections = {{ flow_direction="output", direction = defines.direction.east, position = {3, -1.5} }},
+			--enable_working_visualisations = { "output-pipe" },
 			secondary_draw_orders = { north = -1 }
 		  },
 		  {
@@ -4376,6 +4481,7 @@ data:extend({
 			pipe_covers = shadowlesspipecoverspictures(),
 			volume = 100,
 			pipe_connections = {{ flow_direction="output", direction = defines.direction.west, position = {-3, 1.5} }},
+			enable_working_visualisations = { "output-pipe2" },
 			secondary_draw_orders = { north = -1 }
 		  },
 		  {
@@ -4384,6 +4490,7 @@ data:extend({
 			pipe_covers = shadowlesspipecoverspictures(),
 			volume = 100,
 			pipe_connections = {{ flow_direction="output", direction = defines.direction.west, position = {-3, -1.5} }},
+			--enable_working_visualisations = { "output-pipe2" },
 			secondary_draw_orders = { north = -1 }
 		  }
 		},
@@ -4415,6 +4522,134 @@ data:extend({
 				},
 			},
 			working_visualisations = {
+				{
+					always_draw = true,
+					name = "input-pipe",
+					enabled_by_name = true,
+					north_animation = {
+					  filename = "__outer_moons__/graphics/entity/gene-chamber/gene-chamber-pipe-connections-east.png",
+					  width = 128,
+					  height = 320,
+					  shift = util.by_pixel( 102.5, 0),
+					  line_length = 1,
+					  repeat_count = 60,
+					  scale = 0.5
+					},
+					east_animation = {
+					  filename = "__outer_moons__/graphics/entity/gene-chamber/gene-chamber-pipe-connections-south.png",
+					  width = 320,
+					  height = 152,
+					  shift = util.by_pixel( 0, 90.5),
+					  line_length = 1,
+					  repeat_count = 60,
+					  scale = 0.5
+					},
+					south_animation = {
+					  filename = "__outer_moons__/graphics/entity/gene-chamber/gene-chamber-pipe-connections-west.png",
+					  width = 128,
+					  height = 320,
+					  shift = util.by_pixel( -102.5, 0),
+					  line_length = 1,
+					  repeat_count = 60,
+					  scale = 0.5
+					},
+				},
+				{
+					always_draw = true,
+					name = "input-pipe2",
+					enabled_by_name = true,
+					south_animation = {
+					  filename = "__outer_moons__/graphics/entity/gene-chamber/gene-chamber-pipe-connections-east.png",
+					  width = 128,
+					  height = 320,
+					  shift = util.by_pixel( 102.5, 0),
+					  line_length = 1,
+					  repeat_count = 60,
+					  scale = 0.5
+					},
+					west_animation = {
+					  filename = "__outer_moons__/graphics/entity/gene-chamber/gene-chamber-pipe-connections-south.png",
+					  width = 320,
+					  height = 152,
+					  shift = util.by_pixel( 0, 90.5),
+					  line_length = 1,
+					  repeat_count = 60,
+					  scale = 0.5
+					},
+					north_animation = {
+					  filename = "__outer_moons__/graphics/entity/gene-chamber/gene-chamber-pipe-connections-west.png",
+					  width = 128,
+					  height = 320,
+					  shift = util.by_pixel( -102.5, 0),
+					  line_length = 1,
+					  repeat_count = 60,
+					  scale = 0.5
+					},
+				},
+				{
+					always_draw = true,
+					name = "output-pipe",
+					enabled_by_name = true,
+					east_animation = {
+					  filename = "__outer_moons__/graphics/entity/gene-chamber/gene-chamber-pipe-connections-east.png",
+					  width = 128,
+					  height = 320,
+					  shift = util.by_pixel( 102.5, 0),
+					  line_length = 1,
+					  repeat_count = 60,
+					  scale = 0.5
+					},
+					south_animation = {
+					  filename = "__outer_moons__/graphics/entity/gene-chamber/gene-chamber-pipe-connections-south.png",
+					  width = 320,
+					  height = 152,
+					  shift = util.by_pixel( 0, 90.5),
+					  line_length = 1,
+					  repeat_count = 60,
+					  scale = 0.5
+					},
+					west_animation = {
+					  filename = "__outer_moons__/graphics/entity/gene-chamber/gene-chamber-pipe-connections-west.png",
+					  width = 128,
+					  height = 320,
+					  shift = util.by_pixel( -102.5, 0),
+					  line_length = 1,
+					  repeat_count = 60,
+					  scale = 0.5
+					},
+				},
+				{
+					always_draw = true,
+					name = "output-pipe2",
+					enabled_by_name = true,
+					west_animation = {
+					  filename = "__outer_moons__/graphics/entity/gene-chamber/gene-chamber-pipe-connections-east.png",
+					  width = 128,
+					  height = 320,
+					  shift = util.by_pixel( 102.5, 0),
+					  line_length = 1,
+					  repeat_count = 60,
+					  scale = 0.5
+					},
+					north_animation = {
+					  filename = "__outer_moons__/graphics/entity/gene-chamber/gene-chamber-pipe-connections-south.png",
+					  width = 320,
+					  height = 152,
+					  shift = util.by_pixel( 0, 90.5),
+					  line_length = 1,
+					  repeat_count = 60,
+					  scale = 0.5
+					},
+					east_animation = {
+					  filename = "__outer_moons__/graphics/entity/gene-chamber/gene-chamber-pipe-connections-west.png",
+					  width = 128,
+					  height = 320,
+					  shift = util.by_pixel( -102.5, 0),
+					  line_length = 1,
+					  repeat_count = 60,
+					  scale = 0.5
+					},
+				},
 				{
 					fadeout = true,
 					secondary_draw_order = 1,
@@ -4546,7 +4781,7 @@ data:extend({
 						line_length = 1,
 						repeat_count = 100,
 						animation_speed = 1,
-						shift = { 0, -0.25 },
+						shift = { 0, -0.15 },
 						draw_as_shadow = true,
 						scale = 0.5,
 					},
@@ -4556,7 +4791,7 @@ data:extend({
 						height = 410,
 						frame_count = 100,
 						animation_speed = 1,
-						shift = { 0, -0.25 },
+						shift = { 0, -0.15 },
 						scale = 0.5,
 						stripes = {
 							{
@@ -4580,7 +4815,7 @@ data:extend({
 					animation = {
 						priority = "high",
 						size = { 410, 410 },
-						shift = { 0, -0.25 },
+						shift = { 0, -0.15 },
 						frame_count = 100,
 						draw_as_glow = true,
 						scale = 0.5,
@@ -4828,7 +5063,7 @@ data:extend({
 						repeat_count = 60,
 						draw_as_shadow = true,
 						animation_speed = 0.5,
-						shift = { 0, -0.25 },
+						shift = { 0, 0 },
 					},
 					{
 						filename = "__outer_moons__/graphics/entity/particle-collider/particle-collider-hr-animation-1.png",
@@ -4837,7 +5072,7 @@ data:extend({
 						line_length = 8,
 						frame_count = 60,
 						animation_speed = 0.5,
-						shift = { 0, -0.25 },
+						shift = { 0, 0 },
 					},
 				},
 			},
@@ -4848,7 +5083,7 @@ data:extend({
 					animation = {
 						priority = "high",
 						size = { 400, 400 },
-						shift = { 0, -0.5 },
+						shift = { 0, 0 },
 						frame_count = 60,
 						draw_as_glow = true,
 						scale = 0.5,

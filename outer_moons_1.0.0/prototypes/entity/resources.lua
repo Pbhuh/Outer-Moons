@@ -157,7 +157,7 @@ data:extend({
 		{
 		  name = "silicon-ore",
 		  order = "b",
-		  map_color = {r = 113/256, g = 93/256, b = 139/256, a = 1.000},
+		  map_color = {r = 204/256, g = 169/256, b = 42/256, a = 1.000},
 		  minable =
 		  {
 			  mining_particle = "stone-particle",
@@ -168,13 +168,13 @@ data:extend({
 		  },
 		  walking_sound = sounds.ore,
 		  driving_sound = stone_driving_sound,
-		  mining_visualisation_tint = {r = 113/256, g = 93/256, b = 139/256, a = 1.000},
+		  mining_visualisation_tint = {r = 204/256, g = 169/256, b = 42/256, a = 1.000},
 		  factoriopedia_simulation = simulations.factoriopedia_silicon_ore,
 		},
 		{
-		  base_density = 2,
-		  regular_rq_factor_multiplier = 1.0,
-		  starting_rq_factor_multiplier = 1.1,
+		  base_density = 1,
+		  regular_rq_factor_multiplier = 2.0,
+		  starting_rq_factor_multiplier = 2.2,
 		  base_spots_per_km = 1.25
 		}
 	),

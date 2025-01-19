@@ -82,7 +82,7 @@ simulations.factoriopedia_cliff_mefitis =
     game.simulation.camera_position = {0, 2.5}
     for x = -8, 8, 1 do
       for y = -3, 4 do
-        game.surfaces[1].set_tiles{{position = {x, y}, name = "selene-dust-3"}}
+        game.surfaces[1].set_tiles{{position = {x, y}, name = "mefitis-dust-4"}}
       end
     end
     for x = -8, 8, 4 do
@@ -94,6 +94,24 @@ simulations.factoriopedia_cliff_mefitis =
 simulations.factoriopedia_cliff_aiolos =
 {
   planet = "aiolos",
+  hide_factoriopedia_gradient = true,
+  init =
+  [[
+    game.simulation.camera_position = {0, 2.5}
+    for x = -8, 8, 1 do
+      for y = -3, 4 do
+        game.surfaces[1].set_tiles{{position = {x, y}, name = "aiolos-dust-2"}}
+      end
+    end
+    for x = -8, 8, 4 do
+      game.surfaces[1].create_entity{name = "cliff-selene", position = {x, 0}, cliff_orientation = "west-to-east"}
+    end
+  ]]
+}
+
+simulations.factoriopedia_cliff_feronia =
+{
+  planet = "feronia",
   hide_factoriopedia_gradient = true,
   init =
   [[

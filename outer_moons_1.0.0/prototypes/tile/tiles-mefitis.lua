@@ -562,7 +562,7 @@ data:extend
     autoplace = {probability_expression = "max(mefitis_basalts_range, volcanic_cracks_hot_range) + max(volcanic_cracks_warm_range, volcanic_cracks_cold_range) + max(0, volcanic_smooth_stone_warm_range)"},
     layer = 20,
     layer_group = "water",
-    map_color = { 217, 160, 40},
+    map_color = { 119, 88, 19},
     walking_speed_modifier = 0.5,
     vehicle_friction_modifier = 10,
     default_cover_tile = "foundation",
