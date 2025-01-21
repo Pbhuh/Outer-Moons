@@ -1,0 +1,13 @@
+{
+  "name": "pbnuclear",
+  "version": "0.1.0",
+  "title": "Outer Moons Atomic Additions",
+  "author": "PBPetrus & Amyzonis",
+  "factorio_version": "2.0",
+	"dependencies": [
+		"base >= 2.0.0",
+		"space-age >= 2.0.0",
+		"outer_moons >= 1.0.0"
+	],
+  "description": "Lots of atomic and nuclear content"
+}
