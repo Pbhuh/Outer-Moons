@@ -81,7 +81,7 @@ data:extend(
     results =
     {
       {
-        type = "item",
+        type = "fluid",
         name = "uranium-235-hexafluoride",
         probability = 0.007,
         amount = 1
@@ -113,7 +113,7 @@ data:extend(
     results =
     {
       {
-        type = "fluid",
+        type = "item",
         name = "uranium-235",
         probability = 0.007,
         amount = 10
@@ -337,7 +337,7 @@ data:extend(
     enabled = false,
     category = "centrifuging",
 	ingredients = {
-		{type = "item", name = "depleted-MOX-fuel-cell", amount = 1},
+		{type = "item", name = "depleted-MOX-fuel-cell", amount = 7},
 		{type = "fluid", name = "nitric-acid", amount = 10}
 	},
 	icon = "__pbnuclear__/graphics/icons/mox-fuel-reprocessing.png",
@@ -347,13 +347,13 @@ data:extend(
     results = 
 	{
 		{
-			type="item", name="uranium-238", amount=2
+			type="item", name="uranium-238", amount=13
 		},
 		{
 			type="item", name="plutonium-239", amount=1
 		},
 		{
-			type="item", name="plutonium-239", amount=1, probability = 0.011
+			type="item", name="plutonium-239", amount=1, probability = 0.077
 		},
 	},
     allow_decomposition = false,
@@ -412,6 +412,23 @@ data:extend(
 		  {type = "item", name = "plutonium-239", amount = 10}
 		},
 		results = {{type="item", name="plutonium-implosion-bomb", amount=1}}
+	  },
+	  {
+		type = "recipe",
+		name = "plutonium-atom-bomb",
+		icon = "__pbnuclear__/graphics/icons/plutonium-implosion-bomb.png",
+		subgroup = "ammo",
+		order = "d[rocket-launcher]-d[atomic-bomb]",
+		enabled = false,
+		energy_required = 50,
+		ingredients =
+		{
+		  {type = "item", name = "processing-unit", amount = 10},
+		  {type = "item", name = "explosives", amount = 20},
+		  --{type = "item", name = "battery", amount = 10},
+		  {type = "item", name = "plutonium-239", amount = 10}
+		},
+		results = {{type="item", name="atomic-bomb", amount=1}}
 	  },
 	  {
 		type = "recipe",
@@ -568,7 +585,7 @@ data:extend(
 	{
 		type = "recipe",
 		name = "seperate-gadolinite-ore", -- (Ce,La,Nd,Y)2FeBe2Si2O10
-		icon = "__base__/graphics/icons/copper-ore.png",
+		icon = "__pbnuclear__/graphics/icons/gadolinite-ore.png",
 		category = "crafting",
 		auto_recycle = false,
 		energy_required = 25,
@@ -586,5 +603,116 @@ data:extend(
 		},
 		allow_productivity = true,
 		enabled = false
+	},
+	{
+		type = "recipe",
+		name = "reprocess-slag",
+		icon = "__pbnuclear__/graphics/icons/slag.png",
+		category = "crafting",
+		auto_recycle = false,
+		energy_required = 25,
+		ingredients = {{type = "item", name = "slag", amount = 30}},
+		results = {
+			{type="item", name="stone", amount=20},
+			{type="item", name="silicon-ore", amount=10},
+			{type="item", name="nickel-plate", amount=1, probability = 0.3},
+			{type="item", name="zinc", amount=1, probability = 0.15},
+			{type="item", name="manganese", amount=1, probability = 0.25},
+		},
+		allow_productivity = true,
+		enabled = false
+	},
+	{
+		type = "recipe",
+		name = "pyromorphite-heating",
+		icon = "__pbnuclear__/graphics/icons/pyromorphite-ore.png",
+		category = "smelting",
+		energy_required = 3.2,
+		ingredients = {{type = "item", name = "pyromorphite-ore", amount = 1}},
+		results = {
+			{type="item", name="lead-plate", amount=5},
+			{type="item", name="phosphate", amount=3}
+			--{type="fluid", name="chlorine", amount=1}
+		},
+		allow_productivity = true
+	},
+	{
+		type = "recipe",
+		name = "alumina",
+		icon = "__outer_moons__/graphics/icons/alumina.png",
+		category = "chemistry-or-cryogenics",
+		subgroup = "chemical",
+		order = "c[alumina]",
+		auto_recycle = false,
+		energy_required = 2,
+		ingredients =
+		{
+		  {type = "item", name = "aluminate", amount = 1},
+		  {type = "fluid", name = "water", amount = 10},
+		},
+		results =
+		{
+		  {type = "item", name = "alumina", amount = 3},
+		  {type = "item", name = "gallium-ore", amount = 1, probability = 0.1},
+		  {type = "item", name = "vanadium", amount = 1, probability = 0.01},
+		},
+		allow_productivity = true,
+		main_product = "alumina",
+		enabled = false,
+		always_show_made_in = true,
+		always_show_products = true,
+		allow_decomposition = false,
+		show_amount_in_title = false,
+		crafting_machine_tint =
+		{
+		  primary = {r = 0.596, g = 0.764, b = 0.780, a = 1.000},
+		  secondary = {r = 0.551, g = 0.762, b = 0.844, a = 1.000},
+		  tertiary = {r = 0.596, g = 0.773, b = 0.895, a = 1.000},
+		  quaternary = {r = 0.290, g = 0.734, b = 1, a = 1.000},
+		}
+	},
+	{
+		type = "recipe",
+		name = "gold-cable",
+		category = "electronics-or-assembling",
+		enabled = false,
+		icon = "__pbnuclear__/graphics/icons/gold-wire.png",
+		ingredients = {{type = "item", name = "gold", amount = 1}},
+		results = {{type="item", name="copper-cable", amount=3}},
+		allow_productivity = true
+	},
+	{
+		type = "recipe",
+		name = "silver-cable",		
+		category = "electronics-or-assembling",
+		enabled = false,
+		icon = "__pbnuclear__/graphics/icons/silver-wire.png",
+		ingredients = {{type = "item", name = "silver", amount = 1}},
+		results = {{type="item", name="copper-cable", amount=4}},
+		allow_productivity = true
+	},
+	{
+		type = "recipe",
+		name = "bronze",
+		enabled = false,
+		icon = "__pbnuclear__/graphics/icons/bronze-d-plate.png",
+		ingredients = {
+			{type = "item", name = "copper-plate", amount = 8},
+			{type = "item", name = "tin", amount = 1},
+		},
+		results = {{type="item", name="bronze", amount=9}},
+		allow_productivity = true
+	},
+	{
+		type = "recipe",
+		name = "brass",
+		enabled = false,
+		icon = "__pbnuclear__/graphics/icons/brass-d-plate.png",
+		ingredients = {
+			{type = "item", name = "copper-plate", amount = 2},
+			{type = "item", name = "zinc", amount = 1},
+		},
+		results = {{type="item", name="brass", amount=3}},
+		allow_productivity = true
 	},
 })
